@@ -1,0 +1,61 @@
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+{% if catalogs %}
+{% set imageAlias %}{{param.imageAliasName|default:"AssetImageTypeAlias"}}{% endset %}
+{% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"false"}}{% endset %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
+
+import UIKit.UIImage
+
+// swiftlint:disable superfluous_disable_command
+// swiftlint:disable file_length
+{% macro enumBlock assets %}
+  {% call casesBlock assets %}
+  {% if param.allValues %}
+
+  // swiftlint:disable trailing_comma
+  {{accessModifier}} static let allImages: [UIImage] = [
+    {% filter indent:2 %}{% call allValuesBlock assets "image" "" %}{% endfilter %}
+  ]
+  // swiftlint:enable trailing_comma
+  {% endif %}
+{% endmacro %}
+
+{% macro casesBlock assets %}
+  {% for asset in assets %}
+  {% if asset.type == "image" %}
+  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = UIImage(named: "{{asset.value}}", in: bundle, compatibleWith: nil)!
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+
+    {% filter indent:2 %}{% call casesBlock asset.items %}{% endfilter %}
+  }
+  {% elif asset.items %}
+  {% call casesBlock asset.items %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+{% macro allValuesBlock assets filter prefix %}
+  {% for asset in assets %}
+  {% if asset.type == filter %}
+  {{prefix}}{{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}},
+  {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
+  {% set prefix2 %}{{prefix}}{{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.{% endset %}
+  {% call allValuesBlock asset.items filter prefix2 %}
+  {% elif asset.items %}
+  {% call allValuesBlock asset.items filter prefix %}
+  {% endif %}
+  {% endfor %}
+{% endmacro %}
+// swiftlint:disable identifier_name line_length nesting type_body_length type_name
+{{accessModifier}} enum Images {
+  private static let bundle = Bundle(for: BundleToken.self)
+  {% call enumBlock catalogs.first.assets %}
+}
+// swiftlint:enable identifier_name line_length nesting type_body_length type_name
+
+// MARK: - Implementation Details
+private final class BundleToken {}
+{% else %}
+// No assets found
+{% endif %}
