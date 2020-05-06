@@ -10,10 +10,14 @@
 		3829E8C324630B560075D1E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829E8C224630B560075D1E6 /* AppDelegate.swift */; };
 		3829E8C524630B560075D1E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829E8C424630B560075D1E6 /* SceneDelegate.swift */; };
 		3829E8C724630B560075D1E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829E8C624630B560075D1E6 /* ContentView.swift */; };
-		3829E8C924630B570075D1E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3829E8C824630B570075D1E6 /* Assets.xcassets */; };
+		3829E8C924630B570075D1E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3829E8C824630B570075D1E6 /* Images.xcassets */; };
 		3829E8CC24630B570075D1E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3829E8CB24630B570075D1E6 /* Preview Assets.xcassets */; };
 		3829E8CF24630B570075D1E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3829E8CD24630B570075D1E6 /* LaunchScreen.storyboard */; };
 		3829E8DA24630B570075D1E6 /* LicensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829E8D924630B570075D1E6 /* LicensesTests.swift */; };
+		3889BCBE24630F4A002F40ED /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3889BCBD24630F4A002F40ED /* .swiftlint.yml */; };
+		3889BCC724631089002F40ED /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889BCC424631089002F40ED /* Colors.swift */; };
+		3889BCC824631089002F40ED /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889BCC524631089002F40ED /* Storyboards.swift */; };
+		3889BCC924631089002F40ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889BCC624631089002F40ED /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +35,18 @@
 		3829E8C224630B560075D1E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3829E8C424630B560075D1E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3829E8C624630B560075D1E6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3829E8C824630B570075D1E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3829E8C824630B570075D1E6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3829E8CB24630B570075D1E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3829E8CE24630B570075D1E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3829E8D024630B570075D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3829E8D524630B570075D1E6 /* LicensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LicensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3829E8D924630B570075D1E6 /* LicensesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesTests.swift; sourceTree = "<group>"; };
 		3829E8DB24630B570075D1E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3889BCBD24630F4A002F40ED /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		3889BCC424631089002F40ED /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3889BCC524631089002F40ED /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
+		3889BCC624631089002F40ED /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		38D4759A24630CE500EEABF2 /* Licenses.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Licenses.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +70,7 @@
 		3829E8B624630B560075D1E6 = {
 			isa = PBXGroup;
 			children = (
-				3829E8C124630B560075D1E6 /* Licenses */,
+				3829E8C124630B560075D1E6 /* App */,
 				3829E8D824630B570075D1E6 /* LicensesTests */,
 				3829E8C024630B560075D1E6 /* Products */,
 			);
@@ -76,26 +85,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3829E8C124630B560075D1E6 /* Licenses */ = {
+		3829E8C124630B560075D1E6 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				3829E8C224630B560075D1E6 /* AppDelegate.swift */,
-				3829E8C424630B560075D1E6 /* SceneDelegate.swift */,
-				3829E8C624630B560075D1E6 /* ContentView.swift */,
-				3829E8C824630B570075D1E6 /* Assets.xcassets */,
-				3829E8CD24630B570075D1E6 /* LaunchScreen.storyboard */,
-				3829E8D024630B570075D1E6 /* Info.plist */,
-				3829E8CA24630B570075D1E6 /* Preview Content */,
+				38D4759824630CA800EEABF2 /* Sources */,
+				3889BCC224631038002F40ED /* Generated */,
+				38D4759924630CC700EEABF2 /* Resources */,
+				3889BCBC24630E33002F40ED /* RootFiles */,
+				38D4759B24630D1A00EEABF2 /* SupportingFiles */,
 			);
-			path = Licenses;
-			sourceTree = "<group>";
-		};
-		3829E8CA24630B570075D1E6 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				3829E8CB24630B570075D1E6 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
+			path = App;
 			sourceTree = "<group>";
 		};
 		3829E8D824630B570075D1E6 /* LicensesTests */ = {
@@ -107,6 +106,61 @@
 			path = LicensesTests;
 			sourceTree = "<group>";
 		};
+		3889BCBC24630E33002F40ED /* RootFiles */ = {
+			isa = PBXGroup;
+			children = (
+				3889BCBD24630F4A002F40ED /* .swiftlint.yml */,
+			);
+			name = RootFiles;
+			sourceTree = "<group>";
+		};
+		3889BCC224631038002F40ED /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				3889BCC32463104B002F40ED /* SwiftGen */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		3889BCC32463104B002F40ED /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				3889BCC424631089002F40ED /* Colors.swift */,
+				3889BCC624631089002F40ED /* Images.swift */,
+				3889BCC524631089002F40ED /* Storyboards.swift */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		38D4759824630CA800EEABF2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3829E8C224630B560075D1E6 /* AppDelegate.swift */,
+				3829E8C424630B560075D1E6 /* SceneDelegate.swift */,
+				3829E8C624630B560075D1E6 /* ContentView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		38D4759924630CC700EEABF2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3829E8CB24630B570075D1E6 /* Preview Assets.xcassets */,
+				3829E8C824630B570075D1E6 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		38D4759B24630D1A00EEABF2 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				38D4759A24630CE500EEABF2 /* Licenses.entitlements */,
+				3829E8CD24630B570075D1E6 /* LaunchScreen.storyboard */,
+				3829E8D024630B570075D1E6 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,6 +168,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3829E8DE24630B570075D1E6 /* Build configuration list for PBXNativeTarget "Licenses" */;
 			buildPhases = (
+				3889BCBF24630F5A002F40ED /* SwiftLint */,
+				3889BCC024630F89002F40ED /* SwiftGen */,
 				3829E8BB24630B560075D1E6 /* Sources */,
 				3829E8BC24630B560075D1E6 /* Frameworks */,
 				3829E8BD24630B560075D1E6 /* Resources */,
@@ -188,9 +244,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3889BCBE24630F4A002F40ED /* .swiftlint.yml in Resources */,
 				3829E8CF24630B570075D1E6 /* LaunchScreen.storyboard in Resources */,
 				3829E8CC24630B570075D1E6 /* Preview Assets.xcassets in Resources */,
-				3829E8C924630B570075D1E6 /* Assets.xcassets in Resources */,
+				3829E8C924630B570075D1E6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,12 +260,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3889BCBF24630F5A002F40ED /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		3889BCC024630F89002F40ED /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen > /dev/null; then\n    swiftgen strings \"$PROJECT_DIR/App/Resources/en.lproj/Localizable.strings\" -t structured-swift3 -o \"$PROJECT_DIR/App/Generated/SwiftGen/Strings.swift\"\n    swiftgen ib \"$PROJECT_DIR/App\" -t scenes-swift4 -o \"$PROJECT_DIR/App/Generated/SwiftGen/Storyboards.swift\"\n    swiftgen colors \"$PROJECT_DIR/App/Resources/Colors.txt\" -p \"$PROJECT_DIR/colors.stencil\" --output \"$PROJECT_DIR/App/Generated/SwiftGen/Colors.swift\"\n    swiftgen xcassets \"$PROJECT_DIR/App/Resources/Images.xcassets\" -p \"$PROJECT_DIR/images.stencil\" --output \"$PROJECT_DIR/App/Generated/SwiftGen/Images.swift\"\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3829E8BB24630B560075D1E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3829E8C324630B560075D1E6 /* AppDelegate.swift in Sources */,
+				3889BCC924631089002F40ED /* Images.swift in Sources */,
+				3889BCC824631089002F40ED /* Storyboards.swift in Sources */,
+				3889BCC724631089002F40ED /* Colors.swift in Sources */,
 				3829E8C524630B560075D1E6 /* SceneDelegate.swift in Sources */,
 				3829E8C724630B560075D1E6 /* ContentView.swift in Sources */,
 			);
@@ -362,17 +461,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/SupportingFiles/Licenses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Licenses/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Resources/\"";
 				DEVELOPMENT_TEAM = 59983C7393;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Licenses/Info.plist;
+				INFOPLIST_FILE = App/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.Licenses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,17 +483,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = App/SupportingFiles/Licenses.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Licenses/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Resources/\"";
 				DEVELOPMENT_TEAM = 59983C7393;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Licenses/Info.plist;
+				INFOPLIST_FILE = App/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.Licenses;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
