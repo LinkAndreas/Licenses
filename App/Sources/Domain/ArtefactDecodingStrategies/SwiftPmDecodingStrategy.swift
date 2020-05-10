@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum SwiftPmDecodingStrategy: ArtifactDecodingStrategy {
+enum SwiftPmDecodingStrategy: ArtefactDecodingStrategy {
     static func decode(content: String?) -> [GitHubRepository] {
         guard let content = content else { return [] }
         guard let data = content.data(using: .utf8) else { return [] }

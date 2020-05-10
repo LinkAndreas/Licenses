@@ -5,7 +5,7 @@ import Foundation
 final class ArtfictCollector {
     let dispatchQueue = DispatchQueue(label: "SearchTasks", qos: .userInitiated)
 
-    func search(at path: URL, completion: @escaping (([Artifact]) -> Void)) {
+    func search(at path: URL, completion: @escaping (([Artefact]) -> Void)) {
         dispatchQueue.async { [weak self] in
             guard let self = self else { return }
 
@@ -15,7 +15,7 @@ final class ArtfictCollector {
         }
     }
 
-    private func performSearchTask(at path: URL) -> [Artifact] {
+    private func performSearchTask(at path: URL) -> [Artefact] {
         var isDirectory: ObjCBool = false
 
         let fileManager: FileManager = .init()
@@ -29,10 +29,10 @@ final class ArtfictCollector {
         }
     }
 
-    private func readContent(at path: URL) -> Artifact? {
-        guard let type: ArtifactType = ArtifactType(fromFileName: path.lastPathComponent) else { return nil }
+    private func readContent(at path: URL) -> Artefact? {
+        guard let type: ArtefactType = ArtefactType(fromFileName: path.lastPathComponent) else { return nil }
         guard let content: String = try? String(contentsOf: path, encoding: .utf8) else { return nil }
 
-        return Artifact(type: type, content: content)
+        return Artefact(type: type, content: content)
     }
 }
