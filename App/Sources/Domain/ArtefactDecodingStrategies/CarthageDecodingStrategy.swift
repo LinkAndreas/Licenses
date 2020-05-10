@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum CarthageDecodingStrategy: ArtifactDecodingStrategy {
+enum CarthageDecodingStrategy: ArtefactDecodingStrategy {
     static func decode(content: String?) -> [GitHubRepository] {
         guard let content = content else { return [] }
 

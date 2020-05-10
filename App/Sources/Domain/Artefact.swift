@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct Artifact {
-    var type: ArtifactType
+struct Artefact {
+    var type: ArtefactType
     var content: String
 }

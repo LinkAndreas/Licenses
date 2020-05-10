@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum ArtifactType: CaseIterable {
+enum ArtefactType: CaseIterable {
     case carthage
     case swiftPm
 

@@ -23,8 +23,8 @@ struct ContentView: View {
                                 let url = URL(string: path as String)
                             else { return }
 
-                            self.collector.search(at: url) { artifacts in
-                                print(GitHubRepositoryDecoder.decodeRepositories(from: artifacts))
+                            self.collector.search(at: url) { artefacts in
+                                print(GitHubRepositoryDecoder.decodeRepositories(from: artefacts))
                             }
                         }
                     )

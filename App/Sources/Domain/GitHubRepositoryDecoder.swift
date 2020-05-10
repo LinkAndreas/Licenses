@@ -1,14 +1,14 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 enum GitHubRepositoryDecoder {
-    static func decodeRepositories(from artifacts: [Artifact]) -> [GitHubRepository] {
-        let repositories: [[GitHubRepository]] = artifacts.map { artifact in
-            switch artifact.type {
+    static func decodeRepositories(from artefacts: [Artefact]) -> [GitHubRepository] {
+        let repositories: [[GitHubRepository]] = artefacts.map { artefact in
+            switch artefact.type {
             case .carthage:
-                return CarthageDecodingStrategy.decode(content: artifact.content)
+                return CarthageDecodingStrategy.decode(content: artefact.content)
 
             case .swiftPm:
-                return SwiftPmDecodingStrategy.decode(content: artifact.content)
+                return SwiftPmDecodingStrategy.decode(content: artefact.content)
             }
         }
 
