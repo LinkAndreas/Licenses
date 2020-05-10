@@ -3,13 +3,13 @@
 {% if palettes %}
 {% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 
-import UIKit.UIColor
+import AppKit.NSColor
 
 // swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
 
 // swiftlint:disable operator_usage_whitespace
-{{accessModifier}} extension UIColor {
+{{accessModifier}} extension NSColor {
   convenience init(rgbaValue: UInt32) {
     let red   = CGFloat((rgbaValue >> 24) & 0xff) / 255.0
     let green = CGFloat((rgbaValue >> 16) & 0xff) / 255.0
@@ -25,13 +25,13 @@ import UIKit.UIColor
 {% set enumName %}{{param.enumName|default:"Colors"}}{% endset %}
 {{accessModifier}} struct {{enumName}} {
   {{accessModifier}} let rgbaValue: UInt32
-  {{accessModifier}} var color: UIColor { return UIColor(named: self) }
+  {{accessModifier}} var color: NSColor { return NSColor(named: self) }
 
 {% macro rgbaValue color %}0x{{color.red}}{{color.green}}{{color.blue}}{{color.alpha}}{% endmacro %}
 {% macro enumBlock colors sp %}
 {{sp}}  {% for color in colors %}
 {{sp}}  /// #{{color.red}}{{color.green}}{{color.blue}}
-{{sp}}  {{accessModifier}} static let {{color.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = UIColor(rgbaValue: {% call rgbaValue color %})
+{{sp}}  {{accessModifier}} static let {{color.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = NSColor(rgbaValue: {% call rgbaValue color %})
 {{sp}}  {% endfor %}
 {% endmacro %}
   {% if palettes.count > 1 %}
@@ -46,7 +46,7 @@ import UIKit.UIColor
 }
 // swiftlint:enable identifier_name line_length type_body_length
 
-{{accessModifier}} extension UIColor {
+{{accessModifier}} extension NSColor {
   convenience init(named color: {{enumName}}) {
     self.init(rgbaValue: color.rgbaValue)
   }

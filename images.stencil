@@ -5,7 +5,7 @@
 {% set forceNamespaces %}{{param.forceProvidesNamespaces|default:"false"}}{% endset %}
 {% set accessModifier %}{% if param.publicAccess %}public{% else %}internal{% endif %}{% endset %}
 
-import UIKit.UIImage
+import AppKit.NSImage
 
 // swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
@@ -14,7 +14,7 @@ import UIKit.UIImage
   {% if param.allValues %}
 
   // swiftlint:disable trailing_comma
-  {{accessModifier}} static let allImages: [UIImage] = [
+  {{accessModifier}} static let allImages: [NSImage] = [
     {% filter indent:2 %}{% call allValuesBlock assets "image" "" %}{% endfilter %}
   ]
   // swiftlint:enable trailing_comma
@@ -24,7 +24,7 @@ import UIKit.UIImage
 {% macro casesBlock assets %}
   {% for asset in assets %}
   {% if asset.type == "image" %}
-  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = UIImage(named: "{{asset.value}}", in: bundle, compatibleWith: nil)!
+  {{accessModifier}} static let {{asset.name|swiftIdentifier:"pretty"|lowerFirstWord|escapeReservedKeywords}} = NSImage(named: "{{asset.value}}", in: bundle, compatibleWith: nil)!
   {% elif asset.items and ( forceNamespaces == "true" or asset.isNamespaced == "true" ) %}
   {{accessModifier}} enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
 
