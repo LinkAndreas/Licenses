@@ -1,13 +1,13 @@
 // Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
 
 
-import UIKit.UIColor
+import AppKit.NSColor
 
 // swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
 
 // swiftlint:disable operator_usage_whitespace
-internal extension UIColor {
+internal extension NSColor {
   convenience init(rgbaValue: UInt32) {
     let red   = CGFloat((rgbaValue >> 24) & 0xff) / 255.0
     let green = CGFloat((rgbaValue >> 16) & 0xff) / 255.0
@@ -22,14 +22,14 @@ internal extension UIColor {
 // swiftlint:disable identifier_name line_length type_body_length
 internal struct Colors {
   internal let rgbaValue: UInt32
-  internal var color: UIColor { return UIColor(named: self) }
+  internal var color: NSColor { return NSColor(named: self) }
 
   /// #000099
-  internal static let primary = UIColor(rgbaValue: 0x000099ff)
+  internal static let primary = NSColor(rgbaValue: 0x000099ff)
 }
 // swiftlint:enable identifier_name line_length type_body_length
 
-internal extension UIColor {
+internal extension NSColor {
   convenience init(named color: Colors) {
     self.init(rgbaValue: color.rgbaValue)
   }
