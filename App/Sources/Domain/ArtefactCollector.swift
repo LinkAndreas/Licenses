@@ -2,7 +2,7 @@
 
 import Foundation
 
-final class ArtfictCollector {
+final class ArtefactCollector {
     let dispatchQueue = DispatchQueue(label: "SearchTasks", qos: .userInitiated)
 
     func search(at path: URL, completion: @escaping (([Artefact]) -> Void)) {

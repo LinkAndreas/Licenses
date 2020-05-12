@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Aphrodite",
+        "repositoryURL": "https://github.com/LinkAndreas/Aphrodite.git",
+        "state": {
+          "branch": null,
+          "revision": "375b598a327f2e17ca29138f2d4df8ca606aad30",
+          "version": "0.1.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

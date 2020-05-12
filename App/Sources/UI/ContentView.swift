@@ -5,7 +5,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isTargeted: Bool = false
-    let collector: ArtfictCollector = .init()
+    let collector: ArtefactCollector = .init()
 
     var body: some View {
         GeometryReader { geometry in
