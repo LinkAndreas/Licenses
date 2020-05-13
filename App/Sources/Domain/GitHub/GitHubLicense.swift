@@ -10,8 +10,7 @@ struct GitHubLicense {
     var gitURL: String?
     var downloadURL: String?
     var type: String?
-    var content: String?
-    var encoding: String?
+    var decodedContent: String?
     var links: Links?
     var license: License?
 }

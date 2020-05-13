@@ -38,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { license in
-                    print(license)
+                    print(license.decodedContent)
                 }
             )
             .store(in: &cancellables)
