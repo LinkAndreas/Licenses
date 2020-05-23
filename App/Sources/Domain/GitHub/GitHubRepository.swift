@@ -2,20 +2,20 @@
 
 import Foundation
 
-struct GitHubRepository: Repository {
+struct GitHubRepository: Repository, Identifiable {
+    var id: String { return url.absoluteString }
+
     let author: String
     let name: String
     let url: URL
 
-    init? (
+    init (
         author: String,
         name: String
     ) {
-        guard let url = URL(string: "https://github.com/\(author)/\(name)")  else { return nil }
-
         self.author = author
         self.name = name
-        self.url = url
+        self.url = URL(string: "https://github.com/\(author)/\(name)")!
     }
 }
 
