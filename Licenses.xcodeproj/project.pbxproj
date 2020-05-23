@@ -30,6 +30,7 @@
 		389093E92465AB5400367B2D /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389093E82465AB5400367B2D /* GitHubRepository.swift */; };
 		38909C362467130E008A92C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38909C352467130E008A92C0 /* Main.storyboard */; };
 		38909C382467135C008A92C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38909C372467135C008A92C0 /* Info.plist */; };
+		38CAFEB52479A3D6001279E7 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 38CAFEB42479A3D6001279E7 /* Aphrodite */; };
 		38E572EF246690860019B2F5 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E572EE246690860019B2F5 /* NSRegularExpressionExtensions.swift */; };
 		38E81956246AEC5500C06758 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E81955246AEC5500C06758 /* API.swift */; };
 		38E81958246AEC7900C06758 /* DomainErrorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E81957246AEC7900C06758 /* DomainErrorFactory.swift */; };
@@ -43,7 +44,6 @@
 		38E81970246AF9F400C06758 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8196F246AF9F400C06758 /* Links.swift */; };
 		38E81972246AFAB100C06758 /* LinksModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E81971246AFAB100C06758 /* LinksModelMapper.swift */; };
 		38E81974246AFB2F00C06758 /* LicenseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E81973246AFB2F00C06758 /* LicenseModelMapper.swift */; };
-		38E8197D246AFF1A00C06758 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 38E8197C246AFF1A00C06758 /* Aphrodite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E8197D246AFF1A00C06758 /* Aphrodite in Frameworks */,
+				38CAFEB52479A3D6001279E7 /* Aphrodite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +349,7 @@
 			);
 			name = Licenses;
 			packageProductDependencies = (
-				38E8197C246AFF1A00C06758 /* Aphrodite */,
+				38CAFEB42479A3D6001279E7 /* Aphrodite */,
 			);
 			productName = Licenses;
 			productReference = 3829E8BF24630B560075D1E6 /* Licenses.app */;
@@ -380,7 +380,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Andreas Link";
 				TargetAttributes = {
 					3829E8BE24630B560075D1E6 = {
@@ -402,7 +402,7 @@
 			);
 			mainGroup = 3829E8B624630B560075D1E6;
 			packageReferences = (
-				38E8197B246AFF1A00C06758 /* XCRemoteSwiftPackageReference "Aphrodite" */,
+				38CAFEB32479A3D6001279E7 /* XCRemoteSwiftPackageReference "Aphrodite" */,
 			);
 			productRefGroup = 3829E8C024630B560075D1E6 /* Products */;
 			projectDirPath = "";
@@ -769,20 +769,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		38E8197B246AFF1A00C06758 /* XCRemoteSwiftPackageReference "Aphrodite" */ = {
+		38CAFEB32479A3D6001279E7 /* XCRemoteSwiftPackageReference "Aphrodite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LinkAndreas/Aphrodite.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.4;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		38E8197C246AFF1A00C06758 /* Aphrodite */ = {
+		38CAFEB42479A3D6001279E7 /* Aphrodite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38E8197B246AFF1A00C06758 /* XCRemoteSwiftPackageReference "Aphrodite" */;
+			package = 38CAFEB32479A3D6001279E7 /* XCRemoteSwiftPackageReference "Aphrodite" */;
 			productName = Aphrodite;
 		};
 /* End XCSwiftPackageProductDependency section */

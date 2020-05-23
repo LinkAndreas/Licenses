@@ -3,4 +3,8 @@
 import Aphrodite
 import Foundation
 
-let API: Aphrodite<DomainErrorFactory> = .init()
+let API: Aphrodite<DomainErrorFactory> = .init(
+    plugins: [
+        .universal: [NetworkLoggerPlugin()]
+    ]
+)
