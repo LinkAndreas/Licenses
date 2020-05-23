@@ -5,10 +5,14 @@ import Foundation
 
 enum GitHub: NetworkTarget {
     case license(GitHubRepository)
+}
 
-    var baseURL: URL { URL(string: "https://api.github.com")! }
+extension GitHub {
+    var baseUrl: String { "https://api.github.com" }
 
-    var requestTimeoutInterval: TimeInterval { return 30 }
+    var requestTimeoutInterval: TimeInterval { 30 }
+
+    var usedPlugins: [NetworkPluginType] { [.universal] }
 
     var path: String {
         switch self {
