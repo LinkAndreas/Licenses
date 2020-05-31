@@ -4,7 +4,7 @@ import Aphrodite
 import Foundation
 
 enum GitHub: NetworkTarget {
-    case license(GitHubRepository)
+    case license(name: String, author: String)
 }
 
 extension GitHub {
@@ -16,8 +16,8 @@ extension GitHub {
 
     var path: String {
         switch self {
-        case let .license(repository):
-            return "/repos/\(repository.author)/\(repository.name)/license"
+        case let .license(name, author):
+            return "/repos/\(author)/\(name)/license"
         }
     }
 

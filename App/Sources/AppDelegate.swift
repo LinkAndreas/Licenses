@@ -33,9 +33,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private func getLicenses() {
-        let repository: GitHubRepository = .init(name: "Eureka", author: "xmartlabs")
+        let repository: GitHubRepository = .init(
+            packageManager: .carthage,
+            name: "Eureka",
+            version: "5.2.1",
+            author: "xmartlabs"
+        )
 
-        API.call(GitHub.license(repository), mapper: GitHubLicenseModelMapper.map)
+        guard let author = repository.author else { return }
+
+        API.call(GitHub.license(name: repository.name, author: author), mapper: GitHubLicenseModelMapper.map)
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { license in

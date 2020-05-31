@@ -23,8 +23,8 @@ struct ArtefactPickerView: View {
                                 let url = URL(string: path as String)
                             else { return }
 
-                            self.collector.search(at: url) { artefacts in
-                                print(PackageDecoder.decode(from: artefacts))
+                            self.collector.search(at: url) { manifests in
+                                print(ManifestDecoder.decode(manifests))
                             }
                         }
                     )

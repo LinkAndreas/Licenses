@@ -9,8 +9,9 @@ final class ManifestCollector {
         dispatchQueue.async { [weak self] in
             guard let self = self else { return }
 
+            let manifests: [Manifest] = self.performSearchTask(at: path)
             DispatchQueue.main.async {
-                completion(self.performSearchTask(at: path))
+                completion(manifests)
             }
         }
     }
