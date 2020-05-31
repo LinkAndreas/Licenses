@@ -225,12 +225,6 @@ custom_rules:
     name: "Singleton Shared Single Object"
     message: "Singletons with a `shared` object (real Singletons) should not have other static let properties. Use `default` instead (if needed)."
     severity: warning
-  swiftybeaver_logging:
-    included: ".*.swift"
-    regex: '^[^\/\n\w]*+(?!\/\/)[^\n\/]*print\([^\n]+\)'
-    name: "SwiftyBeaver Logging"
-    message: "Don't use print – use log.verbose/debug/info/warning/error instead."
-    severity: warning
   switch_associated_value_style:
     included: ".*.swift"
     regex: '^((?!if).)*\s*case\s+[^\(][^\n]*(?:\((let|var) |[^\)], (let|var))'
