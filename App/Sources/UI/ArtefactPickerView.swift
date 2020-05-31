@@ -3,9 +3,9 @@
 import Cocoa
 import SwiftUI
 
-struct ContentView: View {
+struct ArtefactPickerView: View {
     @State private var isTargeted: Bool = false
-    let collector: ArtefactCollector = .init()
+    let collector: ManifestCollector = .init()
 
     var body: some View {
         GeometryReader { geometry in
@@ -24,7 +24,7 @@ struct ContentView: View {
                             else { return }
 
                             self.collector.search(at: url) { artefacts in
-                                print(GitHubRepositoryDecoder.decodeRepositories(from: artefacts))
+                                print(PackageDecoder.decode(from: artefacts))
                             }
                         }
                     )
@@ -38,6 +38,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ArtefactPickerView()
     }
 }
