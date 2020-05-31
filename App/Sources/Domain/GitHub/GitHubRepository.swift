@@ -3,23 +3,31 @@
 import Foundation
 
 struct GitHubRepository: Repository, Identifiable {
-    var id: String { return url.absoluteString }
+    var id: String { url.absoluteString }
 
-    let author: String
     let name: String
+    let author: String
     let url: URL
+    var license: GitHubLicense?
 
-    init (
-        author: String,
-        name: String
-    ) {
-        self.author = author
+    init(name: String, author: String) {
         self.name = name
+        self.author = author
         self.url = URL(string: "https://github.com/\(author)/\(name)")!
     }
 }
 
-extension GitHubRepository: Hashable { /* Protocol Conformance */ }
+extension GitHubRepository: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(url)
+    }
+}
+
+extension GitHubRepository: Equatable {
+    static func == (lhs: GitHubRepository, rhs: GitHubRepository) -> Bool {
+        return lhs.url == rhs.url
+    }
+}
 
 extension GitHubRepository: CustomStringConvertible {
     var description: String {
