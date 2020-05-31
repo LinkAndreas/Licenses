@@ -2,35 +2,53 @@
 
 import Foundation
 
-struct GitHubRepository: Repository, Identifiable {
-    var id: String { url.absoluteString }
+struct GitHubRepository {
+    let packageManager: PackageManager
+    var name: String { didSet { updateUrlIfNeeded() } }
+    var version: String
 
-    let name: String
-    let author: String
-    let url: URL
+    var author: String? { didSet { updateUrlIfNeeded() } }
+    var url: URL?
     var license: GitHubLicense?
 
-    init(name: String, author: String) {
+    init(packageManager: PackageManager, name: String, version: String, author: String? = nil) {
+        self.packageManager = packageManager
         self.name = name
+        self.version = version
         self.author = author
-        self.url = URL(string: "https://github.com/\(author)/\(name)")!
+        self.updateUrlIfNeeded()
     }
+
+    private mutating func updateUrlIfNeeded() {
+        guard let author = author else { return self.url = nil }
+
+        self.url = URL(string: "https://github.com/\(author)/\(name)")
+    }
+}
+
+extension GitHubRepository: Identifiable {
+    var id: String { "\(name)_\(version)_\(author ?? "unkown")" }
 }
 
 extension GitHubRepository: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(url)
+        hasher.combine(id)
     }
 }
 
 extension GitHubRepository: Equatable {
     static func == (lhs: GitHubRepository, rhs: GitHubRepository) -> Bool {
-        return lhs.url == rhs.url
+        return lhs.id == rhs.id
     }
 }
 
 extension GitHubRepository: CustomStringConvertible {
     var description: String {
-        return "\(author)/\(name): \(url)"
+        var result: [String] = []
+        result += ["\(name)"]
+        result += ["\(version)"]
+        author.map { result += ["\($0)"] }
+        url.map { result += ["\($0.absoluteString)"] }
+        return result.joined(separator: ", ")
     }
 }

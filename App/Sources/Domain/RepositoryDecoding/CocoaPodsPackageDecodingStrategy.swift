@@ -1,20 +1,16 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import Combine
 import Foundation
 
-enum CocoaPodsPackageDecoder {
-    static func decode(content: String?) -> [CocoaPodsPackage] {
-        guard
-            let content: String = content,
-            let versionInfo: [String: String] = makeVersionInfo(from: content)
-        else {
-            return []
-        }
+enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
+    static func decode(content: String) -> [GitHubRepository] {
+        guard let versionInfo: [String: String] = makeVersionInfo(from: content) else { return [] }
 
-        return versionInfo.map { CocoaPodsPackage(name: $0, version: $1) }
+        return versionInfo.map { GitHubRepository(packageManager: .cocoaPods, name: $0, version: $1) }
     }
+}
 
+extension CocoaPodsManifestDecodingStrategy {
     private static func makeVersionInfo(from content: String) -> [String: String]? {
         guard let regex = try? NSRegularExpression(pattern: RegexPatterns.cocoaPods, options: []) else { return nil }
 
