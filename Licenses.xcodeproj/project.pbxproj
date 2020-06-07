@@ -13,6 +13,18 @@
 		3829E8DA24630B570075D1E6 /* LicensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829E8D924630B570075D1E6 /* LicensesTests.swift */; };
 		3856C97D2483F76D005BE348 /* ArtefactPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856C97C2483F76D005BE348 /* ArtefactPickerView.swift */; };
 		385DD9BF2484073A006BA462 /* ManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9BE2484073A006BA462 /* ManifestDecodingStrategy.swift */; };
+		385DD9C12484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */; };
+		385DD9C32484E13D006BA462 /* TrunkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C22484E13D006BA462 /* TrunkResponse.swift */; };
+		385DD9C52484E15D006BA462 /* TrunkResponseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C42484E15D006BA462 /* TrunkResponseModelMapper.swift */; };
+		385DD9C72484E176006BA462 /* TrunkResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C62484E176006BA462 /* TrunkResponseEntity.swift */; };
+		385DD9C92484E1AC006BA462 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C82484E1AC006BA462 /* CocoaPodsTrunk.swift */; };
+		385DD9CB2484E1DA006BA462 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9CA2484E1DA006BA462 /* Generic.swift */; };
+		385DD9CD2484E5AC006BA462 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9CC2484E5AC006BA462 /* JSONDecoderExtensions.swift */; };
+		385DD9CF2484E5BD006BA462 /* JSONEncoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9CE2484E5BD006BA462 /* JSONEncoderExtensions.swift */; };
+		385DD9D12484E633006BA462 /* PodSpecEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9D02484E633006BA462 /* PodSpecEntity.swift */; };
+		385DD9D32484EA2B006BA462 /* LicenseProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9D22484EA2B006BA462 /* LicenseProcessor.swift */; };
+		385DD9D52484F1BB006BA462 /* RespositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9D42484F1BB006BA462 /* RespositoryList.swift */; };
+		385DD9D72484F21F006BA462 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9D62484F21F006BA462 /* UserData.swift */; };
 		386D5EA02467E6E7008C5C21 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D5E9F2467E6E7008C5C21 /* Repository.swift */; };
 		386D5EA624681639008C5C21 /* ManifestCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D5EA524681639008C5C21 /* ManifestCollector.swift */; };
 		386D5EAA2468166D008C5C21 /* CarthageManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386D5EA92468166D008C5C21 /* CarthageManifestDecodingStrategy.swift */; };
@@ -64,6 +76,18 @@
 		3829E8D924630B570075D1E6 /* LicensesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesTests.swift; sourceTree = "<group>"; };
 		3856C97C2483F76D005BE348 /* ArtefactPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtefactPickerView.swift; sourceTree = "<group>"; };
 		385DD9BE2484073A006BA462 /* ManifestDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestDecodingStrategy.swift; sourceTree = "<group>"; };
+		385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPodsRepositoryProcessor.swift; sourceTree = "<group>"; };
+		385DD9C22484E13D006BA462 /* TrunkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrunkResponse.swift; sourceTree = "<group>"; };
+		385DD9C42484E15D006BA462 /* TrunkResponseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrunkResponseModelMapper.swift; sourceTree = "<group>"; };
+		385DD9C62484E176006BA462 /* TrunkResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrunkResponseEntity.swift; sourceTree = "<group>"; };
+		385DD9C82484E1AC006BA462 /* CocoaPodsTrunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPodsTrunk.swift; sourceTree = "<group>"; };
+		385DD9CA2484E1DA006BA462 /* Generic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
+		385DD9CC2484E5AC006BA462 /* JSONDecoderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtensions.swift; sourceTree = "<group>"; };
+		385DD9CE2484E5BD006BA462 /* JSONEncoderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONEncoderExtensions.swift; sourceTree = "<group>"; };
+		385DD9D02484E633006BA462 /* PodSpecEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodSpecEntity.swift; sourceTree = "<group>"; };
+		385DD9D22484EA2B006BA462 /* LicenseProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseProcessor.swift; sourceTree = "<group>"; };
+		385DD9D42484F1BB006BA462 /* RespositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespositoryList.swift; sourceTree = "<group>"; };
+		385DD9D62484F21F006BA462 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		386D5E9F2467E6E7008C5C21 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		386D5EA524681639008C5C21 /* ManifestCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestCollector.swift; sourceTree = "<group>"; };
 		386D5EA92468166D008C5C21 /* CarthageManifestDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarthageManifestDecodingStrategy.swift; sourceTree = "<group>"; };
@@ -120,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				3856C97C2483F76D005BE348 /* ArtefactPickerView.swift */,
+				385DD9D42484F1BB006BA462 /* RespositoryList.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -211,10 +236,13 @@
 			isa = PBXGroup;
 			children = (
 				386D5EA524681639008C5C21 /* ManifestCollector.swift */,
+				385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */,
+				385DD9D22484EA2B006BA462 /* LicenseProcessor.swift */,
 				386D5EAD24681693008C5C21 /* PackageManager.swift */,
 				386D5EB0246816EA008C5C21 /* RegexPatterns.swift */,
 				386D5EAF246816A0008C5C21 /* RepositoryDecoding */,
 				38E81976246AFDDF00C06758 /* GitHub */,
+				385DD9D62484F21F006BA462 /* UserData.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -264,6 +292,8 @@
 			children = (
 				38E572EE246690860019B2F5 /* NSRegularExpressionExtensions.swift */,
 				386D5EC524681BCA008C5C21 /* StringExtensions.swift */,
+				385DD9CC2484E5AC006BA462 /* JSONDecoderExtensions.swift */,
+				385DD9CE2484E5BD006BA462 /* JSONEncoderExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				38E8195D246AF3C800C06758 /* GitHub.swift */,
+				385DD9C82484E1AC006BA462 /* CocoaPodsTrunk.swift */,
+				385DD9CA2484E1DA006BA462 /* Generic.swift */,
 			);
 			path = Targets;
 			sourceTree = "<group>";
@@ -291,8 +323,12 @@
 			isa = PBXGroup;
 			children = (
 				38E8195A246AF2C100C06758 /* GitHubLicenseEntity.swift */,
+				385DD9D02484E633006BA462 /* PodSpecEntity.swift */,
 				38E81967246AF8D600C06758 /* LicenseEntity.swift */,
 				38E81969246AF8EE00C06758 /* LinksEntity.swift */,
+				385DD9C62484E176006BA462 /* TrunkResponseEntity.swift */,
+				385DD9C22484E13D006BA462 /* TrunkResponse.swift */,
+				385DD9C42484E15D006BA462 /* TrunkResponseModelMapper.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -478,28 +514,40 @@
 				386D5EAC2468167E008C5C21 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
 				3889BCC724631089002F40ED /* Colors.swift in Sources */,
 				38E572EF246690860019B2F5 /* NSRegularExpressionExtensions.swift in Sources */,
+				385DD9CD2484E5AC006BA462 /* JSONDecoderExtensions.swift in Sources */,
 				38E81966246AF86A00C06758 /* GitHubLicense.swift in Sources */,
 				38E8196A246AF8EE00C06758 /* LinksEntity.swift in Sources */,
 				389093E92465AB5400367B2D /* GitHubRepository.swift in Sources */,
+				385DD9C12484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				38E81970246AF9F400C06758 /* Links.swift in Sources */,
+				385DD9C52484E15D006BA462 /* TrunkResponseModelMapper.swift in Sources */,
 				38E81974246AFB2F00C06758 /* LicenseModelMapper.swift in Sources */,
 				38E81972246AFAB100C06758 /* LinksModelMapper.swift in Sources */,
 				385DD9BF2484073A006BA462 /* ManifestDecodingStrategy.swift in Sources */,
 				386D5EAA2468166D008C5C21 /* CarthageManifestDecodingStrategy.swift in Sources */,
+				385DD9C32484E13D006BA462 /* TrunkResponse.swift in Sources */,
 				38E8195B246AF2C100C06758 /* GitHubLicenseEntity.swift in Sources */,
 				386D5EB1246816EA008C5C21 /* RegexPatterns.swift in Sources */,
 				386D5ECA246824C6008C5C21 /* ManifestDecoder.swift in Sources */,
 				38856DE92482AC9000C10D19 /* GithubRepositoryUrlDecoder.swift in Sources */,
 				38E8196E246AF9EA00C06758 /* License.swift in Sources */,
+				385DD9C72484E176006BA462 /* TrunkResponseEntity.swift in Sources */,
 				38E81958246AEC7900C06758 /* DomainErrorFactory.swift in Sources */,
 				38D5705E247A795E00ADCD4A /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
+				385DD9D32484EA2B006BA462 /* LicenseProcessor.swift in Sources */,
 				38E8196C246AF94900C06758 /* GitHubLicenseModelMapper.swift in Sources */,
+				385DD9D72484F21F006BA462 /* UserData.swift in Sources */,
 				38E81956246AEC5500C06758 /* API.swift in Sources */,
+				385DD9CB2484E1DA006BA462 /* Generic.swift in Sources */,
+				385DD9D52484F1BB006BA462 /* RespositoryList.swift in Sources */,
+				385DD9C92484E1AC006BA462 /* CocoaPodsTrunk.swift in Sources */,
+				385DD9CF2484E5BD006BA462 /* JSONEncoderExtensions.swift in Sources */,
 				386D5EAE24681693008C5C21 /* PackageManager.swift in Sources */,
 				38E81968246AF8D600C06758 /* LicenseEntity.swift in Sources */,
 				386D5EA02467E6E7008C5C21 /* Repository.swift in Sources */,
 				386D5EA624681639008C5C21 /* ManifestCollector.swift in Sources */,
 				386D5EC624681BCA008C5C21 /* StringExtensions.swift in Sources */,
+				385DD9D12484E633006BA462 /* PodSpecEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
