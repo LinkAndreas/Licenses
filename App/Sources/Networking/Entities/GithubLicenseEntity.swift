@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct GitHubLicenseEntity: Codable {
+struct GithubLicenseEntity: Codable {
     var name: String?
     var path: String?
     var sha: String?

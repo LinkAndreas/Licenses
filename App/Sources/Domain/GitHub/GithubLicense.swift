@@ -1,6 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-struct GitHubLicense {
+struct GithubLicense {
     var name: String?
     var path: String?
     var sha: String?

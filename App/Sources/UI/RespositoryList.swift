@@ -1,25 +1,30 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import ComposableArchitecture
 import SwiftUI
 
 struct RepositoryList: View {
-    @EnvironmentObject var userData: UserData
-    @State private var selectedRepository: GitHubRepository?
+    let store: Store<AppState, AppAction>
 
     var body: some View {
-        List(userData.repositories, selection: $selectedRepository) { (repository: GitHubRepository) in
-            HStack {
-                Text(repository.name)
-                    .font(.headline)
-                Text(repository.version)
-                    .font(.subheadline)
-            }.padding()
+        WithViewStore(self.store) { viewStore in
+            List(
+                selection: viewStore.binding(
+                    get: { $0.selectedRepository },
+                    send: { .selectRepository($0) }
+                )
+            ) {
+                ForEach(viewStore.repositories) { repository in
+                    HStack {
+                        Text(repository.name)
+                            .font(.headline)
+                        Text(repository.version)
+                            .font(.subheadline)
+                    }
+                    .padding()
+                    .tag(repository)
+                }
+            }
         }
-    }
-}
-
-struct RepositoryList_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtefactPickerView()
     }
 }

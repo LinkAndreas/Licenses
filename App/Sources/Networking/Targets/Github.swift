@@ -3,11 +3,11 @@
 import Aphrodite
 import Foundation
 
-enum GitHub: NetworkTarget {
+enum Github: NetworkTarget {
     case license(name: String, author: String)
 }
 
-extension GitHub {
+extension Github {
     var baseUrl: String { "https://api.github.com" }
 
     var requestTimeoutInterval: TimeInterval { 30 }

@@ -8,7 +8,7 @@ enum PackageManager {
     case swiftPm
 }
 
-struct Manifest {
+struct Manifest: Equatable {
     var packageManager: PackageManager
     var content: String
 
