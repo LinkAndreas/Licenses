@@ -3,16 +3,16 @@
 import Combine
 import Foundation
 
-final class ManifestCollector {
-    let dispatchQueue = DispatchQueue(label: "SearchTasks", qos: .userInitiated)
+enum ManifestCollector {
+    static let dispatchQueue = DispatchQueue(label: "SearchTasks", qos: .userInitiated)
 
-    func search(at path: URL) -> AnyPublisher<[Manifest], Never> {
+    static func search(at path: URL) -> AnyPublisher<[Manifest], Never> {
         performSearchTask(at: path)
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
 
-    private func performSearchTask(at filePath: URL) -> Future<[Manifest], Never> {
+    private static func performSearchTask(at filePath: URL) -> Future<[Manifest], Never> {
         var isDirectory: ObjCBool = false
         let fileManager: FileManager = .init()
 

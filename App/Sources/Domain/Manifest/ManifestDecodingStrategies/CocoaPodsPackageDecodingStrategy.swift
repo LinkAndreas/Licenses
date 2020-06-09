@@ -3,10 +3,10 @@
 import Foundation
 
 enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
-    static func decode(content: String) -> [GitHubRepository] {
+    static func decode(content: String) -> [GithubRepository] {
         guard let versionInfo: [String: String] = makeVersionInfo(from: content) else { return [] }
 
-        return versionInfo.map { GitHubRepository(packageManager: .cocoaPods, name: $0, version: $1) }
+        return versionInfo.map { GithubRepository(packageManager: .cocoaPods, name: $0, version: $1) }
     }
 }
 

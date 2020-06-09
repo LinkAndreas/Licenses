@@ -2,14 +2,16 @@
 
 import Foundation
 
-enum GitHubRepositoryUrlDecoder {
+enum GithubRepositoryUrlDecoder {
     static func decode(repositoryUrlString: String) -> (name: String, author: String)? {
         guard let url = URL(string: repositoryUrlString) else { return nil }
 
         return decode(repositoryURL: url)
     }
 
-    static func decode(repositoryURL: URL) -> (name: String, author: String)? {
+    static func decode(repositoryURL: URL?) -> (name: String, author: String)? {
+        guard let repositoryURL = repositoryURL else { return nil }
+
         let urlComponents: [String] = makeUrlComponents(from: repositoryURL.absoluteString)
 
         guard
@@ -21,7 +23,7 @@ enum GitHubRepositoryUrlDecoder {
     }
 }
 
-extension GitHubRepositoryUrlDecoder {
+extension GithubRepositoryUrlDecoder {
     private static func extractName(from urlComponents: [String]) -> String? {
         return urlComponents.last?.removing(suffix: ".git")
     }
