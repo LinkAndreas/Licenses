@@ -2,7 +2,8 @@
 
 import Foundation
 
-struct GithubRepository {
+struct GithubRepository: Identifiable {
+    let id: UUID
     let packageManager: PackageManager
     var name: String
     var version: String
@@ -18,16 +19,13 @@ struct GithubRepository {
         author: String? = nil,
         url: URL? = nil
     ) {
+        self.id = .init()
         self.packageManager = packageManager
         self.name = name
         self.version = version
         self.author = author
         self.url = url
     }
-}
-
-extension GithubRepository: Identifiable {
-    var id: String { "\(name)_\(version)" }
 }
 
 extension GithubRepository: Hashable {
