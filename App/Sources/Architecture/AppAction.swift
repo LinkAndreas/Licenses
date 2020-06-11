@@ -5,10 +5,8 @@ import Foundation
 enum AppAction: Equatable {
     case searchManifests(path: URL)
     case processManifests([Manifest])
-    case fetchCocoaPodsMetaData
-    case fetchLicenses
-    case updateCocoaPodsRepositories([GithubRepository])
-    case updateRepositories([GithubRepository])
+    case updateRepository(GithubRepository)
     case selectRepository(GithubRepository?)
+    case fetchRepositoryMetaDataIfNeeded(GithubRepository?)
     case changeIsTargeted(Bool)
 }

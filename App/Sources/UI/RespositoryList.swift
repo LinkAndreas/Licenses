@@ -1,13 +1,12 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import ComposableArchitecture
 import SwiftUI
 
 struct RepositoryList: View {
-    let store: Store<AppState, AppAction>
+    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
+        ViewStoreProvider(self.store) { viewStore in
             List(
                 selection: viewStore.binding(
                     get: { $0.selectedRepository },

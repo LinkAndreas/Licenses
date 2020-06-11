@@ -1,22 +1,20 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import Cocoa
 import Combine
-import ComposableArchitecture
 import SwiftUI
 
 struct FileDropArea<Content: View>: View {
-    let store: Store<AppState, AppAction>
+    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
+
     private var content: () -> Content
 
-    init(store: Store<AppState, AppAction>, @ViewBuilder content: @escaping () -> Content) {
-        self.store = store
+    init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }
 
     var body: some View {
         GeometryReader { geometry in
-            WithViewStore(self.store) { viewStore in
+            ViewStoreProvider(self.store) { viewStore in
                 VStack {
                     self.content()
                         .onDrop(
@@ -30,17 +28,19 @@ struct FileDropArea<Content: View>: View {
                                         let data = data,
                                         let path = NSString(data: data, encoding: 4),
                                         let url = URL(string: path as String)
-                                    else { return }
+                                        else { return }
 
-                                    viewStore.send(.searchManifests(path: url))
+                                    DispatchQueue.main.async {
+                                        self.store.send(.searchManifests(path: url))
+                                    }
                                 }
                             )
                             return true
                         }
-                        .border(viewStore.isTargeted ? Color.red : Color.clear)
+                    .border(viewStore.isTargeted ? Color.red : Color.clear)
                 }
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 }

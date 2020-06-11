@@ -11,6 +11,15 @@
 		3829E8C924630B570075D1E6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3829E8C824630B570075D1E6 /* Images.xcassets */; };
 		3829E8CC24630B570075D1E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3829E8CB24630B570075D1E6 /* Preview Assets.xcassets */; };
 		3829E8DA24630B570075D1E6 /* LicensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829E8D924630B570075D1E6 /* LicensesTests.swift */; };
+		382FCFBE248F6E86007A7688 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FCFBD248F6E86007A7688 /* Store.swift */; };
+		382FCFC0248F6F4E007A7688 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FCFBF248F6F4E007A7688 /* Reducer.swift */; };
+		382FCFC2248FC6E5007A7688 /* ViewStoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FCFC1248FC6E5007A7688 /* ViewStoreProvider.swift */; };
+		382FCFC4248FC806007A7688 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382FCFC3248FC806007A7688 /* ViewStore.swift */; };
+		383CF8A024911EA3006B2A60 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF89F24911EA3006B2A60 /* ActivityIndicator.swift */; };
+		383CF8A224914FA5006B2A60 /* SideEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF8A124914FA5006B2A60 /* SideEffect.swift */; };
+		383CF8A424916D35006B2A60 /* ReducerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF8A324916D35006B2A60 /* ReducerFactory.swift */; };
+		383CF8A8249218AD006B2A60 /* GithubErrorResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF8A7249218AD006B2A60 /* GithubErrorResponseEntity.swift */; };
+		383CF8AB24923492006B2A60 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 383CF8AA24923492006B2A60 /* Aphrodite */; };
 		3856C97D2483F76D005BE348 /* FileDropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856C97C2483F76D005BE348 /* FileDropArea.swift */; };
 		385DD9BF2484073A006BA462 /* ManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9BE2484073A006BA462 /* ManifestDecodingStrategy.swift */; };
 		385DD9C12484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */; };
@@ -40,8 +49,6 @@
 		3889BCC924631089002F40ED /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889BCC624631089002F40ED /* Images.swift */; };
 		389093E92465AB5400367B2D /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389093E82465AB5400367B2D /* GithubRepository.swift */; };
 		38909C362467130E008A92C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38909C352467130E008A92C0 /* Main.storyboard */; };
-		38CAFEB52479A3D6001279E7 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 38CAFEB42479A3D6001279E7 /* Aphrodite */; };
-		38CFB8C6248CC9F800097441 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 38CFB8C5248CC9F800097441 /* ComposableArchitecture */; };
 		38CFB8C9248CCA8B00097441 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CFB8C8248CCA8B00097441 /* AppState.swift */; };
 		38CFB8CB248CCACA00097441 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CFB8CA248CCACA00097441 /* AppAction.swift */; };
 		38CFB8CD248CCB7C00097441 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CFB8CC248CCB7C00097441 /* AppEnvironment.swift */; };
@@ -80,6 +87,14 @@
 		3829E8CB24630B570075D1E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3829E8D524630B570075D1E6 /* LicensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LicensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3829E8D924630B570075D1E6 /* LicensesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensesTests.swift; sourceTree = "<group>"; };
+		382FCFBD248F6E86007A7688 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		382FCFBF248F6F4E007A7688 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		382FCFC1248FC6E5007A7688 /* ViewStoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStoreProvider.swift; sourceTree = "<group>"; };
+		382FCFC3248FC806007A7688 /* ViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
+		383CF89F24911EA3006B2A60 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		383CF8A124914FA5006B2A60 /* SideEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffect.swift; sourceTree = "<group>"; };
+		383CF8A324916D35006B2A60 /* ReducerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerFactory.swift; sourceTree = "<group>"; };
+		383CF8A7249218AD006B2A60 /* GithubErrorResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubErrorResponseEntity.swift; sourceTree = "<group>"; };
 		3856C97C2483F76D005BE348 /* FileDropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDropArea.swift; sourceTree = "<group>"; };
 		385DD9BE2484073A006BA462 /* ManifestDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestDecodingStrategy.swift; sourceTree = "<group>"; };
 		385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPodsRepositoryProcessor.swift; sourceTree = "<group>"; };
@@ -137,8 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38CFB8C6248CC9F800097441 /* ComposableArchitecture in Frameworks */,
-				38CAFEB52479A3D6001279E7 /* Aphrodite in Frameworks */,
+				383CF8AB24923492006B2A60 /* Aphrodite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +172,7 @@
 				3856C97C2483F76D005BE348 /* FileDropArea.swift */,
 				38CFB8D0248D204C00097441 /* ContentView.swift */,
 				385DD9D42484F1BB006BA462 /* RespositoryList.swift */,
+				383CF89F24911EA3006B2A60 /* ActivityIndicator.swift */,
 				38CFB8CE248D201700097441 /* RepositoryDetail.swift */,
 			);
 			path = UI;
@@ -270,6 +285,12 @@
 				38CFB8C8248CCA8B00097441 /* AppState.swift */,
 				38CFB8CA248CCACA00097441 /* AppAction.swift */,
 				38CFB8CC248CCB7C00097441 /* AppEnvironment.swift */,
+				382FCFBD248F6E86007A7688 /* Store.swift */,
+				382FCFC3248FC806007A7688 /* ViewStore.swift */,
+				382FCFC1248FC6E5007A7688 /* ViewStoreProvider.swift */,
+				382FCFBF248F6F4E007A7688 /* Reducer.swift */,
+				383CF8A324916D35006B2A60 /* ReducerFactory.swift */,
+				383CF8A124914FA5006B2A60 /* SideEffect.swift */,
 			);
 			path = Architecture;
 			sourceTree = "<group>";
@@ -363,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				38E8195A246AF2C100C06758 /* GithubLicenseEntity.swift */,
+				383CF8A7249218AD006B2A60 /* GithubErrorResponseEntity.swift */,
 				385DD9D02484E633006BA462 /* PodSpecEntity.swift */,
 				38E81967246AF8D600C06758 /* LicenseEntity.swift */,
 				38E81969246AF8EE00C06758 /* LinksEntity.swift */,
@@ -417,8 +439,7 @@
 			);
 			name = Licenses;
 			packageProductDependencies = (
-				38CAFEB42479A3D6001279E7 /* Aphrodite */,
-				38CFB8C5248CC9F800097441 /* ComposableArchitecture */,
+				383CF8AA24923492006B2A60 /* Aphrodite */,
 			);
 			productName = Licenses;
 			productReference = 3829E8BF24630B560075D1E6 /* Licenses.app */;
@@ -471,8 +492,7 @@
 			);
 			mainGroup = 3829E8B624630B560075D1E6;
 			packageReferences = (
-				38CAFEB32479A3D6001279E7 /* XCRemoteSwiftPackageReference "Aphrodite" */,
-				38CFB8C4248CC9F800097441 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				383CF8A924923492006B2A60 /* XCRemoteSwiftPackageReference "Aphrodite" */,
 			);
 			productRefGroup = 3829E8C024630B560075D1E6 /* Products */;
 			projectDirPath = "";
@@ -552,6 +572,8 @@
 				3856C97D2483F76D005BE348 /* FileDropArea.swift in Sources */,
 				38E8195E246AF3C800C06758 /* Github.swift in Sources */,
 				3829E8C324630B560075D1E6 /* AppDelegate.swift in Sources */,
+				382FCFBE248F6E86007A7688 /* Store.swift in Sources */,
+				383CF8A024911EA3006B2A60 /* ActivityIndicator.swift in Sources */,
 				3889BCC924631089002F40ED /* Images.swift in Sources */,
 				386D5EC424681900008C5C21 /* ResolvedPackages.swift in Sources */,
 				386D5EAC2468167E008C5C21 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
@@ -576,14 +598,17 @@
 				386D5EB1246816EA008C5C21 /* RegexPatterns.swift in Sources */,
 				386D5ECA246824C6008C5C21 /* ManifestDecoder.swift in Sources */,
 				38856DE92482AC9000C10D19 /* GithubRepositoryUrlDecoder.swift in Sources */,
+				383CF8A8249218AD006B2A60 /* GithubErrorResponseEntity.swift in Sources */,
 				38E8196E246AF9EA00C06758 /* License.swift in Sources */,
 				385DD9C72484E176006BA462 /* TrunkResponseEntity.swift in Sources */,
+				382FCFC2248FC6E5007A7688 /* ViewStoreProvider.swift in Sources */,
 				38E81958246AEC7900C06758 /* DomainErrorFactory.swift in Sources */,
 				38D5705E247A795E00ADCD4A /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
 				385DD9D32484EA2B006BA462 /* LicenseProcessor.swift in Sources */,
 				38E8196C246AF94900C06758 /* GithubLicenseModelMapper.swift in Sources */,
 				38E81956246AEC5500C06758 /* API.swift in Sources */,
 				385DD9CB2484E1DA006BA462 /* Generic.swift in Sources */,
+				383CF8A224914FA5006B2A60 /* SideEffect.swift in Sources */,
 				385DD9D52484F1BB006BA462 /* RespositoryList.swift in Sources */,
 				385DD9C92484E1AC006BA462 /* CocoaPodsTrunk.swift in Sources */,
 				385DD9CF2484E5BD006BA462 /* JSONEncoderExtensions.swift in Sources */,
@@ -591,9 +616,12 @@
 				386D5EAE24681693008C5C21 /* PackageManager.swift in Sources */,
 				38E81968246AF8D600C06758 /* LicenseEntity.swift in Sources */,
 				38CFB8D1248D204C00097441 /* ContentView.swift in Sources */,
+				382FCFC4248FC806007A7688 /* ViewStore.swift in Sources */,
 				38CFB8CB248CCACA00097441 /* AppAction.swift in Sources */,
 				386D5EA02467E6E7008C5C21 /* Repository.swift in Sources */,
+				383CF8A424916D35006B2A60 /* ReducerFactory.swift in Sources */,
 				386D5EA624681639008C5C21 /* ManifestCollector.swift in Sources */,
+				382FCFC0248F6F4E007A7688 /* Reducer.swift in Sources */,
 				386D5EC624681BCA008C5C21 /* StringExtensions.swift in Sources */,
 				385DD9D12484E633006BA462 /* PodSpecEntity.swift in Sources */,
 			);
@@ -855,34 +883,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		38CAFEB32479A3D6001279E7 /* XCRemoteSwiftPackageReference "Aphrodite" */ = {
+		383CF8A924923492006B2A60 /* XCRemoteSwiftPackageReference "Aphrodite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LinkAndreas/Aphrodite.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
-			};
-		};
-		38CFB8C4248CC9F800097441 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
+				minimumVersion = 0.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		38CAFEB42479A3D6001279E7 /* Aphrodite */ = {
+		383CF8AA24923492006B2A60 /* Aphrodite */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38CAFEB32479A3D6001279E7 /* XCRemoteSwiftPackageReference "Aphrodite" */;
+			package = 383CF8A924923492006B2A60 /* XCRemoteSwiftPackageReference "Aphrodite" */;
 			productName = Aphrodite;
-		};
-		38CFB8C5248CC9F800097441 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 38CFB8C4248CC9F800097441 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

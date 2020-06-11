@@ -11,7 +11,13 @@ struct GithubRepository {
     var url: URL?
     var license: GithubLicense?
 
-    init(packageManager: PackageManager, name: String, version: String, author: String? = nil, url: URL? = nil) {
+    init(
+        packageManager: PackageManager,
+        name: String,
+        version: String,
+        author: String? = nil,
+        url: URL? = nil
+    ) {
         self.packageManager = packageManager
         self.name = name
         self.version = version
@@ -21,7 +27,7 @@ struct GithubRepository {
 }
 
 extension GithubRepository: Identifiable {
-    var id: String { "\(name)_\(version)_\(author ?? "unkown")_\(url?.absoluteString ?? "unknown")" }
+    var id: String { "\(name)_\(version)" }
 }
 
 extension GithubRepository: Hashable {

@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum PackageManager {
+enum PackageManager: String {
     case cocoaPods
     case carthage
     case swiftPm
