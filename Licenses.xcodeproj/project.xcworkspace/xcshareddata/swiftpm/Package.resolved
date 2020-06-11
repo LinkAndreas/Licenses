@@ -6,26 +6,8 @@
         "repositoryURL": "https://github.com/LinkAndreas/Aphrodite.git",
         "state": {
           "branch": null,
-          "revision": "32d057c7a05bbdde2a648efbed4ee4c4b2199016",
-          "version": "0.2.0"
-        }
-      },
-      {
-        "package": "swift-case-paths",
-        "repositoryURL": "https://github.com/pointfreeco/swift-case-paths",
-        "state": {
-          "branch": null,
-          "revision": "fb733d87aabb5b053ad782902f2f3d67e0a65ac5",
-          "version": "0.1.1"
-        }
-      },
-      {
-        "package": "swift-composable-architecture",
-        "repositoryURL": "https://github.com/pointfreeco/swift-composable-architecture.git",
-        "state": {
-          "branch": null,
-          "revision": "1005bbd39347f5cc6e993d25a1c0ffe52b8f42d4",
-          "version": "0.3.0"
+          "revision": "3c13d3a4a36feb9e9e9983b31c6504e13ca91c38",
+          "version": "0.2.2"
         }
       }
     ]

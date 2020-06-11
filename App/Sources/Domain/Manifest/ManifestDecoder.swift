@@ -2,7 +2,7 @@
 
 enum ManifestDecoder {
     static func decode(_ manifests: [Manifest]) -> [GithubRepository] {
-        return manifests.map(decode).flatMap { $0 }
+        return [GithubRepository](Set<GithubRepository>(manifests.map(decode).flatMap { $0 }))
     }
 
     static func decode(_ manifest: Manifest) -> [GithubRepository] {

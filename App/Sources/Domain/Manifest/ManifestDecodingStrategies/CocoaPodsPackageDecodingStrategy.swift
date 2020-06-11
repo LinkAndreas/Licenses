@@ -24,7 +24,10 @@ extension CocoaPodsManifestDecodingStrategy {
                 return info
             }
 
-            let name: String = podManifest.substring(with: match.range(at: 1))
+            guard
+                let name: String = podManifest.substring(with: match.range(at: 1)).components(separatedBy: "/").first
+            else { return info }
+
             let version: String = podManifest.substring(with: match.range(at: 2))
 
             var info = info
