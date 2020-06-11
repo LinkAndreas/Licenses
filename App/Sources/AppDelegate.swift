@@ -8,10 +8,15 @@ import SwiftUI
 class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
-    private var cancellables: Set<AnyCancellable> = .init()
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let contentView: some View = ArtefactPickerView()
+        let store = Store(
+          initialState: AppState(),
+          reducer: ReducerFactory.appReducer,
+          environment: AppEnvironment()
+        )
+        let contentView: some View = FileDropArea<ContentView>(
+            content: { ContentView() }
+        ).environmentObject(store)
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 800, height: 600),
@@ -24,24 +29,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.title = "Licenses"
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
-
-        getLicenses()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         return
-    }
-
-    private func getLicenses() {
-        let repository: GitHubRepository = .init(name: "Eureka", author: "xmartlabs")
-
-        API.call(GitHub.license(repository), mapper: GitHubLicenseModelMapper.map)
-            .sink(
-                receiveCompletion: { _ in },
-                receiveValue: { license in
-                    print(license.decodedContent ?? "")
-                }
-            )
-            .store(in: &cancellables)
     }
 }

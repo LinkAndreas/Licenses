@@ -3,12 +3,12 @@
 import Aphrodite
 import Foundation
 
-enum GitHub: NetworkTarget {
-    case license(GitHubRepository)
+enum CocoaPodsTrunk: NetworkTarget {
+    case pod(name: String, version: String)
 }
 
-extension GitHub {
-    var baseUrl: String { "https://api.github.com" }
+extension CocoaPodsTrunk {
+    var baseUrl: String { "https://trunk.cocoapods.org/api/v1/" }
 
     var requestTimeoutInterval: TimeInterval { 30 }
 
@@ -16,21 +16,21 @@ extension GitHub {
 
     var path: String {
         switch self {
-        case let .license(repository):
-            return "/repos/\(repository.author)/\(repository.name)/license"
+        case let .pod(name, version):
+            return "pods/\(name)/versions/\(version)"
         }
     }
 
     var method: HttpMethod {
         switch self {
-        case .license:
+        case .pod:
             return .get
         }
     }
 
     var task: HttpTask {
         switch self {
-        case .license:
+        case .pod:
             return .requestPlain
         }
     }

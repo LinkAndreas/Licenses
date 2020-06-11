@@ -2,8 +2,8 @@
 
 import Foundation
 
-enum GitHubLicenseModelMapper {
-    static func map(from entity: GitHubLicenseEntity) -> GitHubLicense {
+enum GithubLicenseModelMapper {
+    static func map(from entity: GithubLicenseEntity) -> GithubLicense {
         return .init(
             name: entity.name,
             path: entity.path,
@@ -21,7 +21,7 @@ enum GitHubLicenseModelMapper {
     }
 }
 
-extension GitHubLicenseModelMapper {
+extension GithubLicenseModelMapper {
     private static func decode(content: String?) -> String? {
         guard
             let content: String = content,
