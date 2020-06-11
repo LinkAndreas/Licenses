@@ -26,7 +26,7 @@ struct Pin: Decodable, Equatable {
     struct State: Decodable, Equatable {
         let branch: String?
         let revision: String?
-        let version: String?
+        let version: String
     }
 
     let package: String
