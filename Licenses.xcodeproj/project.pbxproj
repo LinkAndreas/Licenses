@@ -888,7 +888,7 @@
 			repositoryURL = "https://github.com/LinkAndreas/Aphrodite.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.2;
+				minimumVersion = 0.2.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
