@@ -9,14 +9,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let store = Store(
-          initialState: AppState(),
-          reducer: ReducerFactory.appReducer,
-          environment: AppEnvironment()
-        )
         let contentView: some View = FileDropArea<ContentView>(
             content: { ContentView() }
-        ).environmentObject(store)
+        ).environmentObject(StoreProvider.shared.store)
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 800, height: 600),
