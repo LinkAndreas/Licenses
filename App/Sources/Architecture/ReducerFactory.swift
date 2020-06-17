@@ -32,7 +32,9 @@ enum ReducerFactory {
         case let .fetchRepositoryMetaDataIfNeeded(repository):
             guard let repository = repository, repository.license == nil else { return .none }
 
-            return Just(repository)
+            return .concatenate(
+                .action(.startedProcessing(repository)),
+                Just(repository)
                 .flatMap { (repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> in
                     guard
                         repository.packageManager == .cocoaPods,
@@ -45,7 +47,9 @@ enum ReducerFactory {
                 .map(AppAction.updateRepository)
                 .receive(on: RunLoop.main)
                 .eraseToSideEffect()
-                .cancellable(id: "fetchRepositoryMetaData")
+                .cancellable(id: "fetchRepositoryMetaData"),
+                .action(.stoppedProcessing(repository))
+            )
 
         case let .selectRepository(repository):
             state.selectedRepository = repository
@@ -54,6 +58,18 @@ enum ReducerFactory {
 
         case let .changeIsTargeted(isTargeted):
             state.isTargeted = isTargeted
+            return .none
+
+        case let .updateGithubRequestStatus(status):
+            state.githubRequestStatus = status
+            return .none
+
+        case let .startedProcessing(repository):
+            state.processingUUIDs.insert(repository.id)
+            return .none
+
+        case let .stoppedProcessing(repository):
+            state.processingUUIDs.remove(repository.id)
             return .none
         }
     }

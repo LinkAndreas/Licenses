@@ -9,4 +9,7 @@ enum AppAction: Equatable {
     case selectRepository(GithubRepository?)
     case fetchRepositoryMetaDataIfNeeded(GithubRepository?)
     case changeIsTargeted(Bool)
+    case updateGithubRequestStatus(GithubRequestStatus)
+    case startedProcessing(GithubRepository)
+    case stoppedProcessing(GithubRepository)
 }

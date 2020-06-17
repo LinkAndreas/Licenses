@@ -18,7 +18,7 @@ struct RepositoryDetail: View {
                                 viewStore.selectedRepository?.author.map { Text($0) }
                                 viewStore.selectedRepository?.url.map { Text($0.absoluteString) }
 
-                                if viewStore.selectedRepository?.license == nil {
+                                if viewStore.processingUUIDs.contains(viewStore.selectedRepository!.id) {
                                     ActivityIndicator(isAnimating: .constant(true), style: .spinning)
                                 } else {
                                     viewStore.selectedRepository?.license?.name.map { Text($0) }

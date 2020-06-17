@@ -18,8 +18,12 @@
 		383CF8A024911EA3006B2A60 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF89F24911EA3006B2A60 /* ActivityIndicator.swift */; };
 		383CF8A224914FA5006B2A60 /* SideEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF8A124914FA5006B2A60 /* SideEffect.swift */; };
 		383CF8A424916D35006B2A60 /* ReducerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF8A324916D35006B2A60 /* ReducerFactory.swift */; };
-		383CF8A8249218AD006B2A60 /* GithubErrorResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CF8A7249218AD006B2A60 /* GithubErrorResponseEntity.swift */; };
 		383CF8AB24923492006B2A60 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 383CF8AA24923492006B2A60 /* Aphrodite */; };
+		383F3C62249A7C9F00ED4CEC /* RemainingGithubRequestsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F3C61249A7C9F00ED4CEC /* RemainingGithubRequestsPlugin.swift */; };
+		383F3C64249A7F8900ED4CEC /* StoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F3C63249A7F8900ED4CEC /* StoreProvider.swift */; };
+		383F3C66249A80F000ED4CEC /* GithubRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F3C65249A80F000ED4CEC /* GithubRequestStatus.swift */; };
+		383F3C68249A8A6A00ED4CEC /* GithubRequestLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F3C67249A8A6A00ED4CEC /* GithubRequestLimitView.swift */; };
+		383F3C6A249A8CA900ED4CEC /* GithubRequestStatusFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F3C69249A8CA900ED4CEC /* GithubRequestStatusFactory.swift */; };
 		3856C97D2483F76D005BE348 /* FileDropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3856C97C2483F76D005BE348 /* FileDropArea.swift */; };
 		385DD9BF2484073A006BA462 /* ManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9BE2484073A006BA462 /* ManifestDecodingStrategy.swift */; };
 		385DD9C12484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */; };
@@ -94,7 +98,11 @@
 		383CF89F24911EA3006B2A60 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		383CF8A124914FA5006B2A60 /* SideEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideEffect.swift; sourceTree = "<group>"; };
 		383CF8A324916D35006B2A60 /* ReducerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerFactory.swift; sourceTree = "<group>"; };
-		383CF8A7249218AD006B2A60 /* GithubErrorResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubErrorResponseEntity.swift; sourceTree = "<group>"; };
+		383F3C61249A7C9F00ED4CEC /* RemainingGithubRequestsPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingGithubRequestsPlugin.swift; sourceTree = "<group>"; };
+		383F3C63249A7F8900ED4CEC /* StoreProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreProvider.swift; sourceTree = "<group>"; };
+		383F3C65249A80F000ED4CEC /* GithubRequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequestStatus.swift; sourceTree = "<group>"; };
+		383F3C67249A8A6A00ED4CEC /* GithubRequestLimitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequestLimitView.swift; sourceTree = "<group>"; };
+		383F3C69249A8CA900ED4CEC /* GithubRequestStatusFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRequestStatusFactory.swift; sourceTree = "<group>"; };
 		3856C97C2483F76D005BE348 /* FileDropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDropArea.swift; sourceTree = "<group>"; };
 		385DD9BE2484073A006BA462 /* ManifestDecodingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestDecodingStrategy.swift; sourceTree = "<group>"; };
 		385DD9C02484E08E006BA462 /* CocoaPodsRepositoryProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocoaPodsRepositoryProcessor.swift; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 			children = (
 				3856C97C2483F76D005BE348 /* FileDropArea.swift */,
 				38CFB8D0248D204C00097441 /* ContentView.swift */,
+				383F3C67249A8A6A00ED4CEC /* GithubRequestLimitView.swift */,
 				385DD9D42484F1BB006BA462 /* RespositoryList.swift */,
 				383CF89F24911EA3006B2A60 /* ActivityIndicator.swift */,
 				38CFB8CE248D201700097441 /* RepositoryDetail.swift */,
@@ -214,6 +223,15 @@
 				3829E8D924630B570075D1E6 /* LicensesTests.swift */,
 			);
 			path = LicensesTests;
+			sourceTree = "<group>";
+		};
+		383F3C60249A7C2000ED4CEC /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				383F3C61249A7C9F00ED4CEC /* RemainingGithubRequestsPlugin.swift */,
+				383F3C69249A8CA900ED4CEC /* GithubRequestStatusFactory.swift */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		386D5EAF246816A0008C5C21 /* Manifest */ = {
@@ -311,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				3829E8C224630B560075D1E6 /* AppDelegate.swift */,
+				383F3C63249A7F8900ED4CEC /* StoreProvider.swift */,
 				38CFB8C7248CCA7E00097441 /* Architecture */,
 				38D1A7352465A03800E63302 /* Domain */,
 				38E81977246AFDFC00C06758 /* FileAccess */,
@@ -365,6 +384,7 @@
 				38E81955246AEC5500C06758 /* API.swift */,
 				38E81957246AEC7900C06758 /* DomainErrorFactory.swift */,
 				38E8195C246AF3B400C06758 /* Entities */,
+				383F3C60249A7C2000ED4CEC /* Plugins */,
 				38E81959246AF2B200C06758 /* Targets */,
 			);
 			path = Networking;
@@ -384,7 +404,6 @@
 			isa = PBXGroup;
 			children = (
 				38E8195A246AF2C100C06758 /* GithubLicenseEntity.swift */,
-				383CF8A7249218AD006B2A60 /* GithubErrorResponseEntity.swift */,
 				385DD9D02484E633006BA462 /* PodSpecEntity.swift */,
 				38E81967246AF8D600C06758 /* LicenseEntity.swift */,
 				38E81969246AF8EE00C06758 /* LinksEntity.swift */,
@@ -408,6 +427,7 @@
 				38E8196F246AF9F400C06758 /* Links.swift */,
 				38E81971246AFAB100C06758 /* LinksModelMapper.swift */,
 				386D5E9F2467E6E7008C5C21 /* Repository.swift */,
+				383F3C65249A80F000ED4CEC /* GithubRequestStatus.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -571,7 +591,9 @@
 			files = (
 				3856C97D2483F76D005BE348 /* FileDropArea.swift in Sources */,
 				38E8195E246AF3C800C06758 /* Github.swift in Sources */,
+				383F3C64249A7F8900ED4CEC /* StoreProvider.swift in Sources */,
 				3829E8C324630B560075D1E6 /* AppDelegate.swift in Sources */,
+				383F3C66249A80F000ED4CEC /* GithubRequestStatus.swift in Sources */,
 				382FCFBE248F6E86007A7688 /* Store.swift in Sources */,
 				383CF8A024911EA3006B2A60 /* ActivityIndicator.swift in Sources */,
 				3889BCC924631089002F40ED /* Images.swift in Sources */,
@@ -594,11 +616,11 @@
 				386D5EAA2468166D008C5C21 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				385DD9C32484E13D006BA462 /* TrunkResponse.swift in Sources */,
 				38E8195B246AF2C100C06758 /* GithubLicenseEntity.swift in Sources */,
+				383F3C6A249A8CA900ED4CEC /* GithubRequestStatusFactory.swift in Sources */,
 				38CFB8CD248CCB7C00097441 /* AppEnvironment.swift in Sources */,
 				386D5EB1246816EA008C5C21 /* RegexPatterns.swift in Sources */,
 				386D5ECA246824C6008C5C21 /* ManifestDecoder.swift in Sources */,
 				38856DE92482AC9000C10D19 /* GithubRepositoryUrlDecoder.swift in Sources */,
-				383CF8A8249218AD006B2A60 /* GithubErrorResponseEntity.swift in Sources */,
 				38E8196E246AF9EA00C06758 /* License.swift in Sources */,
 				385DD9C72484E176006BA462 /* TrunkResponseEntity.swift in Sources */,
 				382FCFC2248FC6E5007A7688 /* ViewStoreProvider.swift in Sources */,
@@ -611,12 +633,14 @@
 				383CF8A224914FA5006B2A60 /* SideEffect.swift in Sources */,
 				385DD9D52484F1BB006BA462 /* RespositoryList.swift in Sources */,
 				385DD9C92484E1AC006BA462 /* CocoaPodsTrunk.swift in Sources */,
+				383F3C62249A7C9F00ED4CEC /* RemainingGithubRequestsPlugin.swift in Sources */,
 				385DD9CF2484E5BD006BA462 /* JSONEncoderExtensions.swift in Sources */,
 				38CFB8C9248CCA8B00097441 /* AppState.swift in Sources */,
 				386D5EAE24681693008C5C21 /* PackageManager.swift in Sources */,
 				38E81968246AF8D600C06758 /* LicenseEntity.swift in Sources */,
 				38CFB8D1248D204C00097441 /* ContentView.swift in Sources */,
 				382FCFC4248FC806007A7688 /* ViewStore.swift in Sources */,
+				383F3C68249A8A6A00ED4CEC /* GithubRequestLimitView.swift in Sources */,
 				38CFB8CB248CCACA00097441 /* AppAction.swift in Sources */,
 				386D5EA02467E6E7008C5C21 /* Repository.swift in Sources */,
 				383CF8A424916D35006B2A60 /* ReducerFactory.swift in Sources */,
@@ -887,8 +911,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LinkAndreas/Aphrodite.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.3;
+				branch = "feature/Adapt-error-handling";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
