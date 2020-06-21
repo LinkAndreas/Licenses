@@ -2,7 +2,7 @@
 
 import Foundation
 
-enum PackageManager: String {
+enum PackageManager: String, Equatable {
     case cocoaPods
     case carthage
     case swiftPm
@@ -11,6 +11,7 @@ enum PackageManager: String {
 struct Manifest: Equatable {
     var packageManager: PackageManager
     var content: String
+    var filePath: URL
 
     init?(fromFilePath filePath: URL) {
         switch filePath.lastPathComponent {
@@ -30,5 +31,6 @@ struct Manifest: Equatable {
         guard let content = try? String(contentsOf: filePath, encoding: .utf8) else { return nil }
 
         self.content = content
+        self.filePath = filePath
     }
 }
