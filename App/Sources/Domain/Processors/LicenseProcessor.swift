@@ -5,7 +5,10 @@ import Foundation
 
 enum LicenseProcessor {
     static func process(repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> {
-        guard let (name, author) = GithubRepositoryUrlDecoder.decode(repositoryURL: repository.url) else {
+        guard
+            repository.license == nil,
+            let (name, author) = GithubRepositoryUrlDecoder.decode(repositoryURL: repository.url)
+        else {
             return Just<GithubRepository>(repository)
                 .eraseToAnyPublisher()
         }

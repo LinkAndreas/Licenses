@@ -1,12 +1,28 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import Foundation
 
 enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
-    static func decode(content: String) -> [GithubRepository] {
-        guard let versionInfo: [String: String] = makeVersionInfo(from: content) else { return [] }
+    static private let dispatchQueue: DispatchQueue = .init(label: "CocoaPodsManifestDecodingDispatchQueue")
 
-        return versionInfo.map { GithubRepository(packageManager: .cocoaPods, name: $0, version: $1) }
+    static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
+        let subject: PassthroughSubject<GithubRepository, Never> = .init()
+
+        dispatchQueue.async {
+            guard let versionInfo: [String: String] = makeVersionInfo(from: content) else { return }
+
+            for (name, version) in versionInfo {
+                let repository: GithubRepository = .init(packageManager: .cocoaPods, name: name, version: version)
+                subject.send(repository)
+            }
+
+            subject.send(completion: .finished)
+        }
+
+        return subject
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
 }
 
