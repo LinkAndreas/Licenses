@@ -5,10 +5,9 @@ import Foundation
 
 enum CocoaPodsRepositoryProcessor {
     static func process(repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> {
-        precondition(
-            repository.packageManager == .cocoaPods,
-            "The given repository is not a cocoaPods repository"
-        )
+        guard repository.packageManager == .cocoaPods, repository.url == nil else {
+            return Just(repository).eraseToAnyPublisher()
+        }
 
         return API.call(
             CocoaPodsTrunk.pod(name: repository.name, version: repository.version),
