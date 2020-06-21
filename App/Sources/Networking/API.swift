@@ -13,6 +13,7 @@ let API: Aphrodite<DomainErrorFactory> = .init(
             NetworkLoggerPlugin()
         ],
         .github: [
+            AuthPlugin(),
             RemainingGithubRequestsPlugin()
         ]
     ]
