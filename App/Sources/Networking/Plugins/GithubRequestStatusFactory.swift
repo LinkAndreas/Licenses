@@ -5,9 +5,9 @@ import Foundation
 enum GithubRequestStatusFactory {
     static func make(from headerFields: [AnyHashable: Any]) -> GithubRequestStatus? {
         guard
-            let limitString: String = headerFields["X-Ratelimit-Limit"] as? String,
-            let remainingString: String = headerFields["X-Ratelimit-Remaining"] as? String,
-            let resetIntervalString: String = headerFields["X-Ratelimit-Reset"] as? String,
+            let limitString: String = headerFields["X-RateLimit-Limit"] as? String,
+            let remainingString: String = headerFields["X-RateLimit-Remaining"] as? String,
+            let resetIntervalString: String = headerFields["X-RateLimit-Reset"] as? String,
             let limit: Int = Int(limitString),
             let remaining: Int = Int(remainingString),
             let resetInterval: TimeInterval = TimeInterval(resetIntervalString)
