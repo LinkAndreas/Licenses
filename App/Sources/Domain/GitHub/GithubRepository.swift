@@ -3,10 +3,10 @@
 import Foundation
 
 struct GithubRepository: Identifiable {
-    let id: UUID
     let packageManager: PackageManager
     var name: String
-    var version: String
+    let version: String
+    var id: UUID = .init()
 
     var author: String?
     var url: URL?
@@ -17,14 +17,15 @@ struct GithubRepository: Identifiable {
         name: String,
         version: String,
         author: String? = nil,
-        url: URL? = nil
+        url: URL? = nil,
+        license: GithubLicense? = nil
     ) {
-        self.id = .init()
         self.packageManager = packageManager
         self.name = name
         self.version = version
         self.author = author
         self.url = url
+        self.license = license
     }
 }
 
@@ -43,6 +44,7 @@ extension GithubRepository: Equatable {
 extension GithubRepository: CustomStringConvertible {
     var description: String {
         var result: [String] = []
+        result += ["\(packageManager.rawValue)"]
         result += ["\(name)"]
         result += ["\(version)"]
         author.map { result += ["\($0)"] }

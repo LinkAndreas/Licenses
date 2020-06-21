@@ -7,6 +7,7 @@ struct AppState: Equatable {
     var repositories: [GithubRepository]
     var selectedRepository: GithubRepository?
     var githubRequestStatus: GithubRequestStatus?
+    var progress: Float?
     var processingUUIDs: Set<UUID>
 
     init(
@@ -14,12 +15,14 @@ struct AppState: Equatable {
         repositories: [GithubRepository] = [],
         selectedRepository: GithubRepository? = nil,
         githubRequestStatus: GithubRequestStatus? = nil,
-        processingUUIDs: Set<UUID> = []
+        progress: Float? = nil,
+        processingUUIDs: Set<UUID> = .init()
     ) {
         self.isTargeted = isTargeted
         self.repositories = repositories
         self.selectedRepository = selectedRepository
         self.githubRequestStatus = githubRequestStatus
+        self.progress = progress
         self.processingUUIDs = processingUUIDs
     }
 }
