@@ -17,7 +17,7 @@ enum CocoaPodsRepositoryProcessor {
         .flatMap(maxPublishers: .max(1)) {
             API.call(Generic.data(url: $0), mapper: { (entity: PodSpecEntity) in entity })
         }
-        .map { $0.source.git }
+        .map(\.source.git)
         .map { repositoryUrl in
             guard let url = URL(string: repositoryUrl) else { return repository }
 

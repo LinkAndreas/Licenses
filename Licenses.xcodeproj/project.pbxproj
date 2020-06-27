@@ -143,6 +143,8 @@
 		3864D6E624A770BD00A94E05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3864D6E824A770BD00A94E05 /* Localizable.strings */; };
 		3864D6EB24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
 		3864D6EC24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
+		388F5A0824A77BC800D2C098 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0724A77BC800D2C098 /* Manifest.swift */; };
+		388F5A0924A77BC800D2C098 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0724A77BC800D2C098 /* Manifest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +243,7 @@
 		3864D6E724A770BD00A94E05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3864D6E924A770CD00A94E05 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3864D6EA24A7717700A94E05 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		388F5A0724A77BC800D2C098 /* Manifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,12 +381,12 @@
 			children = (
 				3864D5AA24A768C900A94E05 /* LicensesApp.swift */,
 				3864D60224A7698800A94E05 /* StoreProvider.swift */,
-				3864D5F424A7698800A94E05 /* Globals */,
-				3864D5FA24A7698800A94E05 /* UI */,
-				3864D60324A7698800A94E05 /* Networking */,
 				3864D61624A7698800A94E05 /* Architecture */,
-				3864D62124A7698800A94E05 /* FileAccess */,
 				3864D62424A7698800A94E05 /* Domain */,
+				3864D62124A7698800A94E05 /* FileAccess */,
+				3864D5F424A7698800A94E05 /* Globals */,
+				3864D60324A7698800A94E05 /* Networking */,
+				3864D5FA24A7698800A94E05 /* UI */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -410,7 +413,6 @@
 		3864D5FA24A7698800A94E05 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3864D5FB24A7698800A94E05 /* FileDropArea.swift */,
 				3864D5FC24A7698800A94E05 /* RepositoryDetail.swift */,
 				3864D5FE24A7698800A94E05 /* ProgressBar.swift */,
 				3864D5FF24A7698800A94E05 /* RespositoryList.swift */,
@@ -501,11 +503,9 @@
 		3864D62424A7698800A94E05 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				3864D62524A7698800A94E05 /* Manifest */,
-				3864D62D24A7698800A94E05 /* RegexPatterns.swift */,
-				3864D62E24A7698800A94E05 /* Processors */,
 				3864D63124A7698800A94E05 /* GitHub */,
-				3864D63D24A7698800A94E05 /* PackageManager.swift */,
+				3864D62524A7698800A94E05 /* Manifest */,
+				3864D62E24A7698800A94E05 /* Processors */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -513,22 +513,15 @@
 		3864D62524A7698800A94E05 /* Manifest */ = {
 			isa = PBXGroup;
 			children = (
-				3864D62624A7698800A94E05 /* ManifestDecoder.swift */,
+				388F5A0724A77BC800D2C098 /* Manifest.swift */,
 				3864D62724A7698800A94E05 /* ManifestCollector.swift */,
-				3864D62824A7698800A94E05 /* ManifestDecodingStrategies */,
+				3864D62624A7698800A94E05 /* ManifestDecoder.swift */,
+				3864D62A24A7698800A94E05 /* ManifestDecodingStrategy.swift */,
+				3864D63D24A7698800A94E05 /* PackageManager.swift */,
+				3864D62D24A7698800A94E05 /* RegexPatterns.swift */,
+				3864D6ED24A77A5B00A94E05 /* Strategies */,
 			);
 			path = Manifest;
-			sourceTree = "<group>";
-		};
-		3864D62824A7698800A94E05 /* ManifestDecodingStrategies */ = {
-			isa = PBXGroup;
-			children = (
-				3864D62924A7698800A94E05 /* CarthageManifestDecodingStrategy.swift */,
-				3864D62A24A7698800A94E05 /* ManifestDecodingStrategy.swift */,
-				3864D62B24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift */,
-				3864D62C24A7698800A94E05 /* SwiftPmManifestDecodingStrategy.swift */,
-			);
-			path = ManifestDecodingStrategies;
 			sourceTree = "<group>";
 		};
 		3864D62E24A7698800A94E05 /* Processors */ = {
@@ -595,6 +588,7 @@
 		3864D6C424A7699F00A94E05 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3864D6EE24A77B4800A94E05 /* UI */,
 				3864D6D624A76CE500A94E05 /* Test.swift */,
 			);
 			path = Sources;
@@ -646,6 +640,24 @@
 				3864D5C724A768CB00A94E05 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		3864D6ED24A77A5B00A94E05 /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				3864D62924A7698800A94E05 /* CarthageManifestDecodingStrategy.swift */,
+				3864D62B24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift */,
+				3864D62C24A7698800A94E05 /* SwiftPmManifestDecodingStrategy.swift */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		3864D6EE24A77B4800A94E05 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3864D5FB24A7698800A94E05 /* FileDropArea.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -914,6 +926,7 @@
 				3864D69424A7698800A94E05 /* ManifestDecoder.swift in Sources */,
 				3864D65A24A7698800A94E05 /* ContentView.swift in Sources */,
 				3864D6B224A7698800A94E05 /* GithubRepositoryUrlDecoder.swift in Sources */,
+				388F5A0824A77BC800D2C098 /* Manifest.swift in Sources */,
 				3864D64C24A7698800A94E05 /* StringExtensions.swift in Sources */,
 				3864D6A424A7698800A94E05 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				3864D69624A7698800A94E05 /* ManifestCollector.swift in Sources */,
@@ -983,6 +996,7 @@
 				3864D69524A7698800A94E05 /* ManifestDecoder.swift in Sources */,
 				3864D65B24A7698800A94E05 /* ContentView.swift in Sources */,
 				3864D6B324A7698800A94E05 /* GithubRepositoryUrlDecoder.swift in Sources */,
+				388F5A0924A77BC800D2C098 /* Manifest.swift in Sources */,
 				3864D64D24A7698800A94E05 /* StringExtensions.swift in Sources */,
 				3864D6A524A7698800A94E05 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				3864D69724A7698800A94E05 /* ManifestCollector.swift in Sources */,
