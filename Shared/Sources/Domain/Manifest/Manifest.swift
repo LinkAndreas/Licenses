@@ -2,12 +2,6 @@
 
 import Foundation
 
-enum PackageManager: String, Equatable {
-    case cocoaPods
-    case carthage
-    case swiftPm
-}
-
 struct Manifest: Equatable {
     var packageManager: PackageManager
     var content: String
