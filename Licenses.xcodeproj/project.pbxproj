@@ -145,6 +145,8 @@
 		3864D6EC24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
 		388F5A0824A77BC800D2C098 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0724A77BC800D2C098 /* Manifest.swift */; };
 		388F5A0924A77BC800D2C098 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0724A77BC800D2C098 /* Manifest.swift */; };
+		388F5A0B24A7800B00D2C098 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0A24A7800B00D2C098 /* SettingsView.swift */; };
+		388F5A0C24A7800B00D2C098 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0A24A7800B00D2C098 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +246,7 @@
 		3864D6E924A770CD00A94E05 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3864D6EA24A7717700A94E05 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		388F5A0724A77BC800D2C098 /* Manifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
+		388F5A0A24A7800B00D2C098 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +658,7 @@
 		3864D6EE24A77B4800A94E05 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				388F5A0A24A7800B00D2C098 /* SettingsView.swift */,
 				3864D5FB24A7698800A94E05 /* FileDropArea.swift */,
 			);
 			path = UI;
@@ -937,6 +941,7 @@
 				3864D6B424A7698800A94E05 /* GithubLicense.swift in Sources */,
 				3864D6BC24A7698800A94E05 /* PackageManager.swift in Sources */,
 				3864D69C24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
+				388F5A0B24A7800B00D2C098 /* SettingsView.swift in Sources */,
 				3864D6B024A7698800A94E05 /* GithubRepository.swift in Sources */,
 				3864D66A24A7698800A94E05 /* RemainingGithubRequestsPlugin.swift in Sources */,
 				3864D6A024A7698800A94E05 /* RegexPatterns.swift in Sources */,
@@ -1007,6 +1012,7 @@
 				3864D6B524A7698800A94E05 /* GithubLicense.swift in Sources */,
 				3864D6BD24A7698800A94E05 /* PackageManager.swift in Sources */,
 				3864D69D24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
+				388F5A0C24A7800B00D2C098 /* SettingsView.swift in Sources */,
 				3864D6B124A7698800A94E05 /* GithubRepository.swift in Sources */,
 				3864D66B24A7698800A94E05 /* RemainingGithubRequestsPlugin.swift in Sources */,
 				3864D6A124A7698800A94E05 /* RegexPatterns.swift in Sources */,

@@ -4,7 +4,7 @@ import SwiftUI
 
 @main
 struct LicensesApp: App {
-    var body: some Scene {
+    @SceneBuilder var body: some Scene {
         WindowGroup {
             FileDropArea {
                 ContentView()
@@ -13,5 +13,11 @@ struct LicensesApp: App {
             .navigationTitle(L10n.appName)
             .environmentObject(StoreProvider.shared.store)
         }
+
+        #if os(macOS)
+        Settings {
+            SettingsView()
+        }
+        #endif
     }
 }

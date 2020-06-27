@@ -12,6 +12,19 @@ import Foundation
 internal enum L10n {
   /// Licenses
   internal static let appName = L10n.tr("Localizable", "app_name")
+
+  internal enum Settings {
+    /// Settings
+    internal static let title = L10n.tr("Localizable", "settings.title")
+    internal enum Section {
+      internal enum GithubAccessToken {
+        /// Please enter your personal access token
+        internal static let placeholder = L10n.tr("Localizable", "settings.section.github_access_token.placeholder")
+        /// GitHub Access Token
+        internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.title")
+      }
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name
