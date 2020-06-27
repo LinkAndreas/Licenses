@@ -7,53 +7,86 @@ enum ReducerFactory {
     static var appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, action, environment in
         switch action {
         case let .searchManifests(path):
-            return ManifestCollector.search(at: path)
-                .map(AppAction.processManifests)
-                .receive(on: RunLoop.main)
-                .eraseToSideEffect()
+            state.repositories = []
+            return .concatenate(
+                ManifestCollector.search(at: path)
+                    .flatMap(ManifestDecoder.decode)
+                    .map(AppAction.addRepository)
+                    .eraseToSideEffect(),
+                .action(.fetchLicenses)
+            )
 
-        case let .processManifests(manifests):
-            var repositories: [GithubRepository] = ManifestDecoder.decode(manifests)
-            repositories = [GithubRepository](Set<GithubRepository>(repositories))
-            state.repositories = repositories
-            return .action(.selectRepository(repositories.first))
-
-        case let .updateRepository(repository):
-            if let index = state.repositories.firstIndex(where: { $0.id == repository.id }) {
-                state.repositories[index] = repository
-
-                if state.selectedRepository?.id == repository.id {
-                    state.selectedRepository = repository
+        case let .addRepository(repository):
+            guard !state.repositories.contains(
+                where: {
+                    $0.name == repository.name
+                    && $0.version == repository.version
+                    && $0.packageManager == repository.packageManager
                 }
-            }
+            ) else { return .none }
 
+            state.repositories = (state.repositories + [repository]).sorted { $0.name < $1.name }
             return .none
 
-        case let .fetchRepositoryMetaDataIfNeeded(repository):
-            guard let repository = repository, repository.license == nil else { return .none }
-
-            return Just(repository)
-                .flatMap { (repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> in
-                    guard
-                        repository.packageManager == .cocoaPods,
-                        repository.url == nil
-                    else { return Just(repository).eraseToAnyPublisher() }
-
-                    return CocoaPodsRepositoryProcessor.process(repository: repository)
+        case .fetchLicenses:
+            state.processingUUIDs = Set<UUID>(state.repositories.filter({ $0.license == nil }).map(\.id))
+            let repositoryCount: Float = Float(state.repositories.count)
+            return state
+                .repositories
+                .enumerated()
+                .publisher
+                .flatMap(maxPublishers: .max(1)) { index, repository in
+                    Just(repository)
+                        .flatMap { (repository: GithubRepository) -> AnyPublisher<(GithubRepository, Float), Never> in
+                            CocoaPodsRepositoryProcessor.process(repository: repository)
+                                .map { ($0, (Float(index + 1) / repositoryCount)) }
+                                .eraseToAnyPublisher()
+                        }
+                        .flatMap { repository, progress in
+                            LicenseProcessor.process(repository: repository)
+                                .map { ($0, progress) }
+                                .eraseToAnyPublisher()
+                        }
+                        .map(AppAction.finishedProcessingRepository)
+                        .receive(on: RunLoop.main)
+                        .eraseToSideEffect()
+                        .cancellable(id: "fetchLicenses")
                 }
-                .flatMap(LicenseProcessor.process)
-                .map(AppAction.updateRepository)
-                .receive(on: RunLoop.main)
                 .eraseToSideEffect()
-                .cancellable(id: "fetchRepositoryMetaData")
+
+        case let .finishedProcessingRepository(repository, progress):
+            state.processingUUIDs.remove(repository.id)
+            if let index = state.repositories.firstIndex(where: { $0.id == repository.id }) {
+                state.repositories[index] = repository
+            }
+
+            return progress == 1.0 ? .concatenate(
+                .action(.setProgress(progress)),
+                Just(AppAction.setProgress(nil)).delay(for: 1, scheduler: RunLoop.main).eraseToSideEffect()
+            ) : .action(.setProgress(progress))
+
+        case let .setProgress(progress):
+            state.progress = progress
+            return .none
 
         case let .selectRepository(repository):
             state.selectedRepository = repository
-
-            return .action(.fetchRepositoryMetaDataIfNeeded(repository))
+            return .none
 
         case let .changeIsTargeted(isTargeted):
             state.isTargeted = isTargeted
+            return .none
+
+        case let .updateGithubRequestStatus(status):
+            state.githubRequestStatus = status
+            return .none
+
+        case let .startedProcessing(repository):
+            state.processingUUIDs.insert(repository.id)
+            return .none
+
+        case let .stoppedProcessing(repository):
+            state.processingUUIDs.remove(repository.id)
             return .none
         }
     }

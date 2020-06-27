@@ -1,25 +1,41 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import Foundation
 
 enum CarthageManifestDecodingStrategy: ManifestDecodingStrategy {
-    static func decode(content: String) -> [GithubRepository] {
+    static private let dispatchQueue: DispatchQueue = .init(label: "CarthageManifestDecodingDispatchQueue")
+
+    static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
+        let subject: PassthroughSubject<GithubRepository, Never> = .init()
         let regex: NSRegularExpression = NSRegularExpression(RegexPatterns.carthage)
         let nsRange: NSRange = .init(location: 0, length: content.count)
         let matches: [NSTextCheckingResult] = regex.matches(in: content, options: [], range: nsRange)
 
-        let result: [GithubRepository?] = matches.map { match in
-            guard match.numberOfRanges == 4 else { return nil }
+        dispatchQueue.async {
+            for match in matches {
+                guard match.numberOfRanges == 4 else { return }
 
-            let name: String = (content as NSString).substring(with: match.range(at: 2))
-            let author: String = (content as NSString).substring(with: match.range(at: 1))
-            let version: String = makeVersion(from: content, and: match)
-            let url: URL = GithubRepositoryUrlEncoder.encode(name: name, author: author)
+                let name: String = (content as NSString).substring(with: match.range(at: 2))
+                let author: String = (content as NSString).substring(with: match.range(at: 1))
+                let version: String = makeVersion(from: content, and: match)
+                let url: URL = GithubRepositoryUrlEncoder.encode(name: name, author: author)
+                let repository: GithubRepository = .init(
+                    packageManager: .carthage,
+                    name: name,
+                    version: version,
+                    author: author,
+                    url: url
+                )
+                subject.send(repository)
+            }
 
-            return .init(packageManager: .carthage, name: name, version: version, author: author, url: url)
+            subject.send(completion: .finished)
         }
 
-        return result.compactMap { $0 }
+        return subject
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
 }
 
