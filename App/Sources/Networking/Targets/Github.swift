@@ -12,7 +12,7 @@ extension Github {
 
     var requestTimeoutInterval: TimeInterval { 30 }
 
-    var usedPlugins: [NetworkPluginType] { [.universal] }
+    var usedPlugins: [NetworkPluginType] { [.universal, .github] }
 
     var path: String {
         switch self {

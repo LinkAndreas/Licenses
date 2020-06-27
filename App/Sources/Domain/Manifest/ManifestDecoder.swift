@@ -1,11 +1,9 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-enum ManifestDecoder {
-    static func decode(_ manifests: [Manifest]) -> [GithubRepository] {
-        return [GithubRepository](Set<GithubRepository>(manifests.map(decode).flatMap { $0 }))
-    }
+import Combine
 
-    static func decode(_ manifest: Manifest) -> [GithubRepository] {
+enum ManifestDecoder {
+    static func decode(_ manifest: Manifest) -> AnyPublisher<GithubRepository, Never> {
         switch manifest.packageManager {
         case .carthage:
             return CarthageManifestDecodingStrategy.decode(content: manifest.content)

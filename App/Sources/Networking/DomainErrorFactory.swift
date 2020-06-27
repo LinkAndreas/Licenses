@@ -4,51 +4,31 @@ import Aphrodite
 import Foundation
 
 enum DomainError: Error {
-    case encoding(EncodingError)
-    case decoding(DecodingError)
-    case client(HTTPURLResponse, Int)
-    case server(HTTPURLResponse, Int)
-    case unauthorized(HTTPURLResponse)
-    case underlying(HTTPURLResponse, Error)
-    case forbidden(HTTPURLResponse)
-    case notFound(HTTPURLResponse)
-    case notConnectedToInternet
+    case forbidden(HTTPURLResponse, Data)
     case serviceCancelled
+    case notConnectedToInternet
+    case githubRateLimitExceeded(GithubRequestStatus)
     case unexpected
 }
 
 enum DomainErrorFactory: AphroditeDomainErrorFactory {
-    static func make(from error: AphroditeError) -> DomainError { // swiftlint:disable:this cyclomatic_complexity
+    static func make(from error: AphroditeError) -> DomainError {
         switch error {
-        case let .underlying(response, error):
-            return .underlying(response, error)
+        case let .forbidden(response, data):
+            guard
+                let status: GithubRequestStatus = GithubRequestStatusFactory.make(from: response.allHeaderFields),
+                status.remaining == 0
+            else {
+                return .forbidden(response, data)
+            }
 
-        case let .unauthorized(response):
-            return .unauthorized(response)
-
-        case let .forbidden(response):
-            return .forbidden(response)
-
-        case let .notFound(response):
-            return .notFound(response)
-
-        case let .encoding(error):
-            return .encoding(error)
-
-        case let .decoding(error):
-            return .decoding(error)
-
-        case let .client(response, statusCode):
-            return .client(response, statusCode)
-
-        case let .server(response, statusCode):
-            return .server(response, statusCode)
-
-        case .notConnectedToInternet:
-            return .notConnectedToInternet
+            return .githubRateLimitExceeded(status)
 
         case .serviceCancelled:
             return .serviceCancelled
+
+        case .notConnectedToInternet:
+            return .notConnectedToInternet
 
         default:
             return .unexpected

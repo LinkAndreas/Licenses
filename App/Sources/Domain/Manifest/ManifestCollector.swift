@@ -4,31 +4,34 @@ import Combine
 import Foundation
 
 enum ManifestCollector {
-    static let dispatchQueue = DispatchQueue(label: "SearchTasks", qos: .userInitiated)
+    static private let dispatchQueue: DispatchQueue = .init(label: "ManifestSearchQueue")
 
-    static func search(at path: URL) -> AnyPublisher<[Manifest], Never> {
-        performSearchTask(at: path)
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-    }
+    static func search(at filePath: URL) -> AnyPublisher<Manifest, Never> {
+        let manifestSubject: PassthroughSubject<Manifest, Never> = .init()
+        dispatchQueue.async {
+            var isDirectory: ObjCBool = false
+            let fileManager: FileManager = FileManager.default
 
-    private static func performSearchTask(at filePath: URL) -> Future<[Manifest], Never> {
-        var isDirectory: ObjCBool = false
-        let fileManager: FileManager = .init()
-
-        return Future<[Manifest], Never> { resolve in
-            guard
-                fileManager.fileExists(atPath: filePath.path, isDirectory: &isDirectory)
-            else {
-                return resolve(.success([]))
-            }
+            guard fileManager.fileExists(atPath: filePath.path, isDirectory: &isDirectory) else { return }
 
             if isDirectory.boolValue {
                 let enumerator = fileManager.enumerator(at: filePath, includingPropertiesForKeys: nil)
-                resolve(.success(enumerator?.allObjects.compactMap({ $0 as? URL }).compactMap(Manifest.init) ?? []))
+                while let nextFilePath: URL = enumerator?.nextObject() as? URL {
+                    guard let manifest = Manifest(fromFilePath: nextFilePath) else { continue }
+
+                    manifestSubject.send(manifest)
+                }
             } else {
-                resolve(.success(Manifest(fromFilePath: filePath).flatMap { return [$0] } ?? []))
+                guard let manifest = Manifest(fromFilePath: filePath) else { return }
+
+                manifestSubject.send(manifest)
             }
+
+            manifestSubject.send(completion: .finished)
         }
+
+        return manifestSubject
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
 }
