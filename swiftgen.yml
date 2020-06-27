@@ -1,0 +1,12 @@
+strings:
+  inputs: Shared/Resources/en.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: Shared/Generated/SwiftGen/Strings.swift
+xcassets:
+  inputs:
+    - Shared/Resources/Images.xcassets
+    - Shared/Resources/Colors.xcassets
+  outputs:
+    - templateName: swift5
+      output: Shared/Generated/SwiftGen/Assets.swift
