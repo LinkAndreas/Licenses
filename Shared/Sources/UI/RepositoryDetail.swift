@@ -19,7 +19,7 @@ struct RepositoryDetail: View {
                                 viewStore.selectedRepository?.url.map { Text($0.absoluteString) }
 
                                 if viewStore.processingUUIDs.contains(viewStore.selectedRepository!.id) {
-                                    ActivityIndicator(isAnimating: .constant(true), style: .spinning)
+                                    ProgressView()
                                 } else {
                                     viewStore.selectedRepository?.license?.name.map { Text($0) }
                                     viewStore.selectedRepository?.license?.decodedContent.map { Text($0) }
