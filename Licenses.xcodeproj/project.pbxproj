@@ -35,8 +35,6 @@
 		3864D65B24A7698800A94E05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60024A7698800A94E05 /* ContentView.swift */; };
 		3864D65C24A7698800A94E05 /* GithubRequestLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60124A7698800A94E05 /* GithubRequestLimitView.swift */; };
 		3864D65D24A7698800A94E05 /* GithubRequestLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60124A7698800A94E05 /* GithubRequestLimitView.swift */; };
-		3864D65E24A7698800A94E05 /* StoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60224A7698800A94E05 /* StoreProvider.swift */; };
-		3864D65F24A7698800A94E05 /* StoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60224A7698800A94E05 /* StoreProvider.swift */; };
 		3864D66024A7698800A94E05 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60524A7698800A94E05 /* Github.swift */; };
 		3864D66124A7698800A94E05 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60524A7698800A94E05 /* Github.swift */; };
 		3864D66224A7698800A94E05 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D60624A7698800A94E05 /* CocoaPodsTrunk.swift */; };
@@ -67,24 +65,6 @@
 		3864D67B24A7698800A94E05 /* GithubLicenseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61424A7698800A94E05 /* GithubLicenseEntity.swift */; };
 		3864D67C24A7698800A94E05 /* TrunkResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61524A7698800A94E05 /* TrunkResponseEntity.swift */; };
 		3864D67D24A7698800A94E05 /* TrunkResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61524A7698800A94E05 /* TrunkResponseEntity.swift */; };
-		3864D67E24A7698800A94E05 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61724A7698800A94E05 /* AppState.swift */; };
-		3864D67F24A7698800A94E05 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61724A7698800A94E05 /* AppState.swift */; };
-		3864D68024A7698800A94E05 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61824A7698800A94E05 /* Reducer.swift */; };
-		3864D68124A7698800A94E05 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61824A7698800A94E05 /* Reducer.swift */; };
-		3864D68224A7698800A94E05 /* ViewStoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61924A7698800A94E05 /* ViewStoreProvider.swift */; };
-		3864D68324A7698800A94E05 /* ViewStoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61924A7698800A94E05 /* ViewStoreProvider.swift */; };
-		3864D68424A7698800A94E05 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61A24A7698800A94E05 /* AppAction.swift */; };
-		3864D68524A7698800A94E05 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61A24A7698800A94E05 /* AppAction.swift */; };
-		3864D68624A7698800A94E05 /* ReducerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61B24A7698800A94E05 /* ReducerFactory.swift */; };
-		3864D68724A7698800A94E05 /* ReducerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61B24A7698800A94E05 /* ReducerFactory.swift */; };
-		3864D68824A7698800A94E05 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61C24A7698800A94E05 /* Store.swift */; };
-		3864D68924A7698800A94E05 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61C24A7698800A94E05 /* Store.swift */; };
-		3864D68A24A7698800A94E05 /* SideEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61D24A7698800A94E05 /* SideEffect.swift */; };
-		3864D68B24A7698800A94E05 /* SideEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61D24A7698800A94E05 /* SideEffect.swift */; };
-		3864D68C24A7698800A94E05 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61E24A7698800A94E05 /* AppEnvironment.swift */; };
-		3864D68D24A7698800A94E05 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61E24A7698800A94E05 /* AppEnvironment.swift */; };
-		3864D68E24A7698800A94E05 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61F24A7698800A94E05 /* ViewStore.swift */; };
-		3864D68F24A7698800A94E05 /* ViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D61F24A7698800A94E05 /* ViewStore.swift */; };
 		3864D69224A7698800A94E05 /* ResolvedPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D62324A7698800A94E05 /* ResolvedPackages.swift */; };
 		3864D69324A7698800A94E05 /* ResolvedPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D62324A7698800A94E05 /* ResolvedPackages.swift */; };
 		3864D69424A7698800A94E05 /* ManifestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D62624A7698800A94E05 /* ManifestDecoder.swift */; };
@@ -147,6 +127,9 @@
 		388F5A0924A77BC800D2C098 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0724A77BC800D2C098 /* Manifest.swift */; };
 		388F5A0B24A7800B00D2C098 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0A24A7800B00D2C098 /* SettingsView.swift */; };
 		388F5A0C24A7800B00D2C098 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388F5A0A24A7800B00D2C098 /* SettingsView.swift */; };
+		3890956124A7892200161E19 /* WindowStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890956024A7892200161E19 /* WindowStore.swift */; };
+		3890956224A78A4100161E19 /* WindowStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890956024A7892200161E19 /* WindowStore.swift */; };
+		3890956424A78A8700161E19 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3890956324A78A8700161E19 /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,7 +173,6 @@
 		3864D5FF24A7698800A94E05 /* RespositoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RespositoryList.swift; sourceTree = "<group>"; };
 		3864D60024A7698800A94E05 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3864D60124A7698800A94E05 /* GithubRequestLimitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRequestLimitView.swift; sourceTree = "<group>"; };
-		3864D60224A7698800A94E05 /* StoreProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreProvider.swift; sourceTree = "<group>"; };
 		3864D60524A7698800A94E05 /* Github.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		3864D60624A7698800A94E05 /* CocoaPodsTrunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsTrunk.swift; sourceTree = "<group>"; };
 		3864D60724A7698800A94E05 /* Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
@@ -247,6 +229,8 @@
 		3864D6EA24A7717700A94E05 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		388F5A0724A77BC800D2C098 /* Manifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
 		388F5A0A24A7800B00D2C098 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3890956024A7892200161E19 /* WindowStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowStore.swift; sourceTree = "<group>"; };
+		3890956324A78A8700161E19 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,8 +367,8 @@
 			isa = PBXGroup;
 			children = (
 				3864D5AA24A768C900A94E05 /* LicensesApp.swift */,
-				3864D60224A7698800A94E05 /* StoreProvider.swift */,
-				3864D61624A7698800A94E05 /* Architecture */,
+				3890955F24A7890F00161E19 /* Architecture */,
+				3864D61624A7698800A94E05 /* ReduxArchitecture */,
 				3864D62424A7698800A94E05 /* Domain */,
 				3864D62124A7698800A94E05 /* FileAccess */,
 				3864D5F424A7698800A94E05 /* Globals */,
@@ -471,7 +455,7 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		3864D61624A7698800A94E05 /* Architecture */ = {
+		3864D61624A7698800A94E05 /* ReduxArchitecture */ = {
 			isa = PBXGroup;
 			children = (
 				3864D61724A7698800A94E05 /* AppState.swift */,
@@ -484,7 +468,7 @@
 				3864D61E24A7698800A94E05 /* AppEnvironment.swift */,
 				3864D61F24A7698800A94E05 /* ViewStore.swift */,
 			);
-			path = Architecture;
+			path = ReduxArchitecture;
 			sourceTree = "<group>";
 		};
 		3864D62124A7698800A94E05 /* FileAccess */ = {
@@ -610,7 +594,7 @@
 			children = (
 				3864D6CE24A76BBF00A94E05 /* .swiftlint.yml */,
 			);
-			path = RootFiles;
+			name = RootFiles;
 			sourceTree = "<group>";
 		};
 		3864D6D124A76BCE00A94E05 /* Sources */ = {
@@ -662,6 +646,15 @@
 				3864D5FB24A7698800A94E05 /* FileDropArea.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		3890955F24A7890F00161E19 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				3890956024A7892200161E19 /* WindowStore.swift */,
+				3890956324A78A8700161E19 /* Store.swift */,
+			);
+			path = Architecture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -917,15 +910,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3864D6AA24A7698800A94E05 /* LicenseModelMapper.swift in Sources */,
-				3864D68824A7698800A94E05 /* Store.swift in Sources */,
 				3864D66E24A7698800A94E05 /* API.swift in Sources */,
 				3864D66624A7698800A94E05 /* GithubRequestStatusFactory.swift in Sources */,
 				3864D66424A7698800A94E05 /* Generic.swift in Sources */,
 				3864D6A224A7698800A94E05 /* LicenseProcessor.swift in Sources */,
 				3864D6AC24A7698800A94E05 /* GithubRequestStatus.swift in Sources */,
-				3864D68424A7698800A94E05 /* AppAction.swift in Sources */,
 				3864D67624A7698800A94E05 /* TrunkResponseModelMapper.swift in Sources */,
-				3864D68224A7698800A94E05 /* ViewStoreProvider.swift in Sources */,
 				3864D64A24A7698800A94E05 /* NSRegularExpressionExtensions.swift in Sources */,
 				3864D69424A7698800A94E05 /* ManifestDecoder.swift in Sources */,
 				3864D65A24A7698800A94E05 /* ContentView.swift in Sources */,
@@ -935,7 +925,7 @@
 				3864D6A424A7698800A94E05 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				3864D69624A7698800A94E05 /* ManifestCollector.swift in Sources */,
 				3864D67424A7698800A94E05 /* LinksEntity.swift in Sources */,
-				3864D68024A7698800A94E05 /* Reducer.swift in Sources */,
+				3890956124A7892200161E19 /* WindowStore.swift in Sources */,
 				3864D6A624A7698800A94E05 /* GithubLicenseModelMapper.swift in Sources */,
 				3864D67824A7698800A94E05 /* TrunkResponse.swift in Sources */,
 				3864D6B424A7698800A94E05 /* GithubLicense.swift in Sources */,
@@ -946,19 +936,17 @@
 				3864D66A24A7698800A94E05 /* RemainingGithubRequestsPlugin.swift in Sources */,
 				3864D6A024A7698800A94E05 /* RegexPatterns.swift in Sources */,
 				3864D6DD24A76DA600A94E05 /* Assets.swift in Sources */,
-				3864D65E24A7698800A94E05 /* StoreProvider.swift in Sources */,
 				3864D67024A7698800A94E05 /* PodSpecEntity.swift in Sources */,
 				3864D65C24A7698800A94E05 /* GithubRequestLimitView.swift in Sources */,
 				3864D69A24A7698800A94E05 /* ManifestDecodingStrategy.swift in Sources */,
 				3864D6B824A7698800A94E05 /* Repository.swift in Sources */,
-				3864D68E24A7698800A94E05 /* ViewStore.swift in Sources */,
 				3864D69824A7698800A94E05 /* CarthageManifestDecodingStrategy.swift in Sources */,
+				3890956424A78A8700161E19 /* Store.swift in Sources */,
 				3864D67C24A7698800A94E05 /* TrunkResponseEntity.swift in Sources */,
 				3864D69224A7698800A94E05 /* ResolvedPackages.swift in Sources */,
 				3864D64824A7698800A94E05 /* JSONDecoderExtensions.swift in Sources */,
 				3864D6D724A76CE500A94E05 /* Test.swift in Sources */,
 				3864D66824A7698800A94E05 /* AuthPlugin.swift in Sources */,
-				3864D68A24A7698800A94E05 /* SideEffect.swift in Sources */,
 				3864D65224A7698800A94E05 /* RepositoryDetail.swift in Sources */,
 				3864D6EB24A7717700A94E05 /* Strings.swift in Sources */,
 				3864D69E24A7698800A94E05 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
@@ -967,8 +955,6 @@
 				3864D67A24A7698800A94E05 /* GithubLicenseEntity.swift in Sources */,
 				3864D6A824A7698800A94E05 /* GithubRepositoryUrlEncoder.swift in Sources */,
 				3864D6B624A7698800A94E05 /* License.swift in Sources */,
-				3864D67E24A7698800A94E05 /* AppState.swift in Sources */,
-				3864D68C24A7698800A94E05 /* AppEnvironment.swift in Sources */,
 				3864D65624A7698800A94E05 /* ProgressBar.swift in Sources */,
 				3864D66024A7698800A94E05 /* Github.swift in Sources */,
 				3864D6BA24A7698800A94E05 /* LinksModelMapper.swift in Sources */,
@@ -977,7 +963,6 @@
 				3864D6DA24A76CEC00A94E05 /* Test2.swift in Sources */,
 				3864D6AE24A7698800A94E05 /* Links.swift in Sources */,
 				3864D66224A7698800A94E05 /* CocoaPodsTrunk.swift in Sources */,
-				3864D68624A7698800A94E05 /* ReducerFactory.swift in Sources */,
 				3864D67224A7698800A94E05 /* LicenseEntity.swift in Sources */,
 				3864D5D324A768CB00A94E05 /* LicensesApp.swift in Sources */,
 			);
@@ -988,15 +973,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3864D6AB24A7698800A94E05 /* LicenseModelMapper.swift in Sources */,
-				3864D68924A7698800A94E05 /* Store.swift in Sources */,
 				3864D66F24A7698800A94E05 /* API.swift in Sources */,
 				3864D66724A7698800A94E05 /* GithubRequestStatusFactory.swift in Sources */,
 				3864D66524A7698800A94E05 /* Generic.swift in Sources */,
 				3864D6A324A7698800A94E05 /* LicenseProcessor.swift in Sources */,
 				3864D6AD24A7698800A94E05 /* GithubRequestStatus.swift in Sources */,
-				3864D68524A7698800A94E05 /* AppAction.swift in Sources */,
 				3864D67724A7698800A94E05 /* TrunkResponseModelMapper.swift in Sources */,
-				3864D68324A7698800A94E05 /* ViewStoreProvider.swift in Sources */,
 				3864D64B24A7698800A94E05 /* NSRegularExpressionExtensions.swift in Sources */,
 				3864D69524A7698800A94E05 /* ManifestDecoder.swift in Sources */,
 				3864D65B24A7698800A94E05 /* ContentView.swift in Sources */,
@@ -1006,7 +988,6 @@
 				3864D6A524A7698800A94E05 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				3864D69724A7698800A94E05 /* ManifestCollector.swift in Sources */,
 				3864D67524A7698800A94E05 /* LinksEntity.swift in Sources */,
-				3864D68124A7698800A94E05 /* Reducer.swift in Sources */,
 				3864D6A724A7698800A94E05 /* GithubLicenseModelMapper.swift in Sources */,
 				3864D67924A7698800A94E05 /* TrunkResponse.swift in Sources */,
 				3864D6B524A7698800A94E05 /* GithubLicense.swift in Sources */,
@@ -1017,29 +998,25 @@
 				3864D66B24A7698800A94E05 /* RemainingGithubRequestsPlugin.swift in Sources */,
 				3864D6A124A7698800A94E05 /* RegexPatterns.swift in Sources */,
 				3864D6DE24A76DA600A94E05 /* Assets.swift in Sources */,
-				3864D65F24A7698800A94E05 /* StoreProvider.swift in Sources */,
 				3864D67124A7698800A94E05 /* PodSpecEntity.swift in Sources */,
 				3864D65D24A7698800A94E05 /* GithubRequestLimitView.swift in Sources */,
 				3864D69B24A7698800A94E05 /* ManifestDecodingStrategy.swift in Sources */,
 				3864D6B924A7698800A94E05 /* Repository.swift in Sources */,
-				3864D68F24A7698800A94E05 /* ViewStore.swift in Sources */,
 				3864D69924A7698800A94E05 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				3864D67D24A7698800A94E05 /* TrunkResponseEntity.swift in Sources */,
 				3864D69324A7698800A94E05 /* ResolvedPackages.swift in Sources */,
 				3864D64924A7698800A94E05 /* JSONDecoderExtensions.swift in Sources */,
 				3864D6D824A76CE500A94E05 /* Test.swift in Sources */,
 				3864D66924A7698800A94E05 /* AuthPlugin.swift in Sources */,
-				3864D68B24A7698800A94E05 /* SideEffect.swift in Sources */,
 				3864D65324A7698800A94E05 /* RepositoryDetail.swift in Sources */,
 				3864D6EC24A7717700A94E05 /* Strings.swift in Sources */,
 				3864D69F24A7698800A94E05 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
 				3864D64F24A7698800A94E05 /* JSONEncoderExtensions.swift in Sources */,
+				3890956224A78A4100161E19 /* WindowStore.swift in Sources */,
 				3864D65124A7698800A94E05 /* FileDropArea.swift in Sources */,
 				3864D67B24A7698800A94E05 /* GithubLicenseEntity.swift in Sources */,
 				3864D6A924A7698800A94E05 /* GithubRepositoryUrlEncoder.swift in Sources */,
 				3864D6B724A7698800A94E05 /* License.swift in Sources */,
-				3864D67F24A7698800A94E05 /* AppState.swift in Sources */,
-				3864D68D24A7698800A94E05 /* AppEnvironment.swift in Sources */,
 				3864D65724A7698800A94E05 /* ProgressBar.swift in Sources */,
 				3864D66124A7698800A94E05 /* Github.swift in Sources */,
 				3864D6BB24A7698800A94E05 /* LinksModelMapper.swift in Sources */,
@@ -1048,7 +1025,6 @@
 				3864D6DB24A76CEC00A94E05 /* Test2.swift in Sources */,
 				3864D6AF24A7698800A94E05 /* Links.swift in Sources */,
 				3864D66324A7698800A94E05 /* CocoaPodsTrunk.swift in Sources */,
-				3864D68724A7698800A94E05 /* ReducerFactory.swift in Sources */,
 				3864D67324A7698800A94E05 /* LicenseEntity.swift in Sources */,
 				3864D5D424A768CB00A94E05 /* LicensesApp.swift in Sources */,
 			);
