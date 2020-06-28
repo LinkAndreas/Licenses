@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct RepositoryList: View {
-    @EnvironmentObject var store: WindowStore
+    @EnvironmentObject var store: LocalStore
 
     var body: some View {
         VStack {
@@ -21,8 +21,8 @@ struct RepositoryList: View {
                 }
             }
             .animation(.linear)
-            if store.progress != nil {
-                ProgressBar(value: .constant(store.progress!))
+            if let progress = store.progress {
+                ProgressBar(value: .constant(progress))
                     .frame(height: 5)
                     .padding([.leading, .trailing, .bottom], 8)
             }
@@ -35,7 +35,7 @@ struct RespositoryList_Previews: PreviewProvider {
     static var previews: some View {
         RepositoryList()
             .environmentObject(
-                WindowStore(
+                LocalStore(
                     isTargeted: false,
                     repositories: [
                         GithubRepository(

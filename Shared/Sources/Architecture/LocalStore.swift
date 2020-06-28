@@ -41,19 +41,7 @@ final class LocalStore: ObservableObject {
             .store(in: &cancellables)
     }
 
-    private func add(repository: GithubRepository) {
-        guard !repositories.contains(where: isConsideredEqual(repository)) else { return }
-
-        repositories = (repositories + [repository]).sorted { $0.name < $1.name }
-    }
-
-    private func isConsideredEqual(_ lhs: GithubRepository) -> ((GithubRepository) -> Bool) {
-        return { rhs in
-            lhs.name == rhs.name && lhs.version == rhs.version && lhs.packageManager == rhs.packageManager
-        }
-    }
-
-    private func fetchLicenses() {
+    func fetchLicenses() {
         processingUUIDs = Set<UUID>(repositories.filter({ $0.license == nil }).map(\.id))
         let repositoryCount: Float = Float(repositories.count)
         repositories
@@ -77,6 +65,20 @@ final class LocalStore: ObservableObject {
                 finishedProcessing(repository: repository, withProgress: progress)
             }
             .store(in: &cancellables)
+    }
+}
+
+extension LocalStore {
+    private func add(repository: GithubRepository) {
+        guard !repositories.contains(where: isConsideredEqual(repository)) else { return }
+
+        repositories = (repositories + [repository]).sorted { $0.name < $1.name }
+    }
+
+    private func isConsideredEqual(_ lhs: GithubRepository) -> ((GithubRepository) -> Bool) {
+        return { rhs in
+            lhs.name == rhs.name && lhs.version == rhs.version && lhs.packageManager == rhs.packageManager
+        }
     }
 
     private func finishedProcessing(repository: GithubRepository, withProgress progress: Float) {

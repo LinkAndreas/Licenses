@@ -4,7 +4,7 @@ import Combine
 import SwiftUI
 
 struct FileDropArea<Content: View>: View {
-    @EnvironmentObject var store: WindowStore
+    @EnvironmentObject var store: LocalStore
 
     private var content: () -> Content
 
