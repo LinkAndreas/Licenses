@@ -9,7 +9,15 @@ struct LicensesApp: App {
             FileDropArea {
                 ContentView()
             }
-            .frame(width: 1200, height: 1200, alignment: .center)
+            .frame(
+                minWidth: 650,
+                idealWidth: 800,
+                maxWidth: .infinity,
+                minHeight: 300,
+                idealHeight: 600,
+                maxHeight: .infinity,
+                alignment: .center
+            )
             .navigationTitle(L10n.appName)
             .environmentObject(GlobalStore.shared)
             .environmentObject(LocalStore())
