@@ -3,11 +3,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var store: LocalStore
+    
     var body: some View {
         NavigationView {
             RepositoryList()
                 .frame(minWidth: 350)
             RepositoryDetail()
-        }.listStyle(SidebarListStyle())
+        }
+        .toolbar {
+            ToolbarItem {
+                Button("Fetch Licenses", action: store.fetchLicenses)
+            }
+        }
+        .listStyle(SidebarListStyle())
     }
 }

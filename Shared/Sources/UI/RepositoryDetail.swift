@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct RepositoryDetail: View {
-    @EnvironmentObject var store: WindowStore
+    @EnvironmentObject var store: LocalStore
 
     var body: some View {
         GeometryReader { geometry in
@@ -16,7 +16,6 @@ struct RepositoryDetail: View {
                                 Text(selectedRepository.version)
                                 Text(selectedRepository.packageManager.rawValue)
                                 selectedRepository.author.map { Text($0) }
-                                // selectedRepository.url?.absoluteString.map { Text($0) }
 
                                 if store.processingUUIDs.contains(selectedRepository.id) {
                                     ProgressView()
@@ -65,7 +64,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
     static var previews: some View {
         RepositoryDetail()
             .environmentObject(
-                WindowStore(
+                LocalStore(
                     isTargeted: false,
                     repositories: [
                         GithubRepository(
@@ -78,12 +77,11 @@ struct RepositoryDetail_Previews: PreviewProvider {
                         )
                     ],
                     selectedRepository: nil,
-                    githubRequestStatus: .init(limit: 40, remaining: 0, resetInterval: 30),
                     progress: 0.5
                 )
             )
             .environmentObject(
-                Store(
+                GlobalStore(
                     githubRequestStatus: .init(
                         limit: 40,
                         remaining: 0,

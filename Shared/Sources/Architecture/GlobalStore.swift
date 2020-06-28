@@ -7,8 +7,8 @@
 
 import Combine
 
-final class Store: ObservableObject {
-    static let shared: Store = .init()
+final class GlobalStore: ObservableObject {
+    static let shared: GlobalStore = .init()
 
     @Published var githubRequestStatus: GithubRequestStatus?
 

@@ -3,13 +3,13 @@
 import SwiftUI
 
 struct GithubRequestLimitView: View {
-    @EnvironmentObject var store: Store
+    @EnvironmentObject var store: GlobalStore
 
     var body: some View {
         Group {
-            if store.githubRequestStatus != nil {
+            if let githubRequestStatus = store.githubRequestStatus {
                 Group {
-                    if store.githubRequestStatus!.remaining == 0 {
+                    if githubRequestStatus.remaining == 0 {
                         Text("Github Request limit exceeded. Please add a personal access token in settings.")
                             .foregroundColor(.red)
                     }
@@ -25,16 +25,15 @@ struct GithubRequestLimitView_Previews: PreviewProvider {
     static var previews: some View {
         GithubRequestLimitView()
             .environmentObject(
-                WindowStore(
+                LocalStore(
                     isTargeted: false,
                     repositories: [],
                     selectedRepository: nil,
-                    githubRequestStatus: .init(limit: 40, remaining: 0, resetInterval: 30),
                     progress: 0.5
                 )
             )
             .environmentObject(
-                Store(
+                GlobalStore(
                     githubRequestStatus: .init(
                         limit: 40,
                         remaining: 0,

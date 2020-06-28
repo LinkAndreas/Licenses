@@ -11,8 +11,8 @@ struct LicensesApp: App {
             }
             .frame(width: 1200, height: 1200, alignment: .center)
             .navigationTitle(L10n.appName)
-            .environmentObject(Store.shared)
-            .environmentObject(WindowStore())
+            .environmentObject(GlobalStore.shared)
+            .environmentObject(LocalStore())
         }
 
         #if os(macOS)
