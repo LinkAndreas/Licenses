@@ -3,26 +3,26 @@
 import SwiftUI
 
 struct RepositoryDetail: View {
-    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
+    @EnvironmentObject var store: WindowStore
 
     var body: some View {
         GeometryReader { geometry in
-            ViewStoreProvider(self.store) { viewStore in
+            Group {
                 VStack {
-                    if viewStore.selectedRepository != nil {
+                    if let selectedRepository = store.selectedRepository {
                         HStack {
                             VStack(alignment: .leading) {
-                                viewStore.selectedRepository.map { Text($0.name) }
-                                viewStore.selectedRepository.map { Text($0.version) }
-                                viewStore.selectedRepository.map { Text($0.packageManager.rawValue) }
-                                viewStore.selectedRepository?.author.map { Text($0) }
-                                viewStore.selectedRepository?.url.map { Text($0.absoluteString) }
+                                Text(selectedRepository.name)
+                                Text(selectedRepository.version)
+                                Text(selectedRepository.packageManager.rawValue)
+                                selectedRepository.author.map { Text($0) }
+                                // selectedRepository.url?.absoluteString.map { Text($0) }
 
-                                if viewStore.processingUUIDs.contains(viewStore.selectedRepository!.id) {
+                                if store.processingUUIDs.contains(selectedRepository.id) {
                                     ProgressView()
                                 } else {
-                                    viewStore.selectedRepository?.license?.name.map { Text($0) }
-                                    viewStore.selectedRepository?.license?.decodedContent.map { Text($0) }
+                                    selectedRepository.license?.name.map { Text($0) }
+                                    selectedRepository.license?.decodedContent.map { Text($0) }
                                 }
                             }
                             Spacer()
@@ -65,26 +65,32 @@ struct RepositoryDetail_Previews: PreviewProvider {
     static var previews: some View {
         RepositoryDetail()
             .environmentObject(
-                Store(
-                    initialState: AppState(
-                        isTargeted: false,
-                        repositories: [
-                            GithubRepository(
-                                packageManager: .carthage,
-                                name: "Eureka",
-                                version: "5.2.1",
-                                author: "xmartlabs",
-                                url: URL(string: "https://github.com/xmartlabs/Eureka"),
-                                license: .init(decodedContent: decodedContent)
-                            )
-                        ],
-                        githubRequestStatus: nil,
-                        progress: 0.5
-                    ),
-                    reducer: ReducerFactory.appReducer,
-                    environment: AppEnvironment()
+                WindowStore(
+                    isTargeted: false,
+                    repositories: [
+                        GithubRepository(
+                            packageManager: .carthage,
+                            name: "Eureka",
+                            version: "5.2.1",
+                            author: "xmartlabs",
+                            url: URL(string: "https://github.com/xmartlabs/Eureka"),
+                            license: .init(decodedContent: decodedContent)
+                        )
+                    ],
+                    selectedRepository: nil,
+                    githubRequestStatus: .init(limit: 40, remaining: 0, resetInterval: 30),
+                    progress: 0.5
+                )
             )
-        )
-        .previewLayout(.fixed(width: 650, height: 500))
+            .environmentObject(
+                Store(
+                    githubRequestStatus: .init(
+                        limit: 40,
+                        remaining: 0,
+                        resetInterval: 30
+                    )
+                )
+            )
+            .previewLayout(.fixed(width: 650, height: 500))
     }
 }
