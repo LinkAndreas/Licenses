@@ -4,34 +4,34 @@ import Combine
 import Foundation
 
 enum ManifestCollector {
-    static private let dispatchQueue: DispatchQueue = .init(label: "ManifestSearchQueue")
-
     static func search(at filePath: URL) -> AnyPublisher<Manifest, Never> {
-        let manifestSubject: PassthroughSubject<Manifest, Never> = .init()
-        dispatchQueue.async {
+        let subject: PassthroughSubject<Manifest, Never> = .init()
+        DispatchQueue.global(qos: .userInitiated).async {
             var isDirectory: ObjCBool = false
-            let fileManager: FileManager = FileManager.default
+            let fileManager: FileManager = .init()
 
-            guard fileManager.fileExists(atPath: filePath.path, isDirectory: &isDirectory) else { return }
+            guard fileManager.fileExists(atPath: filePath.path, isDirectory: &isDirectory) else {
+                return subject.send(completion: .finished)
+            }
 
             if isDirectory.boolValue {
                 let enumerator = fileManager.enumerator(at: filePath, includingPropertiesForKeys: nil)
                 while let nextFilePath: URL = enumerator?.nextObject() as? URL {
                     guard let manifest = Manifest(fromFilePath: nextFilePath) else { continue }
 
-                    manifestSubject.send(manifest)
+                    subject.send(manifest)
                 }
             } else {
-                guard let manifest = Manifest(fromFilePath: filePath) else { return }
+                guard let manifest = Manifest(fromFilePath: filePath) else {
+                    return subject.send(completion: .finished)
+                }
 
-                manifestSubject.send(manifest)
+                subject.send(manifest)
             }
 
-            manifestSubject.send(completion: .finished)
+            subject.send(completion: .finished)
         }
 
-        return manifestSubject
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        return subject.eraseToAnyPublisher()
     }
 }

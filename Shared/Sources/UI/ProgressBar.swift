@@ -1,5 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import SwiftUI
 
 struct ProgressBar: View {

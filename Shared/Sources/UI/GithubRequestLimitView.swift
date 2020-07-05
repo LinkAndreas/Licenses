@@ -1,5 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import SwiftUI
 
 struct GithubRequestLimitView: View {
@@ -28,7 +29,6 @@ struct GithubRequestLimitView_Previews: PreviewProvider {
                 LocalStore(
                     isTargeted: false,
                     repositories: [],
-                    selectedRepository: nil,
                     progress: 0.5
                 )
             )

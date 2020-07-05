@@ -1,5 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import SwiftUI
 
 struct RepositoryDetail: View {
@@ -17,8 +18,17 @@ struct RepositoryDetail: View {
                                 Text(selectedRepository.packageManager.rawValue)
                                 selectedRepository.author.map { Text($0) }
 
-                                if store.processingUUIDs.contains(selectedRepository.id) {
-                                    ProgressView()
+                                if selectedRepository.isProcessing {
+                                    #if os(macOS)
+                                    Wrap(NSProgressIndicator()) {
+                                        $0.style = .spinning
+                                        $0.startAnimation(nil)
+                                    }
+                                    #elseif os(iOS)
+                                    Wrap(UIActivityIndicatorView()) {
+                                        $0.startAnimating()
+                                    }
+                                    #endif
                                 } else {
                                     selectedRepository.license?.name.map { Text($0) }
                                     selectedRepository.license?.decodedContent.map { Text($0) }
@@ -76,7 +86,6 @@ struct RepositoryDetail_Previews: PreviewProvider {
                             license: .init(decodedContent: decodedContent)
                         )
                     ],
-                    selectedRepository: nil,
                     progress: 0.5
                 )
             )

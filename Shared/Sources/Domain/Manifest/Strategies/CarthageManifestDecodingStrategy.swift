@@ -4,17 +4,15 @@ import Combine
 import Foundation
 
 enum CarthageManifestDecodingStrategy: ManifestDecodingStrategy {
-    static private let dispatchQueue: DispatchQueue = .init(label: "CarthageManifestDecodingDispatchQueue")
-
     static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
         let subject: PassthroughSubject<GithubRepository, Never> = .init()
         let regex: NSRegularExpression = NSRegularExpression(RegexPatterns.carthage)
         let nsRange: NSRange = .init(location: 0, length: content.count)
         let matches: [NSTextCheckingResult] = regex.matches(in: content, options: [], range: nsRange)
 
-        dispatchQueue.async {
+        DispatchQueue.global(qos: .userInitiated).async {
             for match in matches {
-                guard match.numberOfRanges == 4 else { return }
+                guard match.numberOfRanges == 4 else { continue }
 
                 let name: String = (content as NSString).substring(with: match.range(at: 2))
                 let author: String = (content as NSString).substring(with: match.range(at: 1))
@@ -27,15 +25,14 @@ enum CarthageManifestDecodingStrategy: ManifestDecodingStrategy {
                     author: author,
                     url: url
                 )
+
                 subject.send(repository)
             }
 
             subject.send(completion: .finished)
         }
 
-        return subject
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        return subject.eraseToAnyPublisher()
     }
 }
 

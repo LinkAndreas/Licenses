@@ -16,7 +16,7 @@ enum LicenseProcessor {
         return API.call(Github.license(name: name, author: author), mapper: GithubLicenseModelMapper.map)
             .receive(on: RunLoop.main)
             .map { license in
-                var modifiedRepository: GithubRepository = repository
+                let modifiedRepository: GithubRepository = repository
                 modifiedRepository.license = license
                 return modifiedRepository
             }

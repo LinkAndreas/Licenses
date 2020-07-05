@@ -4,13 +4,13 @@ import Combine
 import Foundation
 
 enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
-    static private let dispatchQueue: DispatchQueue = .init(label: "CocoaPodsManifestDecodingDispatchQueue")
-
     static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
         let subject: PassthroughSubject<GithubRepository, Never> = .init()
 
-        dispatchQueue.async {
-            guard let versionInfo: [String: String] = makeVersionInfo(from: content) else { return }
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let versionInfo: [String: String] = makeVersionInfo(from: content) else {
+                return subject.send(completion: .finished)
+            }
 
             for (name, version) in versionInfo {
                 let repository: GithubRepository = .init(packageManager: .cocoaPods, name: name, version: version)
@@ -20,9 +20,7 @@ enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
             subject.send(completion: .finished)
         }
 
-        return subject
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        return subject.eraseToAnyPublisher()
     }
 }
 
