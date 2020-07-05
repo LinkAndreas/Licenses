@@ -21,7 +21,7 @@ enum CocoaPodsRepositoryProcessor {
         .map { repositoryUrl in
             guard let url = URL(string: repositoryUrl) else { return repository }
 
-            var modifiedRepository: GithubRepository = repository
+            let modifiedRepository: GithubRepository = repository
             modifiedRepository.url = url
 
             if let (name, author) = GithubRepositoryUrlDecoder.decode(repositoryURL: url) {

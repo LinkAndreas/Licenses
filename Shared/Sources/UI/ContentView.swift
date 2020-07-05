@@ -1,5 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import SwiftUI
 
 struct ContentView: View {
@@ -7,15 +8,29 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            RepositoryList()
-                .frame(minWidth: 350)
+            GeometryReader { geometry in
+                ListView(height: .constant(geometry.size.height))
+            }
             RepositoryDetail()
         }
-        .toolbar {
-            ToolbarItem {
-                Button("Fetch Licenses", action: store.fetchLicenses)
-            }
-        }
         .listStyle(SidebarListStyle())
+//        .toolbar {
+//            ToolbarItem {
+//                Button(
+//                    action: store.fetchLicenses,
+//                    label: {
+//                        Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+//                    }
+//                )
+//            }
+//            ToolbarItem {
+//                Button(
+//                    action: store.deleteAll,
+//                    label: {
+//                        Image(systemName: "square.and.arrow.up")
+//                    }
+//                )
+//            }
+//        }
     }
 }

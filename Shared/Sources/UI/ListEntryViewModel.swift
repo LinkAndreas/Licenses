@@ -1,3 +1,5 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import Foundation
+struct ListEntryViewModel {
+    var entry: ListEntry?
+}

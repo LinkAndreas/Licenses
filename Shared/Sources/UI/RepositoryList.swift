@@ -1,5 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Combine
 import SwiftUI
 
 struct RepositoryList: View {
@@ -14,9 +15,10 @@ struct RepositoryList: View {
                             .font(.headline)
                         Text(repository.version)
                             .font(.subheadline)
+                        Spacer()
                     }
-                    .padding()
                     .tag(repository)
+                    .padding()
                     .animation(nil)
                 }
             }
@@ -46,7 +48,6 @@ struct RespositoryList_Previews: PreviewProvider {
                             url: URL(string: "https://github.com/xmartlabs/Eureka")
                         )
                     ],
-                    selectedRepository: nil,
                     progress: 0.5
                 )
         )

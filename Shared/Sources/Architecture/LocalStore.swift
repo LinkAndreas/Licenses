@@ -7,64 +7,83 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class LocalStore: ObservableObject {
     @Published var isTargeted: Bool
-    @Published var repositories: [GithubRepository]
-    @Published var selectedRepository: GithubRepository?
     @Published var progress: Float?
-    var processingUUIDs: Set<UUID>
+    @Published var listEntries: [ListEntry] = []
+    @Published var selectedRepository: GithubRepository?
+
+    @Published var repositories: [GithubRepository] {
+        didSet {
+            listEntries = repositories.map { ListEntry(id: $0.id, title: $0.name, detail: $0.version) }
+        }
+    }
     private var cancellables: Set<AnyCancellable> = []
 
     init(
         isTargeted: Bool = false,
         repositories: [GithubRepository] = [],
-        selectedRepository: GithubRepository? = nil,
-        progress: Float? = nil,
-        processingUUIDs: Set<UUID> = .init()
+        progress: Float? = nil
     ) {
         self.isTargeted = isTargeted
         self.repositories = repositories
-        self.selectedRepository = selectedRepository
         self.progress = progress
-        self.processingUUIDs = processingUUIDs
     }
 
     func searchManifests(at path: URL) {
         repositories = []
+        selectedRepository = nil
+
         ManifestCollector.search(at: path)
-            .flatMap(ManifestDecoder.decode)
-            .eraseToAnyPublisher()
+            .flatMap(maxPublishers: .max(1), ManifestDecoder.decode)
             .receive(on: RunLoop.main)
-            .delay(for: 0.2, scheduler: RunLoop.main)
-            .sink { [self] in add(repository: $0) }
+            .sink(receiveValue: self.add(repository:))
             .store(in: &cancellables)
+
     }
 
     func fetchLicenses() {
-        processingUUIDs = Set<UUID>(repositories.filter({ $0.license == nil }).map(\.id))
-        let repositoryCount: Float = Float(repositories.count)
+        startProcessing()
         repositories
-            .enumerated()
+            .filter { $0.license == nil }
             .publisher
-            .flatMap(maxPublishers: .max(1)) { index, repository in
+            .flatMap(maxPublishers: .max(1)) { repository in
                 Just(repository)
-                    .flatMap { (repository: GithubRepository) -> AnyPublisher<(GithubRepository, Float), Never> in
+                    .flatMap { (repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> in
                         CocoaPodsRepositoryProcessor.process(repository: repository)
-                            .map { ($0, (Float(index + 1) / repositoryCount)) }
                             .eraseToAnyPublisher()
                     }
-                    .flatMap { repository, progress in
+                    .flatMap { repository in
                         LicenseProcessor.process(repository: repository)
-                            .map { ($0, progress) }
                             .eraseToAnyPublisher()
                     }
             }
             .receive(on: RunLoop.main)
-            .sink { [self] repository, progress in
-                finishedProcessing(repository: repository, withProgress: progress)
-            }
+            .handleEvents(receiveOutput: { $0.isProcessing = false })
+            .sink(receiveValue: finishedProcessing)
             .store(in: &cancellables)
+    }
+
+    private func startProcessing() {
+        repositories = repositories.map { repository in
+            guard repository.license == nil else { return repository }
+
+            let modifiedRepository: GithubRepository = repository
+            modifiedRepository.isProcessing = true
+            return modifiedRepository
+        }
+    }
+
+    func deleteAll() {
+        repositories = []
+    }
+
+    func selectRepository(with id: UUID?) {
+        guard let id = id else { return selectedRepository = nil }
+
+        selectedRepository = repositories.first { $0.id == id }
     }
 }
 
@@ -72,7 +91,7 @@ extension LocalStore {
     private func add(repository: GithubRepository) {
         guard !repositories.contains(where: isConsideredEqual(repository)) else { return }
 
-        repositories = (repositories + [repository]).sorted { $0.name < $1.name }
+        repositories = (repositories + [repository]).sorted { $0.name.lowercased() < $1.name.lowercased() }
     }
 
     private func isConsideredEqual(_ lhs: GithubRepository) -> ((GithubRepository) -> Bool) {
@@ -81,21 +100,13 @@ extension LocalStore {
         }
     }
 
-    private func finishedProcessing(repository: GithubRepository, withProgress progress: Float) {
-        processingUUIDs.remove(repository.id)
-        if let index = repositories.firstIndex(where: { $0.id == repository.id }) {
-            repositories[index] = repository
+    private func finishedProcessing(repository: GithubRepository) {
+        if selectedRepository?.id == repository.id {
+            selectedRepository = repository
         }
 
-        if progress == 1.0 {
-            Just(())
-                .delay(for: 0.5, scheduler: RunLoop.main)
-                .sink { [self] _ in
-                    self.progress = progress
-                }
-                .store(in: &cancellables)
-        } else {
-            self.progress = progress
+        if let index = repositories.firstIndex(where: { $0.id == repository.id }) {
+            repositories[index] = repository
         }
     }
 }

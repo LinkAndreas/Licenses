@@ -3,14 +3,15 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("token") private var token: String = ""
-
     var body: some View {
         Form {
             Section(header: Text(L10n.Settings.Section.GithubAccessToken.title)) {
                 TextField(
                     L10n.Settings.Section.GithubAccessToken.placeholder,
-                    text: $token
+                    text: Binding<String>(
+                        get: { return Defaults.token },
+                        set: { value in Defaults.token = value }
+                    )
                 )
             }
         }.padding()
