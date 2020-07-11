@@ -13,8 +13,14 @@ struct SettingsView: View {
                         set: { value in Defaults.token = value }
                     )
                 )
+                Text("Please add your personal access token to get an increased rate limit for the GitHub API.")
+                    .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-        }.padding()
+            Spacer()
+        }
+        .padding()
+        .frame(minWidth: 500, maxWidth: 500)
     }
 }
 
