@@ -19,7 +19,7 @@ struct FileDropArea<Content: View>: View {
                     self.content()
                         .onDrop(
                             of: ["public.file-url"],
-                            isTargeted: $store.isTargeted
+                            isTargeted: self.$store.isTargeted
                         ) { providers -> Bool in
                             providers.first?.loadDataRepresentation(
                                 forTypeIdentifier: "public.file-url",
@@ -37,7 +37,7 @@ struct FileDropArea<Content: View>: View {
                             )
                             return true
                         }
-                    .border(store.isTargeted ? Color.red : Color.clear)
+                    .border(self.store.isTargeted ? Color.red : Color.clear)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
