@@ -14,12 +14,20 @@ struct IconButton: View {
     let iconName: String
     let width: CGFloat
     let height: CGFloat
+    let isDisabled: Bool
     let action: () -> Void
 
-    init(iconName: String, width: CGFloat = 21, height: CGFloat = 21, action: @escaping () -> Void = {}) {
+    init(
+        iconName: String,
+        width: CGFloat = 21,
+        height: CGFloat = 21,
+        isDisabled: Bool = false,
+        action: @escaping () -> Void = {}
+    ) {
         self.iconName = iconName
         self.width = width
         self.height = height
+        self.isDisabled = isDisabled
         self.action = action
     }
 
@@ -28,8 +36,10 @@ struct IconButton: View {
             Image(iconName)
                 .resizable()
                 .scaledToFit()
+                .opacity(isDisabled ? 0.35 : 1)
                 .frame(width: width, height: height)
         }
         .buttonStyle(CustomButtonStyle())
+        .disabled(isDisabled)
     }
 }

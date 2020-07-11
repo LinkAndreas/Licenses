@@ -9,7 +9,7 @@ import Cocoa
 import SwiftUI
 
 struct ListView: NSViewControllerRepresentable {
-    @EnvironmentObject var store: LocalStore
+    @EnvironmentObject var store: Store
     @Binding var height: CGFloat
 
     func makeNSViewController(context: Context) -> ListViewController  {
@@ -29,9 +29,9 @@ struct ListView: NSViewControllerRepresentable {
 }
 
 class ListViewCoordinator {
-    private let store: LocalStore
+    private let store: Store
 
-    init(store: LocalStore) {
+    init(store: Store) {
         self.store = store
     }
 }

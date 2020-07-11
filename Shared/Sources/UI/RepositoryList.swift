@@ -4,7 +4,7 @@ import Combine
 import SwiftUI
 
 struct RepositoryList: View {
-    @EnvironmentObject var store: LocalStore
+    @EnvironmentObject var store: Store
 
     var body: some View {
         VStack {
@@ -37,7 +37,7 @@ struct RespositoryList_Previews: PreviewProvider {
     static var previews: some View {
         RepositoryList()
             .environmentObject(
-                LocalStore(
+                Store(
                     isTargeted: false,
                     repositories: [
                         GithubRepository(

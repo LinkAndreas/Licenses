@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             )
             .navigationTitle(L10n.appName)
             .environmentObject(GlobalStore.shared)
-            .environmentObject(LocalStore())
+            .environmentObject(Store())
 
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: rootView)
