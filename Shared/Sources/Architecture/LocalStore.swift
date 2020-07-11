@@ -19,7 +19,14 @@ final class LocalStore: ObservableObject {
 
     @Published var repositories: [GithubRepository] {
         didSet {
-            listEntries = repositories.map { ListEntry(id: $0.id, title: $0.name, detail: $0.version) }
+            listEntries = repositories.map {
+                ListEntry(
+                    id: $0.id,
+                    title: $0.name,
+                    detail: $0.version,
+                    isProcessing: $0.isProcessing
+                )
+            }
         }
     }
     private var cancellables: Set<AnyCancellable> = []
