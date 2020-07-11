@@ -10,10 +10,14 @@ final class AuthPlugin: NetworkPlugin {
         guard target is Github else { return Just<URLRequest>(request).eraseToAnyPublisher() }
 
         var modifiedRequest: URLRequest = request
-        modifiedRequest.addValue(
-            "token \(Defaults.token)",
-            forHTTPHeaderField: HttpHeaderField.authorization.rawValue
-        )
+
+        if !Defaults.token.isEmpty {
+            modifiedRequest.addValue(
+                "token \(Defaults.token)",
+                forHTTPHeaderField: HttpHeaderField.authorization.rawValue
+            )
+        }
+
         return Just<URLRequest>(modifiedRequest).eraseToAnyPublisher()
     }
 }

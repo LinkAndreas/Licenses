@@ -14,23 +14,5 @@ struct ContentView: View {
             RepositoryDetail()
         }
         .listStyle(SidebarListStyle())
-//        .toolbar {
-//            ToolbarItem {
-//                Button(
-//                    action: store.fetchLicenses,
-//                    label: {
-//                        Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
-//                    }
-//                )
-//            }
-//            ToolbarItem {
-//                Button(
-//                    action: store.deleteAll,
-//                    label: {
-//                        Image(systemName: "square.and.arrow.up")
-//                    }
-//                )
-//            }
-//        }
     }
 }
