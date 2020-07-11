@@ -22,7 +22,8 @@ struct ToolbarContent: View {
                 isDisabled: store.isProcessing,
                 action: store.exportLicenses
             )
-        }.padding()
+        }
+        .padding()
     }
 }
 
