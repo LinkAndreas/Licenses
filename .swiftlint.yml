@@ -1,11 +1,11 @@
 included:
-- App/Sources
-- Tests/Sources
-- UITests/Sources
+- iOS/Sources
+- macOS/Sources
+- Tests/iOS/Sources
+- Tests/macOS/Sources
 
 analyzer_rules:
 - unused_import
-- unused_private_declaration
 
 opt_in_rules:
 - array_init
@@ -83,12 +83,6 @@ file_header:
   required_pattern: |
                     \/\/  Copyright © \d{4} Andreas Link\. All rights reserved\.
 
-file_types_order:
-  order:
-    - supporting_type
-    - main_type
-    - extension
-
 identifier_name:
   excluded:
     - id
@@ -104,22 +98,6 @@ file_length:
     error: 1200
 
 line_length: 120
-
-type_contents_order:
-  order:
-    - case
-    - [type_alias, associated_type]
-    - subtype
-    - type_property
-    - ib_inspectable
-    - instance_property
-    - ib_outlet
-    - initializer
-    - type_method
-    - view_life_cycle_method
-    - ib_action
-    - other_method
-    - subscript
 
 # Custom Rules
 custom_rules:

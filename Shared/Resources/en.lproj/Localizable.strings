@@ -1,0 +1,4 @@
+"app_name" = "Licenses";
+"settings.title" = "Settings";
+"settings.section.github_access_token.title" = "GitHub Access Token";
+"settings.section.github_access_token.placeholder" = "Please enter your personal access token";
