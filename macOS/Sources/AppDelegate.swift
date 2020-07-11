@@ -21,9 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             alignment: .center
         )
         .environmentObject(GlobalStore.shared)
-        .environmentObject(LocalStore())
+        .environmentObject(LocalStore.shared)
 
-        // Create the window and set the content view.
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -36,9 +35,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Licenses")
         window.contentView = NSHostingView(rootView: rootView)
         window.makeKeyAndOrderFront(nil)
-    }
+        window.toolbar = .init()
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        let toolbarContent = ToolbarContent()
+            .environmentObject(LocalStore.shared)
+
+        let toolbarContainer: NSHostingView = .init(rootView: toolbarContent)
+        toolbarContainer.frame.size = toolbarContainer.fittingSize
+
+        let titleBarAccessory: NSTitlebarAccessoryViewController = .init()
+        titleBarAccessory.view = toolbarContainer
+        titleBarAccessory.layoutAttribute = .trailing
+        window.addTitlebarAccessoryViewController(titleBarAccessory)
     }
 }
