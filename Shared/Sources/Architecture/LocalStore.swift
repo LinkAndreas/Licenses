@@ -10,6 +10,8 @@ import Combine
 import SwiftUI
 
 final class LocalStore: ObservableObject {
+    static let shared: LocalStore = .init()
+
     @Published var isTargeted: Bool
     @Published var progress: Float?
     @Published var listEntries: [ListEntry] = []
@@ -76,8 +78,8 @@ final class LocalStore: ObservableObject {
         }
     }
 
-    func deleteAll() {
-        repositories = []
+    func exportLicenses() {
+
     }
 
     func selectRepository(with id: UUID?) {
