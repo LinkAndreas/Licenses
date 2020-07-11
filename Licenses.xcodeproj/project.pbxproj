@@ -18,6 +18,7 @@
 		3828740E24B1A954003C796D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740D24B1A954003C796D /* Defaults.swift */; };
 		3828740F24B1A954003C796D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740D24B1A954003C796D /* Defaults.swift */; };
 		3828741024B1AB78003C796D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873F524B1A4BB003C796D /* AppDelegate.swift */; };
+		383D17A824B9F2C000AD0FC3 /* PreferencesHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D17A724B9F2C000AD0FC3 /* PreferencesHostingViewController.swift */; };
 		3864D5C624A768CB00A94E05 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D5C524A768CB00A94E05 /* Tests_iOS.swift */; };
 		3864D5D124A768CB00A94E05 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D5D024A768CB00A94E05 /* Tests_macOS.swift */; };
 		3864D5EA24A7695900A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5E924A7695900A94E05 /* Aphrodite */; };
@@ -177,6 +178,7 @@
 		3828740224B1A6E8003C796D /* WrapExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapExtensions.swift; sourceTree = "<group>"; };
 		3828740A24B1A8C4003C796D /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3828740D24B1A954003C796D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		383D17A724B9F2C000AD0FC3 /* PreferencesHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesHostingViewController.swift; sourceTree = "<group>"; };
 		3864D5B124A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5B424A768CB00A94E05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -700,6 +702,7 @@
 			isa = PBXGroup;
 			children = (
 				382873F924B1A614003C796D /* Wrap.swift */,
+				383D17A724B9F2C000AD0FC3 /* PreferencesHostingViewController.swift */,
 				388F5A0A24A7800B00D2C098 /* SettingsView.swift */,
 				3864D5FB24A7698800A94E05 /* FileDropArea.swift */,
 			);
@@ -1072,6 +1075,7 @@
 				3828741024B1AB78003C796D /* AppDelegate.swift in Sources */,
 				3864D6B524A7698800A94E05 /* GithubLicense.swift in Sources */,
 				3864D6BD24A7698800A94E05 /* PackageManager.swift in Sources */,
+				383D17A824B9F2C000AD0FC3 /* PreferencesHostingViewController.swift in Sources */,
 				3864D69D24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
 				388F5A0C24A7800B00D2C098 /* SettingsView.swift in Sources */,
 				3864D6B124A7698800A94E05 /* GithubRepository.swift in Sources */,
