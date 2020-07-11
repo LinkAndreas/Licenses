@@ -4,7 +4,7 @@ import Combine
 import SwiftUI
 
 struct RepositoryDetail: View {
-    @EnvironmentObject var store: LocalStore
+    @EnvironmentObject var store: Store
 
     var body: some View {
         GeometryReader { geometry in
@@ -74,8 +74,13 @@ struct RepositoryDetail_Previews: PreviewProvider {
     static var previews: some View {
         RepositoryDetail()
             .environmentObject(
-                LocalStore(
+                Store(
                     isTargeted: false,
+                    githubRequestStatus: .init(
+                        limit: 40,
+                        remaining: 0,
+                        resetInterval: 30
+                    ),
                     repositories: [
                         GithubRepository(
                             packageManager: .carthage,
@@ -87,15 +92,6 @@ struct RepositoryDetail_Previews: PreviewProvider {
                         )
                     ],
                     progress: 0.5
-                )
-            )
-            .environmentObject(
-                GlobalStore(
-                    githubRequestStatus: .init(
-                        limit: 40,
-                        remaining: 0,
-                        resetInterval: 30
-                    )
                 )
             )
             .previewLayout(.fixed(width: 650, height: 500))

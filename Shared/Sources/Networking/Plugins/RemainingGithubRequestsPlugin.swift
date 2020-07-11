@@ -9,11 +9,11 @@ final class RemainingGithubRequestsPlugin: NetworkPlugin {
         case let .success(response):
             guard let status = GithubRequestStatusFactory.make(from: response.headerFields) else { return }
 
-            GlobalStore.shared.githubRequestStatus = status
+            Store.shared.githubRequestStatus = status
 
         case let .failure(error):
             if case let .githubRateLimitExceeded(status) = DomainErrorFactory.make(from: error) {
-                GlobalStore.shared.githubRequestStatus = status
+                Store.shared.githubRequestStatus = status
             }
         }
     }

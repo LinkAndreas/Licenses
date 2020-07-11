@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct ToolbarContent: View {
-    @EnvironmentObject var store: LocalStore
+    @EnvironmentObject var store: Store
 
     enum Constants {
         static let fetchIconName: String = "icnFetch"
@@ -12,8 +12,16 @@ struct ToolbarContent: View {
 
     var body: some View {
         HStack(spacing: 16) {
-            IconButton(iconName: Constants.fetchIconName, action: store.fetchLicenses)
-            IconButton(iconName: Constants.shareIconName, action: store.exportLicenses)
+            IconButton(
+                iconName: Constants.fetchIconName,
+                isDisabled: store.isProcessing,
+                action: store.fetchLicenses
+            )
+            IconButton(
+                iconName: Constants.shareIconName,
+                isDisabled: store.isProcessing,
+                action: store.exportLicenses
+            )
         }.padding()
     }
 }
