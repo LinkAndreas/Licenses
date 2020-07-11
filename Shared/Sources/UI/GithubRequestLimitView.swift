@@ -4,7 +4,7 @@ import Combine
 import SwiftUI
 
 struct GithubRequestLimitView: View {
-    @EnvironmentObject var store: GlobalStore
+    @EnvironmentObject var store: Store
 
     var body: some View {
         Group {
@@ -26,19 +26,15 @@ struct GithubRequestLimitView_Previews: PreviewProvider {
     static var previews: some View {
         GithubRequestLimitView()
             .environmentObject(
-                LocalStore(
+                Store(
                     isTargeted: false,
-                    repositories: [],
-                    progress: 0.5
-                )
-            )
-            .environmentObject(
-                GlobalStore(
                     githubRequestStatus: .init(
                         limit: 40,
                         remaining: 0,
                         resetInterval: 30
-                    )
+                    ),
+                    repositories: [],
+                    progress: 0.5
                 )
             )
             .previewLayout(.fixed(width: 650, height: 500))

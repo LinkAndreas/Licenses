@@ -32,6 +32,8 @@ final class Store: ObservableObject {
     }
 
     private var cancellables: Set<AnyCancellable> = []
+    private var remainingRepositories: Int = 0
+    private var totalRepositories: Int = 0
 
     init(
         isTargeted: Bool = false,
@@ -46,23 +48,29 @@ final class Store: ObservableObject {
     }
 
     func searchManifests(at path: URL) {
-        isProcessing = true
-        repositories = []
-        selectedRepository = nil
-
         ManifestCollector.search(at: path)
             .flatMap(maxPublishers: .max(1), ManifestDecoder.decode)
             .receive(on: RunLoop.main)
-            .handleEvents(receiveCompletion: { _ in
-                self.isProcessing = false
-            })
+            .handleEvents(
+                receiveSubscription: self.startSearchingManifests,
+                receiveCompletion: self.stoppedSearchingManifests
+            )
             .sink(receiveValue: self.add(repository:))
             .store(in: &cancellables)
 
     }
 
+    private func startSearchingManifests(subscription: Subscription) {
+        self.isProcessing = true
+        repositories = []
+        selectedRepository = nil
+    }
+
+    private func stoppedSearchingManifests(completion: Subscribers.Completion<Never>) {
+        self.isProcessing = false
+    }
+
     func fetchLicenses() {
-        startProcessing()
         repositories
             .filter { $0.license == nil }
             .publisher
@@ -79,22 +87,51 @@ final class Store: ObservableObject {
             }
             .receive(on: RunLoop.main)
             .handleEvents(
-                receiveOutput: { $0.isProcessing = false },
-                receiveCompletion: { _ in self.isProcessing = false }
+                receiveSubscription: self.startFetchingLicenses,
+                receiveOutput: self.didProcessRepository,
+                receiveCompletion: self.stopFetchingLicenses
             )
             .sink(receiveValue: finishedProcessing)
             .store(in: &cancellables)
     }
 
-    private func startProcessing() {
+    private func startFetchingLicenses(subscription: Subscription) {
         isProcessing = true
+        var totalRepositories: Int = 0
         repositories = repositories.map { repository in
             guard repository.license == nil else { return repository }
 
+            totalRepositories += 1
             let modifiedRepository: GithubRepository = repository
             modifiedRepository.isProcessing = true
             return modifiedRepository
         }
+        if totalRepositories > 0 {
+            self.remainingRepositories = totalRepositories
+            self.totalRepositories = totalRepositories
+            computeProgress()
+        }
+    }
+
+    private func didProcessRepository(for repository: GithubRepository) {
+        repository.isProcessing = false
+        remainingRepositories -= 1
+        computeProgress()
+    }
+
+    private func stopFetchingLicenses(completion: Subscribers.Completion<Never>) {
+        isProcessing = false
+        progress = 1.0
+        Just(())
+            .delay(for: 1, scheduler: RunLoop.main)
+            .sink { _ in self.progress = nil }
+            .store(in: &cancellables)
+    }
+
+    private func computeProgress() {
+        progress = Float(1.0) - Float(
+            Double(remainingRepositories) / Double(totalRepositories)
+        )
     }
 
     func exportLicenses() {

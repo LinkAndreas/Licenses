@@ -31,6 +31,7 @@ final class ListEntryView: NSView {
     private func setupUI() {
         setupStackView()
         setupTextFields()
+        setupProgressIndicators()
         setupLayout()
     }
 
@@ -56,6 +57,7 @@ final class ListEntryView: NSView {
 
     private func setupProgressIndicators() {
         progressIndicator.style = .spinning
+        progressIndicator.startAnimation(nil)
     }
 
     private func setupLayout() {
@@ -65,11 +67,12 @@ final class ListEntryView: NSView {
         stackView.addArrangedSubview(detailTextField)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
-
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        progressIndicator.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        progressIndicator.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
 
     private func updateUI() {
