@@ -11,7 +11,7 @@ struct ContentView: View {
             GeometryReader { geometry in
                 ListView(height: .constant(geometry.size.height))
             }
-            .frame(minWidth: 300, maxWidth: 450)
+            .frame(minWidth: 400, maxWidth: 550)
             RepositoryDetail()
         }
         .listStyle(SidebarListStyle())
