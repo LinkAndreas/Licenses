@@ -4,7 +4,7 @@ import Combine
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var store: LocalStore
+    @EnvironmentObject var store: Store
     
     var body: some View {
         NavigationView {

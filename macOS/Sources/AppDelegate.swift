@@ -20,8 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             maxHeight: .infinity,
             alignment: .center
         )
-        .environmentObject(GlobalStore.shared)
-        .environmentObject(LocalStore.shared)
+        .environmentObject(Store.shared)
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
@@ -38,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.toolbar = .init()
 
         let toolbarContent = ToolbarContent()
-            .environmentObject(LocalStore.shared)
+            .environmentObject(Store.shared)
 
         let toolbarContainer: NSHostingView = .init(rootView: toolbarContent)
         toolbarContainer.frame.size = toolbarContainer.fittingSize
