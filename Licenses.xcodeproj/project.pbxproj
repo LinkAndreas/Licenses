@@ -7,18 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38226BD924BADE2300C7BE13 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38226BD824BADE2300C7BE13 /* ProgressIndicator.swift */; };
 		382873F024B1A379003C796D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873EF24B1A379003C796D /* SceneDelegate.swift */; };
 		382873F824B1A55A003C796D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873EC24B1A36E003C796D /* AppDelegate.swift */; };
-		382873FB24B1A614003C796D /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873F924B1A614003C796D /* Wrap.swift */; };
 		382873FE24B1A649003C796D /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873FD24B1A649003C796D /* Wrap.swift */; };
-		3828740324B1A6E8003C796D /* WrapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740224B1A6E8003C796D /* WrapExtensions.swift */; };
-		3828740924B1A749003C796D /* WrapExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740224B1A6E8003C796D /* WrapExtensions.swift */; };
 		3828740B24B1A8C5003C796D /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740A24B1A8C4003C796D /* Storage.swift */; };
 		3828740C24B1A8C5003C796D /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740A24B1A8C4003C796D /* Storage.swift */; };
 		3828740E24B1A954003C796D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740D24B1A954003C796D /* Defaults.swift */; };
 		3828740F24B1A954003C796D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828740D24B1A954003C796D /* Defaults.swift */; };
 		3828741024B1AB78003C796D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873F524B1A4BB003C796D /* AppDelegate.swift */; };
 		383D17A824B9F2C000AD0FC3 /* PreferencesHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383D17A724B9F2C000AD0FC3 /* PreferencesHostingViewController.swift */; };
+		3851401A24BB45EE00445DD1 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382873F924B1A614003C796D /* ProgressIndicatorView.swift */; };
 		3864D5C624A768CB00A94E05 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D5C524A768CB00A94E05 /* Tests_iOS.swift */; };
 		3864D5D124A768CB00A94E05 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D5D024A768CB00A94E05 /* Tests_macOS.swift */; };
 		3864D5EA24A7695900A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5E924A7695900A94E05 /* Aphrodite */; };
@@ -167,12 +166,12 @@
 
 /* Begin PBXFileReference section */
 		381E66C124B1ACD30083E9C1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		38226BD824BADE2300C7BE13 /* ProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
 		382873EC24B1A36E003C796D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		382873EF24B1A379003C796D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		382873F524B1A4BB003C796D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		382873F924B1A614003C796D /* Wrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
+		382873F924B1A614003C796D /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		382873FD24B1A649003C796D /* Wrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
-		3828740224B1A6E8003C796D /* WrapExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapExtensions.swift; sourceTree = "<group>"; };
 		3828740A24B1A8C4003C796D /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		3828740D24B1A954003C796D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		383D17A724B9F2C000AD0FC3 /* PreferencesHostingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesHostingViewController.swift; sourceTree = "<group>"; };
@@ -295,6 +294,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38226BDA24BADE5500C7BE13 /* ProgressIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				38226BD824BADE2300C7BE13 /* ProgressIndicator.swift */,
+				382873F924B1A614003C796D /* ProgressIndicatorView.swift */,
+			);
+			path = ProgressIndicator;
+			sourceTree = "<group>";
+		};
 		382873FC24B1A63F003C796D /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,7 +443,6 @@
 		3864D5F524A7698800A94E05 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3828740224B1A6E8003C796D /* WrapExtensions.swift */,
 				3864D5F624A7698800A94E05 /* JSONDecoderExtensions.swift */,
 				3864D5F724A7698800A94E05 /* NSRegularExpressionExtensions.swift */,
 				3864D5F824A7698800A94E05 /* StringExtensions.swift */,
@@ -696,7 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				38FC759A24B9D778009CDA41 /* Toolbar */,
-				382873F924B1A614003C796D /* Wrap.swift */,
+				38226BDA24BADE5500C7BE13 /* ProgressIndicator */,
 				383D17A724B9F2C000AD0FC3 /* PreferencesHostingViewController.swift */,
 				388F5A0A24A7800B00D2C098 /* SettingsView.swift */,
 				3864D5FB24A7698800A94E05 /* FileDropArea.swift */,
@@ -1043,7 +1050,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				382873FB24B1A614003C796D /* Wrap.swift in Sources */,
 				3864D6AB24A7698800A94E05 /* LicenseModelMapper.swift in Sources */,
 				3864D66F24A7698800A94E05 /* API.swift in Sources */,
 				3864D66724A7698800A94E05 /* GithubRequestStatusFactory.swift in Sources */,
@@ -1055,14 +1061,15 @@
 				3864D67724A7698800A94E05 /* TrunkResponseModelMapper.swift in Sources */,
 				3864D64B24A7698800A94E05 /* NSRegularExpressionExtensions.swift in Sources */,
 				3864D69524A7698800A94E05 /* ManifestDecoder.swift in Sources */,
+				38226BD924BADE2300C7BE13 /* ProgressIndicator.swift in Sources */,
 				3864D65B24A7698800A94E05 /* ContentView.swift in Sources */,
 				3864D6B324A7698800A94E05 /* GithubRepositoryUrlDecoder.swift in Sources */,
 				388F5A0924A77BC800D2C098 /* Manifest.swift in Sources */,
 				3864D64D24A7698800A94E05 /* StringExtensions.swift in Sources */,
 				3864D6A524A7698800A94E05 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				3864D69724A7698800A94E05 /* ManifestCollector.swift in Sources */,
-				3828740924B1A749003C796D /* WrapExtensions.swift in Sources */,
 				3864D67524A7698800A94E05 /* LinksEntity.swift in Sources */,
+				3851401A24BB45EE00445DD1 /* ProgressIndicatorView.swift in Sources */,
 				3864D6A724A7698800A94E05 /* GithubLicenseModelMapper.swift in Sources */,
 				3864D67924A7698800A94E05 /* TrunkResponse.swift in Sources */,
 				3828741024B1AB78003C796D /* AppDelegate.swift in Sources */,
