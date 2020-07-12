@@ -39,6 +39,7 @@ struct RespositoryList_Previews: PreviewProvider {
             .environmentObject(
                 Store(
                     isTargeted: false,
+                    progress: 0.5,
                     repositories: [
                         GithubRepository(
                             packageManager: .carthage,
@@ -47,8 +48,7 @@ struct RespositoryList_Previews: PreviewProvider {
                             author: "xmartlabs",
                             url: URL(string: "https://github.com/xmartlabs/Eureka")
                         )
-                    ],
-                    progress: 0.5
+                    ]
                 )
         )
         .previewLayout(.fixed(width: 350, height: 500))

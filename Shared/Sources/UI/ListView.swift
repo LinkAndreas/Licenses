@@ -131,13 +131,19 @@ extension ListViewController: NSTableViewDataSource {
 
 extension ListViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view: ListEntryView = .init(frame: .zero)
-        view.viewModel = .init(entry: entries[row])
+        let view: NSHostingView<RepositoryListEntry> = .init(
+            rootView: RepositoryListEntry(
+                viewModel: RepositoryListEntryViewModelFactory.makeViewModel(from: entries[row])
+            )
+        )
         return view
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 44
+        guard let view: NSView = self.tableView(tableView, viewFor: nil, row: row) else { return 44 }
+
+        view.frame.size.width = tableView.frame.size.width
+        return view.fittingSize.height
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
