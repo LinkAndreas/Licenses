@@ -77,7 +77,7 @@ final class ListEntryView: NSView {
 
     private func updateUI() {
         titleTextField.stringValue = viewModel?.entry?.title ?? ""
-        detailTextField.stringValue = viewModel?.entry?.detail ?? ""
+        detailTextField.stringValue = viewModel?.entry?.subtitle ?? ""
         progressIndicator.isHidden = viewModel?.entry?.isProcessing != true
     }
 }

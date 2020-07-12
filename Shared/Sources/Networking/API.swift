@@ -10,7 +10,7 @@ extension NetworkPluginType {
 let API: Aphrodite<DomainErrorFactory> = .init(
     plugins: [
         .universal: [
-            NetworkLoggerPlugin()
+            // NetworkLoggerPlugin()
         ],
         .github: [
             AuthPlugin(),
