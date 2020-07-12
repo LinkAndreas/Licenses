@@ -25,9 +25,10 @@ struct ProgressBar: View {
                         ),
                         height: geometry.size.height
                     )
-                    .foregroundColor(.blue)
+                    .foregroundColor(.accentColor)
                     .animation(.linear)
-            }.cornerRadius(45.0)
+            }
+            .cornerRadius(45.0)
         }
     }
 }
