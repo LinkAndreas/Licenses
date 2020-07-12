@@ -28,13 +28,13 @@ struct GithubRequestLimitView_Previews: PreviewProvider {
             .environmentObject(
                 Store(
                     isTargeted: false,
+                    progress: 0.5,
                     githubRequestStatus: .init(
                         limit: 40,
                         remaining: 0,
                         resetInterval: 30
                     ),
-                    repositories: [],
-                    progress: 0.5
+                    repositories: []
                 )
             )
             .previewLayout(.fixed(width: 650, height: 500))

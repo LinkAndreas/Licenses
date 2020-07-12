@@ -20,14 +20,7 @@ final class Store: ObservableObject {
     @Published var selectedRepository: GithubRepository?
     @Published var repositories: [GithubRepository] {
         didSet {
-            listEntries = repositories.map {
-                ListEntry(
-                    id: $0.id,
-                    title: $0.name,
-                    detail: $0.version,
-                    isProcessing: $0.isProcessing
-                )
-            }
+            listEntries = ListEntryFactory.makeListEntries(from: repositories)
         }
     }
 
@@ -37,14 +30,16 @@ final class Store: ObservableObject {
 
     init(
         isTargeted: Bool = false,
+        progress: Float? = nil,
         githubRequestStatus: GithubRequestStatus? = nil,
         repositories: [GithubRepository] = [],
-        progress: Float? = nil
+        selectedRepository: GithubRepository? = nil
     ) {
         self.isTargeted = isTargeted
+        self.progress = progress
         self.githubRequestStatus = githubRequestStatus
         self.repositories = repositories
-        self.progress = progress
+        self.selectedRepository = selectedRepository
     }
 
     func searchManifests(at path: URL) {

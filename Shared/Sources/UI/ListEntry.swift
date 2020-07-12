@@ -1,22 +1,25 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import Foundation
+import Cocoa
 
 class ListEntry {
     var id: UUID
     var title: String?
-    var detail: String?
+    var subtitle: String?
+    var caption: String?
     var isProcessing: Bool
 
     init(
         id: UUID,
         title: String? = nil,
-        detail: String? = nil,
+        subtitle: String? = nil,
+        caption: String? = nil,
         isProcessing: Bool = false
     ) {
         self.id = id
         self.title = title
-        self.detail = detail
+        self.subtitle = subtitle
+        self.caption = caption
         self.isProcessing = isProcessing
     }
 }
