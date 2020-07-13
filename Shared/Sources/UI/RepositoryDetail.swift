@@ -9,69 +9,109 @@ struct RepositoryDetail: View {
     var body: some View {
         GeometryReader { geometry in
             Group {
-                if let selectedRepository = store.selectedRepository {
-                    ScrollView {
-                        HStack {
-                            VStack {
-                                HStack {
-                                    VStack(alignment: .leading, spacing: 16) {
-                                        Text(selectedRepository.name)
-                                            .font(.largeTitle)
-                                        Text("Metadata:")
-                                            .font(.headline)
-                                        HStack {
-                                            VStack(alignment: .leading) {
-                                                Text("Version:")
-                                                    .font(.headline)
-                                                if selectedRepository.author != nil {
-                                                    Text("Author:")
-                                                        .font(.headline)
-                                                }
-                                                Text("Package Manager:")
-                                                    .font(.headline)
-                                            }
-                                            VStack(alignment: .trailing) {
-                                                Text(selectedRepository.version)
-                                                    .font(.body)
-                                                if let author: String = selectedRepository.author {
-                                                    Text(author)
-                                                        .font(.body)
-                                                }
-                                                Text(selectedRepository.packageManager.rawValue)
-                                                    .font(.body)
-                                            }
-                                        }
-                                        .padding()
-                                        .background(Color(NSColor.darkGray))
-                                        .cornerRadius(5)
+                if self.store.selectedRepository != nil {
+                    RepositoryDetailContentView(repository: self.store.selectedRepository!)
+                } else {
+                    RepositoryDetailPlaceholder()
+                }
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+        }
+    }
+}
 
-                                        if selectedRepository.isProcessing {
-                                            Text("processing")
-                                        } else {
-                                            if let decodedContent = selectedRepository.license?.decodedContent {
-                                                Text("License:")
-                                                    .font(.headline)
-                                                Text(decodedContent)
-                                                    .padding()
-                                                    .background(Color(NSColor.darkGray))
-                                                    .cornerRadius(5)
-                                            }
-                                        }
-                                    }
-                                }
-                                Spacer()
-                            }.padding()
-                            Spacer()
+struct RepositoryDetailPlaceholder: View {
+    var body: some View {
+        VStack(alignment: .center) {
+            Spacer()
+            Text("Please select a repository...")
+            Spacer()
+        }
+    }
+}
+
+struct RepositoryDetailContentView: View {
+    let repository: GithubRepository
+
+    var body: some View {
+        ScrollView {
+            HStack {
+                VStack {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 16) {
+                            HeaderView(repository: repository)
+                            MetadataView(repository: repository)
+                            LicenseView(repository: repository)
                         }
                     }
-                } else {
-                    VStack(alignment: .center) {
-                        Spacer()
-                        Text("Please select a repository...")
-                        Spacer()
+                    Spacer()
+                }.padding()
+                Spacer()
+            }
+        }
+    }
+}
+
+struct HeaderView: View {
+    let repository: GithubRepository
+
+    var body: some View {
+        Group {
+            Text(repository.name)
+                .font(.largeTitle)
+        }
+    }
+}
+
+struct LicenseView: View {
+    let repository: GithubRepository
+
+    var body: some View {
+        Group {
+            if repository.license != nil && repository.license!.decodedContent != nil {
+                Text("License:")
+                    .font(.headline)
+                Text(repository.license!.decodedContent!)
+                    .padding()
+                    .background(Color(NSColor.darkGray))
+                    .cornerRadius(5)
+            }
+        }
+    }
+}
+
+struct MetadataView: View {
+    let repository: GithubRepository
+
+    var body: some View {
+        Group {
+            Text("Metadata:")
+                .font(.headline)
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Version:")
+                        .font(.headline)
+                    repository.author.map { _ in
+                        Text("Author:")
+                            .font(.headline)
                     }
+                    Text("Package Manager:")
+                        .font(.headline)
                 }
-            }.frame(width: geometry.size.width, height: geometry.size.height)
+                VStack(alignment: .trailing) {
+                    Text(repository.version)
+                        .font(.body)
+                    repository.author.map { author in
+                        Text(author)
+                            .font(.body)
+                    }
+                    Text(repository.packageManager.rawValue)
+                        .font(.body)
+                }
+            }
+            .padding()
+            .background(Color(NSColor.darkGray))
+            .cornerRadius(5)
         }
     }
 }
@@ -124,7 +164,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
                     repositories: [repository],
                     selectedRepository: repository
                 )
-            )
+        )
             .previewLayout(.fixed(width: 850, height: 700))
     }
 }
