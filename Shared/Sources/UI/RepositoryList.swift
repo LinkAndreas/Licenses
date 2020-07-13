@@ -23,8 +23,8 @@ struct RepositoryList: View {
                 }
             }
             .animation(.linear)
-            if let progress = store.progress {
-                ProgressBar(value: .constant(progress))
+            store.progress.map {
+                ProgressBar(value: .constant($0))
                     .frame(height: 5)
                     .padding([.leading, .trailing, .bottom], 8)
             }
