@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         .environmentObject(Store.shared)
 
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+            contentRect: NSRect(x: 0, y: 0, width: 800, height: 600),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered,
             defer: false
@@ -34,17 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Licenses")
         window.contentView = NSHostingView(rootView: rootView)
         window.makeKeyAndOrderFront(nil)
-        window.toolbar = .init()
 
-        let toolbarContent = ToolbarContent()
-            .environmentObject(Store.shared)
-
-        let toolbarContainer: NSHostingView = .init(rootView: toolbarContent)
-        toolbarContainer.frame.size = toolbarContainer.fittingSize
-
-        let titleBarAccessory: NSTitlebarAccessoryViewController = .init()
-        titleBarAccessory.view = toolbarContainer
-        titleBarAccessory.layoutAttribute = .trailing
-        window.addTitlebarAccessoryViewController(titleBarAccessory)
+        window.toolbar = Toolbar.shared.wrappedToolbar
     }
 }
