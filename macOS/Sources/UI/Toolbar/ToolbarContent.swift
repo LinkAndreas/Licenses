@@ -11,19 +11,23 @@ struct ToolbarContent: View {
     }
 
     var body: some View {
-        HStack(spacing: 16) {
-            IconButton(
-                iconName: Constants.fetchIconName,
-                isDisabled: store.isProcessing,
-                action: store.fetchLicenses
-            )
-            IconButton(
-                iconName: Constants.shareIconName,
-                isDisabled: store.isProcessing,
-                action: store.exportLicenses
-            )
+        GeometryReader { geometry in
+            HStack(spacing: 16) {
+                IconButton(
+                    iconName: Constants.fetchIconName,
+                    isDisabled: self.store.isProcessing,
+                    action: self.store.fetchLicenses
+                )
+                IconButton(
+                    iconName: Constants.shareIconName,
+                    isDisabled: self.store.isProcessing,
+                    action: self.store.exportLicenses
+                )
+            }
+            .padding()
+            .offset(y: -geometry.size.height / 2)
         }
-        .padding()
+//        .frame(height: 420)
     }
 }
 

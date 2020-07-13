@@ -152,6 +152,11 @@
 		38D1C6B624AE3D5400F09B9D /* ListEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C6B424AE3D5400F09B9D /* ListEntryViewModel.swift */; };
 		38D1C6B824AE3D6B00F09B9D /* ListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C6B724AE3D6B00F09B9D /* ListEntry.swift */; };
 		38D1C6B924AE3D6B00F09B9D /* ListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C6B724AE3D6B00F09B9D /* ListEntry.swift */; };
+		38E9B82724BCB16500ADB3FD /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */; };
+		38E9B82824BCB16A00ADB3FD /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */; };
+		38E9B82A24BCDE3500ADB3FD /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82924BCDE3500ADB3FD /* Toolbar.swift */; };
+		38E9B82E24BCDEC500ADB3FD /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82D24BCDEC500ADB3FD /* NSImageExtensions.swift */; };
+		38E9B83024BCDEF900ADB3FD /* NSToolbarItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82F24BCDEF900ADB3FD /* NSToolbarItemExtensions.swift */; };
 		38FC759924B9D309009CDA41 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC759724B9D309009CDA41 /* IconButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -269,6 +274,10 @@
 		38D1C6B124AE3A5B00F09B9D /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		38D1C6B424AE3D5400F09B9D /* ListEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryViewModel.swift; sourceTree = "<group>"; };
 		38D1C6B724AE3D6B00F09B9D /* ListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntry.swift; sourceTree = "<group>"; };
+		38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		38E9B82924BCDE3500ADB3FD /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		38E9B82D24BCDEC500ADB3FD /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
+		38E9B82F24BCDEF900ADB3FD /* NSToolbarItemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSToolbarItemExtensions.swift; sourceTree = "<group>"; };
 		38FC759724B9D309009CDA41 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -458,6 +467,7 @@
 				3864D5F624A7698800A94E05 /* JSONDecoderExtensions.swift */,
 				3864D5F724A7698800A94E05 /* NSRegularExpressionExtensions.swift */,
 				3864D5F824A7698800A94E05 /* StringExtensions.swift */,
+				38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */,
 				3864D5F924A7698800A94E05 /* JSONEncoderExtensions.swift */,
 			);
 			path = Extensions;
@@ -651,6 +661,7 @@
 			isa = PBXGroup;
 			children = (
 				382873F524B1A4BB003C796D /* AppDelegate.swift */,
+				38E9B82B24BCDEA800ADB3FD /* Globals */,
 				3864D6EE24A77B4800A94E05 /* UI */,
 			);
 			path = Sources;
@@ -735,10 +746,28 @@
 			path = Architecture;
 			sourceTree = "<group>";
 		};
+		38E9B82B24BCDEA800ADB3FD /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				38E9B82C24BCDEAE00ADB3FD /* Extensions */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
+		38E9B82C24BCDEAE00ADB3FD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				38E9B82D24BCDEC500ADB3FD /* NSImageExtensions.swift */,
+				38E9B82F24BCDEF900ADB3FD /* NSToolbarItemExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		38FC759A24B9D778009CDA41 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
 				38A0763224B9AFEF0027CEB1 /* ToolbarContent.swift */,
+				38E9B82924BCDE3500ADB3FD /* Toolbar.swift */,
 				38FC759724B9D309009CDA41 /* IconButton.swift */,
 			);
 			path = Toolbar;
@@ -1019,6 +1048,7 @@
 				3864D69624A7698800A94E05 /* ManifestCollector.swift in Sources */,
 				3864D67424A7698800A94E05 /* LinksEntity.swift in Sources */,
 				3890956124A7892200161E19 /* Store.swift in Sources */,
+				38E9B82824BCB16A00ADB3FD /* ViewExtensions.swift in Sources */,
 				389FD37824BA1ACB0049933A /* RepositoryListEntryViewModelFactory.swift in Sources */,
 				3864D6A624A7698800A94E05 /* GithubLicenseModelMapper.swift in Sources */,
 				3864D67824A7698800A94E05 /* TrunkResponse.swift in Sources */,
@@ -1076,6 +1106,7 @@
 				3864D6A324A7698800A94E05 /* LicenseProcessor.swift in Sources */,
 				3864D6AD24A7698800A94E05 /* GithubRequestStatus.swift in Sources */,
 				38D1C6B324AE3A5B00F09B9D /* ListView.swift in Sources */,
+				38E9B82A24BCDE3500ADB3FD /* Toolbar.swift in Sources */,
 				38D1C6B624AE3D5400F09B9D /* ListEntryViewModel.swift in Sources */,
 				3864D67724A7698800A94E05 /* TrunkResponseModelMapper.swift in Sources */,
 				3864D64B24A7698800A94E05 /* NSRegularExpressionExtensions.swift in Sources */,
@@ -1085,6 +1116,7 @@
 				3864D6B324A7698800A94E05 /* GithubRepositoryUrlDecoder.swift in Sources */,
 				388F5A0924A77BC800D2C098 /* Manifest.swift in Sources */,
 				3864D64D24A7698800A94E05 /* StringExtensions.swift in Sources */,
+				38E9B82724BCB16500ADB3FD /* ViewExtensions.swift in Sources */,
 				3864D6A524A7698800A94E05 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				3864D69724A7698800A94E05 /* ManifestCollector.swift in Sources */,
 				3864D67524A7698800A94E05 /* LinksEntity.swift in Sources */,
@@ -1094,6 +1126,7 @@
 				3828741024B1AB78003C796D /* AppDelegate.swift in Sources */,
 				3864D6B524A7698800A94E05 /* GithubLicense.swift in Sources */,
 				3864D6BD24A7698800A94E05 /* PackageManager.swift in Sources */,
+				38E9B82E24BCDEC500ADB3FD /* NSImageExtensions.swift in Sources */,
 				383D17A824B9F2C000AD0FC3 /* PreferencesHostingViewController.swift in Sources */,
 				3864D69D24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
 				389FD37924BA1ACB0049933A /* RepositoryListEntryViewModelFactory.swift in Sources */,
@@ -1101,6 +1134,7 @@
 				3864D6B124A7698800A94E05 /* GithubRepository.swift in Sources */,
 				3864D66B24A7698800A94E05 /* RemainingGithubRequestsPlugin.swift in Sources */,
 				3864D6A124A7698800A94E05 /* RegexPatterns.swift in Sources */,
+				38E9B83024BCDEF900ADB3FD /* NSToolbarItemExtensions.swift in Sources */,
 				3864D6DE24A76DA600A94E05 /* Assets.swift in Sources */,
 				3864D67124A7698800A94E05 /* PodSpecEntity.swift in Sources */,
 				3864D65D24A7698800A94E05 /* GithubRequestLimitView.swift in Sources */,

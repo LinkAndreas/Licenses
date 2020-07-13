@@ -8,9 +8,9 @@ struct GithubRequestLimitView: View {
 
     var body: some View {
         Group {
-            if let githubRequestStatus = store.githubRequestStatus {
+            store.githubRequestStatus.map { status in
                 Group {
-                    if githubRequestStatus.remaining == 0 {
+                    if status.remaining == 0 {
                         Text("Github Request limit exceeded. Please add a personal access token in settings.")
                             .foregroundColor(.red)
                     }
