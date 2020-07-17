@@ -42,8 +42,39 @@ final class Store: ObservableObject {
         self.selectedRepository = selectedRepository
     }
 
-    func searchManifests(at path: URL) {
-        ManifestCollector.search(at: path)
+    func handle(itemProviders: [NSItemProvider]) {
+        itemProviders
+            .publisher
+            .flatMap { provider in
+                Future<URL?, Never> { promise in
+                    provider.loadDataRepresentation(
+                        forTypeIdentifier: "public.file-url",
+                        completionHandler: { data, _ in
+                            guard
+                                let data = data,
+                                let path = NSString(data: data, encoding: 4),
+                                let url = URL(string: path as String)
+                            else {
+                                return promise(.success(nil))
+                            }
+
+                            promise(.success(url))
+                        }
+                    )
+                }
+            }
+            .eraseToAnyPublisher()
+            .collect()
+            .receive(on: RunLoop.main)
+            .sink { urls in
+                let filePaths: [URL] = urls.compactMap { $0 }
+                self.searchManifests(at: filePaths)
+            }
+            .store(in: &cancellables)
+    }
+
+    func searchManifests(at paths: [URL]) {
+        ManifestCollector.search(at: paths)
             .flatMap(maxPublishers: .max(1), ManifestDecoder.decode)
             .receive(on: RunLoop.main)
             .handleEvents(
