@@ -24,7 +24,7 @@ struct RepositoryDetailPlaceholder: View {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            Text("Please select a repository...")
+            Text("You can select manifests using File > Open File or drop them within this window.")
             Spacer()
         }
     }
