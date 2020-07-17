@@ -27,7 +27,6 @@ struct ToolbarContent: View {
             .padding()
             .offset(y: -geometry.size.height / 2)
         }
-//        .frame(height: 420)
     }
 }
 
