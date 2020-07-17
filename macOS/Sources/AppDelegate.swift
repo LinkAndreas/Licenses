@@ -36,4 +36,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
         window.toolbar = Toolbar.shared.wrappedToolbar
     }
+
+    @IBAction private func openFilePath(_ sender: Any) {
+        let panel: NSOpenPanel = .init()
+        panel.allowsMultipleSelection = true
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = true
+        panel.begin { response in
+            guard response == .OK else { return }
+
+            Store.shared.searchManifests(at: panel.urls)
+        }
+    }
 }

@@ -60,6 +60,18 @@
                             <menuItem title="Format" id="jxT-CU-nIS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
+                            <menuItem title="File" id="eSY-02-YrH">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="gft-2c-pg8">
+                                    <items>
+                                        <menuItem title="Open…" keyEquivalent="o" id="8JJ-8F-0J1">
+                                            <connections>
+                                                <action selector="openFilePath:" target="Voe-Tx-rLC" id="zkv-bv-6H1"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
