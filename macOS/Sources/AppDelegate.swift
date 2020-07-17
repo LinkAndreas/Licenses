@@ -34,7 +34,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Licenses")
         window.contentView = NSHostingView(rootView: rootView)
         window.makeKeyAndOrderFront(nil)
-
         window.toolbar = Toolbar.shared.wrappedToolbar
     }
 }

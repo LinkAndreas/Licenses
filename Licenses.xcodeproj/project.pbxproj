@@ -155,7 +155,6 @@
 		38E9B82724BCB16500ADB3FD /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */; };
 		38E9B82824BCB16A00ADB3FD /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */; };
 		38E9B82A24BCDE3500ADB3FD /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82924BCDE3500ADB3FD /* Toolbar.swift */; };
-		38E9B82E24BCDEC500ADB3FD /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82D24BCDEC500ADB3FD /* NSImageExtensions.swift */; };
 		38E9B83024BCDEF900ADB3FD /* NSToolbarItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9B82F24BCDEF900ADB3FD /* NSToolbarItemExtensions.swift */; };
 		38FC759924B9D309009CDA41 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC759724B9D309009CDA41 /* IconButton.swift */; };
 /* End PBXBuildFile section */
@@ -276,7 +275,6 @@
 		38D1C6B724AE3D6B00F09B9D /* ListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntry.swift; sourceTree = "<group>"; };
 		38E9B82524BCB12000ADB3FD /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		38E9B82924BCDE3500ADB3FD /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
-		38E9B82D24BCDEC500ADB3FD /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		38E9B82F24BCDEF900ADB3FD /* NSToolbarItemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSToolbarItemExtensions.swift; sourceTree = "<group>"; };
 		38FC759724B9D309009CDA41 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -757,7 +755,6 @@
 		38E9B82C24BCDEAE00ADB3FD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				38E9B82D24BCDEC500ADB3FD /* NSImageExtensions.swift */,
 				38E9B82F24BCDEF900ADB3FD /* NSToolbarItemExtensions.swift */,
 			);
 			path = Extensions;
@@ -1126,7 +1123,6 @@
 				3828741024B1AB78003C796D /* AppDelegate.swift in Sources */,
 				3864D6B524A7698800A94E05 /* GithubLicense.swift in Sources */,
 				3864D6BD24A7698800A94E05 /* PackageManager.swift in Sources */,
-				38E9B82E24BCDEC500ADB3FD /* NSImageExtensions.swift in Sources */,
 				383D17A824B9F2C000AD0FC3 /* PreferencesHostingViewController.swift in Sources */,
 				3864D69D24A7698800A94E05 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
 				389FD37924BA1ACB0049933A /* RepositoryListEntryViewModelFactory.swift in Sources */,
