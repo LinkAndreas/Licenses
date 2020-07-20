@@ -165,6 +165,6 @@ struct RepositoryDetail_Previews: PreviewProvider {
                     selectedRepository: repository
                 )
         )
-            .previewLayout(.fixed(width: 850, height: 700))
+        .previewLayout(.fixed(width: 850, height: 700))
     }
 }
