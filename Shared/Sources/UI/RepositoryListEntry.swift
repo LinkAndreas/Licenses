@@ -14,8 +14,8 @@ struct RepositoryListEntry: View {
                 #endif
             }
             VStack(alignment: .leading) {
-                viewModel.title.map { Text($0).font(.headline) }
-                viewModel.subtitle.map { Text($0).font(.subheadline) }
+                viewModel.title.map { Text($0).font(.body) }
+                viewModel.subtitle.map { Text($0).font(.footnote) }
             }
             Spacer()
             HStack {

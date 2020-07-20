@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ListView: NSViewControllerRepresentable {
     @EnvironmentObject var store: Store
-    @Binding var height: CGFloat
 
     func makeNSViewController(context: Context) -> ListViewController  {
         let viewController: ListViewController = .init()
@@ -20,11 +19,10 @@ struct ListView: NSViewControllerRepresentable {
 
     func updateNSViewController(_ viewController: ListViewController, context: Context) {
         viewController.update(entries: store.listEntries)
-        viewController.updateHeight(height)
     }
 
     func makeCoordinator() -> ListViewCoordinator {
-        return ListViewCoordinator(store: store)
+        return .init(store: store)
     }
 }
 
@@ -53,8 +51,6 @@ final class ListViewController: NSViewController {
 
     private let tableView: NSTableView = .init()
     private let scrollView: NSScrollView = .init()
-
-    private var heightConstraint: NSLayoutConstraint?
 
     override func loadView() {
         self.view = NSView()
@@ -91,12 +87,6 @@ final class ListViewController: NSViewController {
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        heightConstraint = scrollView.heightAnchor.constraint(equalToConstant: 0)
-        heightConstraint?.isActive = true
-    }
-
-    func updateHeight(_ height: CGFloat) {
-        heightConstraint?.constant = height
     }
 
     func update(entries: [ListEntry]) {

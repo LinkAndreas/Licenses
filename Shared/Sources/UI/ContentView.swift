@@ -10,16 +10,14 @@ struct ContentView: View {
         VStack{
             NavigationView {
                 VStack {
-                    GeometryReader { geometry in
-                        ListView(height: .constant(geometry.size.height))
-                    }
+                    ListView()
                     store.progress.map {
                         ProgressBar(value: .constant($0))
                         .frame(height: 5)
                         .padding([.leading, .trailing, .bottom], 16)
                     }
                 }
-                .frame(minWidth: 400, maxWidth: 550)
+                .frame(width: 400)
                 RepositoryDetail()
             }
             .listStyle(SidebarListStyle())
