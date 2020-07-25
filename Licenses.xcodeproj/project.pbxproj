@@ -82,6 +82,8 @@
 		380EA59524CC337F00514173 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59424CC337F00514173 /* Pin.swift */; };
 		380EA59724CC33A100514173 /* PinState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59624CC33A100514173 /* PinState.swift */; };
 		380EA59924CC33C000514173 /* Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59824CC33C000514173 /* Pins.swift */; };
+		380EA59B24CC4A0E00514173 /* ListEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */; };
+		380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA5A024CC542A00514173 /* NSViewExtensions.swift */; };
 		3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5EC24A7695F00A94E05 /* Aphrodite */; };
 		3864D64524A7698800A94E05 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3864D5F124A7698800A94E05 /* Colors.xcassets */; };
 		3864D6D024A76BBF00A94E05 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3864D6CE24A76BBF00A94E05 /* .swiftlint.yml */; };
@@ -189,6 +191,8 @@
 		380EA59424CC337F00514173 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		380EA59624CC33A100514173 /* PinState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinState.swift; sourceTree = "<group>"; };
 		380EA59824CC33C000514173 /* Pins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pins.swift; sourceTree = "<group>"; };
+		380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryRowView.swift; sourceTree = "<group>"; };
+		380EA5A024CC542A00514173 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
 		381E66C124B1ACD30083E9C1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,6 +352,7 @@
 				380EA52224CC2E7700514173 /* NSToolbarItemExtensions.swift */,
 				380EA52324CC2E7700514173 /* StringExtensions.swift */,
 				380EA52624CC2E7700514173 /* ViewExtensions.swift */,
+				380EA5A024CC542A00514173 /* NSViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				380EA56A24CC2F4600514173 /* ListEntry.swift */,
 				380EA56E24CC2F4600514173 /* ListEntryFactory.swift */,
 				380EA56524CC2F4600514173 /* ListEntryView.swift */,
+				380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */,
 				380EA56B24CC2F4600514173 /* ListEntryViewModel.swift */,
 				380EA56F24CC2F4600514173 /* ListView.swift */,
 				380EA57024CC2F4600514173 /* PreferencesHostingViewController.swift */,
@@ -722,6 +728,7 @@
 				380EA50824CC2DF500514173 /* ManifestCollector.swift in Sources */,
 				380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				380EA53E24CC2EC300514173 /* GithubLicenseEntity.swift in Sources */,
+				380EA59B24CC4A0E00514173 /* ListEntryRowView.swift in Sources */,
 				380EA59924CC33C000514173 /* Pins.swift in Sources */,
 				380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */,
 				380EA50024CC2DE600514173 /* GithubLicense.swift in Sources */,
@@ -740,6 +747,7 @@
 				380EA57624CC2F4700514173 /* ListEntryView.swift in Sources */,
 				380EA4F924CC2DE600514173 /* LinksModelMapper.swift in Sources */,
 				380EA57B24CC2F4700514173 /* ListEntry.swift in Sources */,
+				380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */,
 				380EA50C24CC2DF500514173 /* RegexPatterns.swift in Sources */,
 				380EA59524CC337F00514173 /* Pin.swift in Sources */,
 				380EA57C24CC2F4700514173 /* ListEntryViewModel.swift in Sources */,
