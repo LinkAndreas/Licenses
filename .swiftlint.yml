@@ -1,8 +1,6 @@
 included:
-- iOS/Sources
-- macOS/Sources
-- Tests/iOS/Sources
-- Tests/macOS/Sources
+- App/Sources
+- Tests/Sources
 
 analyzer_rules:
 - unused_import
