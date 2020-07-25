@@ -72,16 +72,13 @@ final class ListViewController: NSViewController {
         tableView.addTableColumn(column)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.selectionHighlightStyle = .none
     }
 
     private func setupLayout() {
         view.addSubview(scrollView)
         scrollView.documentView = tableView
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.bindEdgesToSuperview()
     }
 
     func update(entries: [ListEntry]) {
@@ -104,6 +101,7 @@ final class ListViewController: NSViewController {
                 tableView.insertRows(at: [offset], withAnimation: .effectFade)
             }
         }
+
         tableView.endUpdates()
     }
 }
@@ -116,16 +114,27 @@ extension ListViewController: NSTableViewDataSource {
 
 extension ListViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let view: NSHostingView<RepositoryListEntry> = .init(
+        return nil
+    }
+
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        let listEntryView: NSHostingView<RepositoryListEntry> = .init(
             rootView: RepositoryListEntry(
                 viewModel: RepositoryListEntryViewModelFactory.makeViewModel(from: entries[row])
             )
         )
-        return view
+
+        listEntryView.frame.size.width = tableView.frame.size.width
+        let rowSize: CGSize = .init(width: tableView.frame.size.width, height: listEntryView.fittingSize.height)
+
+        let listEntryRow: ListEntryRowView = .init(frame: .init(origin: .zero, size: rowSize))
+        listEntryRow.addSubview(listEntryView)
+        listEntryView.bindEdgesToSuperview()
+        return listEntryRow
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        guard let view: NSView = self.tableView(tableView, viewFor: nil, row: row) else { return 44 }
+        guard let view: NSView = self.tableView(tableView, rowViewForRow: row) else { return 44 }
 
         view.frame.size.width = tableView.frame.size.width
         return view.fittingSize.height

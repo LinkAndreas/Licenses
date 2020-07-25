@@ -1,18 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "tag@1x.png",
-      "idiom" : "mac",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "tag@2x.png",
-      "idiom" : "mac",
-      "scale" : "2x"
+      "filename" : "tag.pdf",
+      "idiom" : "mac"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }

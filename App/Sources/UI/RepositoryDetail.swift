@@ -36,7 +36,12 @@ struct RepositoryDetail: View {
                 } else {
                     VStack(alignment: .center) {
                         Spacer()
-                        Text("You can select manifests using File > Open File or drop them within this window.")
+                        VStack {
+                            Icon(name: "box", size: .init(width: 100, height: 100))
+                            Text("You can select manifests using File > Open File or drop them within this window.")
+                                .multilineTextAlignment(.center)
+                                .frame(maxWidth: 300)
+                        }
                         Spacer()
                     }
                 }

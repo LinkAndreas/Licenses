@@ -27,6 +27,7 @@ internal enum Asset {
     internal static let toolbarIconButtonPressed = ColorAsset(name: "toolbarIconButtonPressed")
   }
   internal enum Images {
+    internal static let box = ImageAsset(name: "box")
     internal static let circle = ImageAsset(name: "circle")
     internal static let folder = ImageAsset(name: "folder")
     internal static let license = ImageAsset(name: "license")
