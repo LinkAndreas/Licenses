@@ -84,6 +84,8 @@
 		380EA59924CC33C000514173 /* Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59824CC33C000514173 /* Pins.swift */; };
 		380EA59B24CC4A0E00514173 /* ListEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */; };
 		380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA5A024CC542A00514173 /* NSViewExtensions.swift */; };
+		38411BDC24CC9840001CA0E7 /* MasterPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */; };
+		38411BDE24CC9C82001CA0E7 /* DetailPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */; };
 		3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5EC24A7695F00A94E05 /* Aphrodite */; };
 		3864D64524A7698800A94E05 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3864D5F124A7698800A94E05 /* Colors.xcassets */; };
 		3864D6D024A76BBF00A94E05 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3864D6CE24A76BBF00A94E05 /* .swiftlint.yml */; };
@@ -93,6 +95,7 @@
 		3864D6EC24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
 		38BC46A424B1AD750088B830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BC46A224B1AD750088B830 /* Main.storyboard */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
+		38F2BA9D24CC709100F27FA8 /* SelectableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F2BA9C24CC709100F27FA8 /* SelectableText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +197,8 @@
 		380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryRowView.swift; sourceTree = "<group>"; };
 		380EA5A024CC542A00514173 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
 		381E66C124B1ACD30083E9C1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPlaceholder.swift; sourceTree = "<group>"; };
+		38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceholder.swift; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5F124A7698800A94E05 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 		38BC46A624B1ADEE0088B830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4A24CC2B1200FDBE21 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4B24CC2B1200FDBE21 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		38F2BA9C24CC709100F27FA8 /* SelectableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				380EA56C24CC2F4600514173 /* ContentView.swift */,
+				38F2BA9C24CC709100F27FA8 /* SelectableText.swift */,
 				380EA57224CC2F4700514173 /* FileDropArea.swift */,
 				380EA56324CC2F4600514173 /* GithubRequestLimitView.swift */,
 				380EA57124CC2F4700514173 /* Icon.swift */,
@@ -435,6 +442,8 @@
 				380EA57024CC2F4600514173 /* PreferencesHostingViewController.swift */,
 				380EA56D24CC2F4600514173 /* ProgressBar.swift */,
 				380EA56724CC2F4600514173 /* RepositoryDetail.swift */,
+				38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */,
+				38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */,
 				380EA56424CC2F4600514173 /* RepositoryList.swift */,
 				380EA56624CC2F4600514173 /* RepositoryListEntry.swift */,
 				380EA56824CC2F4600514173 /* RepositoryListEntryViewModel.swift */,
@@ -774,12 +783,15 @@
 				380EA52B24CC2E7700514173 /* NSRegularExpressionExtensions.swift in Sources */,
 				380EA53324CC2EB500514173 /* DomainErrorFactory.swift in Sources */,
 				380EA4FC24CC2DE600514173 /* Links.swift in Sources */,
+				38411BDC24CC9840001CA0E7 /* MasterPlaceholder.swift in Sources */,
 				380EA59724CC33A100514173 /* PinState.swift in Sources */,
 				380EA57724CC2F4700514173 /* RepositoryListEntry.swift in Sources */,
 				380EA58224CC2F4700514173 /* Icon.swift in Sources */,
 				380EA59024CC2F7A00514173 /* IconButton.swift in Sources */,
 				380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */,
 				380EA52C24CC2E7700514173 /* ViewExtensions.swift in Sources */,
+				38F2BA9D24CC709100F27FA8 /* SelectableText.swift in Sources */,
+				38411BDE24CC9C82001CA0E7 /* DetailPlaceholder.swift in Sources */,
 				380EA51224CC2E1000514173 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
 				380EA4FF24CC2DE600514173 /* GithubRequestStatus.swift in Sources */,
 				3864D6EC24A7717700A94E05 /* Strings.swift in Sources */,

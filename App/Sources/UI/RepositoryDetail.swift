@@ -1,15 +1,25 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import Cocoa
 import Combine
 import SwiftUI
 
-struct RepositoryDetailListEntry: Identifiable {
+class RepositoryDetailListEntry: Identifiable {
     let iconName: String
     let title: String
     let subtitle: String
+    var id: UUID
 
-    var id: String {
-        return title
+    init(
+        iconName: String,
+        title: String,
+        subtitle: String,
+        id: UUID = .init()
+    ) {
+        self.iconName = iconName
+        self.title = title
+        self.subtitle = subtitle
+        self.id = id
     }
 }
 
@@ -20,30 +30,33 @@ struct RepositoryDetail: View {
         GeometryReader { geometry in
             Group {
                 if self.store.selectedRepository != nil {
-                    List(self.store.detailListEntries!) { entry in
+                    ScrollView {
                         HStack {
-                            Icon(name: entry.iconName, size: .init(width: 32, height: 32))
                             VStack(alignment: .leading) {
-                                Text(entry.title)
-                                    .font(.headline)
-                                Text(entry.subtitle)
-                                    .font(.subheadline)
+                                ForEach(self.store.detailListEntries!) { entry in
+                                    HStack(alignment: .top) {
+                                        Icon(name: entry.iconName, size: .init(width: 32, height: 32))
+                                            .padding(.top, 6)
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(entry.title)
+                                                .foregroundColor(.white)
+                                                .font(.system(size: 18, weight: .medium))
+                                            TextLabel(
+                                                text: entry.subtitle,
+                                                font: .systemFont(ofSize: 15, weight: .regular),
+                                                isSelectable: true
+                                            )
+                                        }
+                                    }
+                                    .padding()
+                                }
                             }
+                            Spacer()
                         }
-                        .padding()
                     }
                     .padding(4)
                 } else {
-                    VStack(alignment: .center) {
-                        Spacer()
-                        VStack {
-                            Icon(name: "box", size: .init(width: 100, height: 100))
-                            Text("You can select manifests using File > Open File or drop them within this window.")
-                                .multilineTextAlignment(.center)
-                                .frame(maxWidth: 300)
-                        }
-                        Spacer()
-                    }
+                    DetailPlaceholder()
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)

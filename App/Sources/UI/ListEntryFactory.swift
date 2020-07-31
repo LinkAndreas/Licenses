@@ -29,6 +29,9 @@ enum ListEntryFactory {
             repository.license?.downloadURL.map { .init(iconName: "link", title: "License URL: ", subtitle: $0) },
             repository.license?.license?.name.map {
                 .init(iconName: "signature", title: "License Name: ", subtitle: $0)
+            },
+            repository.license?.decodedContent.map {
+                .init(iconName: "license", title: "License Content: ", subtitle: $0)
             }
         ].compactMap { $0 }
         return result
