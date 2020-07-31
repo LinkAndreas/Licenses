@@ -10,7 +10,7 @@ class ListEntry {
     var isProcessing: Bool
 
     init(
-        id: UUID,
+        id: UUID = .init(),
         title: String? = nil,
         subtitle: String? = nil,
         caption: String? = nil,
