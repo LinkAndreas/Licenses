@@ -28,7 +28,7 @@ struct RepositoryList: View {
                     .frame(height: 5)
                     .padding([.leading, .trailing, .bottom], 8)
             }
-            GithubRequestLimitView()
+            ErrorMessageView()
         }
     }
 }

@@ -51,12 +51,11 @@
 		380EA54224CC2EC300514173 /* TrunkResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA53B24CC2EC300514173 /* TrunkResponseEntity.swift */; };
 		380EA54624CC2ECF00514173 /* GithubRequestStatusFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54324CC2ECF00514173 /* GithubRequestStatusFactory.swift */; };
 		380EA54724CC2ECF00514173 /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54424CC2ECF00514173 /* AuthPlugin.swift */; };
-		380EA54824CC2ECF00514173 /* RemainingGithubRequestsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54524CC2ECF00514173 /* RemainingGithubRequestsPlugin.swift */; };
+		380EA54824CC2ECF00514173 /* ErrorMessagePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54524CC2ECF00514173 /* ErrorMessagePlugin.swift */; };
 		380EA54C24CC2EE500514173 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54924CC2EE500514173 /* Generic.swift */; };
 		380EA54D24CC2EE500514173 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54A24CC2EE500514173 /* Github.swift */; };
 		380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */; };
-		380EA57424CC2F4700514173 /* GithubRequestLimitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56324CC2F4600514173 /* GithubRequestLimitView.swift */; };
-		380EA57524CC2F4700514173 /* RepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56424CC2F4600514173 /* RepositoryList.swift */; };
+		380EA57424CC2F4700514173 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56324CC2F4600514173 /* ErrorMessageView.swift */; };
 		380EA57624CC2F4700514173 /* ListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56524CC2F4600514173 /* ListEntryView.swift */; };
 		380EA57724CC2F4700514173 /* RepositoryListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56624CC2F4600514173 /* RepositoryListEntry.swift */; };
 		380EA57824CC2F4700514173 /* RepositoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56724CC2F4600514173 /* RepositoryDetail.swift */; };
@@ -96,6 +95,9 @@
 		3864D6EC24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
 		38BC46A424B1AD750088B830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BC46A224B1AD750088B830 /* Main.storyboard */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
+		38E8807D24D6B2CE0012A36C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807C24D6B2CE0012A36C /* ProgressView.swift */; };
+		38E8807F24D6B3AF0012A36C /* RepositoryMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807E24D6B3AF0012A36C /* RepositoryMaster.swift */; };
+		38E8808124D6B5F40012A36C /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8808024D6B5F40012A36C /* InformationView.swift */; };
 		38F2BA9D24CC709100F27FA8 /* SelectableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F2BA9C24CC709100F27FA8 /* SelectableText.swift */; };
 /* End PBXBuildFile section */
 
@@ -156,7 +158,7 @@
 		380EA53B24CC2EC300514173 /* TrunkResponseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrunkResponseEntity.swift; sourceTree = "<group>"; };
 		380EA54324CC2ECF00514173 /* GithubRequestStatusFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRequestStatusFactory.swift; sourceTree = "<group>"; };
 		380EA54424CC2ECF00514173 /* AuthPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
-		380EA54524CC2ECF00514173 /* RemainingGithubRequestsPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemainingGithubRequestsPlugin.swift; sourceTree = "<group>"; };
+		380EA54524CC2ECF00514173 /* ErrorMessagePlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessagePlugin.swift; sourceTree = "<group>"; };
 		380EA54924CC2EE500514173 /* Generic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generic.swift; sourceTree = "<group>"; };
 		380EA54A24CC2EE500514173 /* Github.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsTrunk.swift; sourceTree = "<group>"; };
@@ -169,7 +171,7 @@
 		380EA55624CC2F1800514173 /* ReducerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReducerFactory.swift; sourceTree = "<group>"; };
 		380EA55724CC2F1900514173 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		380EA55824CC2F1900514173 /* ViewStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStore.swift; sourceTree = "<group>"; };
-		380EA56324CC2F4600514173 /* GithubRequestLimitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRequestLimitView.swift; sourceTree = "<group>"; };
+		380EA56324CC2F4600514173 /* ErrorMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
 		380EA56424CC2F4600514173 /* RepositoryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryList.swift; sourceTree = "<group>"; };
 		380EA56524CC2F4600514173 /* ListEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListEntryView.swift; sourceTree = "<group>"; };
 		380EA56624CC2F4600514173 /* RepositoryListEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntry.swift; sourceTree = "<group>"; };
@@ -215,6 +217,9 @@
 		38BC46A624B1ADEE0088B830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4A24CC2B1200FDBE21 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4B24CC2B1200FDBE21 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		38E8807C24D6B2CE0012A36C /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		38E8807E24D6B3AF0012A36C /* RepositoryMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMaster.swift; sourceTree = "<group>"; };
+		38E8808024D6B5F40012A36C /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		38F2BA9C24CC709100F27FA8 /* SelectableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -395,7 +400,7 @@
 			children = (
 				380EA54424CC2ECF00514173 /* AuthPlugin.swift */,
 				380EA54324CC2ECF00514173 /* GithubRequestStatusFactory.swift */,
-				380EA54524CC2ECF00514173 /* RemainingGithubRequestsPlugin.swift */,
+				380EA54524CC2ECF00514173 /* ErrorMessagePlugin.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -434,25 +439,28 @@
 			isa = PBXGroup;
 			children = (
 				380EA56C24CC2F4600514173 /* ContentView.swift */,
-				38F2BA9C24CC709100F27FA8 /* SelectableText.swift */,
+				38E8808024D6B5F40012A36C /* InformationView.swift */,
+				38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */,
+				380EA56324CC2F4600514173 /* ErrorMessageView.swift */,
 				380EA57224CC2F4700514173 /* FileDropArea.swift */,
-				380EA56324CC2F4600514173 /* GithubRequestLimitView.swift */,
 				380EA57124CC2F4700514173 /* Icon.swift */,
 				380EA56A24CC2F4600514173 /* ListEntry.swift */,
 				380EA56E24CC2F4600514173 /* ListEntryFactory.swift */,
-				380EA56524CC2F4600514173 /* ListEntryView.swift */,
 				380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */,
+				380EA56524CC2F4600514173 /* ListEntryView.swift */,
 				380EA56B24CC2F4600514173 /* ListEntryViewModel.swift */,
 				380EA56F24CC2F4600514173 /* ListView.swift */,
+				38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */,
 				380EA57024CC2F4600514173 /* PreferencesHostingViewController.swift */,
 				380EA56D24CC2F4600514173 /* ProgressBar.swift */,
+				38E8807C24D6B2CE0012A36C /* ProgressView.swift */,
 				380EA56724CC2F4600514173 /* RepositoryDetail.swift */,
-				38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */,
-				38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */,
 				380EA56424CC2F4600514173 /* RepositoryList.swift */,
 				380EA56624CC2F4600514173 /* RepositoryListEntry.swift */,
 				380EA56824CC2F4600514173 /* RepositoryListEntryViewModel.swift */,
 				380EA57324CC2F4700514173 /* RepositoryListEntryViewModelFactory.swift */,
+				38E8807E24D6B3AF0012A36C /* RepositoryMaster.swift */,
+				38F2BA9C24CC709100F27FA8 /* SelectableText.swift */,
 				380EA56924CC2F4600514173 /* SettingsView.swift */,
 				380EA58524CC2F4F00514173 /* ProgressIndicator */,
 				380EA58A24CC2F6A00514173 /* Toolbar */,
@@ -735,13 +743,13 @@
 				380EA54124CC2EC300514173 /* TrunkResponseModelMapper.swift in Sources */,
 				380EA4DE24CC2D7700514173 /* AppDelegate.swift in Sources */,
 				380EA54624CC2ECF00514173 /* GithubRequestStatusFactory.swift in Sources */,
-				380EA57524CC2F4700514173 /* RepositoryList.swift in Sources */,
 				380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				380EA53C24CC2EC300514173 /* PodSpecEntity.swift in Sources */,
 				380EA51E24CC2E6400514173 /* Defaults.swift in Sources */,
 				380EA50824CC2DF500514173 /* ManifestCollector.swift in Sources */,
 				380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				380EA53E24CC2EC300514173 /* GithubLicenseEntity.swift in Sources */,
+				38E8807D24D6B2CE0012A36C /* ProgressView.swift in Sources */,
 				380EA59B24CC4A0E00514173 /* ListEntryRowView.swift in Sources */,
 				380EA59924CC33C000514173 /* Pins.swift in Sources */,
 				380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */,
@@ -757,7 +765,7 @@
 				380EA58024CC2F4700514173 /* ListView.swift in Sources */,
 				380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */,
 				380EA53424CC2EB500514173 /* API.swift in Sources */,
-				380EA57424CC2F4700514173 /* GithubRequestLimitView.swift in Sources */,
+				380EA57424CC2F4700514173 /* ErrorMessageView.swift in Sources */,
 				3816E62324D580B60053454E /* CSVExporter.swift in Sources */,
 				380EA57624CC2F4700514173 /* ListEntryView.swift in Sources */,
 				380EA4F924CC2DE600514173 /* LinksModelMapper.swift in Sources */,
@@ -767,6 +775,7 @@
 				380EA59524CC337F00514173 /* Pin.swift in Sources */,
 				380EA57C24CC2F4700514173 /* ListEntryViewModel.swift in Sources */,
 				380EA50724CC2DF500514173 /* ManifestDecodingStrategy.swift in Sources */,
+				38E8807F24D6B3AF0012A36C /* RepositoryMaster.swift in Sources */,
 				380EA52924CC2E7700514173 /* StringExtensions.swift in Sources */,
 				380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */,
 				380EA4F624CC2DE600514173 /* License.swift in Sources */,
@@ -779,6 +788,7 @@
 				380EA50B24CC2DF500514173 /* PackageManager.swift in Sources */,
 				380EA53D24CC2EC300514173 /* LinksEntity.swift in Sources */,
 				380EA57D24CC2F4700514173 /* ContentView.swift in Sources */,
+				38E8808124D6B5F40012A36C /* InformationView.swift in Sources */,
 				380EA57924CC2F4700514173 /* RepositoryListEntryViewModel.swift in Sources */,
 				380EA50924CC2DF500514173 /* Manifest.swift in Sources */,
 				380EA54024CC2EC300514173 /* LicenseEntity.swift in Sources */,
@@ -802,7 +812,7 @@
 				380EA4FF24CC2DE600514173 /* GithubRequestStatus.swift in Sources */,
 				3864D6EC24A7717700A94E05 /* Strings.swift in Sources */,
 				380EA51F24CC2E6400514173 /* Storage.swift in Sources */,
-				380EA54824CC2ECF00514173 /* RemainingGithubRequestsPlugin.swift in Sources */,
+				380EA54824CC2ECF00514173 /* ErrorMessagePlugin.swift in Sources */,
 				380EA4FE24CC2DE600514173 /* GithubRepositoryUrlDecoder.swift in Sources */,
 				380EA52724CC2E7700514173 /* JSONEncoderExtensions.swift in Sources */,
 			);

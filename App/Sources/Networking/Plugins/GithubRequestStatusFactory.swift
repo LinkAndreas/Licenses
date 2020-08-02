@@ -11,7 +11,9 @@ enum GithubRequestStatusFactory {
             let limit: Int = Int(limitString),
             let remaining: Int = Int(remainingString),
             let resetInterval: TimeInterval = TimeInterval(resetIntervalString)
-        else { return nil }
+        else {
+            return nil
+        }
 
         return .init(limit: limit, remaining: remaining, resetInterval: resetInterval)
     }

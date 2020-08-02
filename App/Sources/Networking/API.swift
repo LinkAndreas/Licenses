@@ -14,7 +14,7 @@ let API: Aphrodite<DomainErrorFactory> = .init(
         ],
         .github: [
             AuthPlugin(),
-            RemainingGithubRequestsPlugin()
+            ErrorMessagePlugin()
         ]
     ]
 )
