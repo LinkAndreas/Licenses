@@ -7,7 +7,8 @@ enum DomainError: Error {
     case forbidden(HTTPURLResponse, Data)
     case serviceCancelled
     case notConnectedToInternet
-    case githubRateLimitExceeded(GithubRequestStatus)
+    case githubRateLimitExceeded
+    case unauthorized
     case unexpected
 }
 
@@ -22,13 +23,16 @@ enum DomainErrorFactory: AphroditeDomainErrorFactory {
                 return .forbidden(response, data)
             }
 
-            return .githubRateLimitExceeded(status)
+            return .githubRateLimitExceeded
 
         case .serviceCancelled:
             return .serviceCancelled
 
         case .notConnectedToInternet:
             return .notConnectedToInternet
+
+        case .unauthorized:
+            return .unauthorized
 
         default:
             return .unexpected

@@ -10,7 +10,7 @@ final class Store: ObservableObject {
     @Published var isProcessing: Bool = false
     @Published var isTargeted: Bool
     @Published var progress: Float?
-    @Published var githubRequestStatus: GithubRequestStatus?
+    @Published var errorMessage: String?
     @Published var listEntries: [ListEntry] = []
     @Published var detailListEntries: [RepositoryDetailListEntry]?
     @Published var selectedRepository: GithubRepository? {
@@ -27,13 +27,13 @@ final class Store: ObservableObject {
     init(
         isTargeted: Bool = false,
         progress: Float? = nil,
-        githubRequestStatus: GithubRequestStatus? = nil,
+        errorMessage: String? = nil,
         repositories: [GithubRepository] = [],
         selectedRepository: GithubRepository? = nil
     ) {
         self.isTargeted = isTargeted
         self.progress = progress
-        self.githubRequestStatus = githubRequestStatus
+        self.errorMessage = errorMessage
         self.repositories = repositories
         self.selectedRepository = selectedRepository
     }
