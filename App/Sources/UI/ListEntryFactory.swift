@@ -22,16 +22,45 @@ enum ListEntryFactory {
 
         var result: [RepositoryDetailListEntry] = []
         result += [
-            .init(iconName: "tag", title: "Name: ", subtitle: repository.name),
-            .init(iconName: "version", title: "Version: ", subtitle: repository.version),
-            .init(iconName: "folder", title: "Package Manager: ", subtitle: repository.packageManager.rawValue),
-            repository.author.map { .init(iconName: "person", title: "Author: ", subtitle: $0) },
-            repository.license?.downloadURL.map { .init(iconName: "link", title: "License URL: ", subtitle: $0) },
+            .init(
+                iconName: "tag",
+                title: L10n.Detail.ListEntry.Name.title, subtitle: repository.name
+            ),
+            .init(
+                iconName: "version",
+                title: L10n.Detail.ListEntry.Version.title, subtitle: repository.version
+            ),
+            .init(
+                iconName: "folder",
+                title: L10n.Detail.ListEntry.PackageManager.title, subtitle: repository.packageManager.rawValue
+            ),
+            repository.author.map {
+                .init(
+                    iconName: "person",
+                    title: L10n.Detail.ListEntry.Author.title,
+                    subtitle: $0
+                )
+            },
+            repository.license?.downloadURL.map {
+                .init(
+                    iconName: "link",
+                    title: L10n.Detail.ListEntry.LicenseUrl.title,
+                    subtitle: $0
+                )
+            },
             repository.license?.license?.name.map {
-                .init(iconName: "signature", title: "License Name: ", subtitle: $0)
+                .init(
+                    iconName: "signature",
+                    title: L10n.Detail.ListEntry.LicenseName.title,
+                    subtitle: $0
+                )
             },
             repository.license?.decodedContent.map {
-                .init(iconName: "license", title: "License Content: ", subtitle: $0)
+                .init(
+                    iconName: "license",
+                    title: L10n.Detail.ListEntry.LicenseContent.title,
+                    subtitle: $0
+                )
             }
         ].compactMap { $0 }
         return result
