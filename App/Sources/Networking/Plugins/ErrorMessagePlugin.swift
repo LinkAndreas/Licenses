@@ -12,10 +12,10 @@ final class ErrorMessagePlugin: NetworkPlugin {
         case let .failure(error):
             switch DomainErrorFactory.make(from: error) {
             case .githubRateLimitExceeded:
-                Store.shared.errorMessage = "Github Request limit exceeded. Please try again later or add a personal access token in preferences to increase your rate limit."
+                Store.shared.errorMessage = L10n.Error.githubRateLimitExceeded
 
             case .unauthorized:
-                Store.shared.errorMessage = "Unauthorized, please verify your personal access token in preferences."
+                Store.shared.errorMessage = L10n.Error.unauthorized
 
             default:
                 return

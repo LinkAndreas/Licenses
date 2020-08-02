@@ -8,7 +8,7 @@ struct DetailPlaceholder: View {
             Spacer()
             VStack {
                 Icon(name: "box", size: .init(width: 100, height: 100))
-                Text("You can select manifests using File > Open File or drop them within this window.")
+                Text(L10n.Detail.placeholder)
                     .font(.body)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 300)

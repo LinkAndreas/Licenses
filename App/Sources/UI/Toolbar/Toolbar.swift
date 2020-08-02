@@ -29,7 +29,7 @@ final class Toolbar: NSObject {
 
     private func setupToolbar() {
         wrappedToolbar.delegate = self
-        wrappedToolbar.displayMode = .iconOnly
+        wrappedToolbar.displayMode = .iconAndLabel
         wrappedToolbar.sizeMode = .default
     }
 
@@ -44,7 +44,7 @@ final class Toolbar: NSObject {
 
 extension Toolbar: NSToolbarDelegate {
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        [NSToolbarItem.Identifier.flexibleSpace, .fetchLicenses, .exportLicenses]
+        [.fetchLicenses, .exportLicenses, .flexibleSpace]
     }
 
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
@@ -61,8 +61,8 @@ extension Toolbar: NSToolbarDelegate {
             return makeToolbarItem(
                 button: fetchButton,
                 itemIdentifier: .fetchLicenses,
-                label: "Fetch",
-                toolTip: "Fetch Licenses",
+                label: L10n.Toolbar.FetchLicenses.title,
+                toolTip: L10n.Toolbar.FetchLicenses.tooltip,
                 action: #selector(fetchLicenses)
             )
 
@@ -70,8 +70,8 @@ extension Toolbar: NSToolbarDelegate {
             return makeToolbarItem(
                 button: exportButton,
                 itemIdentifier: .exportLicenses,
-                label: "Export",
-                toolTip: "Export Licenses",
+                label: L10n.Toolbar.ExportLicenses.title,
+                toolTip: L10n.Toolbar.ExportLicenses.tooltip,
                 action: #selector(exportLicenses)
             )
 
@@ -107,10 +107,10 @@ extension Toolbar: NSToolbarDelegate {
     @objc
     private func exportLicenses() {
         let savePanel: NSSavePanel = .init()
-        savePanel.title = "Export Licenses"
+        savePanel.title = L10n.Panel.Save.title
         savePanel.canCreateDirectories = true
         savePanel.showsTagField = false
-        savePanel.nameFieldStringValue = "licenses.csv"
+        savePanel.nameFieldStringValue = L10n.Panel.Save.filename
         savePanel.level = .modalPanel
         savePanel.begin { result in
             guard result == .OK, let destination: URL = savePanel.url else { return }

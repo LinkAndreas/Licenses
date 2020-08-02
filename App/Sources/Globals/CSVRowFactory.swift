@@ -11,13 +11,13 @@ enum CSVRowFactory {
 extension CSVRowFactory {
     private static func makeHeaderRow() -> [String] {
         [
-            "Name",
-            "Version",
-            "Package Manager",
-            "Author",
-            "License Url",
-            "License Name",
-            "License Content"
+            L10n.Csv.Header.Name.title,
+            L10n.Csv.Header.Version.title,
+            L10n.Csv.Header.PackageManager.title,
+            L10n.Csv.Header.Author.title,
+            L10n.Csv.Header.LicenseUrl.title,
+            L10n.Csv.Header.LicenseName.title,
+            L10n.Csv.Header.LicenseContent.title
         ]
     }
 
