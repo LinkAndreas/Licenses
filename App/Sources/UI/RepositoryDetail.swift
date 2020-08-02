@@ -101,11 +101,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
                 Store(
                     isTargeted: false,
                     progress: 0.5,
-                    githubRequestStatus: .init(
-                        limit: 40,
-                        remaining: 0,
-                        resetInterval: 30
-                    ),
+                    errorMessage: "Test Error Message",
                     repositories: [repository],
                     selectedRepository: repository
                 )
