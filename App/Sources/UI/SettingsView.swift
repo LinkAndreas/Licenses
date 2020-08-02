@@ -13,7 +13,7 @@ struct SettingsView: View {
                         set: { value in Defaults.token = value }
                     )
                 )
-                Text("Please add your personal access token to get an increased rate limit for the GitHub API.")
+                Text(L10n.Settings.Section.GithubAccessToken.subtitle)
                     .font(.body)
                     .fixedSize(horizontal: false, vertical: true)
             }

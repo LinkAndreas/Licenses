@@ -84,7 +84,6 @@
 		380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA5A024CC542A00514173 /* NSViewExtensions.swift */; };
 		3816E62324D580B60053454E /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3816E62224D580B60053454E /* CSVExporter.swift */; };
 		3816E62524D697130053454E /* CSVRowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3816E62424D697130053454E /* CSVRowFactory.swift */; };
-		38411BDC24CC9840001CA0E7 /* MasterPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */; };
 		38411BDE24CC9C82001CA0E7 /* DetailPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */; };
 		3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5EC24A7695F00A94E05 /* Aphrodite */; };
 		3864D64524A7698800A94E05 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3864D5F124A7698800A94E05 /* Colors.xcassets */; };
@@ -202,7 +201,6 @@
 		3816E62224D580B60053454E /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
 		3816E62424D697130053454E /* CSVRowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVRowFactory.swift; sourceTree = "<group>"; };
 		381E66C124B1ACD30083E9C1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPlaceholder.swift; sourceTree = "<group>"; };
 		38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceholder.swift; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -450,7 +448,6 @@
 				380EA56524CC2F4600514173 /* ListEntryView.swift */,
 				380EA56B24CC2F4600514173 /* ListEntryViewModel.swift */,
 				380EA56F24CC2F4600514173 /* ListView.swift */,
-				38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */,
 				380EA57024CC2F4600514173 /* PreferencesHostingViewController.swift */,
 				380EA56D24CC2F4600514173 /* ProgressBar.swift */,
 				38E8807C24D6B2CE0012A36C /* ProgressView.swift */,
@@ -798,7 +795,6 @@
 				380EA52B24CC2E7700514173 /* NSRegularExpressionExtensions.swift in Sources */,
 				380EA53324CC2EB500514173 /* DomainErrorFactory.swift in Sources */,
 				380EA4FC24CC2DE600514173 /* Links.swift in Sources */,
-				38411BDC24CC9840001CA0E7 /* MasterPlaceholder.swift in Sources */,
 				380EA59724CC33A100514173 /* PinState.swift in Sources */,
 				380EA57724CC2F4700514173 /* RepositoryListEntry.swift in Sources */,
 				380EA58224CC2F4700514173 /* Icon.swift in Sources */,
