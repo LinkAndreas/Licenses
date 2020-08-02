@@ -74,7 +74,6 @@
 		380EA58424CC2F4700514173 /* RepositoryListEntryViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57324CC2F4700514173 /* RepositoryListEntryViewModelFactory.swift */; };
 		380EA58824CC2F6000514173 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */; };
 		380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58724CC2F6000514173 /* ProgressIndicator.swift */; };
-		380EA58E24CC2F7A00514173 /* ToolbarContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58B24CC2F7A00514173 /* ToolbarContent.swift */; };
 		380EA58F24CC2F7A00514173 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58C24CC2F7A00514173 /* Toolbar.swift */; };
 		380EA59024CC2F7A00514173 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58D24CC2F7A00514173 /* IconButton.swift */; };
 		380EA59224CC2FCF00514173 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 380EA59124CC2FCF00514173 /* swiftgen.yml */; };
@@ -84,6 +83,8 @@
 		380EA59924CC33C000514173 /* Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59824CC33C000514173 /* Pins.swift */; };
 		380EA59B24CC4A0E00514173 /* ListEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */; };
 		380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA5A024CC542A00514173 /* NSViewExtensions.swift */; };
+		3816E62324D580B60053454E /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3816E62224D580B60053454E /* CSVExporter.swift */; };
+		3816E62524D697130053454E /* CSVRowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3816E62424D697130053454E /* CSVRowFactory.swift */; };
 		38411BDC24CC9840001CA0E7 /* MasterPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */; };
 		38411BDE24CC9C82001CA0E7 /* DetailPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */; };
 		3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5EC24A7695F00A94E05 /* Aphrodite */; };
@@ -196,6 +197,8 @@
 		380EA59824CC33C000514173 /* Pins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pins.swift; sourceTree = "<group>"; };
 		380EA59A24CC4A0E00514173 /* ListEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntryRowView.swift; sourceTree = "<group>"; };
 		380EA5A024CC542A00514173 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
+		3816E62224D580B60053454E /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
+		3816E62424D697130053454E /* CSVRowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVRowFactory.swift; sourceTree = "<group>"; };
 		381E66C124B1ACD30083E9C1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		38411BDB24CC9840001CA0E7 /* MasterPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPlaceholder.swift; sourceTree = "<group>"; };
 		38411BDD24CC9C82001CA0E7 /* DetailPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceholder.swift; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				380EA52024CC2E6800514173 /* Extensions */,
 				380EA51C24CC2E6400514173 /* Defaults.swift */,
 				380EA51D24CC2E6400514173 /* Storage.swift */,
+				3816E62224D580B60053454E /* CSVExporter.swift */,
+				3816E62424D697130053454E /* CSVRowFactory.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 				380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */,
 				380EA53424CC2EB500514173 /* API.swift in Sources */,
 				380EA57424CC2F4700514173 /* GithubRequestLimitView.swift in Sources */,
+				3816E62324D580B60053454E /* CSVExporter.swift in Sources */,
 				380EA57624CC2F4700514173 /* ListEntryView.swift in Sources */,
 				380EA4F924CC2DE600514173 /* LinksModelMapper.swift in Sources */,
 				380EA57B24CC2F4700514173 /* ListEntry.swift in Sources */,
@@ -767,7 +773,6 @@
 				380EA58424CC2F4700514173 /* RepositoryListEntryViewModelFactory.swift in Sources */,
 				380EA4FA24CC2DE600514173 /* GithubRepositoryUrlEncoder.swift in Sources */,
 				380EA54724CC2ECF00514173 /* AuthPlugin.swift in Sources */,
-				380EA58E24CC2F7A00514173 /* ToolbarContent.swift in Sources */,
 				380EA4E424CC2D9400514173 /* Store.swift in Sources */,
 				380EA58824CC2F6000514173 /* ProgressIndicatorView.swift in Sources */,
 				380EA51324CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
@@ -788,6 +793,7 @@
 				380EA57724CC2F4700514173 /* RepositoryListEntry.swift in Sources */,
 				380EA58224CC2F4700514173 /* Icon.swift in Sources */,
 				380EA59024CC2F7A00514173 /* IconButton.swift in Sources */,
+				3816E62524D697130053454E /* CSVRowFactory.swift in Sources */,
 				380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */,
 				380EA52C24CC2E7700514173 /* ViewExtensions.swift in Sources */,
 				38F2BA9D24CC709100F27FA8 /* SelectableText.swift in Sources */,

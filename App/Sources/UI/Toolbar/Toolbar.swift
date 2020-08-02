@@ -106,6 +106,16 @@ extension Toolbar: NSToolbarDelegate {
 
     @objc
     private func exportLicenses() {
-        Store.shared.exportLicenses()
+        let savePanel: NSSavePanel = .init()
+        savePanel.title = "Export Licenses"
+        savePanel.canCreateDirectories = true
+        savePanel.showsTagField = false
+        savePanel.nameFieldStringValue = "licenses.csv"
+        savePanel.level = .modalPanel
+        savePanel.begin { result in
+            guard result == .OK, let destination: URL = savePanel.url else { return }
+
+            Store.shared.exportLicenses(toDestination: destination)
+        }
     }
 }
