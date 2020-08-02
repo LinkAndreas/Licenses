@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction private func openFilePath(_ sender: Any) {
         let openPanel: NSOpenPanel = .init()
-        openPanel.title = "Manifest Source"
+        openPanel.title = L10n.Panel.Open.title
         openPanel.allowsMultipleSelection = true
         openPanel.canChooseDirectories = true
         openPanel.canChooseFiles = true
