@@ -155,8 +155,12 @@ final class Store: ObservableObject {
         )
     }
 
-    func exportLicenses() {
+    func exportLicenses(toDestination destination: URL) {
         isProcessing = true
+
+        let csvRows: [[String]] = CSVRowFactory.makeRows(from: repositories)
+        CSVExporter.exportCSV(fromRows: csvRows, toDestination: destination)
+
         isProcessing = false
     }
 

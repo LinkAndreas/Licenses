@@ -38,14 +38,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction private func openFilePath(_ sender: Any) {
-        let panel: NSOpenPanel = .init()
-        panel.allowsMultipleSelection = true
-        panel.canChooseDirectories = true
-        panel.canChooseFiles = true
-        panel.begin { response in
+        let openPanel: NSOpenPanel = .init()
+        openPanel.title = "Manifest Source"
+        openPanel.allowsMultipleSelection = true
+        openPanel.canChooseDirectories = true
+        openPanel.canChooseFiles = true
+        openPanel.begin { response in
             guard response == .OK else { return }
 
-            Store.shared.searchManifests(at: panel.urls)
+            Store.shared.searchManifests(at: openPanel.urls)
         }
     }
 }

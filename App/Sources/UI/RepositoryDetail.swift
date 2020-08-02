@@ -40,12 +40,9 @@ struct RepositoryDetail: View {
                                         VStack(alignment: .leading, spacing: 4) {
                                             Text(entry.title)
                                                 .foregroundColor(.white)
-                                                .font(.system(size: 18, weight: .medium))
-                                            TextLabel(
-                                                text: entry.subtitle,
-                                                font: .systemFont(ofSize: 15, weight: .regular),
-                                                isSelectable: true
-                                            )
+                                                .font(.headline)
+                                            Text(entry.subtitle)
+                                                .font(.subheadline)
                                         }
                                     }
                                     .padding()
