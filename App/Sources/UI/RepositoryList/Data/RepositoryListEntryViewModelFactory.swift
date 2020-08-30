@@ -1,9 +1,7 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import Foundation
-
 enum RepositoryListEntryViewModelFactory {
-    static func makeViewModel(from entry: ListEntry) -> RepositoryListEntryViewModel {
+    static func makeViewModel(from entry: RepositoryListEntry) -> RepositoryListEntryViewModel {
         return .init(
             title: entry.title,
             subtitle: entry.subtitle,

@@ -3,7 +3,7 @@
 import Cocoa
 import SwiftUI
 
-class PreferencesHostingViewController: NSHostingController<SettingsView> {
+class SettingsHostingViewController: NSHostingController<SettingsView> {
     required init?(coder: NSCoder) {
         let rootView = SettingsView()
 

@@ -5,7 +5,7 @@ import SwiftUI
 struct RepositoryMaster: View {
     var body: some View {
         VStack(spacing: 0) {
-            ListView()
+            RepositoryListView()
             InformationView()
         }
         .frame(width: 400)
