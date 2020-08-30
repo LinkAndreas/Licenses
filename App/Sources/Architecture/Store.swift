@@ -70,7 +70,7 @@ final class Store: ObservableObject {
     }
 
     func searchManifests(at paths: [URL]) {
-        ManifestCollector.search(at: paths)
+        ManifestPublisher(filePaths: paths)
             .flatMap(maxPublishers: .max(1), ManifestDecoder.decode)
             .receive(on: RunLoop.main)
             .handleEvents(

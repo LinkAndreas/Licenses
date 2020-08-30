@@ -3,16 +3,30 @@
 import Combine
 import Foundation
 
-enum ManifestCollector {
-    static func search(at filePaths: [URL]) -> AnyPublisher<Manifest, Never> {
-        let subject: PassthroughSubject<Manifest, Never> = .init()
-        let dispatchGroup: DispatchGroup = .init()
-        let dispatchQueue: DispatchQueue = .global(qos: .userInitiated)
+struct ManifestPublisher: Publisher {
+    typealias Output = Manifest
+    typealias Failure = Never
 
+    private let subject: PassthroughSubject<Manifest, Never> = .init()
+    private let dispatchGroup: DispatchGroup = .init()
+    private let dispatchQueue: DispatchQueue = .global(qos: .userInitiated)
+    private let filePaths: [URL]
+
+    init(filePaths: [URL] = []) {
+        self.filePaths = filePaths
+    }
+
+    func receive<S>(subscriber: S) where S: Subscriber, Self.Failure == S.Failure, Self.Output == S.Input {
+        subject.subscribe(subscriber)
+
+        search(at: filePaths)
+    }
+
+    private func search(at filePaths: [URL] = []) {
         filePaths.forEach { filePath in
             dispatchGroup.enter()
             dispatchQueue.async(group: dispatchGroup) {
-                defer { dispatchGroup.leave() }
+                defer { self.dispatchGroup.leave() }
 
                 var isDirectory: ObjCBool = false
                 let fileManager: FileManager = .init()
@@ -24,20 +38,18 @@ enum ManifestCollector {
                     while let nextFilePath: URL = enumerator?.nextObject() as? URL {
                         guard let manifest = Manifest(fromFilePath: nextFilePath) else { continue }
 
-                        subject.send(manifest)
+                        self.subject.send(manifest)
                     }
                 } else {
                     guard let manifest = Manifest(fromFilePath: filePath) else { return }
 
-                    subject.send(manifest)
+                    self.subject.send(manifest)
                 }
             }
         }
 
         dispatchGroup.notify(queue: .main) {
-            subject.send(completion: .finished)
+            self.subject.send(completion: .finished)
         }
-
-        return subject.eraseToAnyPublisher()
     }
 }

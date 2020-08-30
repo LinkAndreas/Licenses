@@ -7,6 +7,16 @@ struct Manifest: Equatable {
     var content: String
     var filePath: URL
 
+    init(
+        packageManager: PackageManager,
+        content: String,
+        filePath: URL
+    ) {
+        self.packageManager = packageManager
+        self.content = content
+        self.filePath = filePath
+    }
+
     init?(fromFilePath filePath: URL) {
         switch filePath.lastPathComponent {
         case "Cartfile.resolved":
