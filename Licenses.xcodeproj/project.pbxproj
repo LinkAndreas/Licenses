@@ -21,7 +21,7 @@
 		380EA4FF24CC2DE600514173 /* GithubRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4F424CC2DE600514173 /* GithubRequestStatus.swift */; };
 		380EA50024CC2DE600514173 /* GithubLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4F524CC2DE600514173 /* GithubLicense.swift */; };
 		380EA50724CC2DF500514173 /* ManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50124CC2DF500514173 /* ManifestDecodingStrategy.swift */; };
-		380EA50824CC2DF500514173 /* ManifestCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50224CC2DF500514173 /* ManifestCollector.swift */; };
+		380EA50824CC2DF500514173 /* ManifestPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50224CC2DF500514173 /* ManifestPublisher.swift */; };
 		380EA50924CC2DF500514173 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50324CC2DF500514173 /* Manifest.swift */; };
 		380EA50A24CC2DF500514173 /* ManifestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50424CC2DF500514173 /* ManifestDecoder.swift */; };
 		380EA50B24CC2DF500514173 /* PackageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50524CC2DF500514173 /* PackageManager.swift */; };
@@ -127,7 +127,7 @@
 		380EA4F424CC2DE600514173 /* GithubRequestStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRequestStatus.swift; sourceTree = "<group>"; };
 		380EA4F524CC2DE600514173 /* GithubLicense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubLicense.swift; sourceTree = "<group>"; };
 		380EA50124CC2DF500514173 /* ManifestDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestDecodingStrategy.swift; sourceTree = "<group>"; };
-		380EA50224CC2DF500514173 /* ManifestCollector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestCollector.swift; sourceTree = "<group>"; };
+		380EA50224CC2DF500514173 /* ManifestPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestPublisher.swift; sourceTree = "<group>"; };
 		380EA50324CC2DF500514173 /* Manifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
 		380EA50424CC2DF500514173 /* ManifestDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestDecoder.swift; sourceTree = "<group>"; };
 		380EA50524CC2DF500514173 /* PackageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageManager.swift; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				380EA50324CC2DF500514173 /* Manifest.swift */,
-				380EA50224CC2DF500514173 /* ManifestCollector.swift */,
+				380EA50224CC2DF500514173 /* ManifestPublisher.swift */,
 				380EA50424CC2DF500514173 /* ManifestDecoder.swift */,
 				380EA50124CC2DF500514173 /* ManifestDecodingStrategy.swift */,
 				380EA50524CC2DF500514173 /* PackageManager.swift */,
@@ -743,7 +743,7 @@
 				380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				380EA53C24CC2EC300514173 /* PodSpecEntity.swift in Sources */,
 				380EA51E24CC2E6400514173 /* Defaults.swift in Sources */,
-				380EA50824CC2DF500514173 /* ManifestCollector.swift in Sources */,
+				380EA50824CC2DF500514173 /* ManifestPublisher.swift in Sources */,
 				380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				380EA53E24CC2EC300514173 /* GithubLicenseEntity.swift in Sources */,
 				38E8807D24D6B2CE0012A36C /* ProgressView.swift in Sources */,
