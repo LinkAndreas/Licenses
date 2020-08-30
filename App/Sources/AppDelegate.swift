@@ -49,4 +49,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             Store.shared.searchManifests(at: openPanel.urls)
         }
     }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
 }
