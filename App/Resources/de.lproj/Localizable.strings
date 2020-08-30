@@ -3,6 +3,7 @@
 "settings.section.github_access_token.title" = "GitHub Zugangstoken";
 "settings.section.github_access_token.subtitle" = "Du kannst dein persönliches GitHub API Zugangstoken eingeben, um mehr Anfragen an die GitHub API stellen zu können.";
 "settings.section.github_access_token.placeholder" = "Bitte gebe dein persönliches Zugriffstoken ein";
+"settings.section.github_access_token.button.title" = "Speichern";
 "error.github_rate_limit_exceeded" = "GitHub Anfragelimit überschritten. Bitte versuche es später erneut oder füge in den Einstellungen ein persönliches Zugriffstoken hinzu, um das Ratenlimit zu erhöhen.";
 "error.unauthorized" = "Authentifizierungsfehler: Bitte überprüfe Dein persönliches Zugriffstoken in den Einstellungen.";
 "panel.open.title" = "Quelle";

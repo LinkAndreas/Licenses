@@ -112,6 +112,10 @@ internal enum L10n {
         internal static let subtitle = L10n.tr("Localizable", "settings.section.github_access_token.subtitle")
         /// GitHub Access Token
         internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.title")
+        internal enum Button {
+          /// Save
+          internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.button.title")
+        }
       }
     }
   }

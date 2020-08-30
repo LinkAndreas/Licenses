@@ -3,6 +3,7 @@
 "settings.section.github_access_token.title" = "GitHub Access Token";
 "settings.section.github_access_token.subtitle" = "You can add your personal access token to get an increased rate limit for the GitHub API.";
 "settings.section.github_access_token.placeholder" = "Please enter your personal access token";
+"settings.section.github_access_token.button.title" = "Save";
 "error.github_rate_limit_exceeded" = "GitHub Request limit exceeded. Please try again later or add a personal access token in preferences to increase your rate limit.";
 "error.unauthorized" = "Unauthorized, please verify your personal access token in preferences.";
 "panel.open.title" = "Source";
