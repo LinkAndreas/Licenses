@@ -9,7 +9,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let rootView = FileDropArea {
-            ContentView()
+            SplitView()
         }
         .frame(
             minWidth: 650,

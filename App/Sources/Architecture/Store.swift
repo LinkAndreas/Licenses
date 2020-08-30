@@ -11,13 +11,13 @@ final class Store: ObservableObject {
     @Published var isTargeted: Bool
     @Published var progress: Float?
     @Published var errorMessage: String?
-    @Published var listEntries: [ListEntry] = []
+    @Published var listEntries: [RepositoryListEntry] = []
     @Published var detailListEntries: [RepositoryDetailListEntry]?
     @Published var selectedRepository: GithubRepository? {
-        didSet { detailListEntries = ListEntryFactory.makeDetailListEntries(from: selectedRepository) }
+        didSet { detailListEntries = RepositoryListEntryFactory.makeDetailListEntries(from: selectedRepository) }
     }
     @Published var repositories: [GithubRepository] {
-        didSet { listEntries = ListEntryFactory.makeListEntries(from: repositories) }
+        didSet { listEntries = RepositoryListEntryFactory.makeListEntries(from: repositories) }
     }
 
     private var cancellables: Set<AnyCancellable> = []

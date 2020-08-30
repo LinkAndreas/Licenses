@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SplitView: View {
     var body: some View {
         VStack {
             NavigationView {

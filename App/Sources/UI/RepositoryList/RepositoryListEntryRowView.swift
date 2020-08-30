@@ -2,7 +2,7 @@
 
 import Cocoa
 
-final class ListEntryRowView: NSTableRowView {
+final class RepositoryListEntryRowView: NSTableRowView {
     override var isSelected: Bool {
         get { return super.isSelected }
         set {

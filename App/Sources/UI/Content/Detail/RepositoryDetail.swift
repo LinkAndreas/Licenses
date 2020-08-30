@@ -53,7 +53,7 @@ struct RepositoryDetail: View {
                     }
                     .padding(4)
                 } else {
-                    DetailPlaceholder()
+                    RepositoryDetailPlaceholder()
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)

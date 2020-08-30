@@ -2,7 +2,7 @@
 
 import Cocoa
 
-class ListEntry {
+class RepositoryListEntry {
     var id: UUID
     var title: String?
     var subtitle: String?
@@ -24,8 +24,8 @@ class ListEntry {
     }
 }
 
-extension ListEntry: Equatable {
-    static func == (lhs: ListEntry, rhs: ListEntry) -> Bool {
+extension RepositoryListEntry: Equatable {
+    static func == (lhs: RepositoryListEntry, rhs: RepositoryListEntry) -> Bool {
         return lhs.id == rhs.id && lhs.isProcessing == rhs.isProcessing
     }
 }

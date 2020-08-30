@@ -156,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="235" y="210"/>
         </scene>
-        <!--Preferences Hosting View Controller-->
+        <!--Settings Hosting View Controller-->
         <scene sceneID="ONf-2T-7UL">
             <objects>
-                <hostingController id="XKM-Sa-Lva" customClass="PreferencesHostingViewController" customModule="Licenses" customModuleProvider="target" sceneMemberID="viewController"/>
+                <hostingController id="XKM-Sa-Lva" customClass="SettingsHostingViewController" customModule="Licenses" customModuleProvider="target" sceneMemberID="viewController"/>
                 <customObject id="lwL-es-C6a" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="235" y="654"/>
