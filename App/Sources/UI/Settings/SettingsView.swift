@@ -3,16 +3,21 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var token: String = Defaults.token
+
     var body: some View {
         Form {
             Section(header: Text(L10n.Settings.Section.GithubAccessToken.title)) {
-                TextField(
-                    L10n.Settings.Section.GithubAccessToken.placeholder,
-                    text: Binding<String>(
-                        get: { return Defaults.token },
-                        set: { value in Defaults.token = value }
+                HStack {
+                    TextField(
+                        L10n.Settings.Section.GithubAccessToken.placeholder,
+                        text: $token
                     )
-                )
+                    Button(
+                        action: { Defaults.token = self.token },
+                        label: { Text(L10n.Settings.Section.GithubAccessToken.Button.title) }
+                    )
+                }
                 Text(L10n.Settings.Section.GithubAccessToken.subtitle)
                     .font(.body)
                     .fixedSize(horizontal: false, vertical: true)
