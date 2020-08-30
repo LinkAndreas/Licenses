@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct DetailPlaceholder: View {
+struct RepositoryDetailPlaceholder: View {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -20,6 +20,6 @@ struct DetailPlaceholder: View {
 
 struct DetailPlaceholder_Previews: PreviewProvider {
     static var previews: some View {
-        DetailPlaceholder()
+        RepositoryDetailPlaceholder()
     }
 }

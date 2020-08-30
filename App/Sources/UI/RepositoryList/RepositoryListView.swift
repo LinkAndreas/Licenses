@@ -3,7 +3,7 @@
 import Cocoa
 import SwiftUI
 
-struct ListView: NSViewControllerRepresentable {
+struct RepositoryListView: NSViewControllerRepresentable {
     @EnvironmentObject var store: Store
 
     func makeNSViewController(context: Context) -> ListViewController {
@@ -42,7 +42,7 @@ protocol ListViewControllerDelegate: AnyObject {
 final class ListViewController: NSViewController {
     weak var delegate: ListViewControllerDelegate?
 
-    private var entries: [ListEntry] = []
+    private var entries: [RepositoryListEntry] = []
 
     private let tableView: NSTableView = .init()
     private let scrollView: NSScrollView = .init()
@@ -81,7 +81,7 @@ final class ListViewController: NSViewController {
         scrollView.bindEdgesToSuperview()
     }
 
-    func update(entries: [ListEntry]) {
+    func update(entries: [RepositoryListEntry]) {
         guard self.entries != entries else { return }
 
         let diff = entries.difference(from: self.entries)
@@ -118,8 +118,8 @@ extension ListViewController: NSTableViewDelegate {
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        let listEntryView: NSHostingView<RepositoryListEntry> = .init(
-            rootView: RepositoryListEntry(
+        let listEntryView: NSHostingView<RepositoryListEntryView> = .init(
+            rootView: RepositoryListEntryView(
                 viewModel: RepositoryListEntryViewModelFactory.makeViewModel(from: entries[row])
             )
         )
@@ -127,7 +127,7 @@ extension ListViewController: NSTableViewDelegate {
         listEntryView.frame.size.width = tableView.frame.size.width
         let rowSize: CGSize = .init(width: tableView.frame.size.width, height: listEntryView.fittingSize.height)
 
-        let listEntryRow: ListEntryRowView = .init(frame: .init(origin: .zero, size: rowSize))
+        let listEntryRow: RepositoryListEntryRowView = .init(frame: .init(origin: .zero, size: rowSize))
         listEntryRow.addSubview(listEntryView)
         listEntryView.bindEdgesToSuperview()
         return listEntryRow
