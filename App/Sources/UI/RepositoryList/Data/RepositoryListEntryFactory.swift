@@ -2,12 +2,12 @@
 
 import Foundation
 
-enum ListEntryFactory {
-    static func makeListEntries(from repositories: [GithubRepository]) -> [ListEntry] {
+enum RepositoryListEntryFactory {
+    static func makeListEntries(from repositories: [GithubRepository]) -> [RepositoryListEntry] {
         repositories.map(makeListEntry)
     }
 
-    static func makeListEntry(from repository: GithubRepository) -> ListEntry {
+    static func makeListEntry(from repository: GithubRepository) -> RepositoryListEntry {
         return .init(
             id: repository.id,
             title: repository.name,
