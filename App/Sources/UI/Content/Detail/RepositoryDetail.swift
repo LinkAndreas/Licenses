@@ -2,61 +2,43 @@
 
 import Cocoa
 import Combine
+import ComposableArchitecture
 import SwiftUI
 
-class RepositoryDetailListEntry: Identifiable {
-    let iconName: String
-    let title: String
-    let subtitle: String
-    var id: UUID
-
-    init(
-        iconName: String,
-        title: String,
-        subtitle: String,
-        id: UUID = .init()
-    ) {
-        self.iconName = iconName
-        self.title = title
-        self.subtitle = subtitle
-        self.id = id
-    }
-}
-
 struct RepositoryDetail: View {
-    @EnvironmentObject var store: Store
+    let store: Store<AppState, AppAction>
 
     var body: some View {
         GeometryReader { geometry in
-            Group {
-                if self.store.selectedRepository != nil {
-                    ScrollView(.vertical) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                ForEach(self.store.detailListEntries!) { entry in
-                                    HStack(alignment: .top) {
-                                        Icon(name: entry.iconName, size: .init(width: 32, height: 32))
-                                            .padding(.top, 6)
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text(entry.title)
-                                                .foregroundColor(.white)
-                                                .font(.headline)
-                                            Text(entry.subtitle)
-                                                .font(.subheadline)
+            WithViewStore(self.store) { viewStore in
+                Group {
+                    if viewStore.selectedRepository != nil {
+                        ScrollView(.vertical) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    ForEach(viewStore.detailListEntries!) { entry in
+                                        HStack(alignment: .top) {
+                                            Icon(name: entry.iconName, size: .init(width: 48, height: 48))
+                                            VStack(alignment: .leading, spacing: 4) {
+                                                Text(entry.title)
+                                                    .font(.title)
+                                                Text(entry.subtitle)
+                                                    .font(.body)
+                                            }.padding(.top, 0)
                                         }
+                                        .padding()
                                     }
-                                    .padding()
                                 }
+                                Spacer()
                             }
-                            Spacer()
                         }
+                        .padding(4)
+                    } else {
+                        RepositoryDetailPlaceholder()
                     }
-                    .padding(4)
-                } else {
-                    RepositoryDetailPlaceholder()
                 }
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
         }
     }
 }
@@ -96,15 +78,21 @@ struct RepositoryDetail_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        return RepositoryDetail()
-            .environmentObject(
-                Store(
+        return RepositoryDetail(
+            store: .init(
+                initialState: .init(
+                    isProcessing: false,
                     isTargeted: false,
-                    progress: 0.5,
-                    errorMessage: "Test Error Message",
-                    repositories: [repository],
-                    selectedRepository: repository
-                )
+                    progress: nil,
+                    remainingRepositories: 0,
+                    totalRepositories: 0,
+                    errorMessage: nil,
+                    selectedRepository: repository,
+                    repositories: [repository]
+                ),
+                reducer: appReducer,
+                environment: AppEnvironment()
+            )
         )
         .previewLayout(.fixed(width: 850, height: 700))
     }

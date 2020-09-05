@@ -1,18 +1,21 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Combine
+import ComposableArchitecture
 import SwiftUI
 
 struct ErrorMessageView: View {
-    @EnvironmentObject var store: Store
+    let store: Store<AppState, AppAction>
 
     var body: some View {
-        Group {
-            store.errorMessage.map { errorMessage in
-                Group {
-                    Text(errorMessage)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(.red)
+        WithViewStore(store) { viewStore in
+            Group {
+                viewStore.errorMessage.map { errorMessage in
+                    Group {
+                        Text(errorMessage)
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(.red)
+                    }
                 }
             }
         }
@@ -21,15 +24,22 @@ struct ErrorMessageView: View {
 
 struct GithubRequestLimitView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorMessageView()
-            .environmentObject(
-                Store(
+        ErrorMessageView(
+            store: .init(
+                initialState: .init(
+                    isProcessing: false,
                     isTargeted: false,
-                    progress: 0.5,
-                    errorMessage: "Test error message",
+                    progress: nil,
+                    remainingRepositories: 0,
+                    totalRepositories: 0,
+                    errorMessage: "Test Error Message",
+                    selectedRepository: nil,
                     repositories: []
-                )
+                ),
+                reducer: appReducer,
+                environment: AppEnvironment()
             )
-            .previewLayout(.fixed(width: 650, height: 500))
+        )
+        .previewLayout(.fixed(width: 650, height: 500))
     }
 }

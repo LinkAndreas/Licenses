@@ -2,17 +2,4 @@
 
 import Cocoa
 
-final class RepositoryListEntryRowView: NSTableRowView {
-    override var isSelected: Bool {
-        get { return super.isSelected }
-        set {
-            super.isSelected = newValue
-            setNeedsDisplay(bounds)
-        }
-    }
-
-    override func drawBackground(in dirtyRect: NSRect) {
-        (isSelected ? NSColor.orange : NSColor.clear).set()
-        dirtyRect.fill()
-    }
-}
+final class RepositoryListEntryRowView: NSTableRowView { /* Empty */ }

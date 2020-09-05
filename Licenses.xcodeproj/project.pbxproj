@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		380EA4DE24CC2D7700514173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4DD24CC2D7700514173 /* AppDelegate.swift */; };
-		380EA4E424CC2D9400514173 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4E124CC2D9400514173 /* Store.swift */; };
 		380EA4F624CC2DE600514173 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4EB24CC2DE500514173 /* License.swift */; };
 		380EA4F724CC2DE600514173 /* GithubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4EC24CC2DE500514173 /* GithubRepository.swift */; };
 		380EA4F824CC2DE600514173 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA4ED24CC2DE500514173 /* Repository.swift */; };
@@ -55,8 +54,6 @@
 		380EA54C24CC2EE500514173 /* Generic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54924CC2EE500514173 /* Generic.swift */; };
 		380EA54D24CC2EE500514173 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54A24CC2EE500514173 /* Github.swift */; };
 		380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */; };
-		380EA57424CC2F4700514173 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56324CC2F4600514173 /* ErrorMessageView.swift */; };
-		380EA57824CC2F4700514173 /* RepositoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56724CC2F4600514173 /* RepositoryDetail.swift */; };
 		380EA57924CC2F4700514173 /* RepositoryListEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56824CC2F4600514173 /* RepositoryListEntryViewModel.swift */; };
 		380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56924CC2F4600514173 /* SettingsView.swift */; };
 		380EA57D24CC2F4700514173 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56C24CC2F4600514173 /* SplitView.swift */; };
@@ -78,8 +75,19 @@
 		380EA59924CC33C000514173 /* Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59824CC33C000514173 /* Pins.swift */; };
 		380EA59B24CC4A0E00514173 /* RepositoryListEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59A24CC4A0E00514173 /* RepositoryListEntryRowView.swift */; };
 		380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA5A024CC542A00514173 /* NSViewExtensions.swift */; };
+		3813180724FE1A930087FB05 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 3813180624FE1A930087FB05 /* ComposableArchitecture */; };
+		3813180A24FE324F0087FB05 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813180924FE324F0087FB05 /* AppReducer.swift */; };
+		3813180C24FE363A0087FB05 /* RepositoryDetailListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3813180B24FE363A0087FB05 /* RepositoryDetailListEntry.swift */; };
 		3816E62324D580B60053454E /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3816E62224D580B60053454E /* CSVExporter.swift */; };
 		3816E62524D697130053454E /* CSVRowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3816E62424D697130053454E /* CSVRowFactory.swift */; };
+		381FF77325035C800009C0A1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FF77225035C800009C0A1 /* AppState.swift */; };
+		381FF77525035C9C0009C0A1 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FF77425035C9C0009C0A1 /* AppAction.swift */; };
+		381FF77725035CAC0009C0A1 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FF77625035CAC0009C0A1 /* AppEnvironment.swift */; };
+		381FF77925035CE10009C0A1 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381FF77825035CE10009C0A1 /* AppStore.swift */; };
+		381FF77A25035F300009C0A1 /* RepositoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56724CC2F4600514173 /* RepositoryDetail.swift */; };
+		381FF77B2503639C0009C0A1 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8808024D6B5F40012A36C /* InformationView.swift */; };
+		381FF77D2503642D0009C0A1 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56324CC2F4600514173 /* ErrorMessageView.swift */; };
+		381FF77E250365020009C0A1 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807C24D6B2CE0012A36C /* ProgressView.swift */; };
 		38411BDE24CC9C82001CA0E7 /* RepositoryDetailPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDD24CC9C82001CA0E7 /* RepositoryDetailPlaceholder.swift */; };
 		3853B64624FBE8260080C55F /* RepositoryListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56624CC2F4600514173 /* RepositoryListEntryView.swift */; };
 		3853B64924FBE9430080C55F /* RepositoryListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56A24CC2F4600514173 /* RepositoryListEntry.swift */; };
@@ -92,9 +100,7 @@
 		3864D6EC24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
 		38BC46A424B1AD750088B830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BC46A224B1AD750088B830 /* Main.storyboard */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
-		38E8807D24D6B2CE0012A36C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807C24D6B2CE0012A36C /* ProgressView.swift */; };
 		38E8807F24D6B3AF0012A36C /* RepositoryMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807E24D6B3AF0012A36C /* RepositoryMaster.swift */; };
-		38E8808124D6B5F40012A36C /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8808024D6B5F40012A36C /* InformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +115,6 @@
 
 /* Begin PBXFileReference section */
 		380EA4DD24CC2D7700514173 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		380EA4E124CC2D9400514173 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		380EA4EB24CC2DE500514173 /* License.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		380EA4EC24CC2DE500514173 /* GithubRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		380EA4ED24CC2DE500514173 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -181,9 +186,15 @@
 		380EA59824CC33C000514173 /* Pins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pins.swift; sourceTree = "<group>"; };
 		380EA59A24CC4A0E00514173 /* RepositoryListEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryRowView.swift; sourceTree = "<group>"; };
 		380EA5A024CC542A00514173 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
+		3813180924FE324F0087FB05 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		3813180B24FE363A0087FB05 /* RepositoryDetailListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailListEntry.swift; sourceTree = "<group>"; };
 		3816E62224D580B60053454E /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
 		3816E62424D697130053454E /* CSVRowFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVRowFactory.swift; sourceTree = "<group>"; };
 		381E66C124B1ACD30083E9C1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		381FF77225035C800009C0A1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		381FF77425035C9C0009C0A1 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		381FF77625035CAC0009C0A1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		381FF77825035CE10009C0A1 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
 		38411BDD24CC9C82001CA0E7 /* RepositoryDetailPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPlaceholder.swift; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3813180724FE1A930087FB05 /* ComposableArchitecture in Frameworks */,
 				3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				380EA4DD24CC2D7700514173 /* AppDelegate.swift */,
-				380EA4DF24CC2D8600514173 /* Architecture */,
+				3813180824FE1AAD0087FB05 /* ComposableArchitecture */,
 				380EA4E624CC2D9E00514173 /* Domain */,
 				380EA4E724CC2DA500514173 /* FileAccess */,
 				380EA51B24CC2E5600514173 /* Globals */,
@@ -234,14 +246,6 @@
 				380EA56224CC2F2600514173 /* UI */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		380EA4DF24CC2D8600514173 /* Architecture */ = {
-			isa = PBXGroup;
-			children = (
-				380EA4E124CC2D9400514173 /* Store.swift */,
-			);
-			path = Architecture;
 			sourceTree = "<group>";
 		};
 		380EA4E624CC2D9E00514173 /* Domain */ = {
@@ -431,6 +435,18 @@
 			path = Toolbar;
 			sourceTree = "<group>";
 		};
+		3813180824FE1AAD0087FB05 /* ComposableArchitecture */ = {
+			isa = PBXGroup;
+			children = (
+				3813180924FE324F0087FB05 /* AppReducer.swift */,
+				381FF77825035CE10009C0A1 /* AppStore.swift */,
+				381FF77225035C800009C0A1 /* AppState.swift */,
+				381FF77425035C9C0009C0A1 /* AppAction.swift */,
+				381FF77625035CAC0009C0A1 /* AppEnvironment.swift */,
+			);
+			path = ComposableArchitecture;
+			sourceTree = "<group>";
+		};
 		3853B64724FBE8D10080C55F /* RepositoryList */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +509,7 @@
 			children = (
 				38411BDD24CC9C82001CA0E7 /* RepositoryDetailPlaceholder.swift */,
 				380EA56724CC2F4600514173 /* RepositoryDetail.swift */,
+				3813180B24FE363A0087FB05 /* RepositoryDetailListEntry.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -636,6 +653,7 @@
 			name = macOS;
 			packageProductDependencies = (
 				3864D5EC24A7695F00A94E05 /* Aphrodite */,
+				3813180624FE1A930087FB05 /* ComposableArchitecture */,
 			);
 			productName = macOS;
 			productReference = 3864D5B924A768CB00A94E05 /* Licenses.app */;
@@ -689,6 +707,7 @@
 			mainGroup = 3864D5A424A768C900A94E05;
 			packageReferences = (
 				3864D5E824A7695900A94E05 /* XCRemoteSwiftPackageReference "Aphrodite" */,
+				3813180524FE1A930087FB05 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 3864D5B224A768CB00A94E05 /* Products */;
 			projectDirPath = "";
@@ -769,10 +788,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				380EA4FB24CC2DE600514173 /* LicenseModelMapper.swift in Sources */,
+				381FF77A25035F300009C0A1 /* RepositoryDetail.swift in Sources */,
 				380EA57F24CC2F4700514173 /* RepositoryListEntryFactory.swift in Sources */,
 				380EA53F24CC2EC300514173 /* TrunkResponse.swift in Sources */,
 				380EA54D24CC2EE500514173 /* Github.swift in Sources */,
-				380EA57824CC2F4700514173 /* RepositoryDetail.swift in Sources */,
 				380EA4F724CC2DE600514173 /* GithubRepository.swift in Sources */,
 				380EA4FD24CC2DE600514173 /* GithubLicenseModelMapper.swift in Sources */,
 				380EA58124CC2F4700514173 /* SettingsHostingViewController.swift in Sources */,
@@ -782,11 +801,12 @@
 				380EA54624CC2ECF00514173 /* GithubRequestStatusFactory.swift in Sources */,
 				380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				380EA53C24CC2EC300514173 /* PodSpecEntity.swift in Sources */,
+				381FF77525035C9C0009C0A1 /* AppAction.swift in Sources */,
 				380EA51E24CC2E6400514173 /* Defaults.swift in Sources */,
+				3813180A24FE324F0087FB05 /* AppReducer.swift in Sources */,
 				380EA50824CC2DF500514173 /* ManifestPublisher.swift in Sources */,
 				380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				380EA53E24CC2EC300514173 /* GithubLicenseEntity.swift in Sources */,
-				38E8807D24D6B2CE0012A36C /* ProgressView.swift in Sources */,
 				380EA59B24CC4A0E00514173 /* RepositoryListEntryRowView.swift in Sources */,
 				380EA59924CC33C000514173 /* Pins.swift in Sources */,
 				380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */,
@@ -798,14 +818,15 @@
 				380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */,
 				380EA54C24CC2EE500514173 /* Generic.swift in Sources */,
 				380EA50A24CC2DF500514173 /* ManifestDecoder.swift in Sources */,
+				381FF77B2503639C0009C0A1 /* InformationView.swift in Sources */,
 				380EA54224CC2EC300514173 /* TrunkResponseEntity.swift in Sources */,
 				380EA58024CC2F4700514173 /* RepositoryListView.swift in Sources */,
 				380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */,
 				380EA53424CC2EB500514173 /* API.swift in Sources */,
-				380EA57424CC2F4700514173 /* ErrorMessageView.swift in Sources */,
 				3816E62324D580B60053454E /* CSVExporter.swift in Sources */,
 				380EA4F924CC2DE600514173 /* LinksModelMapper.swift in Sources */,
 				380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */,
+				381FF77D2503642D0009C0A1 /* ErrorMessageView.swift in Sources */,
 				380EA50C24CC2DF500514173 /* RegexPatterns.swift in Sources */,
 				380EA59524CC337F00514173 /* Pin.swift in Sources */,
 				380EA50724CC2DF500514173 /* ManifestDecodingStrategy.swift in Sources */,
@@ -814,16 +835,17 @@
 				380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */,
 				3853B64624FBE8260080C55F /* RepositoryListEntryView.swift in Sources */,
 				380EA4F624CC2DE600514173 /* License.swift in Sources */,
+				381FF77725035CAC0009C0A1 /* AppEnvironment.swift in Sources */,
 				380EA58424CC2F4700514173 /* RepositoryListEntryViewModelFactory.swift in Sources */,
 				380EA4FA24CC2DE600514173 /* GithubRepositoryUrlEncoder.swift in Sources */,
 				380EA54724CC2ECF00514173 /* AuthPlugin.swift in Sources */,
-				380EA4E424CC2D9400514173 /* Store.swift in Sources */,
+				3813180C24FE363A0087FB05 /* RepositoryDetailListEntry.swift in Sources */,
+				381FF77E250365020009C0A1 /* ProgressView.swift in Sources */,
 				380EA58824CC2F6000514173 /* ProgressIndicatorView.swift in Sources */,
 				380EA51324CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
 				380EA50B24CC2DF500514173 /* PackageManager.swift in Sources */,
 				380EA53D24CC2EC300514173 /* LinksEntity.swift in Sources */,
 				380EA57D24CC2F4700514173 /* SplitView.swift in Sources */,
-				38E8808124D6B5F40012A36C /* InformationView.swift in Sources */,
 				380EA57924CC2F4700514173 /* RepositoryListEntryViewModel.swift in Sources */,
 				380EA50924CC2DF500514173 /* Manifest.swift in Sources */,
 				380EA54024CC2EC300514173 /* LicenseEntity.swift in Sources */,
@@ -840,9 +862,11 @@
 				380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */,
 				380EA52C24CC2E7700514173 /* ViewExtensions.swift in Sources */,
 				38411BDE24CC9C82001CA0E7 /* RepositoryDetailPlaceholder.swift in Sources */,
+				381FF77925035CE10009C0A1 /* AppStore.swift in Sources */,
 				380EA51224CC2E1000514173 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
 				380EA4FF24CC2DE600514173 /* GithubRequestStatus.swift in Sources */,
 				3864D6EC24A7717700A94E05 /* Strings.swift in Sources */,
+				381FF77325035C800009C0A1 /* AppState.swift in Sources */,
 				380EA51F24CC2E6400514173 /* Storage.swift in Sources */,
 				380EA54824CC2ECF00514173 /* ErrorMessagePlugin.swift in Sources */,
 				380EA4FE24CC2DE600514173 /* GithubRepositoryUrlDecoder.swift in Sources */,
@@ -1131,6 +1155,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3813180524FE1A930087FB05 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
 		3864D5E824A7695900A94E05 /* XCRemoteSwiftPackageReference "Aphrodite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LinkAndreas/Aphrodite.git";
@@ -1142,6 +1174,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3813180624FE1A930087FB05 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3813180524FE1A930087FB05 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		3864D5EC24A7695F00A94E05 /* Aphrodite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3864D5E824A7695900A94E05 /* XCRemoteSwiftPackageReference "Aphrodite" */;

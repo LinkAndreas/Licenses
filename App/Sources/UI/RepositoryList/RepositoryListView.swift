@@ -1,37 +1,20 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Cocoa
+import Combine
+import ComposableArchitecture
 import SwiftUI
 
 struct RepositoryListView: NSViewControllerRepresentable {
-    @EnvironmentObject var store: Store
+    let store: Store<AppState, AppAction>
+
+    func updateNSViewController(_ nsViewController: ListViewController, context: Context) {
+        return
+    }
 
     func makeNSViewController(context: Context) -> ListViewController {
-        let viewController: ListViewController = .init()
-        viewController.delegate = context.coordinator
+        let viewController: ListViewController = .init(store: store)
         return viewController
-    }
-
-    func updateNSViewController(_ viewController: ListViewController, context: Context) {
-        viewController.update(entries: store.listEntries)
-    }
-
-    func makeCoordinator() -> ListViewCoordinator {
-        return .init(store: store)
-    }
-}
-
-class ListViewCoordinator {
-    private let store: Store
-
-    init(store: Store) {
-        self.store = store
-    }
-}
-
-extension ListViewCoordinator: ListViewControllerDelegate {
-    func viewController(_ viewController: ListViewController, didSelectRepositoryWithID id: UUID?) {
-        store.selectRepository(with: id)
     }
 }
 
@@ -44,8 +27,22 @@ final class ListViewController: NSViewController {
 
     private var entries: [RepositoryListEntry] = []
 
+    let viewStore: ViewStore<AppState, AppAction>
+    var cancellables: Set<AnyCancellable> = []
+
     private let tableView: NSTableView = .init()
     private let scrollView: NSScrollView = .init()
+
+    init(store: Store<AppState, AppAction>) {
+      self.viewStore = ViewStore(store)
+
+      super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+    }
 
     override func loadView() {
         self.view = NSView()
@@ -55,6 +52,7 @@ final class ListViewController: NSViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupSubscriptions()
     }
 
     private func setupUI() {
@@ -72,7 +70,13 @@ final class ListViewController: NSViewController {
         tableView.addTableColumn(column)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.selectionHighlightStyle = .none
+        tableView.action = #selector(onItemSelected)
+        tableView.selectionHighlightStyle = .regular
+
+//        Include this for macOS Big SUr
+//        if #available(OSX 11.0, *) {
+//            tableView.style = .fullWidth
+//        }
     }
 
     private func setupLayout() {
@@ -81,7 +85,15 @@ final class ListViewController: NSViewController {
         scrollView.bindEdgesToSuperview()
     }
 
-    func update(entries: [RepositoryListEntry]) {
+    private func setupSubscriptions() {
+        viewStore
+            .publisher
+            .listEntries
+            .sink(receiveValue: self.update(entries:))
+            .store(in: &self.cancellables)
+    }
+
+    private func update(entries: [RepositoryListEntry]) {
         guard self.entries != entries else { return }
 
         let diff = entries.difference(from: self.entries)
@@ -103,6 +115,13 @@ final class ListViewController: NSViewController {
         }
 
         tableView.endUpdates()
+    }
+
+    @objc
+    private func onItemSelected() {
+        let selectedID: UUID? = tableView.clickedRow >= 0 ? entries[tableView.clickedRow].id : nil
+
+        self.viewStore.send(.selectedRepository(id: selectedID))
     }
 }
 
@@ -130,6 +149,7 @@ extension ListViewController: NSTableViewDelegate {
         let listEntryRow: RepositoryListEntryRowView = .init(frame: .init(origin: .zero, size: rowSize))
         listEntryRow.addSubview(listEntryView)
         listEntryView.bindEdgesToSuperview()
+
         return listEntryRow
     }
 
@@ -138,10 +158,5 @@ extension ListViewController: NSTableViewDelegate {
 
         view.frame.size.width = tableView.frame.size.width
         return view.fittingSize.height
-    }
-
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        let selectedID: UUID? = tableView.selectedRow >= 0 ? entries[tableView.selectedRow].id : nil
-        delegate?.viewController(self, didSelectRepositoryWithID: selectedID)
     }
 }

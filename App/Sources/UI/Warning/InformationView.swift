@@ -1,19 +1,22 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import ComposableArchitecture
 import SwiftUI
 
 struct InformationView: View {
-    @EnvironmentObject var store: Store
+    let store: Store<AppState, AppAction>
 
     var body: some View {
-        Group {
-            if store.progress != nil || store.errorMessage != nil {
-                VStack {
-                    ProgressView()
-                    ErrorMessageView()
+        WithViewStore(store) { viewStore in
+            Group {
+                if viewStore.progress != nil || viewStore.errorMessage != nil {
+                    VStack {
+                        ProgressView(store: self.store)
+                        ErrorMessageView(store: self.store)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
             }
         }
     }
@@ -21,6 +24,21 @@ struct InformationView: View {
 
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView()
+        InformationView(
+            store: .init(
+                initialState: .init(
+                    isProcessing: false,
+                    isTargeted: false,
+                    progress: 0.75,
+                    remainingRepositories: 0,
+                    totalRepositories: 0,
+                    errorMessage: nil,
+                    selectedRepository: nil,
+                    repositories: []
+                ),
+                reducer: appReducer,
+                environment: AppEnvironment()
+            )
+        )
     }
 }

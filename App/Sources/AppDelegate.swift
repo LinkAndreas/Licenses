@@ -1,6 +1,7 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Cocoa
+import ComposableArchitecture
 import SwiftUI
 
 @NSApplicationMain
@@ -8,8 +9,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let rootView = FileDropArea {
-            SplitView()
+        let rootView = FileDropArea(store: store) {
+            SplitView(store: store)
         }
         .frame(
             minWidth: 650,
@@ -20,7 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             maxHeight: .infinity,
             alignment: .center
         )
-        .environmentObject(Store.shared)
 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 800, height: 600),
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openPanel.begin { response in
             guard response == .OK else { return }
 
-            Store.shared.searchManifests(at: openPanel.urls)
+            ViewStore(store).send(.searchManifests(filePaths: openPanel.urls))
         }
     }
 
