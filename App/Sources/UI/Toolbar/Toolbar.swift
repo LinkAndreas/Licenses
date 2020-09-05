@@ -2,6 +2,7 @@
 
 import Cocoa
 import Combine
+import ComposableArchitecture
 
 final class Toolbar: NSObject {
     static let shared: Toolbar = .init()
@@ -34,11 +35,14 @@ final class Toolbar: NSObject {
     }
 
     private func setupBindings() {
-        Store.shared.$isProcessing.sink { [weak self] isProcessing in
-            self?.fetchButton.isEnabled = !isProcessing
-            self?.exportButton.isEnabled = !isProcessing
-        }
-        .store(in: &cancellables)
+        ViewStore(store)
+            .publisher
+            .map(\.isProcessing)
+            .sink { [weak self] isProcessing in
+                self?.fetchButton.isEnabled = !isProcessing
+                self?.exportButton.isEnabled = !isProcessing
+            }
+            .store(in: &cancellables)
     }
 }
 
@@ -101,7 +105,7 @@ extension Toolbar: NSToolbarDelegate {
 
     @objc
     private func fetchLicenses() {
-        Store.shared.fetchLicenses()
+        ViewStore(store).send(.fetchLicenses)
     }
 
     @objc
@@ -115,7 +119,7 @@ extension Toolbar: NSToolbarDelegate {
         savePanel.begin { result in
             guard result == .OK, let destination: URL = savePanel.url else { return }
 
-            Store.shared.exportLicenses(toDestination: destination)
+            ViewStore(store).send(.exportLicenses(destination: destination))
         }
     }
 }
