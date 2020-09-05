@@ -16,7 +16,7 @@ struct Icon: View {
             .renderingMode(.template)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .foregroundColor(.orange)
+            .foregroundColor(.accentColor)
             .frame(width: size.width, height: size.height)
     }
 }

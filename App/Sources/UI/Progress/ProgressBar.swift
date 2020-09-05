@@ -25,7 +25,7 @@ struct ProgressBar: View {
                         ),
                         height: geometry.size.height
                     )
-                    .foregroundColor(.orange)
+                    .foregroundColor(.accentColor)
                     .animation(.linear)
             }
             .cornerRadius(45.0)
