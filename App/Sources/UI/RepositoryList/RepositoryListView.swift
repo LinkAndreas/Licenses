@@ -1,37 +1,18 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Cocoa
+import Combine
+import ComposableArchitecture
 import SwiftUI
 
 struct RepositoryListView: NSViewControllerRepresentable {
-    @EnvironmentObject var store: Store
+    func updateNSViewController(_ nsViewController: ListViewController, context: Context) {
+        return
+    }
 
     func makeNSViewController(context: Context) -> ListViewController {
-        let viewController: ListViewController = .init()
-        viewController.delegate = context.coordinator
+        let viewController: ListViewController = .init(store: store)
         return viewController
-    }
-
-    func updateNSViewController(_ viewController: ListViewController, context: Context) {
-        viewController.update(entries: store.listEntries)
-    }
-
-    func makeCoordinator() -> ListViewCoordinator {
-        return .init(store: store)
-    }
-}
-
-class ListViewCoordinator {
-    private let store: Store
-
-    init(store: Store) {
-        self.store = store
-    }
-}
-
-extension ListViewCoordinator: ListViewControllerDelegate {
-    func viewController(_ viewController: ListViewController, didSelectRepositoryWithID id: UUID?) {
-        store.selectRepository(with: id)
     }
 }
 
@@ -44,8 +25,22 @@ final class ListViewController: NSViewController {
 
     private var entries: [RepositoryListEntry] = []
 
+    let viewStore: ViewStore<AppState, AppAction>
+    var cancellables: Set<AnyCancellable> = []
+
     private let tableView: NSTableView = .init()
     private let scrollView: NSScrollView = .init()
+
+    init(store: Store<AppState, AppAction>) {
+      self.viewStore = ViewStore(store)
+
+      super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+    }
 
     override func loadView() {
         self.view = NSView()
@@ -81,7 +76,15 @@ final class ListViewController: NSViewController {
         scrollView.bindEdgesToSuperview()
     }
 
-    func update(entries: [RepositoryListEntry]) {
+    private func setupSubscriptions() {
+        viewStore
+            .publisher
+            .listEntries
+            .sink(receiveValue: self.update(entries:))
+            .store(in: &self.cancellables)
+    }
+
+    private func update(entries: [RepositoryListEntry]) {
         guard self.entries != entries else { return }
 
         let diff = entries.difference(from: self.entries)
