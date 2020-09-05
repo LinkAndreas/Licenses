@@ -1131,6 +1131,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3813180524FE1A930087FB05 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
 		3864D5E824A7695900A94E05 /* XCRemoteSwiftPackageReference "Aphrodite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/LinkAndreas/Aphrodite.git";
@@ -1142,6 +1150,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3813180624FE1A930087FB05 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3813180524FE1A930087FB05 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
 		3864D5EC24A7695F00A94E05 /* Aphrodite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3864D5E824A7695900A94E05 /* XCRemoteSwiftPackageReference "Aphrodite" */;
