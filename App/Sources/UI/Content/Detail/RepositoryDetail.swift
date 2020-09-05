@@ -10,7 +10,7 @@ struct RepositoryDetail: View {
 
     var body: some View {
         GeometryReader { geometry in
-            WithViewStore(store) { viewStore in
+            WithViewStore(self.store) { viewStore in
                 Group {
                     if viewStore.selectedRepository != nil {
                         ScrollView(.vertical) {

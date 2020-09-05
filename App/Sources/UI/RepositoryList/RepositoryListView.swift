@@ -72,9 +72,11 @@ final class ListViewController: NSViewController {
         tableView.dataSource = self
         tableView.action = #selector(onItemSelected)
         tableView.selectionHighlightStyle = .regular
-        if #available(OSX 11.0, *) {
-            tableView.style = .fullWidth
-        }
+
+//        Include this for macOS Big SUr
+//        if #available(OSX 11.0, *) {
+//            tableView.style = .fullWidth
+//        }
     }
 
     private func setupLayout() {
