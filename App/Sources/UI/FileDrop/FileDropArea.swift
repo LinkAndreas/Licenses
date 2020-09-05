@@ -5,7 +5,8 @@ import ComposableArchitecture
 import SwiftUI
 
 struct FileDropArea<Content: View>: View {
-    private let store: Store<AppState, AppAction>
+    let store: Store<AppState, AppAction>
+
     private let content: () -> Content
 
     init(store: Store<AppState, AppAction>, @ViewBuilder content: @escaping () -> Content) {
@@ -14,7 +15,7 @@ struct FileDropArea<Content: View>: View {
     }
 
     var body: some View {
-        WithViewStore(self.store) { viewStore in
+        WithViewStore(store) { viewStore in
             GeometryReader { geometry in
                 Group {
                     VStack {
@@ -23,7 +24,7 @@ struct FileDropArea<Content: View>: View {
                                 of: ["public.file-url"],
                                 isTargeted: viewStore.binding(
                                     get: { $0.isTargeted },
-                                    send: { AppAction.update(isTargeted: $0) }
+                                    send: { AppAction.updateIsTargeted(value: $0) }
                                 )
                             ) { providers -> Bool in
                                 viewStore.send(.handle(providers: providers))
