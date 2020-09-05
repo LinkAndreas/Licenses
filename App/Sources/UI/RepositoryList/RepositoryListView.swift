@@ -70,7 +70,11 @@ final class ListViewController: NSViewController {
         tableView.addTableColumn(column)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.selectionHighlightStyle = .none
+        tableView.action = #selector(onItemSelected)
+        tableView.selectionHighlightStyle = .regular
+        if #available(OSX 11.0, *) {
+            tableView.style = .fullWidth
+        }
     }
 
     private func setupLayout() {
@@ -110,6 +114,13 @@ final class ListViewController: NSViewController {
 
         tableView.endUpdates()
     }
+
+    @objc
+    private func onItemSelected() {
+        let selectedID: UUID? = tableView.clickedRow >= 0 ? entries[tableView.clickedRow].id : nil
+
+        self.viewStore.send(.selectedRepository(id: selectedID))
+    }
 }
 
 extension ListViewController: NSTableViewDataSource {
@@ -136,6 +147,7 @@ extension ListViewController: NSTableViewDelegate {
         let listEntryRow: RepositoryListEntryRowView = .init(frame: .init(origin: .zero, size: rowSize))
         listEntryRow.addSubview(listEntryView)
         listEntryView.bindEdgesToSuperview()
+
         return listEntryRow
     }
 
@@ -144,10 +156,5 @@ extension ListViewController: NSTableViewDelegate {
 
         view.frame.size.width = tableView.frame.size.width
         return view.fittingSize.height
-    }
-
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        let selectedID: UUID? = tableView.selectedRow >= 0 ? entries[tableView.selectedRow].id : nil
-        delegate?.viewController(self, didSelectRepositoryWithID: selectedID)
     }
 }
