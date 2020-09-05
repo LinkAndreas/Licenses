@@ -4,25 +4,6 @@ import Cocoa
 import Combine
 import SwiftUI
 
-class RepositoryDetailListEntry: Identifiable {
-    let iconName: String
-    let title: String
-    let subtitle: String
-    var id: UUID
-
-    init(
-        iconName: String,
-        title: String,
-        subtitle: String,
-        id: UUID = .init()
-    ) {
-        self.iconName = iconName
-        self.title = title
-        self.subtitle = subtitle
-        self.id = id
-    }
-}
-
 struct RepositoryDetail: View {
     @EnvironmentObject var store: Store
 
