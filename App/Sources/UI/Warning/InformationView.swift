@@ -11,8 +11,8 @@ struct InformationView: View {
             Group {
                 if viewStore.progress != nil || viewStore.errorMessage != nil {
                     VStack {
-                        ProgressView(store: store)
-                        ErrorMessageView(store: store)
+                        ProgressView(store: self.store)
+                        ErrorMessageView(store: self.store)
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
