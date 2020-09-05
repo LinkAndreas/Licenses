@@ -106,6 +106,12 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
             .eraseToEffect()
 
     case let .exportLicenses(destination):
+        state.isProcessing = true
+
+        let csvRows: [[String]] = CSVRowFactory.makeRows(from: state.repositories)
+        CSVExporter.exportCSV(fromRows: csvRows, toDestination: destination)
+
+        state.isProcessing = false
         return .none
 
     case let .handle(providers):
