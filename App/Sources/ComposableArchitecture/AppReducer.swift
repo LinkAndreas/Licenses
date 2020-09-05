@@ -18,6 +18,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
         state.repositories = (state.repositories + [repository]).sorted { $0.name.lowercased() < $1.name.lowercased() }
         return .none
 
+    case let .updateErrorMessage(message):
+        state.errorMessage = message
+        return .none
+
     case .startSearchingManifests:
         state.isProcessing = true
         state.repositories = []
@@ -28,7 +32,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
         state.isProcessing = false
         return .none
 
-    case let .update(isTargeted):
+    case let .updateIsTargeted(isTargeted):
         state.isTargeted = isTargeted
         return .none
 

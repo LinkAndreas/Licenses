@@ -6,6 +6,8 @@ import ComposableArchitecture
 import SwiftUI
 
 struct RepositoryListView: NSViewControllerRepresentable {
+    let store: Store<AppState, AppAction>
+
     func updateNSViewController(_ nsViewController: ListViewController, context: Context) {
         return
     }
@@ -50,6 +52,7 @@ final class ListViewController: NSViewController {
         super.viewDidLoad()
 
         setupUI()
+        setupSubscriptions()
     }
 
     private func setupUI() {

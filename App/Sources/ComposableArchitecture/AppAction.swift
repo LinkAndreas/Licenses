@@ -3,6 +3,7 @@
 import Foundation
 
 enum AppAction: Equatable {
+    case updateErrorMessage(value: String?)
     case resetProgress
     case updateProgress
     case didStartFetchingLicenses
@@ -16,5 +17,5 @@ enum AppAction: Equatable {
     case handle(providers: [NSItemProvider])
     case fetchLicenses
     case exportLicenses(destination: URL)
-    case update(isTargeted: Bool)
+    case updateIsTargeted(value: Bool)
 }
