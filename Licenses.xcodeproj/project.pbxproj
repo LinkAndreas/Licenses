@@ -115,7 +115,6 @@
 
 /* Begin PBXFileReference section */
 		380EA4DD24CC2D7700514173 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		380EA4E124CC2D9400514173 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		380EA4EB24CC2DE500514173 /* License.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
 		380EA4EC24CC2DE500514173 /* GithubRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepository.swift; sourceTree = "<group>"; };
 		380EA4ED24CC2DE500514173 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
@@ -240,7 +239,6 @@
 			children = (
 				380EA4DD24CC2D7700514173 /* AppDelegate.swift */,
 				3813180824FE1AAD0087FB05 /* ComposableArchitecture */,
-				380EA4DF24CC2D8600514173 /* Architecture */,
 				380EA4E624CC2D9E00514173 /* Domain */,
 				380EA4E724CC2DA500514173 /* FileAccess */,
 				380EA51B24CC2E5600514173 /* Globals */,
@@ -248,14 +246,6 @@
 				380EA56224CC2F2600514173 /* UI */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		380EA4DF24CC2D8600514173 /* Architecture */ = {
-			isa = PBXGroup;
-			children = (
-				380EA4E124CC2D9400514173 /* Store.swift */,
-			);
-			path = Architecture;
 			sourceTree = "<group>";
 		};
 		380EA4E624CC2D9E00514173 /* Domain */ = {
