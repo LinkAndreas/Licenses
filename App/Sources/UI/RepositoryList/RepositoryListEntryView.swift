@@ -12,12 +12,12 @@ struct RepositoryListEntryView: View {
                     .frame(width: 15, height: 15, alignment: .center)
             }
             VStack(alignment: .leading) {
-                viewModel.title.map { Text($0).font(.body) }
-                viewModel.subtitle.map { Text($0).font(.footnote) }
+                viewModel.title.map { Text($0).font(.headline) }
+                viewModel.subtitle.map { Text($0).font(.subheadline) }
             }
             Spacer()
             HStack {
-                viewModel.caption.map { Text($0).font(.caption) }
+                viewModel.caption.map { Text($0).font(.callout) }
             }
         }
         .padding(6)

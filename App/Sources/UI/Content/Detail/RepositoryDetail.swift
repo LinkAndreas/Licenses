@@ -18,15 +18,13 @@ struct RepositoryDetail: View {
                                 VStack(alignment: .leading) {
                                     ForEach(viewStore.detailListEntries!) { entry in
                                         HStack(alignment: .top) {
-                                            Icon(name: entry.iconName, size: .init(width: 32, height: 32))
-                                                .padding(.top, 6)
+                                            Icon(name: entry.iconName, size: .init(width: 48, height: 48))
                                             VStack(alignment: .leading, spacing: 4) {
                                                 Text(entry.title)
-                                                    .foregroundColor(.white)
-                                                    .font(.headline)
+                                                    .font(.title)
                                                 Text(entry.subtitle)
-                                                    .font(.subheadline)
-                                            }
+                                                    .font(.body)
+                                            }.padding(.top, 0)
                                         }
                                         .padding()
                                     }
