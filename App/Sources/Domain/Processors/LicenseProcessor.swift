@@ -13,14 +13,17 @@ enum LicenseProcessor {
                 .eraseToAnyPublisher()
         }
 
-        return API.call(Github.license(name: name, author: author), mapper: GithubLicenseModelMapper.map)
-            .receive(on: RunLoop.main)
-            .map { license in
-                let modifiedRepository: GithubRepository = repository
-                modifiedRepository.license = license
-                return modifiedRepository
-            }
-            .catch { _ in Just<GithubRepository>(repository) }
-            .eraseToAnyPublisher()
+        return API.requestMappedModel(
+            Github.license(name: name, author: author),
+            mapper: GithubLicenseModelMapper.map
+        )
+        .receive(on: RunLoop.main)
+        .map { license in
+            let modifiedRepository: GithubRepository = repository
+            modifiedRepository.license = license
+            return modifiedRepository
+        }
+        .catch { _ in Just<GithubRepository>(repository) }
+        .eraseToAnyPublisher()
     }
 }

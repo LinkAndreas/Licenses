@@ -5,6 +5,8 @@ import ComposableArchitecture
 import Foundation
 
 final class ErrorMessagePlugin: NetworkPlugin {
+    var targetScope: NetworkPluginTargetScope { .github }
+
     func didReceive(_ result: Result<NetworkResponse, AphroditeError>, target: NetworkTarget) {
         switch result {
         case .success:

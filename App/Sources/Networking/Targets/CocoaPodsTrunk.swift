@@ -12,7 +12,7 @@ extension CocoaPodsTrunk {
 
     var requestTimeoutInterval: TimeInterval { 30 }
 
-    var usedPlugins: [NetworkPluginType] { [.universal] }
+    var scope: [NetworkPluginTargetScope] { [.universal] }
 
     var path: String {
         switch self {
@@ -28,10 +28,10 @@ extension CocoaPodsTrunk {
         }
     }
 
-    var task: HttpTask {
+    var requestType: HttpRequestType {
         switch self {
         case .pod:
-            return .requestPlain
+            return .plainRequest
         }
     }
 }

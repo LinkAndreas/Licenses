@@ -9,13 +9,16 @@ enum CocoaPodsRepositoryProcessor {
             return Just(repository).eraseToAnyPublisher()
         }
 
-        return API.call(
+        return API.requestMappedModel(
             CocoaPodsTrunk.pod(name: repository.name, version: repository.version),
             mapper: TrunkResponseModelMapper.map
         )
         .compactMap { $0?.dataURL }
         .flatMap(maxPublishers: .max(1)) {
-            API.call(Generic.data(url: $0), mapper: { (entity: PodSpecEntity) in entity })
+            API.requestMappedModel(
+                Generic.data(url: $0),
+                mapper: { (entity: PodSpecEntity) in entity }
+            )
         }
         .map(\.source.git)
         .map { repositoryUrl in
