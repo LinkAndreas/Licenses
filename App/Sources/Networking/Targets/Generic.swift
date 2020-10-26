@@ -16,7 +16,7 @@ extension Generic {
     }
 
     var requestTimeoutInterval: TimeInterval { 30 }
-    var usedPlugins: [NetworkPluginType] { [.universal] }
+    var scope: [NetworkPluginTargetScope] { [.universal] }
     var path: String { "" }
 
     var method: HttpMethod {
@@ -26,10 +26,10 @@ extension Generic {
         }
     }
 
-    var task: HttpTask {
+    var requestType: HttpRequestType {
         switch self {
         case .data:
-            return .requestPlain
+            return .plainRequest
         }
     }
 }

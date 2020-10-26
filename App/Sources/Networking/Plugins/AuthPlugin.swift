@@ -6,6 +6,8 @@ import Foundation
 import SwiftUI
 
 final class AuthPlugin: NetworkPlugin {
+    var targetScope: NetworkPluginTargetScope { .github }
+
     func prepare(_ request: URLRequest, target: NetworkTarget) -> AnyPublisher<URLRequest, Never> {
         guard target is Github else { return Just<URLRequest>(request).eraseToAnyPublisher() }
 

@@ -3,18 +3,14 @@
 import Aphrodite
 import Foundation
 
-extension NetworkPluginType {
-    static let github: NetworkPluginType = .init(identifier: "github")
+extension NetworkPluginTargetScope {
+    static let github: Self = .init(identifier: "github")
 }
 
 let API: Aphrodite<DomainErrorFactory> = .init(
     plugins: [
-        .universal: [
-            // NetworkLoggerPlugin()
-        ],
-        .github: [
-            AuthPlugin(),
-            ErrorMessagePlugin()
-        ]
+        // NetworkLoggerPlugin(),
+        AuthPlugin(),
+        ErrorMessagePlugin()
     ]
 )

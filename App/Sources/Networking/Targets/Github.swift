@@ -12,7 +12,7 @@ extension Github {
 
     var requestTimeoutInterval: TimeInterval { 30 }
 
-    var usedPlugins: [NetworkPluginType] { [.universal, .github] }
+    var scope: [NetworkPluginTargetScope] { [.universal, .github] }
 
     var path: String {
         switch self {
@@ -28,10 +28,10 @@ extension Github {
         }
     }
 
-    var task: HttpTask {
+    var requestType: HttpRequestType {
         switch self {
         case .license:
-            return .requestPlain
+            return .plainRequest
         }
     }
 }
