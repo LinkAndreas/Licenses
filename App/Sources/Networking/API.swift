@@ -7,7 +7,7 @@ extension NetworkPluginTargetScope {
     static let github: Self = .init(identifier: "github")
 }
 
-let API: Aphrodite<DomainErrorFactory> = .init(
+let API: AphroditeClient<DomainErrorFactory> = .init(
     plugins: [
         // NetworkLoggerPlugin(),
         AuthPlugin(),
