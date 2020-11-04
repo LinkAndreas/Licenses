@@ -70,10 +70,9 @@ final class ListViewController: NSViewController {
         tableView.addTableColumn(column)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.action = #selector(onItemSelected)
         tableView.selectionHighlightStyle = .regular
 
-//        Include this for macOS Big SUr
+//        Include this for macOS Big Sur
 //        if #available(OSX 11.0, *) {
 //            tableView.style = .fullWidth
 //        }
@@ -116,18 +115,17 @@ final class ListViewController: NSViewController {
 
         tableView.endUpdates()
     }
-
-    @objc
-    private func onItemSelected() {
-        let selectedID: UUID? = tableView.clickedRow >= 0 ? entries[tableView.clickedRow].id : nil
-
-        self.viewStore.send(.selectedRepository(id: selectedID))
-    }
 }
 
 extension ListViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return entries.count
+    }
+
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        guard tableView.selectedRow >= 0 else { return }
+
+        self.viewStore.send(.selectedRepository(id: entries[tableView.selectedRow].id))
     }
 }
 
