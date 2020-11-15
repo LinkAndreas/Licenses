@@ -5,18 +5,18 @@ import Combine
 import ComposableArchitecture
 import SwiftUI
 
-struct RepositoryDetail: View {
+struct DetailView: View {
     let store: Store<AppState, AppAction>
 
     var body: some View {
         GeometryReader { geometry in
             WithViewStore(self.store) { viewStore in
                 Group {
-                    if viewStore.selectedRepository != nil {
+                    if let detailListEntries = viewStore.detailViewModel.detailListEntries {
                         ScrollView(.vertical) {
                             HStack {
                                 VStack(alignment: .leading) {
-                                    ForEach(viewStore.detailListEntries!) { entry in
+                                    ForEach(detailListEntries) { entry in
                                         HStack(alignment: .top) {
                                             Icon(name: entry.iconName, size: .init(width: 48, height: 48))
                                             VStack(alignment: .leading, spacing: 4) {
@@ -34,7 +34,7 @@ struct RepositoryDetail: View {
                         }
                         .padding(4)
                     } else {
-                        RepositoryDetailPlaceholder()
+                        DetailPlaceholderView()
                     }
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
@@ -78,7 +78,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        return RepositoryDetail(
+        return DetailView(
             store: .init(
                 initialState: .init(
                     isProcessing: false,
