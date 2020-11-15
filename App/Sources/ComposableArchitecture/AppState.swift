@@ -14,11 +14,6 @@ struct AppState: Equatable {
 }
 
 extension AppState {
-    var listEntries: [RepositoryListEntry] {
-        RepositoryListEntryFactory.makeListEntries(from: repositories)
-    }
-
-    var detailListEntries: [RepositoryDetailListEntry]? {
-        RepositoryListEntryFactory.makeDetailListEntries(from: selectedRepository)
-    }
+    var masterViewModel: MasterViewModel { MasterViewModelFactory.makeViewModel(from: self) }
+    var detailViewModel: DetailViewModel { DetailViewModelFactory.makeViewModel(from: self) }
 }
