@@ -6,6 +6,8 @@ import Foundation
 import SwiftUI
 
 final class AuthPlugin: NetworkPlugin {
+    @AppStorage("token") private var token: String = ""
+
     var targetScope: NetworkPluginTargetScope { .github }
 
     func prepare(_ request: URLRequest, target: NetworkTarget) -> AnyPublisher<URLRequest, Never> {
@@ -13,9 +15,9 @@ final class AuthPlugin: NetworkPlugin {
 
         var modifiedRequest: URLRequest = request
 
-        if !Defaults.token.isEmpty {
+        if !token.isEmpty {
             modifiedRequest.addValue(
-                "token \(Defaults.token)",
+                "token \(token)",
                 forHTTPHeaderField: HttpHeaderField.authorization.rawValue
             )
         }

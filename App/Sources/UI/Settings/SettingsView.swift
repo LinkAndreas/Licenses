@@ -3,28 +3,37 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var token: String = Defaults.token
+    private enum Tabs: Hashable {
+        case general
+    }
+
+    @AppStorage("token") private var token: String = ""
 
     var body: some View {
-        Form {
-            Section(header: Text(L10n.Settings.Section.GithubAccessToken.title)) {
-                HStack {
-                    TextField(
-                        L10n.Settings.Section.GithubAccessToken.placeholder,
-                        text: $token
-                    )
-                    Button(
-                        action: { Defaults.token = self.token },
-                        label: { Text(L10n.Settings.Section.GithubAccessToken.Button.title) }
-                    )
+        TabView {
+            Form {
+                Section(header: Text(L10n.Settings.Section.GithubAccessToken.title)) {
+                    HStack {
+                        TextField(
+                            L10n.Settings.Section.GithubAccessToken.placeholder,
+                            text: $token
+                        )
+                        Button(
+                            action: { token = self.token },
+                            label: { Text(L10n.Settings.Section.GithubAccessToken.Button.title) }
+                        )
+                    }
+                    Text(L10n.Settings.Section.GithubAccessToken.subtitle)
+                        .font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-                Text(L10n.Settings.Section.GithubAccessToken.subtitle)
-                    .font(.body)
-                    .fixedSize(horizontal: false, vertical: true)
+                Spacer()
+            }.tabItem {
+                Label("General", systemImage: "gear")
             }
-            Spacer()
+            .tag(Tabs.general)
         }
-        .padding()
+        .padding(20)
         .frame(minWidth: 500, maxWidth: 500)
     }
 }
