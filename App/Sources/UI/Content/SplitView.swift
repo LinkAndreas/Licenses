@@ -9,8 +9,8 @@ struct SplitView: View {
     var body: some View {
         VStack {
             NavigationView {
-                RepositoryMaster(store: store)
-                RepositoryDetail(store: store)
+                MasterView(store: store)
+                DetailView(store: store)
             }
             .listStyle(SidebarListStyle())
         }
