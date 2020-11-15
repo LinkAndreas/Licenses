@@ -3,19 +3,19 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct RepositoryMaster: View {
+struct MasterView: View {
     let store: Store<AppState, AppAction>
 
     var body: some View {
         VStack(spacing: 0) {
-            RepositoryListView(store: store)
+            RepositoryList(store: store)
             InformationView(store: store)
         }
         .frame(width: 400)
     }
 }
 
-struct RepositoryMaster_Previews: PreviewProvider {
+struct MasterView_Previews: PreviewProvider {
     private static let repository: GithubRepository = .init(
         packageManager: .carthage,
         name: "Eureka",
@@ -50,7 +50,7 @@ struct RepositoryMaster_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        RepositoryMaster(
+        MasterView(
             store: .init(
                 initialState: .init(
                     isProcessing: false,
