@@ -92,7 +92,6 @@
 		3864D6E124A76EA800A94E05 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3864D6DF24A76EA800A94E05 /* Images.xcassets */; };
 		3864D6E624A770BD00A94E05 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3864D6E824A770BD00A94E05 /* Localizable.strings */; };
 		3864D6EC24A7717700A94E05 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3864D6EA24A7717700A94E05 /* Strings.swift */; };
-		38BC46A424B1AD750088B830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BC46A224B1AD750088B830 /* Main.storyboard */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
 		38E301E6255BE59F00786628 /* RepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E301E5255BE59F00786628 /* RepositoryList.swift */; };
 		38E8807F24D6B3AF0012A36C /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807E24D6B3AF0012A36C /* MasterView.swift */; };
@@ -197,7 +196,6 @@
 		3864D6E724A770BD00A94E05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3864D6E924A770CD00A94E05 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3864D6EA24A7717700A94E05 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		38BC46A224B1AD750088B830 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		38BC46A624B1ADEE0088B830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4A24CC2B1200FDBE21 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4B24CC2B1200FDBE21 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
@@ -605,7 +603,6 @@
 			isa = PBXGroup;
 			children = (
 				38BC46A624B1ADEE0088B830 /* Info.plist */,
-				38BC46A224B1AD750088B830 /* Main.storyboard */,
 				381E66C124B1ACD30083E9C1 /* macOS.entitlements */,
 			);
 			path = SupportingFiles;
@@ -713,7 +710,6 @@
 			files = (
 				3864D6E124A76EA800A94E05 /* Images.xcassets in Resources */,
 				380EA59224CC2FCF00514173 /* swiftgen.yml in Resources */,
-				38BC46A424B1AD750088B830 /* Main.storyboard in Resources */,
 				38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */,
 				3864D6E624A770BD00A94E05 /* Localizable.strings in Resources */,
 				3864D6D024A76BBF00A94E05 /* .swiftlint.yml in Resources */,
