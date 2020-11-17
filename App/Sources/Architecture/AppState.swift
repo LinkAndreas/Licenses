@@ -1,7 +1,5 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import Foundation
-
 struct AppState: Equatable {
     var isProcessing: Bool
     var isTargeted: Bool

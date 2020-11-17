@@ -1,10 +1,9 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Combine
-import ComposableArchitecture
 import Foundation
 
-let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, action, environment in
+let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, environment in
     switch action {
     case let .add(repository):
         let isConsideredEqual: (GithubRepository) -> ((GithubRepository) -> Bool) = { lhs in
@@ -13,36 +12,36 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
             }
         }
 
-        guard !state.repositories.contains(where: isConsideredEqual(repository)) else { return .none }
+        guard !state.repositories.contains(where: isConsideredEqual(repository)) else { return nil }
 
         state.repositories = (state.repositories + [repository]).sorted { $0.name.lowercased() < $1.name.lowercased() }
-        return .none
+        return nil
 
     case let .updateErrorMessage(message):
         state.errorMessage = message
-        return .none
+        return nil
 
     case .startSearchingManifests:
         state.isProcessing = true
         state.repositories = []
         state.selectedRepository = nil
-        return .none
+        return nil
 
     case .stopSearchingManifests:
         state.isProcessing = false
-        return .none
+        return nil
 
     case let .updateIsTargeted(isTargeted):
         state.isTargeted = isTargeted
-        return .none
+        return nil
 
     case .resetProgress:
         state.progress = nil
-        return .none
+        return nil
 
     case .updateProgress:
         state.progress = Float(1.0) - Float(Double(state.remainingRepositories) / Double(state.totalRepositories))
-        return .none
+        return nil
 
     case .didStartFetchingLicenses:
         state.isProcessing = true
@@ -59,17 +58,17 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
         if totalRepositories > 0 {
             state.remainingRepositories = totalRepositories
             state.totalRepositories = totalRepositories
-            return .init(value: .updateProgress)
+            return Just(AppAction.updateProgress).eraseToAnyPublisher()
         }
 
-        return .none
+        return nil
 
     case .didStopFetchingLicenses:
         state.isProcessing = false
         state.progress = 1.0
-        return Effect(value: .resetProgress)
+        return Just(.resetProgress)
             .delay(for: 1, scheduler: DispatchQueue.main)
-            .eraseToEffect()
+            .eraseToAnyPublisher()
 
     case let .didProcess(repository):
         if state.selectedRepository?.id == repository.id {
@@ -82,7 +81,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
         }
 
         state.remainingRepositories -= 1
-        return .init(value: .updateProgress)
+        return Just(AppAction.updateProgress).eraseToAnyPublisher()
 
     case .fetchLicenses:
         return state.repositories
@@ -103,7 +102,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
             .map(AppAction.didProcess(repository:))
             .prepend(AppAction.didStartFetchingLicenses)
             .append(AppAction.didStopFetchingLicenses)
-            .eraseToEffect()
+            .eraseToAnyPublisher()
 
     case let .exportLicenses(destination):
         state.isProcessing = true
@@ -112,7 +111,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
         CSVExporter.exportCSV(fromRows: csvRows, toDestination: destination)
 
         state.isProcessing = false
-        return .none
+        return nil
 
     case let .handle(providers):
         return providers
@@ -135,12 +134,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
                     )
                 }
             }
-            .eraseToAnyPublisher()
             .collect()
             .receive(on: RunLoop.main)
             .map { urls in urls.compactMap { $0 } }
             .map(AppAction.searchManifests(filePaths:))
-            .eraseToEffect()
+            .eraseToAnyPublisher()
 
     case let .selectedRepository(id):
         if let id = id {
@@ -149,7 +147,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
             state.selectedRepository = nil
         }
 
-        return .none
+        return nil
 
     case let .searchManifests(filePaths):
         return ManifestPublisher(filePaths: filePaths)
@@ -158,6 +156,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = .init { state, ac
             .map(AppAction.add(repository:))
             .prepend(AppAction.startSearchingManifests)
             .append(AppAction.stopSearchingManifests)
-            .eraseToEffect()
+            .eraseToAnyPublisher()
     }
 }

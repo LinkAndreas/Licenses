@@ -1,44 +1,40 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import ComposableArchitecture
 import SwiftUI
 
 struct InformationView: View {
-    let store: Store<AppState, AppAction>
+    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
 
     var body: some View {
-        WithViewStore(store) { viewStore in
-            Group {
-                if viewStore.progress != nil || viewStore.errorMessage != nil {
-                    VStack {
-                        ProgressView(store: self.store)
-                        ErrorMessageView(store: self.store)
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                }
+        if store.state.progress != nil || store.state.errorMessage != nil {
+            VStack {
+                ProgressView()
+                ErrorMessageView()
             }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
         }
     }
 }
 
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView(
-            store: .init(
-                initialState: .init(
-                    isProcessing: false,
-                    isTargeted: false,
-                    progress: 0.75,
-                    remainingRepositories: 0,
-                    totalRepositories: 0,
-                    errorMessage: nil,
-                    selectedRepository: nil,
-                    repositories: []
-                ),
-                reducer: appReducer,
-                environment: AppEnvironment()
+        InformationView()
+            .environmentObject(
+                Store<AppState, AppAction, AppEnvironment>(
+                    initialState: .init(
+                        isProcessing: false,
+                        isTargeted: false,
+                        progress: 0.75,
+                        remainingRepositories: 0,
+                        totalRepositories: 0,
+                        errorMessage: nil,
+                        selectedRepository: nil,
+                        repositories: []
+                    ),
+                    reducer: appReducer,
+                    environment: AppEnvironment()
+                )
             )
-        )
     }
 }

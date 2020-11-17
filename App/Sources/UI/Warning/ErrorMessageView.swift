@@ -1,21 +1,18 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Combine
-import ComposableArchitecture
 import SwiftUI
 
 struct ErrorMessageView: View {
-    let store: Store<AppState, AppAction>
+    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
 
     var body: some View {
-        WithViewStore(store) { viewStore in
-            Group {
-                viewStore.errorMessage.map { errorMessage in
-                    Group {
-                        Text(errorMessage)
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(.red)
-                    }
+        Group {
+            store.state.errorMessage.map { errorMessage in
+                Group {
+                    Text(errorMessage)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.red)
                 }
             }
         }
@@ -24,22 +21,23 @@ struct ErrorMessageView: View {
 
 struct GithubRequestLimitView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorMessageView(
-            store: .init(
-                initialState: .init(
-                    isProcessing: false,
-                    isTargeted: false,
-                    progress: nil,
-                    remainingRepositories: 0,
-                    totalRepositories: 0,
-                    errorMessage: "Test Error Message",
-                    selectedRepository: nil,
-                    repositories: []
-                ),
-                reducer: appReducer,
-                environment: AppEnvironment()
+        ErrorMessageView()
+            .environmentObject(
+                Store<AppState, AppAction, AppEnvironment>(
+                    initialState: .init(
+                        isProcessing: false,
+                        isTargeted: false,
+                        progress: nil,
+                        remainingRepositories: 0,
+                        totalRepositories: 0,
+                        errorMessage: "Test Error Message",
+                        selectedRepository: nil,
+                        repositories: []
+                    ),
+                    reducer: appReducer,
+                    environment: AppEnvironment()
+                )
             )
-        )
-        .previewLayout(.fixed(width: 650, height: 500))
+            .previewLayout(.fixed(width: 650, height: 500))
     }
 }

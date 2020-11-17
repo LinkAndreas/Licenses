@@ -1,47 +1,63 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import ComposableArchitecture
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var storeProvider: StoreProvider = .init()
+    @StateObject private var store: Store<AppState, AppAction, AppEnvironment> = .init(
+        initialState: .init(
+            isProcessing: false,
+            isTargeted: false,
+            progress: nil,
+            remainingRepositories: 0,
+            totalRepositories: 0,
+            errorMessage: nil,
+            selectedRepository: nil,
+            repositories: []
+        ),
+        reducer: appReducer,
+        environment: .init()
+    )
 
     var body: some View {
-        FileDropArea(store: storeProvider.store) {
-            WithViewStore(storeProvider.store) { viewStore in
-                SplitView(store: storeProvider.store)
-                    .toolbar {
-                        ToolbarItems(
-                            openFiles: {
-                                let openPanel: NSOpenPanel = .init()
-                                openPanel.title = L10n.Panel.Open.title
-                                openPanel.allowsMultipleSelection = true
-                                openPanel.canChooseDirectories = true
-                                openPanel.canChooseFiles = true
-                                openPanel.begin { response in
-                                    guard response == .OK else { return }
+        FileDropArea {
+            SplitView()
+                .toolbar {
+                    ToolbarItems(
+                        openFiles: {
+                            let openPanel: NSOpenPanel = .init()
+                            openPanel.title = L10n.Panel.Open.title
+                            openPanel.allowsMultipleSelection = true
+                            openPanel.canChooseDirectories = true
+                            openPanel.canChooseFiles = true
+                            openPanel.begin { response in
+                                guard response == .OK else { return }
 
-                                    viewStore.send(.searchManifests(filePaths: openPanel.urls))
-                                }
-                            },
-                            fetchLicenses: { viewStore.send(.fetchLicenses) },
-                            exportLicenses: {
-                                let savePanel: NSSavePanel = .init()
-                                savePanel.title = L10n.Panel.Save.title
-                                savePanel.canCreateDirectories = true
-                                savePanel.showsTagField = false
-                                savePanel.nameFieldStringValue = L10n.Panel.Save.filename
-                                savePanel.level = .modalPanel
-                                savePanel.begin { result in
-                                    guard result == .OK, let destination: URL = savePanel.url else { return }
-
-                                    viewStore.send(.exportLicenses(destination: destination))
-                                }
+                                store.send(.searchManifests(filePaths: openPanel.urls))
                             }
-                        )
-                    }
-            }
+                        },
+                        fetchLicenses: { store.send(.fetchLicenses) },
+                        exportLicenses: {
+                            let savePanel: NSSavePanel = .init()
+                            savePanel.title = L10n.Panel.Save.title
+                            savePanel.canCreateDirectories = true
+                            savePanel.showsTagField = false
+                            savePanel.nameFieldStringValue = L10n.Panel.Save.filename
+                            savePanel.level = .modalPanel
+                            savePanel.begin { result in
+                                guard result == .OK, let destination: URL = savePanel.url else { return }
+
+                                store.send(.exportLicenses(destination: destination))
+                            }
+                        }
+                    )
+                }
         }
+        .onReceive(NotificationCenter.default.publisher(for: .errorMessageChanged)) { notification in
+            guard let errorMessage: String = notification.userInfo?[String.errorMessageKey] as? String else { return }
+
+            store.send(.updateErrorMessage(value: errorMessage))
+        }
+        .environmentObject(store)
     }
 }
 

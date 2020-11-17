@@ -35,7 +35,6 @@ enum CocoaPodsRepositoryProcessor {
             return modifiedRepository
         }
         .catch { _ in Just<GithubRepository>(repository) }
-        .receive(on: RunLoop.main)
         .eraseToAnyPublisher()
     }
 }

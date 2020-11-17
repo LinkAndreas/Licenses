@@ -1,7 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Aphrodite
-import ComposableArchitecture
 import Foundation
 
 extension Notification.Name {

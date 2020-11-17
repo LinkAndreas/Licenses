@@ -1,7 +1,6 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import AppKit
-import ComposableArchitecture
 import SwiftUI
 
 @main

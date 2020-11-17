@@ -1,15 +1,12 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import ComposableArchitecture
 import SwiftUI
 
 struct MasterView: View {
-    let store: Store<AppState, AppAction>
-
     var body: some View {
         VStack(spacing: 0) {
-            RepositoryList(store: store)
-            InformationView(store: store)
+            RepositoryList()
+            InformationView()
         }
         .frame(width: 400)
     }
@@ -50,21 +47,6 @@ struct MasterView_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        MasterView(
-            store: .init(
-                initialState: .init(
-                    isProcessing: false,
-                    isTargeted: false,
-                    progress: nil,
-                    remainingRepositories: 0,
-                    totalRepositories: 0,
-                    errorMessage: nil,
-                    selectedRepository: repository,
-                    repositories: [repository]
-                ),
-                reducer: appReducer,
-                environment: AppEnvironment()
-            )
-        )
+        MasterView()
     }
 }
