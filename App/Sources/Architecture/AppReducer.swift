@@ -29,7 +29,8 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
 
     case .stopSearchingManifests:
         state.isProcessing = false
-        return nil
+        return Just(AppAction.fetchLicenses)
+            .eraseToAnyPublisher()
 
     case let .updateIsTargeted(isTargeted):
         state.isTargeted = isTargeted
