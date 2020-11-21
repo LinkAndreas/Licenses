@@ -54,7 +54,6 @@
 		380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */; };
 		380EA57924CC2F4700514173 /* RepositoryListEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56824CC2F4600514173 /* RepositoryListEntryViewModel.swift */; };
 		380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56924CC2F4600514173 /* SettingsView.swift */; };
-		380EA57D24CC2F4700514173 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56C24CC2F4600514173 /* SplitView.swift */; };
 		380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56D24CC2F4600514173 /* ProgressBar.swift */; };
 		380EA58124CC2F4700514173 /* SettingsHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */; };
 		380EA58224CC2F4700514173 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57124CC2F4700514173 /* Icon.swift */; };
@@ -162,7 +161,6 @@
 		380EA56724CC2F4600514173 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		380EA56824CC2F4600514173 /* RepositoryListEntryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryViewModel.swift; sourceTree = "<group>"; };
 		380EA56924CC2F4600514173 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		380EA56C24CC2F4600514173 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		380EA56D24CC2F4600514173 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHostingViewController.swift; sourceTree = "<group>"; };
 		380EA57124CC2F4700514173 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -398,7 +396,8 @@
 			isa = PBXGroup;
 			children = (
 				3811FBCA256150160019CDB8 /* MainView.swift */,
-				3853B65024FBEBD20080C55F /* Content */,
+				3853B64F24FBEBA50080C55F /* Master */,
+				3853B64E24FBEB9C0080C55F /* Detail */,
 				3853B64B24FBEB2E0080C55F /* FileDrop */,
 				3853B65124FBEC0F0080C55F /* General */,
 				3853B64D24FBEB8A0080C55F /* Progress */,
@@ -493,16 +492,6 @@
 				3853B64724FBE8D10080C55F /* RepositoryList */,
 			);
 			path = Master;
-			sourceTree = "<group>";
-		};
-		3853B65024FBEBD20080C55F /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				380EA56C24CC2F4600514173 /* SplitView.swift */,
-				3853B64F24FBEBA50080C55F /* Master */,
-				3853B64E24FBEB9C0080C55F /* Detail */,
-			);
-			path = Content;
 			sourceTree = "<group>";
 		};
 		3853B65124FBEC0F0080C55F /* General */ = {
@@ -826,7 +815,6 @@
 				380EA51324CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift in Sources */,
 				380EA50B24CC2DF500514173 /* PackageManager.swift in Sources */,
 				380EA53D24CC2EC300514173 /* LinksEntity.swift in Sources */,
-				380EA57D24CC2F4700514173 /* SplitView.swift in Sources */,
 				380EA57924CC2F4700514173 /* RepositoryListEntryViewModel.swift in Sources */,
 				380EA50924CC2DF500514173 /* Manifest.swift in Sources */,
 				380EA54024CC2EC300514173 /* LicenseEntity.swift in Sources */,
