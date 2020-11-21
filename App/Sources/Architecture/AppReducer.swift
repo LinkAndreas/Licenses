@@ -88,7 +88,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
         return state.repositories
             .filter { $0.license == nil }
             .publisher
-            .flatMap(maxPublishers: .max(1)) { repository in
+            .flatMap(maxPublishers: .max(3)) { repository in
                 Just(repository)
                     .flatMap { (repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> in
                         CocoaPodsRepositoryProcessor.process(repository: repository)
