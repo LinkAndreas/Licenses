@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct WindowContentView: View {
     @StateObject private var store: Store<AppState, AppAction, AppEnvironment> = .init(
         initialState: .empty,
         reducer: appReducer,
@@ -59,8 +59,8 @@ struct MainView: View {
     }
 }
 
-struct MainView_Previews: PreviewProvider {
+struct WindowContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        WindowContentView()
     }
 }

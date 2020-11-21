@@ -10,7 +10,7 @@ struct LicensesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            WindowContentView()
                 .frame(
                     minWidth: 650,
                     idealWidth: 800,
