@@ -51,7 +51,7 @@ struct MainView: View {
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .errorMessageChanged)) { notification in
-            guard let errorMessage: String = notification.userInfo?[String.errorMessageKey] as? String else { return }
+            let errorMessage: String? = notification.userInfo?[String.errorMessageKey] as? String
 
             store.send(.updateErrorMessage(value: errorMessage))
         }
