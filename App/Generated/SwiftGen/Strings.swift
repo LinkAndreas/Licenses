@@ -122,16 +122,16 @@ internal enum L10n {
 
   internal enum Toolbar {
     internal enum ExportLicenses {
-      /// Export
-      internal static let title = L10n.tr("Localizable", "toolbar.export_licenses.title")
       /// Export Licenses
       internal static let tooltip = L10n.tr("Localizable", "toolbar.export_licenses.tooltip")
     }
     internal enum FetchLicenses {
-      /// Fetch
-      internal static let title = L10n.tr("Localizable", "toolbar.fetch_licenses.title")
       /// Fetch Licenses
       internal static let tooltip = L10n.tr("Localizable", "toolbar.fetch_licenses.tooltip")
+    }
+    internal enum ImportManifests {
+      /// Import Manifests
+      internal static let tooltip = L10n.tr("Localizable", "toolbar.import_manifests.tooltip")
     }
   }
 }

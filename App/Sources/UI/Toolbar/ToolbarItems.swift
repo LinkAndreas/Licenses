@@ -3,6 +3,8 @@
 import SwiftUI
 
 struct ToolbarItems: ToolbarContent {
+    let areButtonsEnabled: Bool
+
     let openFiles: () -> Void
     let fetchLicenses: () -> Void
     let exportLicenses: () -> Void
@@ -11,17 +13,21 @@ struct ToolbarItems: ToolbarContent {
         ToolbarItem(placement: .primaryAction) {
             Button(action: openFiles) {
                 Image(systemName: "folder.badge.plus")
-            }.help("Import manifests...")
+            }
+            .help(L10n.Toolbar.ImportManifests.tooltip)
+            .disabled(!areButtonsEnabled)
         }
         ToolbarItemGroup(placement: .automatic) {
             Button(action: fetchLicenses) {
                 Image(systemName: "arrow.clockwise")
             }
-            .help(L10n.Toolbar.FetchLicenses.title)
+            .disabled(!areButtonsEnabled)
+            .help(L10n.Toolbar.FetchLicenses.tooltip)
             Button(action: exportLicenses) {
                 Image(systemName: "square.and.arrow.up")
             }
-            .help(L10n.Toolbar.ExportLicenses.title)
+            .disabled(!areButtonsEnabled)
+            .help(L10n.Toolbar.ExportLicenses.tooltip)
         }
     }
 }

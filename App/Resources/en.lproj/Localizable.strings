@@ -9,10 +9,9 @@
 "panel.open.title" = "Source";
 "panel.save.title" = "Destination";
 "panel.save.filename" = "licenses.csv";
-"toolbar.fetch_licenses.title" = "Fetch";
 "toolbar.fetch_licenses.tooltip" = "Fetch Licenses";
-"toolbar.export_licenses.title" = "Export";
 "toolbar.export_licenses.tooltip" = "Export Licenses";
+"toolbar.import_manifests.tooltip" = "Import Manifests";
 "detail.placeholder" = "You can select manifests using \"Open File\" or drop them onto this window.";
 "detail.list_entry.name.title" = "Name: ";
 "detail.list_entry.version.title" = "Version: ";

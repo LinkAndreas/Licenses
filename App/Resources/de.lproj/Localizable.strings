@@ -9,10 +9,9 @@
 "panel.open.title" = "Quelle";
 "panel.save.title" = "Ziel";
 "panel.save.filename" = "licenses.csv";
-"toolbar.fetch_licenses.title" = "Abrufen";
 "toolbar.fetch_licenses.tooltip" = "Lizenzen abrufen";
-"toolbar.export_licenses.title" = "Exportieren";
 "toolbar.export_licenses.tooltip" = "Lizenzen exportieren";
+"toolbar.import_manifests.tooltip" = "Manifest Dateien importieren";
 "detail.placeholder" = "Du kannst Manifest Dateien mit \"Datei öffnen\" auswählen oder auf dieses Fenster ziehen.";
 "detail.list_entry.name.title" = "Name: ";
 "detail.list_entry.version.title" = "Version: ";
