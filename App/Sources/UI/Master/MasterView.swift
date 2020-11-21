@@ -8,7 +8,7 @@ struct MasterView: View {
             RepositoryList()
             InformationView()
         }
-        .frame(width: 400)
+        .frame(minWidth: 400, idealWidth: 400, maxWidth: .infinity)
     }
 }
 
