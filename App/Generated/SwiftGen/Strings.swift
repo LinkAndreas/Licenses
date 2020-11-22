@@ -104,34 +104,38 @@ internal enum L10n {
   internal enum Settings {
     /// Settings
     internal static let title = L10n.tr("Localizable", "settings.title")
-    internal enum Section {
-      internal enum GithubAccessToken {
-        /// Please enter your personal access token
-        internal static let placeholder = L10n.tr("Localizable", "settings.section.github_access_token.placeholder")
-        /// You can add your personal access token to get an increased rate limit for the GitHub API.
-        internal static let subtitle = L10n.tr("Localizable", "settings.section.github_access_token.subtitle")
-        /// GitHub Access Token
-        internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.title")
-        internal enum Button {
-          /// Save
-          internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.button.title")
+    internal enum Tabs {
+      internal enum General {
+        /// General
+        internal static let title = L10n.tr("Localizable", "settings.tabs.general.title")
+        internal enum AutomaticLicenseSearch {
+          /// Automatic License Search
+          internal static let title = L10n.tr("Localizable", "settings.tabs.general.automatic_license_search.title")
         }
+      }
+      internal enum Token {
+        /// You can add your personal access token to get an increased rate limit for the GitHub API.
+        internal static let description = L10n.tr("Localizable", "settings.tabs.token.description")
+        /// Please enter your personal access token
+        internal static let placeholder = L10n.tr("Localizable", "settings.tabs.token.placeholder")
+        /// Github Token
+        internal static let title = L10n.tr("Localizable", "settings.tabs.token.title")
       }
     }
   }
 
   internal enum Toolbar {
     internal enum ExportLicenses {
-      /// Export
-      internal static let title = L10n.tr("Localizable", "toolbar.export_licenses.title")
       /// Export Licenses
       internal static let tooltip = L10n.tr("Localizable", "toolbar.export_licenses.tooltip")
     }
     internal enum FetchLicenses {
-      /// Fetch
-      internal static let title = L10n.tr("Localizable", "toolbar.fetch_licenses.title")
       /// Fetch Licenses
       internal static let tooltip = L10n.tr("Localizable", "toolbar.fetch_licenses.tooltip")
+    }
+    internal enum ImportManifests {
+      /// Import Manifests
+      internal static let tooltip = L10n.tr("Localizable", "toolbar.import_manifests.tooltip")
     }
   }
 }

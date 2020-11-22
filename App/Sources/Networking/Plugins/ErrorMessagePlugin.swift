@@ -1,28 +1,43 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
 import Aphrodite
-import ComposableArchitecture
 import Foundation
+
+extension Notification.Name {
+    static let errorMessageChanged: Self = .init(.errorMessageChangedIdentifier)
+}
+
+extension String {
+    static let errorMessageKey: Self = "errorMessageKey"
+    static let errorMessageChangedIdentifier: Self = "errorMessageChangedIdentifier"
+}
 
 final class ErrorMessagePlugin: NetworkPlugin {
     var targetScope: NetworkPluginTargetScope { .github }
 
     func didReceive(_ result: Result<NetworkResponse, AphroditeError>, target: NetworkTarget) {
+        let errorMessage: String?
         switch result {
         case .success:
-            ViewStore(store).send(.updateErrorMessage(value: nil))
+            errorMessage = nil
 
         case let .failure(error):
             switch DomainErrorFactory.make(from: error) {
             case .githubRateLimitExceeded:
-                ViewStore(store).send(.updateErrorMessage(value: L10n.Error.githubRateLimitExceeded))
+                errorMessage = L10n.Error.githubRateLimitExceeded
 
             case .unauthorized:
-                ViewStore(store).send(.updateErrorMessage(value: L10n.Error.unauthorized))
+                errorMessage = L10n.Error.unauthorized
 
             default:
-                return
+                errorMessage = nil
             }
         }
+
+        NotificationCenter.default.post(
+            name: .errorMessageChanged,
+            object: self,
+            userInfo: [String.errorMessageKey: errorMessage as Any]
+        )
     }
 }

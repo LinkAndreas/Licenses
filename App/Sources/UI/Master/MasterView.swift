@@ -1,21 +1,18 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
-import ComposableArchitecture
 import SwiftUI
 
-struct RepositoryMaster: View {
-    let store: Store<AppState, AppAction>
-
+struct MasterView: View {
     var body: some View {
         VStack(spacing: 0) {
-            RepositoryListView(store: store)
-            InformationView(store: store)
+            RepositoryList()
+            InformationView()
         }
-        .frame(width: 400)
+        .frame(minWidth: 400, idealWidth: 400, maxWidth: .infinity)
     }
 }
 
-struct RepositoryMaster_Previews: PreviewProvider {
+struct MasterView_Previews: PreviewProvider {
     private static let repository: GithubRepository = .init(
         packageManager: .carthage,
         name: "Eureka",
@@ -50,21 +47,6 @@ struct RepositoryMaster_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        RepositoryMaster(
-            store: .init(
-                initialState: .init(
-                    isProcessing: false,
-                    isTargeted: false,
-                    progress: nil,
-                    remainingRepositories: 0,
-                    totalRepositories: 0,
-                    errorMessage: nil,
-                    selectedRepository: repository,
-                    repositories: [repository]
-                ),
-                reducer: appReducer,
-                environment: AppEnvironment()
-            )
-        )
+        MasterView()
     }
 }

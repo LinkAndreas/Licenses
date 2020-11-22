@@ -3,28 +3,43 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var token: String = Defaults.token
+    private enum Tabs: Hashable {
+        case general
+        case token
+    }
+
+    @AppStorage("token") private var token: String = ""
+    @AppStorage("isAutomaticFetchEnabled") private var isAutomaticFetchEnabled: Bool = false
 
     var body: some View {
-        Form {
-            Section(header: Text(L10n.Settings.Section.GithubAccessToken.title)) {
-                HStack {
-                    TextField(
-                        L10n.Settings.Section.GithubAccessToken.placeholder,
-                        text: $token
-                    )
-                    Button(
-                        action: { Defaults.token = self.token },
-                        label: { Text(L10n.Settings.Section.GithubAccessToken.Button.title) }
+        TabView {
+            Form {
+                VStack(alignment: .leading, spacing: 16) {
+                    Toggle(
+                        L10n.Settings.Tabs.General.AutomaticLicenseSearch.title,
+                        isOn: $isAutomaticFetchEnabled
                     )
                 }
-                Text(L10n.Settings.Section.GithubAccessToken.subtitle)
-                    .font(.body)
-                    .fixedSize(horizontal: false, vertical: true)
+            }.tabItem {
+                Label(L10n.Settings.Tabs.General.title, systemImage: "gear")
             }
-            Spacer()
+            .tag(Tabs.general)
+            Form {
+                VStack(alignment: .leading, spacing: 16) {
+                    TextField(
+                        L10n.Settings.Tabs.Token.placeholder,
+                        text: $token
+                    )
+                    Text(L10n.Settings.Tabs.Token.description)
+                        .font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }.tabItem {
+                Label(L10n.Settings.Tabs.Token.title, systemImage: "tag")
+            }
+            .tag(Tabs.token)
         }
-        .padding()
+        .padding(20)
         .frame(minWidth: 500, maxWidth: 500)
     }
 }
