@@ -7,18 +7,15 @@ struct RepositoryList: View {
 
     var body: some View {
         List(
+            store.state.masterViewModel.listEntryViewModels,
             selection: Binding<UUID?>(
                 get: { store.state.selectedRepository?.id },
                 set: { uuid in store.send(.selectedRepository(id: uuid)) }
             )
-        ) {
-            Section(header: Text(store.state.masterViewModel.sectionTitle)) {
-                ForEach(store.state.masterViewModel.listEntryViewModels) { viewModel in
-                    RepositoryListEntryView(viewModel: viewModel)
-                        .tag(viewModel.id)
-                        .animation(nil)
-                }
-            }
+        ) { viewModel in
+            RepositoryListEntryView(viewModel: viewModel)
+                .tag(viewModel.id)
+                .animation(nil)
         }
         .animation(.default)
     }
