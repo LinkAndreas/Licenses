@@ -104,18 +104,22 @@ internal enum L10n {
   internal enum Settings {
     /// Settings
     internal static let title = L10n.tr("Localizable", "settings.title")
-    internal enum Section {
-      internal enum GithubAccessToken {
-        /// Please enter your personal access token
-        internal static let placeholder = L10n.tr("Localizable", "settings.section.github_access_token.placeholder")
-        /// You can add your personal access token to get an increased rate limit for the GitHub API.
-        internal static let subtitle = L10n.tr("Localizable", "settings.section.github_access_token.subtitle")
-        /// GitHub Access Token
-        internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.title")
-        internal enum Button {
-          /// Save
-          internal static let title = L10n.tr("Localizable", "settings.section.github_access_token.button.title")
+    internal enum Tabs {
+      internal enum General {
+        /// General
+        internal static let title = L10n.tr("Localizable", "settings.tabs.general.title")
+        internal enum AutomaticLicenseSearch {
+          /// Automatic License Search
+          internal static let title = L10n.tr("Localizable", "settings.tabs.general.automatic_license_search.title")
         }
+      }
+      internal enum Token {
+        /// You can add your personal access token to get an increased rate limit for the GitHub API.
+        internal static let description = L10n.tr("Localizable", "settings.tabs.token.description")
+        /// Please enter your personal access token
+        internal static let placeholder = L10n.tr("Localizable", "settings.tabs.token.placeholder")
+        /// Github Token
+        internal static let title = L10n.tr("Localizable", "settings.tabs.token.title")
       }
     }
   }

@@ -29,8 +29,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
 
     case .stopSearchingManifests:
         state.isProcessing = false
-        return Just(AppAction.fetchLicenses)
-            .eraseToAnyPublisher()
+        return Defaults.isAutomaticFetchEnabled ? Just(AppAction.fetchLicenses).eraseToAnyPublisher() : nil
 
     case let .updateIsTargeted(isTargeted):
         state.isTargeted = isTargeted
