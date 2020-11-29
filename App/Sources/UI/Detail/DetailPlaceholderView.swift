@@ -6,8 +6,10 @@ struct DetailPlaceholderView: View {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            VStack {
-                Icon(name: "box", size: .init(width: 100, height: 100))
+            VStack(spacing: 16) {
+                Image(systemName: "cube.box")
+                    .foregroundColor(.accentColor)
+                    .font(.system(size: 60))
                 Text(L10n.Detail.placeholder)
                     .font(.body)
                     .multilineTextAlignment(.center)

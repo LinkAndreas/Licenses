@@ -92,6 +92,8 @@
 		38A48CD7257396BF00F1E72F /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CD6257396BF00F1E72F /* DetailItemView.swift */; };
 		38A48CF42573ABF700F1E72F /* RepositoryListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */; };
 		38A48CF52573ABF700F1E72F /* RepositoryListEntryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */; };
+		38A48D0D2573C55F00F1E72F /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48D0C2573C55F00F1E72F /* FileImporter.swift */; };
+		38A48D112573C68400F1E72F /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48D102573C68400F1E72F /* FileExporter.swift */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
 		38D1C2412563956F000C3D8D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C2402563956F000C3D8D /* Store.swift */; };
 		38D1C24725639600000C3D8D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C24625639600000C3D8D /* Reducer.swift */; };
@@ -195,6 +197,8 @@
 		38A48CD6257396BF00F1E72F /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
 		38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntry.swift; sourceTree = "<group>"; };
 		38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryFactory.swift; sourceTree = "<group>"; };
+		38A48D0C2573C55F00F1E72F /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
+		38A48D102573C68400F1E72F /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
 		38BC46A624B1ADEE0088B830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4A24CC2B1200FDBE21 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4B24CC2B1200FDBE21 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
@@ -393,16 +397,17 @@
 		380EA56224CC2F2600514173 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3811FBCA256150160019CDB8 /* WindowContentView.swift */,
 				3853B64E24FBEB9C0080C55F /* Detail */,
 				3853B64B24FBEB2E0080C55F /* FileDrop */,
 				3853B65124FBEC0F0080C55F /* General */,
 				3853B64F24FBEBA50080C55F /* Master */,
+				38A48D142573C7BC00F1E72F /* Panels */,
 				3853B64D24FBEB8A0080C55F /* Progress */,
 				380EA58524CC2F4F00514173 /* ProgressIndicator */,
 				3853B64824FBE8FB0080C55F /* Settings */,
 				380EA58A24CC2F6A00514173 /* Toolbar */,
 				3853B64C24FBEB3F0080C55F /* Warning */,
-				3811FBCA256150160019CDB8 /* WindowContentView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -605,6 +610,15 @@
 				3864D6CE24A76BBF00A94E05 /* .swiftlint.yml */,
 			);
 			name = RootFiles;
+			sourceTree = "<group>";
+		};
+		38A48D142573C7BC00F1E72F /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				38A48D0C2573C55F00F1E72F /* FileImporter.swift */,
+				38A48D102573C68400F1E72F /* FileExporter.swift */,
+			);
+			path = Panels;
 			sourceTree = "<group>";
 		};
 		38D1C23F2563955B000C3D8D /* Architecture */ = {
@@ -817,6 +831,7 @@
 				380EA52924CC2E7700514173 /* StringExtensions.swift in Sources */,
 				380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */,
 				3853B64624FBE8260080C55F /* RepositoryListEntryView.swift in Sources */,
+				38A48D112573C68400F1E72F /* FileExporter.swift in Sources */,
 				380EA4F624CC2DE600514173 /* License.swift in Sources */,
 				381FF77725035CAC0009C0A1 /* AppEnvironment.swift in Sources */,
 				380EA4FA24CC2DE600514173 /* GithubRepositoryUrlEncoder.swift in Sources */,
@@ -853,6 +868,7 @@
 				380EA54824CC2ECF00514173 /* ErrorMessagePlugin.swift in Sources */,
 				380EA4FE24CC2DE600514173 /* GithubRepositoryUrlDecoder.swift in Sources */,
 				380EA52724CC2E7700514173 /* JSONEncoderExtensions.swift in Sources */,
+				38A48D0D2573C55F00F1E72F /* FileImporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

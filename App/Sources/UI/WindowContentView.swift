@@ -27,28 +27,13 @@ struct WindowContentView: View {
                 ToolbarItems(
                     areButtonsEnabled: !store.state.isProcessing,
                     openFiles: {
-                        let openPanel: NSOpenPanel = .init()
-                        openPanel.title = L10n.Panel.Open.title
-                        openPanel.allowsMultipleSelection = true
-                        openPanel.canChooseDirectories = true
-                        openPanel.canChooseFiles = true
-                        openPanel.begin { response in
-                            guard response == .OK else { return }
-
-                            store.send(.searchManifests(filePaths: openPanel.urls))
+                        FileImporter.openFiles { urls in
+                            store.send(.searchManifests(filePaths: urls))
                         }
                     },
                     fetchLicenses: { store.send(.fetchLicenses) },
                     exportLicenses: {
-                        let savePanel: NSSavePanel = .init()
-                        savePanel.title = L10n.Panel.Save.title
-                        savePanel.canCreateDirectories = true
-                        savePanel.showsTagField = false
-                        savePanel.nameFieldStringValue = L10n.Panel.Save.filename
-                        savePanel.level = .modalPanel
-                        savePanel.begin { result in
-                            guard result == .OK, let destination: URL = savePanel.url else { return }
-
+                        FileExporter.exportFile { destination in
                             store.send(.exportLicenses(destination: destination))
                         }
                     }
