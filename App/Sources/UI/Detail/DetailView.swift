@@ -5,37 +5,60 @@ import Combine
 import SwiftUI
 
 struct DetailView: View {
-    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
+    let repository: GithubRepository?
 
     var body: some View {
-        GeometryReader { geometry in
-            Group {
-                if let detailListEntries = store.state.detailViewModel.detailListEntries {
-                    ScrollView(.vertical) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                ForEach(detailListEntries) { entry in
-                                    HStack(alignment: .top) {
-                                        Icon(name: entry.iconName, size: .init(width: 48, height: 48))
-                                        VStack(alignment: .leading, spacing: 4) {
-                                            Text(entry.title)
-                                                .font(.title)
-                                            Text(entry.subtitle)
-                                                .font(.body)
-                                        }.padding(.top, 0)
-                                    }
-                                    .padding()
-                                }
-                            }
-                            Spacer()
-                        }
-                    }
-                    .padding(4)
-                } else {
-                    DetailPlaceholderView()
+        if let repository = repository {
+            List {
+                DetailItemView(
+                    title: L10n.Detail.ListEntry.Name.title,
+                    content: repository.name,
+                    systemImage: "gear"
+                )
+                DetailItemView(
+                    title: L10n.Detail.ListEntry.Version.title,
+                    content: repository.version,
+                    systemImage: "number"
+                )
+                DetailItemView(
+                    title: L10n.Detail.ListEntry.PackageManager.title,
+                    content: repository.packageManager.rawValue,
+                    systemImage: "folder"
+                )
+                repository.author.map { author in
+                    DetailItemView(
+                        title: L10n.Detail.ListEntry.Author.title,
+                        content: author,
+                        systemImage: "person"
+                    )
+                }
+
+                repository.license?.license?.name.map { name in
+                    DetailItemView(
+                        title: L10n.Detail.ListEntry.LicenseName.title,
+                        content: name,
+                        systemImage: "signature"
+                    )
+                }
+
+                repository.license?.downloadURL.flatMap(URL.init(string:)).flatMap { url in
+                    DetailItemView(
+                        title: L10n.Detail.ListEntry.LicenseUrl.title,
+                        content: url.absoluteString,
+                        systemImage: "link"
+                    )
+                }
+
+                repository.license?.decodedContent.map { content in
+                    DetailItemView(
+                        title: L10n.Detail.ListEntry.LicenseContent.title,
+                        content: content,
+                        systemImage: "doc.text"
+                    )
                 }
             }
-            .frame(width: geometry.size.width, height: geometry.size.height)
+        } else {
+            DetailPlaceholderView()
         }
     }
 }
@@ -48,6 +71,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
         author: "xmartlabs",
         url: URL(string: "https://github.com/xmartlabs/Eureka"),
         license: .init(
+            downloadURL: "https://google.de",
             decodedContent: """
             The MIT License (MIT)
 
@@ -75,23 +99,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        return DetailView()
-            .environmentObject(
-                Store<AppState, AppAction, AppEnvironment>(
-                    initialState: .init(
-                        isProcessing: false,
-                        isTargeted: false,
-                        progress: nil,
-                        remainingRepositories: 0,
-                        totalRepositories: 0,
-                        errorMessage: nil,
-                        selectedRepository: repository,
-                        repositories: [repository]
-                    ),
-                    reducer: appReducer,
-                    environment: AppEnvironment()
-                )
-            )
-            .previewLayout(.fixed(width: 850, height: 700))
+        return DetailView(repository: repository)
+            .previewLayout(.fixed(width: 450, height: 950))
     }
 }

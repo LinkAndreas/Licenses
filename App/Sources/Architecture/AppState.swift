@@ -34,6 +34,5 @@ struct AppState: Equatable {
 }
 
 extension AppState {
-    var masterViewModel: MasterViewModel { MasterViewModelFactory.makeViewModel(from: self) }
-    var detailViewModel: DetailViewModel { DetailViewModelFactory.makeViewModel(from: self) }
+    var listEntries: [RepositoryListEntry] { RepositoryListEntryFactory.makeListEntries(from: self) }
 }

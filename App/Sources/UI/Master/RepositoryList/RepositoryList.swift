@@ -7,14 +7,18 @@ struct RepositoryList: View {
 
     var body: some View {
         List(
-            store.state.masterViewModel.listEntryViewModels,
+            store.state.listEntries,
             selection: Binding<UUID?>(
                 get: { store.state.selectedRepository?.id },
-                set: { uuid in store.send(.selectedRepository(id: uuid)) }
+                set: { uuid in
+                    guard uuid != store.state.selectedRepository?.id else { return }
+
+                    store.send(.selectedRepository(id: uuid))
+                }
             )
-        ) { viewModel in
-            RepositoryListEntryView(viewModel: viewModel)
-                .tag(viewModel.id)
+        ) { entry in
+            RepositoryListEntryView(entry: entry)
+                .tag(entry.id)
                 .animation(nil)
         }
         .animation(.default)

@@ -58,6 +58,7 @@ opt_in_rules:
 - vertical_whitespace_opening_braces
 
 disabled_rules:
+- inclusive_language
 - force_cast
 - type_name
 - redundant_type_annotation

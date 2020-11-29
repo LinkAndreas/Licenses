@@ -2,15 +2,13 @@
 
 import SwiftUI
 
-struct RepositoryListEntryViewModel: Hashable, Identifiable {
+struct RepositoryListEntry: Hashable, Identifiable, Equatable {
     let id: UUID
     let title: String?
     let subtitle: String?
     let caption: String?
     let showsProgressIndicator: Bool
-    let titleColor: NSColor
-    let subtitleColor: NSColor
-    let captionColor: NSColor
+    let isSelected: Bool
 
     init(
         id: UUID = .init(),
@@ -18,18 +16,14 @@ struct RepositoryListEntryViewModel: Hashable, Identifiable {
         subtitle: String? = nil,
         caption: String? = nil,
         showsProgressIndicator: Bool = false,
-        titleColor: NSColor = .white,
-        subtitleColor: NSColor = .white,
-        captionColor: NSColor = .white
+        isSelected: Bool = false
     ) {
         self.id = id
         self.title = title
         self.subtitle = subtitle
         self.caption = caption
         self.showsProgressIndicator = showsProgressIndicator
-        self.titleColor = titleColor
-        self.subtitleColor = subtitleColor
-        self.captionColor = captionColor
+        self.isSelected = isSelected
     }
 
     func hash(into hasher: inout Hasher) {

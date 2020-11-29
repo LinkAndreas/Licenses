@@ -3,7 +3,7 @@
 import Combine
 import Foundation
 
-let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, environment in
+let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, _ in
     switch action {
     case let .add(repository):
         let isConsideredEqual: (GithubRepository) -> ((GithubRepository) -> Bool) = { lhs in
@@ -81,6 +81,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
         }
 
         state.remainingRepositories -= 1
+
         return Just(AppAction.updateProgress).eraseToAnyPublisher()
 
     case .fetchLicenses:
@@ -94,7 +95,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
                             .eraseToAnyPublisher()
                     }
                     .flatMap { repository in
-                        LicenseProcessor.process(repository: repository)
+                         LicenseProcessor.process(repository: repository)
                             .eraseToAnyPublisher()
                     }
             }

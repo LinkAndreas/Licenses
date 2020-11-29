@@ -11,13 +11,18 @@ struct WindowContentView: View {
 
     var body: some View {
         FileDropArea {
-            VStack {
-                NavigationView {
-                    MasterView()
-                    DetailView()
-                }
-                .listStyle(SidebarListStyle())
+            NavigationView {
+                MasterView()
+                DetailView(repository: store.state.selectedRepository)
+                    .frame(
+                        minWidth: 500,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .center
+                    )
             }
+            .listStyle(SidebarListStyle())
             .toolbar {
                 ToolbarItems(
                     areButtonsEnabled: !store.state.isProcessing,
@@ -52,6 +57,8 @@ struct WindowContentView: View {
         }
         .onReceive(NotificationCenter.default.publisher(for: .errorMessageChanged)) { notification in
             let errorMessage: String? = notification.userInfo?[String.errorMessageKey] as? String
+
+            guard store.state.errorMessage != errorMessage else { return }
 
             store.send(.updateErrorMessage(value: errorMessage))
         }

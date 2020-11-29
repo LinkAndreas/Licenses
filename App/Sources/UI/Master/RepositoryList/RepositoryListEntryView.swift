@@ -3,32 +3,38 @@
 import SwiftUI
 
 struct RepositoryListEntryView: View {
-    let viewModel: RepositoryListEntryViewModel
+    let entry: RepositoryListEntry
 
     var body: some View {
         HStack(alignment: .center) {
-            if viewModel.showsProgressIndicator {
+            if entry.showsProgressIndicator {
                 ProgressIndicator()
                     .frame(width: 15, height: 15, alignment: .center)
             }
             VStack(alignment: .leading) {
-                viewModel.title.map { text in
+                entry.title.map { text in
                     Text(text)
                         .font(.headline)
-                        .foregroundColor(Color(viewModel.titleColor))
+                        .foregroundColor(
+                            Color(entry.isSelected ? .alternateSelectedControlTextColor : .labelColor)
+                        )
                 }
-                viewModel.subtitle.map { text in
+                entry.subtitle.map { text in
                     Text(text)
                         .font(.subheadline)
-                        .foregroundColor(Color(viewModel.subtitleColor))
+                        .foregroundColor(
+                            Color(entry.isSelected ? .alternateSelectedControlTextColor : .secondaryLabelColor)
+                        )
                 }
             }
             Spacer()
             HStack {
-                viewModel.caption.map { text in
+                entry.caption.map { text in
                     Text(text)
                         .font(.callout)
-                        .foregroundColor(Color(viewModel.captionColor))
+                        .foregroundColor(
+                            Color(entry.isSelected ? .alternateSelectedControlTextColor : .secondaryLabelColor)
+                        )
                 }
             }
         }
@@ -40,7 +46,7 @@ struct RepositoryListEntry_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             RepositoryListEntryView(
-                viewModel: .init(
+                entry: .init(
                     title: "Title",
                     subtitle: "Subtitle",
                     caption: "Caption",
@@ -50,7 +56,7 @@ struct RepositoryListEntry_Previews: PreviewProvider {
             .previewLayout(.fixed(width: 550, height: 44))
 
             RepositoryListEntryView(
-                viewModel: .init(
+                entry: .init(
                     title: "Title",
                     subtitle: "Subtitle",
                     caption: "Caption",
@@ -59,13 +65,13 @@ struct RepositoryListEntry_Previews: PreviewProvider {
             )
             .previewLayout(.fixed(width: 550, height: 44))
 
-            RepositoryListEntryView(viewModel: .init(title: "Title", subtitle: "Subtitle", caption: "Caption"))
+            RepositoryListEntryView(entry: .init(title: "Title", subtitle: "Subtitle", caption: "Caption"))
                 .previewLayout(.fixed(width: 550, height: 44))
 
-            RepositoryListEntryView(viewModel: .init(title: "Title"))
+            RepositoryListEntryView(entry: .init(title: "Title"))
                 .previewLayout(.fixed(width: 550, height: 44))
 
-            RepositoryListEntryView(viewModel: .init(subtitle: "Subtitle"))
+            RepositoryListEntryView(entry: .init(subtitle: "Subtitle"))
                 .previewLayout(.fixed(width: 550, height: 44))
         }
     }
