@@ -10,6 +10,20 @@ struct ToolbarItems: ToolbarContent {
     let exportLicenses: () -> Void
 
     var body: some ToolbarContent {
+        ToolbarItem(placement: .navigation) {
+            Button(
+                action: {
+                    NSApp.keyWindow?.firstResponder?.tryToPerform(
+                        #selector(NSSplitViewController.toggleSidebar(_:)),
+                        with: nil
+                    )
+                },
+                label: {
+                    Image(systemName: "sidebar.left")
+                }
+            )
+        }
+
         ToolbarItem(placement: .primaryAction) {
             Button(action: openFiles) {
                 Image(systemName: "folder.badge.plus")
