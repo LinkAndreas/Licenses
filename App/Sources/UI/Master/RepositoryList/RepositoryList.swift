@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct RepositoryList: View {
-    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
+    @EnvironmentObject private var store: Store<AppState, AppAction, AppEnvironment>
 
     var body: some View {
         List(

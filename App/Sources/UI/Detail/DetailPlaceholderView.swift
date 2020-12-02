@@ -3,18 +3,47 @@
 import SwiftUI
 
 struct DetailPlaceholderView: View {
+    @EnvironmentObject private var store: Store<AppState, AppAction, AppEnvironment>
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            VStack(spacing: 16) {
-                Image(systemName: "cube.box")
-                    .foregroundColor(.accentColor)
-                    .font(.system(size: 60))
-                Text(L10n.Detail.placeholder)
-                    .font(.body)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: 300)
+
+            VStack(spacing: 32) {
+                VStack(spacing: 16) {
+                    Image(systemName: "cube.box")
+                        .foregroundColor(.accentColor)
+                        .font(.system(size: 60))
+
+                    Text(L10n.Detail.placeholder)
+                        .font(.body)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 300)
+
+                    VStack(alignment: .center, spacing: 16) {
+                        VStack(alignment: .leading) {
+                            Text(L10n.Detail.Placeholder.SupportedManifests.SwiftPm.title)
+                            Text(L10n.Detail.Placeholder.SupportedManifests.Carthage.title)
+                            Text(L10n.Detail.Placeholder.SupportedManifests.Cocoapods.title)
+                        }
+                    }
+                }
+
+                VStack(spacing: 16) {
+                    Text(L10n.Detail.Placeholder.Examples.title)
+                        .font(.body)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: 300)
+                    Button(L10n.Detail.Placeholder.Examples.Button.title) {
+                        guard
+                            let url = Bundle.main.url(forResource: "Cartfile", withExtension: "resolved")
+                        else { return }
+
+                        store.send(.searchManifests(filePaths: [url]))
+                    }
+                }
             }
+
             Spacer()
         }
     }

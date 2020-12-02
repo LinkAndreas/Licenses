@@ -13,23 +13,23 @@ struct DetailView: View {
                 DetailItemView(
                     title: L10n.Detail.ListEntry.Name.title,
                     content: repository.name,
-                    systemImage: "gear"
+                    systemName: "gear"
                 )
                 DetailItemView(
                     title: L10n.Detail.ListEntry.Version.title,
                     content: repository.version,
-                    systemImage: "number"
+                    systemName: "number"
                 )
                 DetailItemView(
                     title: L10n.Detail.ListEntry.PackageManager.title,
                     content: repository.packageManager.rawValue,
-                    systemImage: "folder"
+                    systemName: "folder"
                 )
                 repository.author.map { author in
                     DetailItemView(
                         title: L10n.Detail.ListEntry.Author.title,
                         content: author,
-                        systemImage: "person"
+                        systemName: "person"
                     )
                 }
 
@@ -37,7 +37,7 @@ struct DetailView: View {
                     DetailItemView(
                         title: L10n.Detail.ListEntry.LicenseName.title,
                         content: name,
-                        systemImage: "signature"
+                        systemName: "signature"
                     )
                 }
 
@@ -45,7 +45,7 @@ struct DetailView: View {
                     DetailItemView(
                         title: L10n.Detail.ListEntry.LicenseUrl.title,
                         content: url.absoluteString,
-                        systemImage: "link"
+                        systemName: "link"
                     )
                 }
 
@@ -53,7 +53,7 @@ struct DetailView: View {
                     DetailItemView(
                         title: L10n.Detail.ListEntry.LicenseContent.title,
                         content: content,
-                        systemImage: "doc.text"
+                        systemName: "doc.text"
                     )
                 }
             }
