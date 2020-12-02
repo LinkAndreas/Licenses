@@ -47,36 +47,60 @@ internal enum L10n {
   }
 
   internal enum Detail {
-    /// You can select manifests using "Open File" or drop them onto this window.
+    /// You can import manifests using the import button at the top right corner. Alternatively, you can drag them onto this window. The following manifests are supported:
     internal static let placeholder = L10n.tr("Localizable", "detail.placeholder")
     internal enum ListEntry {
       internal enum Author {
-        /// Author: 
+        /// Author:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.author.title")
       }
       internal enum LicenseContent {
-        /// License Content: 
+        /// License Content:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.license_content.title")
       }
       internal enum LicenseName {
-        /// License Name: 
+        /// License Name:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.license_name.title")
       }
       internal enum LicenseUrl {
-        /// License URL: 
+        /// License URL:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.license_url.title")
       }
       internal enum Name {
-        /// Name: 
+        /// Name:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.name.title")
       }
       internal enum PackageManager {
-        /// Package Manager: 
+        /// Package Manager:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.package_manager.title")
       }
       internal enum Version {
-        /// Version: 
+        /// Version:
         internal static let title = L10n.tr("Localizable", "detail.list_entry.version.title")
+      }
+    }
+    internal enum Placeholder {
+      internal enum Examples {
+        /// You can try out Licenses using the example manifest below:
+        internal static let title = L10n.tr("Localizable", "detail.placeholder.examples.title")
+        internal enum Button {
+          /// Import Example Manifest
+          internal static let title = L10n.tr("Localizable", "detail.placeholder.examples.button.title")
+        }
+      }
+      internal enum SupportedManifests {
+        internal enum Carthage {
+          /// • Carthage: "Cartfile.resolved"
+          internal static let title = L10n.tr("Localizable", "detail.placeholder.supported_manifests.carthage.title")
+        }
+        internal enum Cocoapods {
+          /// • CocoaPods: "Podfile.lock"
+          internal static let title = L10n.tr("Localizable", "detail.placeholder.supported_manifests.cocoapods.title")
+        }
+        internal enum SwiftPm {
+          /// • SwiftPm: "Package.resolved"
+          internal static let title = L10n.tr("Localizable", "detail.placeholder.supported_manifests.swift_pm.title")
+        }
       }
     }
   }
@@ -86,6 +110,11 @@ internal enum L10n {
     internal static let githubRateLimitExceeded = L10n.tr("Localizable", "error.github_rate_limit_exceeded")
     /// Unauthorized, please verify your personal access token in preferences.
     internal static let unauthorized = L10n.tr("Localizable", "error.unauthorized")
+  }
+
+  internal enum Master {
+    /// Made by Andreas Link in Karlsruhe
+    internal static let placeholder = L10n.tr("Localizable", "master.placeholder")
   }
 
   internal enum Panel {
