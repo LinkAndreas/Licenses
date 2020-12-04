@@ -55,7 +55,6 @@
 		380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56924CC2F4600514173 /* SettingsView.swift */; };
 		380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56D24CC2F4600514173 /* ProgressBar.swift */; };
 		380EA58124CC2F4700514173 /* SettingsHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */; };
-		380EA58224CC2F4700514173 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57124CC2F4700514173 /* Icon.swift */; };
 		380EA58324CC2F4700514173 /* FileDropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57224CC2F4700514173 /* FileDropArea.swift */; };
 		380EA58824CC2F6000514173 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */; };
 		380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58724CC2F6000514173 /* ProgressIndicator.swift */; };
@@ -100,6 +99,8 @@
 		38D1C24725639600000C3D8D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C24625639600000C3D8D /* Reducer.swift */; };
 		38E301E6255BE59F00786628 /* RepositoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E301E5255BE59F00786628 /* RepositoryList.swift */; };
 		38E8807F24D6B3AF0012A36C /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807E24D6B3AF0012A36C /* MasterView.swift */; };
+		38F913AA257A278000E6E54D /* BrandedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F913A9257A278000E6E54D /* BrandedButtonStyle.swift */; };
+		38F913B1257A2BD700E6E54D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F913B0257A2BD700E6E54D /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +165,6 @@
 		380EA56924CC2F4600514173 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		380EA56D24CC2F4600514173 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHostingViewController.swift; sourceTree = "<group>"; };
-		380EA57124CC2F4700514173 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		380EA57224CC2F4700514173 /* FileDropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDropArea.swift; sourceTree = "<group>"; };
 		380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		380EA58724CC2F6000514173 /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
@@ -210,6 +210,8 @@
 		38E8807C24D6B2CE0012A36C /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		38E8807E24D6B3AF0012A36C /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		38E8808024D6B5F40012A36C /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		38F913A9257A278000E6E54D /* BrandedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandedButtonStyle.swift; sourceTree = "<group>"; };
+		38F913B0257A2BD700E6E54D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,10 +401,11 @@
 		380EA56224CC2F2600514173 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				38F913AF257A2BCB00E6E54D /* Onboarding */,
+				38E9C2DF257A0EC400BFE40A /* BrandedButton */,
 				3811FBCA256150160019CDB8 /* WindowContentView.swift */,
 				3853B64E24FBEB9C0080C55F /* Detail */,
 				3853B64B24FBEB2E0080C55F /* FileDrop */,
-				3853B65124FBEC0F0080C55F /* General */,
 				3853B64F24FBEBA50080C55F /* Master */,
 				38A48D142573C7BC00F1E72F /* Panels */,
 				3853B64D24FBEB8A0080C55F /* Progress */,
@@ -512,14 +515,6 @@
 				3853B64724FBE8D10080C55F /* RepositoryList */,
 			);
 			path = Master;
-			sourceTree = "<group>";
-		};
-		3853B65124FBEC0F0080C55F /* General */ = {
-			isa = PBXGroup;
-			children = (
-				380EA57124CC2F4700514173 /* Icon.swift */,
-			);
-			path = General;
 			sourceTree = "<group>";
 		};
 		3864D5A424A768C900A94E05 = {
@@ -643,6 +638,22 @@
 				38D1C2402563956F000C3D8D /* Store.swift */,
 			);
 			path = Architecture;
+			sourceTree = "<group>";
+		};
+		38E9C2DF257A0EC400BFE40A /* BrandedButton */ = {
+			isa = PBXGroup;
+			children = (
+				38F913A9257A278000E6E54D /* BrandedButtonStyle.swift */,
+			);
+			path = BrandedButton;
+			sourceTree = "<group>";
+		};
+		38F913AF257A2BCB00E6E54D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				38F913B0257A2BD700E6E54D /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -866,7 +877,6 @@
 				380EA4FC24CC2DE600514173 /* Links.swift in Sources */,
 				380EA59724CC33A100514173 /* PinState.swift in Sources */,
 				38A48CF52573ABF700F1E72F /* RepositoryListEntryFactory.swift in Sources */,
-				380EA58224CC2F4700514173 /* Icon.swift in Sources */,
 				3816E62524D697130053454E /* CSVRowFactory.swift in Sources */,
 				380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */,
 				3811FBC125612F6B0019CDB8 /* AppDelegate.swift in Sources */,
@@ -874,12 +884,14 @@
 				38411BDE24CC9C82001CA0E7 /* DetailPlaceholderView.swift in Sources */,
 				380EA51224CC2E1000514173 /* SwiftPmManifestDecodingStrategy.swift in Sources */,
 				38A48CD7257396BF00F1E72F /* DetailItemView.swift in Sources */,
+				38F913AA257A278000E6E54D /* BrandedButtonStyle.swift in Sources */,
 				380EA4FF24CC2DE600514173 /* GithubRequestStatus.swift in Sources */,
 				3864D6EC24A7717700A94E05 /* Strings.swift in Sources */,
 				381FF77325035C800009C0A1 /* AppState.swift in Sources */,
 				380EA54824CC2ECF00514173 /* ErrorMessagePlugin.swift in Sources */,
 				380EA4FE24CC2DE600514173 /* GithubRepositoryUrlDecoder.swift in Sources */,
 				380EA52724CC2E7700514173 /* JSONEncoderExtensions.swift in Sources */,
+				38F913B1257A2BD700E6E54D /* OnboardingView.swift in Sources */,
 				38A48D0D2573C55F00F1E72F /* FileImporter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
