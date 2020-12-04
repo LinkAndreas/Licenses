@@ -5,18 +5,12 @@ import SwiftUI
 struct DetailItemView: View {
     let title: String
     let content: String
-    let systemName: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            HStack(alignment: .bottom) {
-                Image(systemName: systemName)
-                    .font(.headline)
-                    .foregroundColor(.accentColor)
-                Text(title)
-                    .font(.headline)
-                    .foregroundColor(Color(NSColor.labelColor))
-            }
+            Text(title)
+                .font(.headline)
+                .foregroundColor(Color(NSColor.labelColor))
             Text(content)
                 .font(.body)
                 .foregroundColor(Color(NSColor.secondaryLabelColor))
@@ -28,6 +22,6 @@ struct DetailItemView: View {
 
 struct DetailItemView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailItemView(title: "Title", content: "Content", systemName: "gear")
+        DetailItemView(title: "Title", content: "Content")
     }
 }

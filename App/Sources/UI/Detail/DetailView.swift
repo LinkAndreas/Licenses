@@ -8,58 +8,58 @@ struct DetailView: View {
     let repository: GithubRepository?
 
     var body: some View {
-        if let repository = repository {
-            List {
-                DetailItemView(
-                    title: L10n.Detail.ListEntry.Name.title,
-                    content: repository.name,
-                    systemName: "gear"
-                )
-                DetailItemView(
-                    title: L10n.Detail.ListEntry.Version.title,
-                    content: repository.version,
-                    systemName: "number"
-                )
-                DetailItemView(
-                    title: L10n.Detail.ListEntry.PackageManager.title,
-                    content: repository.packageManager.rawValue,
-                    systemName: "folder"
-                )
-                repository.author.map { author in
-                    DetailItemView(
-                        title: L10n.Detail.ListEntry.Author.title,
-                        content: author,
-                        systemName: "person"
-                    )
-                }
+        Group {
+            if let repository = repository {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Spacer()
+                        }.frame(height: 1)
+                        DetailItemView(
+                            title: L10n.Detail.ListEntry.Name.title,
+                            content: repository.name
+                        )
+                        DetailItemView(
+                            title: L10n.Detail.ListEntry.Version.title,
+                            content: repository.version
+                        )
+                        DetailItemView(
+                            title: L10n.Detail.ListEntry.PackageManager.title,
+                            content: repository.packageManager.rawValue
+                        )
+                        repository.author.map { author in
+                            DetailItemView(
+                                title: L10n.Detail.ListEntry.Author.title,
+                                content: author
+                            )
+                        }
 
-                repository.license?.license?.name.map { name in
-                    DetailItemView(
-                        title: L10n.Detail.ListEntry.LicenseName.title,
-                        content: name,
-                        systemName: "signature"
-                    )
-                }
+                        repository.license?.license?.name.map { name in
+                            DetailItemView(
+                                title: L10n.Detail.ListEntry.LicenseName.title,
+                                content: name
+                            )
+                        }
 
-                repository.license?.downloadURL.flatMap(URL.init(string:)).flatMap { url in
-                    DetailItemView(
-                        title: L10n.Detail.ListEntry.LicenseUrl.title,
-                        content: url.absoluteString,
-                        systemName: "link"
-                    )
-                }
+                        repository.license?.downloadURL.flatMap(URL.init(string:)).flatMap { url in
+                            DetailItemView(
+                                title: L10n.Detail.ListEntry.LicenseUrl.title,
+                                content: url.absoluteString
+                            )
+                        }
 
-                repository.license?.decodedContent.map { content in
-                    DetailItemView(
-                        title: L10n.Detail.ListEntry.LicenseContent.title,
-                        content: content,
-                        systemName: "doc.text"
-                    )
-                }
+                        repository.license?.decodedContent.map { content in
+                            DetailItemView(
+                                title: L10n.Detail.ListEntry.LicenseContent.title,
+                                content: content
+                            )
+                        }
+                    }
+                }.padding(.leading, 16)
+            } else {
+                DetailPlaceholderView()
             }
-        } else {
-            DetailPlaceholderView()
-        }
+        }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
     }
 }
 
