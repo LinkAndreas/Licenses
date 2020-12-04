@@ -1,25 +1,20 @@
 //  Copyright © 2020 Andreas Link. All rights reserved.
 
+import AppKit
 import SwiftUI
 
 struct RepositoryList: View {
     @EnvironmentObject private var store: Store<AppState, AppAction, AppEnvironment>
 
-    var body: some View {
-        List(
-            store.state.listEntries,
-            selection: Binding<UUID?>(
-                get: { store.state.selectedRepository?.id },
-                set: { uuid in
-                    guard uuid != store.state.selectedRepository?.id else { return }
+    @Binding var selection: UUID?
 
-                    store.send(.selectedRepository(id: uuid))
-                }
-            )
-        ) { entry in
-            RepositoryListEntryView(entry: entry)
-                .tag(entry.id)
-                .animation(nil)
+    var body: some View {
+        List(selection: $selection) {
+            ForEach(store.state.listEntries) { entry in
+                RepositoryListEntryView(entry: entry)
+                    .tag(entry.id)
+                    .animation(nil)
+            }
         }
         .animation(.default)
     }

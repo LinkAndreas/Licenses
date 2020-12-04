@@ -3,9 +3,11 @@
 import SwiftUI
 
 struct MasterView: View {
+    @Binding var selection: UUID?
+
     var body: some View {
         VStack(spacing: 0) {
-            RepositoryList()
+            RepositoryList(selection: $selection)
             InformationView()
         }
         .frame(minWidth: 400, idealWidth: 400, maxWidth: .infinity)
@@ -47,6 +49,6 @@ struct MasterView_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        MasterView()
+        MasterView(selection: .constant(nil))
     }
 }
