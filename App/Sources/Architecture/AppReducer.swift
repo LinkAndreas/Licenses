@@ -36,6 +36,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
         return nil
 
     case .resetProgress:
+        state.isProcessing = false
         state.progress = nil
         return nil
 
@@ -64,7 +65,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
         return nil
 
     case .didStopFetchingLicenses:
-        state.isProcessing = false
         state.progress = 1.0
         return Just(.resetProgress)
             .delay(for: 1, scheduler: DispatchQueue.main)
