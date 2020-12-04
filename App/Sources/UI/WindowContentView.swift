@@ -9,17 +9,38 @@ struct WindowContentView: View {
         environment: .init()
     )
 
+    @State private var selection: UUID?
+    @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted: Bool = false
+
     var body: some View {
         FileDropArea {
             NavigationView {
-                MasterView()
-                DetailView(repository: store.state.selectedRepository)
-                    .frame(
-                        minWidth: 500,
-                        maxWidth: .infinity,
-                        minHeight: 0,
-                        maxHeight: .infinity,
-                        alignment: .center
+                MasterView(selection: $selection)
+                    .background(
+                        LinearGradient(
+                            gradient: Gradient(
+                                colors: [
+                                    Color(Asset.Colors.sidebarGradientTop.color),
+                                    Color(Asset.Colors.sidebarGradientBottom.color)
+                                ]
+                            ),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+
+                DetailView(repository: store.state.repositories.first(where: { $0.id == selection }))
+                    .background(
+                        LinearGradient(
+                            gradient: Gradient(
+                                colors: [
+                                    Color(Asset.Colors.backgroundGradientTop.color),
+                                    Color(Asset.Colors.backgroundGradientBottom.color)
+                                ]
+                            ),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
                     )
             }
             .listStyle(SidebarListStyle())
@@ -48,6 +69,18 @@ struct WindowContentView: View {
             store.send(.updateErrorMessage(value: errorMessage))
         }
         .environmentObject(store)
+        .sheet(
+            isPresented: Binding(
+                get: { !isOnboardingCompleted },
+                set: { isOnboardingCompleted = !$0 }
+            ),
+            content: {
+                OnboardingView {
+                    isOnboardingCompleted = true
+                }
+                .frame(width: 250, height: 250, alignment: .center)
+            }
+        )
     }
 }
 
