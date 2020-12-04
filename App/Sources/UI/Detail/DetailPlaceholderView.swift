@@ -9,10 +9,10 @@ struct DetailPlaceholderView: View {
         VStack(alignment: .center) {
             Spacer()
 
-            VStack(spacing: 32) {
+            VStack {
+                Spacer()
                 VStack(spacing: 16) {
                     Image(systemName: "cube.box")
-                        .foregroundColor(.accentColor)
                         .font(.system(size: 60))
 
                     Text(L10n.Detail.placeholder)
@@ -41,8 +41,13 @@ struct DetailPlaceholderView: View {
 
                         store.send(.searchManifests(filePaths: [url]))
                     }
+                    .buttonStyle(BrandedButtonStyle())
+                    .disabled(store.state.isProcessing)
                 }
+
+                Spacer()
             }
+            .foregroundColor(Color(Asset.Colors.light.color))
 
             Spacer()
         }
