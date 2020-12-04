@@ -15,14 +15,14 @@ struct BrandedButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .padding()
-                .foregroundColor(.white)
+                .foregroundColor(Color(Asset.Colors.light.color))
                 .background(
                     Capsule()
-                        .fill(Color.white.opacity(configuration.isPressed ? 0.6 : 0.3))
+                        .fill(Color(Asset.Colors.light.color).opacity(configuration.isPressed ? 0.6 : 0.3))
                 )
                 .overlay(
                     Capsule()
-                        .stroke(Color.white, lineWidth: 1.5)
+                        .stroke(Color(Asset.Colors.light.color), lineWidth: 1.5)
                 )
                 .opacity(isEnabled ? 1.0 : 0.4)
         }
