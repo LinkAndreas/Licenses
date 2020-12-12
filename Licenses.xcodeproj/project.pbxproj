@@ -80,7 +80,6 @@
 		382C3D3A256967FB00A264A5 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382C3D39256967FB00A264A5 /* Storage.swift */; };
 		382C3D422569684D00A264A5 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382C3D412569684D00A264A5 /* Defaults.swift */; };
 		38411BDE24CC9C82001CA0E7 /* DetailPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDD24CC9C82001CA0E7 /* DetailPlaceholderView.swift */; };
-		3853B64624FBE8260080C55F /* RepositoryListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56624CC2F4600514173 /* RepositoryListEntryView.swift */; };
 		3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5EC24A7695F00A94E05 /* Aphrodite */; };
 		3864D64524A7698800A94E05 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3864D5F124A7698800A94E05 /* Colors.xcassets */; };
 		3864D6D024A76BBF00A94E05 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3864D6CE24A76BBF00A94E05 /* .swiftlint.yml */; };
@@ -96,6 +95,7 @@
 		38B5E4F12584E39A002938F0 /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DED0D5257B7DC900177783 /* RepositoryListView.swift */; };
 		38B5E4FC2584E3DC002938F0 /* RepositoryListEntryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */; };
 		38B5E5022584E5D3002938F0 /* RepositoryListEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */; };
+		38B5E50825850EC7002938F0 /* RepositoryListTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
 		38D1C2412563956F000C3D8D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C2402563956F000C3D8D /* Store.swift */; };
 		38D1C24725639600000C3D8D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C24625639600000C3D8D /* Reducer.swift */; };
@@ -162,7 +162,6 @@
 		380EA54A24CC2EE500514173 /* Github.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsTrunk.swift; sourceTree = "<group>"; };
 		380EA56324CC2F4600514173 /* ErrorMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
-		380EA56624CC2F4600514173 /* RepositoryListEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryView.swift; sourceTree = "<group>"; };
 		380EA56724CC2F4600514173 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		380EA56924CC2F4600514173 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		380EA56D24CC2F4600514173 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		38A48D102573C68400F1E72F /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
 		38A48D2825740C0100F1E72F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryRowView.swift; sourceTree = "<group>"; };
+		38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListTableCellView.swift; sourceTree = "<group>"; };
 		38BC46A624B1ADEE0088B830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4A24CC2B1200FDBE21 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4B24CC2B1200FDBE21 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
@@ -461,7 +461,6 @@
 			children = (
 				38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */,
 				38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */,
-				380EA56624CC2F4600514173 /* RepositoryListEntryView.swift */,
 			);
 			path = RepositoryListEntryView;
 			sourceTree = "<group>";
@@ -650,6 +649,7 @@
 				38DED0CD257B751D00177783 /* RepositoryListViewController.swift */,
 				38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */,
 				38DED0D5257B7DC900177783 /* RepositoryListView.swift */,
+				38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */,
 			);
 			path = RepositoryListView;
 			sourceTree = "<group>";
@@ -868,7 +868,6 @@
 				38D1C24725639600000C3D8D /* Reducer.swift in Sources */,
 				380EA52924CC2E7700514173 /* StringExtensions.swift in Sources */,
 				380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */,
-				3853B64624FBE8260080C55F /* RepositoryListEntryView.swift in Sources */,
 				38A48D112573C68400F1E72F /* FileExporter.swift in Sources */,
 				380EA4F624CC2DE600514173 /* License.swift in Sources */,
 				381FF77725035CAC0009C0A1 /* AppEnvironment.swift in Sources */,
@@ -887,6 +886,7 @@
 				38DED0CE257B751D00177783 /* RepositoryListViewController.swift in Sources */,
 				382C3D422569684D00A264A5 /* Defaults.swift in Sources */,
 				380EA58324CC2F4700514173 /* FileDropArea.swift in Sources */,
+				38B5E50825850EC7002938F0 /* RepositoryListTableCellView.swift in Sources */,
 				380EA4F824CC2DE600514173 /* Repository.swift in Sources */,
 				38D1C2412563956F000C3D8D /* Store.swift in Sources */,
 				380EA52B24CC2E7700514173 /* NSRegularExpressionExtensions.swift in Sources */,

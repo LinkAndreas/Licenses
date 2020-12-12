@@ -114,28 +114,17 @@ extension RepositoryListViewController: NSTableViewDataSource {
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        return nil
+        let cell: RepositoryListTableCellView = .init(entry: entries[row])
+        return cell
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        let listEntryView: NSHostingView<RepositoryListEntryView> = .init(
-            rootView: RepositoryListEntryView(
-                entry: entries[row]
-            )
-        )
-
-        listEntryView.frame.size.width = tableView.frame.size.width
-        let rowSize: CGSize = .init(width: tableView.frame.size.width, height: listEntryView.fittingSize.height)
-
-        let listEntryRow: RepositoryListEntryRowView = .init(frame: .init(origin: .zero, size: rowSize))
-        listEntryRow.addSubview(listEntryView)
-        listEntryView.bindEdgesToSuperview()
-
-        return listEntryRow
+        let row: RepositoryListEntryRowView = .init()
+        return row
     }
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        guard let view: NSView = self.tableView(tableView, rowViewForRow: row) else { return 44 }
+        guard let view: NSView = self.tableView(tableView, viewFor: column, row: row) else { return 1 }
 
         view.frame.size.width = tableView.frame.size.width
         return view.fittingSize.height
