@@ -55,7 +55,9 @@ struct DetailView: View {
                             )
                         }
                     }
-                }.padding(.leading, 16)
+                }
+                .padding(.leading, 16)
+                .navigationTitle(repository.name)
             } else {
                 DetailPlaceholderView()
             }
