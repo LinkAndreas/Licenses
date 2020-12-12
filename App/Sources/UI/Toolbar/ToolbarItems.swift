@@ -20,6 +20,7 @@ struct ToolbarItems: ToolbarContent {
                 },
                 label: {
                     Image(systemName: "sidebar.left")
+                        .foregroundColor(Color(Asset.Colors.light.color))
                 }
             )
         }
@@ -27,6 +28,7 @@ struct ToolbarItems: ToolbarContent {
         ToolbarItem(placement: .primaryAction) {
             Button(action: openFiles) {
                 Image(systemName: "folder.badge.plus")
+                    .foregroundColor(Color(Asset.Colors.light.color))
             }
             .help(L10n.Toolbar.ImportManifests.tooltip)
             .disabled(!areButtonsEnabled)
@@ -34,11 +36,13 @@ struct ToolbarItems: ToolbarContent {
         ToolbarItemGroup(placement: .automatic) {
             Button(action: fetchLicenses) {
                 Image(systemName: "arrow.clockwise")
+                    .foregroundColor(Color(Asset.Colors.light.color))
             }
             .disabled(!areButtonsEnabled)
             .help(L10n.Toolbar.FetchLicenses.tooltip)
             Button(action: exportLicenses) {
                 Image(systemName: "square.and.arrow.up")
+                    .foregroundColor(Color(Asset.Colors.light.color))
             }
             .disabled(!areButtonsEnabled)
             .help(L10n.Toolbar.ExportLicenses.tooltip)
