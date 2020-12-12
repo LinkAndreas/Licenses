@@ -11,7 +11,7 @@ struct MasterView: View {
             RepositoryListView(store: store, selection: $selection)
             InformationView()
         }
-        .frame(minWidth: 400, idealWidth: 400, maxWidth: .infinity)
+        .frame(minWidth: 300, idealWidth: 300, maxWidth: .infinity)
     }
 }
 

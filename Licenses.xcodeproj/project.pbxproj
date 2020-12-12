@@ -646,8 +646,8 @@
 		38DED0CC257B750200177783 /* RepositoryListView */ = {
 			isa = PBXGroup;
 			children = (
-				38DED0CD257B751D00177783 /* RepositoryListViewController.swift */,
 				38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */,
+				38DED0CD257B751D00177783 /* RepositoryListViewController.swift */,
 				38DED0D5257B7DC900177783 /* RepositoryListView.swift */,
 				38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */,
 			);
