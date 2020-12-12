@@ -24,6 +24,7 @@ internal enum Asset {
     internal static let backgroundGradientBottom = ColorAsset(name: "backgroundGradientBottom")
     internal static let backgroundGradientTop = ColorAsset(name: "backgroundGradientTop")
     internal static let light = ColorAsset(name: "light")
+    internal static let selectionBackground = ColorAsset(name: "selectionBackground")
     internal static let sidebarGradientBottom = ColorAsset(name: "sidebarGradientBottom")
     internal static let sidebarGradientTop = ColorAsset(name: "sidebarGradientTop")
   }
