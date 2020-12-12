@@ -166,6 +166,10 @@ internal enum L10n {
       /// Import Manifests
       internal static let tooltip = L10n.tr("Localizable", "toolbar.import_manifests.tooltip")
     }
+    internal enum ToggleMenu {
+      /// Toggle Menu
+      internal static let tooltip = L10n.tr("Localizable", "toolbar.toggle_menu.tooltip")
+    }
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

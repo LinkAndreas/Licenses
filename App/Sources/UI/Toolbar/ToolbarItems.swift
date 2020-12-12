@@ -23,6 +23,7 @@ struct ToolbarItems: ToolbarContent {
                         .foregroundColor(Color(Asset.Colors.light.color))
                 }
             )
+            .help(L10n.Toolbar.ToggleMenu.tooltip)
         }
 
         ToolbarItem(placement: .primaryAction) {

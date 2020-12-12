@@ -10,6 +10,7 @@
 "panel.open.title" = "Source";
 "panel.save.title" = "Destination";
 "panel.save.filename" = "licenses.csv";
+"toolbar.toggle_menu.tooltip" = "Toggle Menu";
 "toolbar.fetch_licenses.tooltip" = "Fetch Licenses";
 "toolbar.export_licenses.tooltip" = "Export Licenses";
 "toolbar.import_manifests.tooltip" = "Import Manifests";
