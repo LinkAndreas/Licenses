@@ -8,22 +8,19 @@ struct RepositoryListEntry: Hashable, Identifiable, Equatable {
     let subtitle: String?
     let caption: String?
     let showsProgressIndicator: Bool
-    let isSelected: Bool
 
     init(
         id: UUID = .init(),
         title: String? = nil,
         subtitle: String? = nil,
         caption: String? = nil,
-        showsProgressIndicator: Bool = false,
-        isSelected: Bool = false
+        showsProgressIndicator: Bool = false
     ) {
         self.id = id
         self.title = title
         self.subtitle = subtitle
         self.caption = caption
         self.showsProgressIndicator = showsProgressIndicator
-        self.isSelected = isSelected
     }
 
     func hash(into hasher: inout Hasher) {

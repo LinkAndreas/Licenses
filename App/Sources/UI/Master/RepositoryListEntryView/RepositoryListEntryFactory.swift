@@ -10,8 +10,7 @@ enum RepositoryListEntryFactory {
                 title: repository.name,
                 subtitle: repository.version,
                 caption: repository.packageManager.rawValue,
-                showsProgressIndicator: repository.isProcessing,
-                isSelected: state.selectedRepository?.id == repository.id
+                showsProgressIndicator: repository.isProcessing
             )
         }
     }

@@ -4,6 +4,7 @@ import SwiftUI
 
 struct RepositoryListEntryView: View {
     let entry: RepositoryListEntry
+    @Environment(\.isFocused) private var isFocused: Bool
 
     var body: some View {
         HStack(alignment: .center) {
@@ -16,14 +17,14 @@ struct RepositoryListEntryView: View {
                     Text(text)
                         .font(.headline)
                         .foregroundColor(
-                            Color(entry.isSelected ? .alternateSelectedControlTextColor : .labelColor)
+                            Color(isFocused ? .alternateSelectedControlTextColor : .labelColor)
                         )
                 }
                 entry.subtitle.map { text in
                     Text(text)
                         .font(.subheadline)
                         .foregroundColor(
-                            Color(entry.isSelected ? .alternateSelectedControlTextColor : .secondaryLabelColor)
+                            Color(isFocused ? .alternateSelectedControlTextColor : .secondaryLabelColor)
                         )
                 }
             }
@@ -33,12 +34,13 @@ struct RepositoryListEntryView: View {
                     Text(text)
                         .font(.callout)
                         .foregroundColor(
-                            Color(entry.isSelected ? .alternateSelectedControlTextColor : .secondaryLabelColor)
+                            Color(isFocused ? .alternateSelectedControlTextColor : .secondaryLabelColor)
                         )
                 }
             }
         }
-        .padding(6)
+        .padding([.leading, .trailing], 16)
+        .padding([.top, .bottom], 6)
     }
 }
 
@@ -65,8 +67,10 @@ struct RepositoryListEntry_Previews: PreviewProvider {
             )
             .previewLayout(.fixed(width: 550, height: 44))
 
-            RepositoryListEntryView(entry: .init(title: "Title", subtitle: "Subtitle", caption: "Caption"))
-                .previewLayout(.fixed(width: 550, height: 44))
+            RepositoryListEntryView(
+                entry: .init(title: "Title", subtitle: "Subtitle", caption: "Caption")
+            )
+            .previewLayout(.fixed(width: 550, height: 44))
 
             RepositoryListEntryView(entry: .init(title: "Title"))
                 .previewLayout(.fixed(width: 550, height: 44))

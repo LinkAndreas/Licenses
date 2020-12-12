@@ -4,10 +4,11 @@ import SwiftUI
 
 struct MasterView: View {
     @Binding var selection: UUID?
+    @EnvironmentObject private var store: Store<AppState, AppAction, AppEnvironment>
 
     var body: some View {
         VStack(spacing: 0) {
-            RepositoryList(selection: $selection)
+            RepositoryListView(store: store, selection: $selection)
             InformationView()
         }
         .frame(minWidth: 400, idealWidth: 400, maxWidth: .infinity)
