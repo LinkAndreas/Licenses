@@ -94,7 +94,6 @@
 		38A48D2925740C0100F1E72F /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 38A48D2825740C0100F1E72F /* Cartfile.resolved */; };
 		38B5E4F12584E39A002938F0 /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DED0D5257B7DC900177783 /* RepositoryListView.swift */; };
 		38B5E4FC2584E3DC002938F0 /* RepositoryListEntryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */; };
-		38B5E5022584E5D3002938F0 /* RepositoryListEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */; };
 		38B5E50825850EC7002938F0 /* RepositoryListTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */; };
 		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
 		38D1C2412563956F000C3D8D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C2402563956F000C3D8D /* Store.swift */; };
@@ -202,7 +201,6 @@
 		38A48D0C2573C55F00F1E72F /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 		38A48D102573C68400F1E72F /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
 		38A48D2825740C0100F1E72F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
-		38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryRowView.swift; sourceTree = "<group>"; };
 		38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListTableCellView.swift; sourceTree = "<group>"; };
 		38BC46A624B1ADEE0088B830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38CC1B4A24CC2B1200FDBE21 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -646,7 +644,6 @@
 		38DED0CC257B750200177783 /* RepositoryListView */ = {
 			isa = PBXGroup;
 			children = (
-				38B5E5012584E5D3002938F0 /* RepositoryListEntryRowView.swift */,
 				38DED0CD257B751D00177783 /* RepositoryListViewController.swift */,
 				38DED0D5257B7DC900177783 /* RepositoryListView.swift */,
 				38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */,
@@ -854,7 +851,6 @@
 				381FF77B2503639C0009C0A1 /* InformationView.swift in Sources */,
 				380EA54224CC2EC300514173 /* TrunkResponseEntity.swift in Sources */,
 				380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */,
-				38B5E5022584E5D3002938F0 /* RepositoryListEntryRowView.swift in Sources */,
 				380EA53424CC2EB500514173 /* API.swift in Sources */,
 				3816E62324D580B60053454E /* CSVExporter.swift in Sources */,
 				380EA4F924CC2DE600514173 /* LinksModelMapper.swift in Sources */,

@@ -118,11 +118,6 @@ extension RepositoryListViewController: NSTableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        let row: RepositoryListEntryRowView = .init()
-        return row
-    }
-
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         guard let view: NSView = self.tableView(tableView, viewFor: column, row: row) else { return 1 }
 

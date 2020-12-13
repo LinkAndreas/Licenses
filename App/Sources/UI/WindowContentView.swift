@@ -16,34 +16,9 @@ struct WindowContentView: View {
         FileDropArea {
             NavigationView {
                 MasterView(selection: $selection)
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(
-                                colors: [
-                                    Color(Asset.Colors.sidebarGradientTop.color),
-                                    Color(Asset.Colors.sidebarGradientBottom.color)
-                                ]
-                            ),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-
+                    .listStyle(SidebarListStyle())
                 DetailView(repository: store.state.repositories.first(where: { $0.id == selection }))
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(
-                                colors: [
-                                    Color(Asset.Colors.backgroundGradientTop.color),
-                                    Color(Asset.Colors.backgroundGradientBottom.color)
-                                ]
-                            ),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
             }
-            .listStyle(SidebarListStyle())
             .toolbar {
                 ToolbarItems(
                     areButtonsEnabled: !store.state.isProcessing,
