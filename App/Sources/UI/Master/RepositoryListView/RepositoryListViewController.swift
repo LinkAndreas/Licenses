@@ -58,6 +58,7 @@ final class RepositoryListViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.headerView = nil
+        tableView.allowsEmptySelection = false
         tableView.backgroundColor = .clear
         tableView.style = .inset
     }

@@ -11,7 +11,7 @@ struct AppState: Equatable {
     var remainingRepositories: Int = 0
     var totalRepositories: Int = 0
     var errorMessage: String?
-    var selectedRepository: GithubRepository?
+    var selection: UUID?
     var repositories: [GithubRepository]
 
     init(
@@ -21,7 +21,7 @@ struct AppState: Equatable {
         remainingRepositories: Int = 0,
         totalRepositories: Int = 0,
         errorMessage: String? = nil,
-        selectedRepository: GithubRepository? = nil,
+        selection: UUID? = nil,
         repositories: [GithubRepository] = []
     ) {
         self.isProcessing = isProcessing
@@ -30,11 +30,12 @@ struct AppState: Equatable {
         self.remainingRepositories = remainingRepositories
         self.totalRepositories = totalRepositories
         self.errorMessage = errorMessage
-        self.selectedRepository = selectedRepository
+        self.selection = selection
         self.repositories = repositories
     }
 }
 
 extension AppState {
+    var selectedRepository: GithubRepository? { repositories.first(where: { $0.id == selection }) }
     var listEntries: [RepositoryListEntry] { RepositoryListEntryFactory.makeListEntries(from: self) }
 }

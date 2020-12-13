@@ -111,7 +111,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
                         remainingRepositories: 0,
                         totalRepositories: 0,
                         errorMessage: nil,
-                        selectedRepository: repository,
+                        selection: repository.id,
                         repositories: [repository]
                     ),
                     reducer: appReducer,

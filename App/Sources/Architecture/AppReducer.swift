@@ -24,7 +24,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
     case .startSearchingManifests:
         state.isProcessing = true
         state.repositories = []
-        state.selectedRepository = nil
+        state.selection = nil
         return nil
 
     case .stopSearchingManifests:
@@ -71,10 +71,6 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
             .eraseToAnyPublisher()
 
     case let .didProcess(repository):
-        if state.selectedRepository?.id == repository.id {
-            state.selectedRepository = repository
-        }
-
         if let index = state.repositories.firstIndex(where: { $0.id == repository.id }) {
             state.repositories[index] = repository
             state.repositories[index].isProcessing = false
@@ -142,12 +138,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
             .eraseToAnyPublisher()
 
     case let .selectedRepository(id):
-        if let id = id {
-            state.selectedRepository = state.repositories.first { $0.id == id }
-        } else {
-            state.selectedRepository = nil
-        }
-
+        state.selection = id
         return nil
 
     case let .searchManifests(filePaths):
