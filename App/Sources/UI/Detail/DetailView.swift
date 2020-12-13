@@ -5,11 +5,11 @@ import Combine
 import SwiftUI
 
 struct DetailView: View {
-    let repository: GithubRepository?
+    @EnvironmentObject private var store: Store<AppState, AppAction, AppEnvironment>
 
     var body: some View {
         Group {
-            if let repository = repository {
+            if let repository = store.state.selectedRepository {
                 ScrollView {
                     VStack(alignment: .leading) {
                         HStack {
@@ -101,7 +101,23 @@ struct RepositoryDetail_Previews: PreviewProvider {
     )
 
     static var previews: some View {
-        return DetailView(repository: repository)
+        return DetailView()
+            .environmentObject(
+                Store<AppState, AppAction, AppEnvironment>(
+                    initialState: .init(
+                        isProcessing: false,
+                        isTargeted: false,
+                        progress: 0.75,
+                        remainingRepositories: 0,
+                        totalRepositories: 0,
+                        errorMessage: nil,
+                        selectedRepository: repository,
+                        repositories: [repository]
+                    ),
+                    reducer: appReducer,
+                    environment: AppEnvironment()
+                )
+            )
             .previewLayout(.fixed(width: 450, height: 950))
     }
 }
