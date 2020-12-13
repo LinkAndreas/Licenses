@@ -3,4 +3,5 @@
 enum Defaults {
     @Storage(key: "token", defaultValue: "") static var token: String
     @Storage(key: "isAutomaticFetchEnabled", defaultValue: false) static var isAutomaticFetchEnabled: Bool
+    @Storage(key: "isOnboardingCompleted", defaultValue: false) static var isOnboardingCompleted: Bool
 }

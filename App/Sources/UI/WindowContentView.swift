@@ -9,41 +9,27 @@ struct WindowContentView: View {
         environment: .init()
     )
 
+    @State private var selection: UUID?
+    @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted: Bool = false
+
     var body: some View {
         FileDropArea {
-            VStack {
-                NavigationView {
-                    MasterView()
-                    DetailView()
-                }
-                .listStyle(SidebarListStyle())
+            NavigationView {
+                MasterView(selection: $selection)
+                    .listStyle(SidebarListStyle())
+                DetailView(repository: store.state.repositories.first(where: { $0.id == selection }))
             }
             .toolbar {
                 ToolbarItems(
                     areButtonsEnabled: !store.state.isProcessing,
                     openFiles: {
-                        let openPanel: NSOpenPanel = .init()
-                        openPanel.title = L10n.Panel.Open.title
-                        openPanel.allowsMultipleSelection = true
-                        openPanel.canChooseDirectories = true
-                        openPanel.canChooseFiles = true
-                        openPanel.begin { response in
-                            guard response == .OK else { return }
-
-                            store.send(.searchManifests(filePaths: openPanel.urls))
+                        FileImporter.openFiles { urls in
+                            store.send(.searchManifests(filePaths: urls))
                         }
                     },
                     fetchLicenses: { store.send(.fetchLicenses) },
                     exportLicenses: {
-                        let savePanel: NSSavePanel = .init()
-                        savePanel.title = L10n.Panel.Save.title
-                        savePanel.canCreateDirectories = true
-                        savePanel.showsTagField = false
-                        savePanel.nameFieldStringValue = L10n.Panel.Save.filename
-                        savePanel.level = .modalPanel
-                        savePanel.begin { result in
-                            guard result == .OK, let destination: URL = savePanel.url else { return }
-
+                        FileExporter.exportFile { destination in
                             store.send(.exportLicenses(destination: destination))
                         }
                     }
@@ -53,9 +39,23 @@ struct WindowContentView: View {
         .onReceive(NotificationCenter.default.publisher(for: .errorMessageChanged)) { notification in
             let errorMessage: String? = notification.userInfo?[String.errorMessageKey] as? String
 
+            guard store.state.errorMessage != errorMessage else { return }
+
             store.send(.updateErrorMessage(value: errorMessage))
         }
         .environmentObject(store)
+        .sheet(
+            isPresented: Binding(
+                get: { !isOnboardingCompleted },
+                set: { isOnboardingCompleted = !$0 }
+            ),
+            content: {
+                OnboardingView {
+                    isOnboardingCompleted = true
+                }
+                .frame(width: 250, height: 250, alignment: .center)
+            }
+        )
     }
 }
 
