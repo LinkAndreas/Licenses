@@ -31,7 +31,7 @@ struct GithubRequestLimitView_Previews: PreviewProvider {
                         remainingRepositories: 0,
                         totalRepositories: 0,
                         errorMessage: "Test Error Message",
-                        selectedRepository: nil,
+                        selection: nil,
                         repositories: []
                     ),
                     reducer: appReducer,

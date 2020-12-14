@@ -29,7 +29,7 @@ struct InformationView_Previews: PreviewProvider {
                         remainingRepositories: 0,
                         totalRepositories: 0,
                         errorMessage: nil,
-                        selectedRepository: nil,
+                        selection: nil,
                         repositories: []
                     ),
                     reducer: appReducer,

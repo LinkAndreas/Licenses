@@ -9,7 +9,6 @@ final class RepositoryListViewController: NSViewController {
         static let contentInset: NSEdgeInsets = .init(top: 16, left: 0, bottom: 16, right: 0)
     }
 
-    var selection: Binding<UUID?>
     private let store: Store<AppState, AppAction, AppEnvironment>
     private var cancellables: Set<AnyCancellable> = .init()
     private var entries: [RepositoryListEntry] = []
@@ -21,9 +20,8 @@ final class RepositoryListViewController: NSViewController {
         return column
     }()
 
-    init(store: Store<AppState, AppAction, AppEnvironment>, selection: Binding<UUID?>) {
+    init(store: Store<AppState, AppAction, AppEnvironment>) {
         self.store = store
-        self.selection = selection
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -60,6 +58,7 @@ final class RepositoryListViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.headerView = nil
+        tableView.allowsEmptySelection = false
         tableView.backgroundColor = .clear
         tableView.style = .inset
     }
@@ -95,6 +94,10 @@ final class RepositoryListViewController: NSViewController {
         }
 
         tableView.endUpdates()
+
+        state.listEntries.firstIndex(where: { $0.id == state.selectedRepository?.id })
+        .flatMap(IndexSet.init)
+        .flatMap { tableView.selectRowIndexes($0, byExtendingSelection: false) }
     }
 }
 
@@ -104,7 +107,7 @@ extension RepositoryListViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        selection.wrappedValue = tableView.selectedRow != -1 ? entries[tableView.selectedRow].id : nil
+        store.send(.selectedRepository(id: tableView.selectedRow != -1 ? entries[tableView.selectedRow].id : nil))
     }
 }
 

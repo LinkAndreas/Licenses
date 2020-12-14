@@ -3,21 +3,19 @@
 import SwiftUI
 
 struct WindowContentView: View {
+    @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted: Bool = false
     @StateObject private var store: Store<AppState, AppAction, AppEnvironment> = .init(
         initialState: .empty,
         reducer: appReducer,
         environment: .init()
     )
 
-    @State private var selection: UUID?
-    @AppStorage("isOnboardingCompleted") private var isOnboardingCompleted: Bool = false
-
     var body: some View {
         FileDropArea {
             NavigationView {
-                MasterView(selection: $selection)
+                MasterView()
                     .listStyle(SidebarListStyle())
-                DetailView(repository: store.state.repositories.first(where: { $0.id == selection }))
+                DetailView()
             }
             .toolbar {
                 ToolbarItems(
