@@ -13,9 +13,9 @@
 "toolbar.toggle_menu.tooltip" = "Menu umschalten";
 "toolbar.fetch_licenses.tooltip" = "Lizenzen abrufen";
 "toolbar.export_licenses.tooltip" = "Lizenzen exportieren";
-"toolbar.import_manifests.tooltip" = "Manifest Dateien importieren";
-"detail.placeholder" = "Du kannst Manifeste mit dem Import-Button oben rechts importieren. Alternativ kannst du diese auf dieses Fenster ziehen. Die folgenden Manifeste werden unterstützt:";
-"master.placeholder" = "Erstellt von Andreas Link in Karlsruhe";
+"toolbar.import_manifests.tooltip" = "Manifeste importieren";
+"detail.placeholder.title" = "Beginne mit der Auswahl von Manifesten";
+"detail.placeholder.subtitle" = "Du kannst verschiedene Manifeste, d.h. Package.resolved (SwiftPm), Cartfile.resolved (Carthage), oder Podfile.lock (CocoaPods) Dateien importieren. Alternativ kannst du ein Beispielmanifest laden.";
 "detail.list_entry.name.title" = "Name:";
 "detail.list_entry.version.title" = "Version:";
 "detail.list_entry.package_manager.title" = "Paket Manager:";
@@ -23,6 +23,8 @@
 "detail.list_entry.license_url.title" = "Lizenz URL:";
 "detail.list_entry.license_name.title" = "Lizenz Name:";
 "detail.list_entry.license_content.title" = "Lizenz Inhalt:";
+"detail.placeholder.button.choose_manifests.title" = "Manifeste auswählen";
+"detail.placeholder.button.example_manifest.title" = "Beispiel Manifest";
 "csv.header.name.title" = "Name";
 "csv.header.version.title" = "Version";
 "csv.header.package_manager.title" = "Paket Manager";
@@ -30,8 +32,3 @@
 "csv.header.license_url.title" = "Lizenz URL";
 "csv.header.license_name.title" = "Lizenz Name";
 "csv.header.license_content.title" = "Lizenz Inhalt";
-"detail.placeholder.supported_manifests.swift_pm.title" = "• SwiftPm: \"Package.resolved\"";
-"detail.placeholder.supported_manifests.carthage.title" = "• Carthage: \"Cartfile.resolved\"";
-"detail.placeholder.supported_manifests.cocoapods.title" = "• CocoaPods: \"Podfile.lock\"";
-"detail.placeholder.examples.title" = "Du kannst Licenses mit dem Beispielmanifest ausprobieren:";
-"detail.placeholder.examples.button.title" = "Beispiel Manifest importieren";

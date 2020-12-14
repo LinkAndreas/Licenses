@@ -14,8 +14,8 @@
 "toolbar.fetch_licenses.tooltip" = "Fetch Licenses";
 "toolbar.export_licenses.tooltip" = "Export Licenses";
 "toolbar.import_manifests.tooltip" = "Import Manifests";
-"detail.placeholder" = "You can import manifests using the import button at the top right corner. Alternatively, you can drag them onto this window. The following manifests are supported:";
-"master.placeholder" = "Made by Andreas Link in Karlsruhe";
+"detail.placeholder.title" = "Start by selecting manifests";
+"detail.placeholder.subtitle" = "You can choose Package.resolved (SwiftPm), Cartfile.resolved (Carthage), or Podfile.lock (CocoaPods) files below. Alternatively, use the example manifest to explore Licenses below.";
 "detail.list_entry.name.title" = "Name:";
 "detail.list_entry.version.title" = "Version:";
 "detail.list_entry.package_manager.title" = "Package Manager:";
@@ -23,6 +23,8 @@
 "detail.list_entry.license_url.title" = "License URL:";
 "detail.list_entry.license_name.title" = "License Name:";
 "detail.list_entry.license_content.title" = "License Content:";
+"detail.placeholder.button.choose_manifests.title" = "Choose Manifests";
+"detail.placeholder.button.example_manifest.title" = "Example Manifest";
 "csv.header.name.title" = "Name";
 "csv.header.version.title" = "Version";
 "csv.header.package_manager.title" = "Package Manager";
@@ -30,8 +32,3 @@
 "csv.header.license_url.title" = "License URL";
 "csv.header.license_name.title" = "License Name";
 "csv.header.license_content.title" = "License Content";
-"detail.placeholder.supported_manifests.swift_pm.title" = "• SwiftPm: \"Package.resolved\"";
-"detail.placeholder.supported_manifests.carthage.title" = "• Carthage: \"Cartfile.resolved\"";
-"detail.placeholder.supported_manifests.cocoapods.title" = "• CocoaPods: \"Podfile.lock\"";
-"detail.placeholder.examples.title" = "You can try out Licenses using the example manifest below:";
-"detail.placeholder.examples.button.title" = "Import Example Manifest";
