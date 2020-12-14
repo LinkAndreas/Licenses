@@ -454,15 +454,6 @@
 			path = CSVExport;
 			sourceTree = "<group>";
 		};
-		3853B64724FBE8D10080C55F /* RepositoryListEntryView */ = {
-			isa = PBXGroup;
-			children = (
-				38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */,
-				38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */,
-			);
-			path = RepositoryListEntryView;
-			sourceTree = "<group>";
-		};
 		3853B64824FBE8FB0080C55F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,7 +504,6 @@
 			children = (
 				38E8807E24D6B3AF0012A36C /* MasterView.swift */,
 				38DED0CC257B750200177783 /* RepositoryListView */,
-				3853B64724FBE8D10080C55F /* RepositoryListEntryView */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -644,6 +634,8 @@
 		38DED0CC257B750200177783 /* RepositoryListView */ = {
 			isa = PBXGroup;
 			children = (
+				38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */,
+				38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */,
 				38DED0CD257B751D00177783 /* RepositoryListViewController.swift */,
 				38DED0D5257B7DC900177783 /* RepositoryListView.swift */,
 				38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */,
