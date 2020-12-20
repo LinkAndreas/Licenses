@@ -102,6 +102,33 @@ internal enum L10n {
     internal static let unauthorized = L10n.tr("Localizable", "error.unauthorized")
   }
 
+  internal enum Onboarding {
+    /// The new home for your software licenses on your Mac. Search and collect licenses of your favorite packages and export them into spreadsheet files.
+    internal static let subtitle = L10n.tr("Localizable", "onboarding.subtitle")
+    /// Welcome to Licenses
+    internal static let title = L10n.tr("Localizable", "onboarding.title")
+    internal enum PrimaryButton {
+      /// Start searching licenses
+      internal static let title = L10n.tr("Localizable", "onboarding.primary_button.title")
+    }
+    internal enum SupportedManifests {
+      /// Manifests from the following package managers are supported:
+      internal static let description = L10n.tr("Localizable", "onboarding.supported_manifests.description")
+      internal enum Carthage {
+        /// Carthage
+        internal static let title = L10n.tr("Localizable", "onboarding.supported_manifests.carthage.title")
+      }
+      internal enum CocoaPods {
+        /// CocoaPods
+        internal static let title = L10n.tr("Localizable", "onboarding.supported_manifests.cocoa_pods.title")
+      }
+      internal enum SwiftPm {
+        /// Swift PM
+        internal static let title = L10n.tr("Localizable", "onboarding.supported_manifests.swift_pm.title")
+      }
+    }
+  }
+
   internal enum Panel {
     internal enum Open {
       /// Source

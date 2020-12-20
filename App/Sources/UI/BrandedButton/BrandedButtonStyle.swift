@@ -11,11 +11,11 @@ struct BrandedButtonStyle: ButtonStyle {
             .foregroundColor(Color(Asset.Colors.light.color))
             .background(
                 Capsule()
-                    .fill(Color.accentColor.opacity(configuration.isPressed ? 0.6 : 0.3))
+                    .fill(Color.accentColor.opacity(configuration.isPressed ? 0.6 : 0.5))
             )
             .overlay(
                 Capsule()
-                    .stroke(Color.accentColor, lineWidth: 3)
+                    .stroke(Color.accentColor, lineWidth: 2)
             )
             .opacity(isEnabled ? 1.0 : 0.4)
     }

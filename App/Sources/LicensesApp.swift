@@ -12,12 +12,10 @@ struct LicensesApp: App {
         WindowGroup {
             WindowContentView()
                 .frame(
-                    minWidth: 650,
-                    idealWidth: 800,
-                    maxWidth: .infinity,
-                    minHeight: 450,
-                    idealHeight: 600,
-                    maxHeight: .infinity,
+                    minWidth: 1_000,
+                    idealWidth: 1_200,
+                    minHeight: 650,
+                    idealHeight: 800,
                     alignment: .center
                 )
         }

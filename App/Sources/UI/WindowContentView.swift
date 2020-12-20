@@ -51,7 +51,6 @@ struct WindowContentView: View {
                 OnboardingView {
                     isOnboardingCompleted = true
                 }
-                .frame(width: 250, height: 250, alignment: .center)
             }
         )
     }
