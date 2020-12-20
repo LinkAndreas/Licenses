@@ -32,3 +32,10 @@
 "csv.header.license_url.title" = "License URL";
 "csv.header.license_name.title" = "License Name";
 "csv.header.license_content.title" = "License Content";
+"onboarding.title" = "Welcome to Licenses";
+"onboarding.subtitle" = "The new home for your software licenses on your Mac. Search and collect licenses of your favorite packages and export them into spreadsheet files.";
+"onboarding.supported_manifests.description" = "Manifests from the following package managers are supported:";
+"onboarding.supported_manifests.swift_pm.title" = "Swift PM";
+"onboarding.supported_manifests.carthage.title" = "Carthage";
+"onboarding.supported_manifests.cocoa_pods.title" = "CocoaPods";
+"onboarding.primary_button.title" = "Start searching licenses";
