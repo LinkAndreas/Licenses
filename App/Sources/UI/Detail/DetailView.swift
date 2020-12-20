@@ -58,7 +58,7 @@ struct DetailView: View {
                 }
                 .padding(.leading, 16)
                 .navigationTitle(repository.name)
-            } else {
+            } else if !store.state.isProcessing {
                 DetailPlaceholderView()
             }
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)

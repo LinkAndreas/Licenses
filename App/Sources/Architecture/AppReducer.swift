@@ -66,6 +66,10 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
 
     case .didStopFetchingLicenses:
         state.progress = 1.0
+        if state.selectedRepository == nil {
+            state.selection = state.repositories.first?.id
+        }
+
         return Just(.resetProgress)
             .delay(for: 1, scheduler: DispatchQueue.main)
             .eraseToAnyPublisher()
