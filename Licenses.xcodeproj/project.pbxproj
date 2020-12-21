@@ -97,7 +97,6 @@
 		38B5E4F12584E39A002938F0 /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DED0D5257B7DC900177783 /* RepositoryListView.swift */; };
 		38B5E4FC2584E3DC002938F0 /* RepositoryListEntryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */; };
 		38B5E50825850EC7002938F0 /* RepositoryListTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5E50725850EC7002938F0 /* RepositoryListTableCellView.swift */; };
-		38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38CC1B4A24CC2B1200FDBE21 /* Info.plist */; };
 		38D1C2412563956F000C3D8D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C2402563956F000C3D8D /* Store.swift */; };
 		38D1C24725639600000C3D8D /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1C24625639600000C3D8D /* Reducer.swift */; };
 		38DED0CE257B751D00177783 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DED0CD257B751D00177783 /* RepositoryListViewController.swift */; };
@@ -190,7 +189,7 @@
 		382C3D412569684D00A264A5 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		38411BDD24CC9C82001CA0E7 /* DetailPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceholderView.swift; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3864D5CC24A768CB00A94E05 /* LicensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LicensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5F124A7698800A94E05 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		3864D6CE24A76BBF00A94E05 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		3864D6DC24A76DA600A94E05 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -538,7 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				3864D5B924A768CB00A94E05 /* Licenses.app */,
-				3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */,
+				3864D5CC24A768CB00A94E05 /* LicensesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -676,9 +675,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3864D5B824A768CB00A94E05 /* macOS */ = {
+		3864D5B824A768CB00A94E05 /* Licenses */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3864D5DE24A768CB00A94E05 /* Build configuration list for PBXNativeTarget "macOS" */;
+			buildConfigurationList = 3864D5DE24A768CB00A94E05 /* Build configuration list for PBXNativeTarget "Licenses" */;
 			buildPhases = (
 				3864D6CB24A76AB100A94E05 /* SwiftLint */,
 				3864D6CC24A76AB800A94E05 /* SwiftGen */,
@@ -690,7 +689,7 @@
 			);
 			dependencies = (
 			);
-			name = macOS;
+			name = Licenses;
 			packageProductDependencies = (
 				3864D5EC24A7695F00A94E05 /* Aphrodite */,
 			);
@@ -698,9 +697,9 @@
 			productReference = 3864D5B924A768CB00A94E05 /* Licenses.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3864D5CB24A768CB00A94E05 /* Tests macOS */ = {
+		3864D5CB24A768CB00A94E05 /* LicensesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3864D5E424A768CB00A94E05 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildConfigurationList = 3864D5E424A768CB00A94E05 /* Build configuration list for PBXNativeTarget "LicensesTests" */;
 			buildPhases = (
 				3864D5C824A768CB00A94E05 /* Sources */,
 				3864D5C924A768CB00A94E05 /* Frameworks */,
@@ -711,9 +710,9 @@
 			dependencies = (
 				3864D5CE24A768CB00A94E05 /* PBXTargetDependency */,
 			);
-			name = "Tests macOS";
+			name = LicensesTests;
 			productName = "Tests macOS";
-			productReference = 3864D5CC24A768CB00A94E05 /* Tests macOS.xctest */;
+			productReference = 3864D5CC24A768CB00A94E05 /* LicensesTests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -751,8 +750,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3864D5B824A768CB00A94E05 /* macOS */,
-				3864D5CB24A768CB00A94E05 /* Tests macOS */,
+				3864D5B824A768CB00A94E05 /* Licenses */,
+				3864D5CB24A768CB00A94E05 /* LicensesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -765,7 +764,6 @@
 				3864D6E124A76EA800A94E05 /* Images.xcassets in Resources */,
 				38A48D2925740C0100F1E72F /* Cartfile.resolved in Resources */,
 				380EA59224CC2FCF00514173 /* swiftgen.yml in Resources */,
-				38CC1B4C24CC2B1200FDBE21 /* Info.plist in Resources */,
 				3864D6E624A770BD00A94E05 /* Localizable.strings in Resources */,
 				3864D6D024A76BBF00A94E05 /* .swiftlint.yml in Resources */,
 				3864D64524A7698800A94E05 /* Colors.xcassets in Resources */,
@@ -929,7 +927,7 @@
 /* Begin PBXTargetDependency section */
 		3864D5CE24A768CB00A94E05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3864D5B824A768CB00A94E05 /* macOS */;
+			target = 3864D5B824A768CB00A94E05 /* Licenses */;
 			targetProxy = 3864D5CD24A768CB00A94E05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1069,6 +1067,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 59983C7393;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1079,7 +1078,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.Licenses;
+				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.licenses;
 				PRODUCT_NAME = Licenses;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1097,6 +1096,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 59983C7393;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1107,7 +1107,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.Licenses;
+				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.licenses;
 				PRODUCT_NAME = Licenses;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1131,7 +1131,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.linkandreas.Tests-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.licenses.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1156,7 +1156,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = "de.linkandreas.Tests-macOS";
+				PRODUCT_BUNDLE_IDENTIFIER = de.linkandreas.licenses.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
@@ -1178,7 +1178,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3864D5DE24A768CB00A94E05 /* Build configuration list for PBXNativeTarget "macOS" */ = {
+		3864D5DE24A768CB00A94E05 /* Build configuration list for PBXNativeTarget "Licenses" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3864D5DF24A768CB00A94E05 /* Debug */,
@@ -1187,7 +1187,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3864D5E424A768CB00A94E05 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+		3864D5E424A768CB00A94E05 /* Build configuration list for PBXNativeTarget "LicensesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3864D5E524A768CB00A94E05 /* Debug */,

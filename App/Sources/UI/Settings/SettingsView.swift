@@ -9,7 +9,7 @@ struct SettingsView: View {
     }
 
     @AppStorage("token") private var token: String = ""
-    @AppStorage("isAutomaticFetchEnabled") private var isAutomaticFetchEnabled: Bool = false
+    @AppStorage("isAutomaticFetchEnabled") private var isAutomaticFetchEnabled: Bool = true
 
     var body: some View {
         TabView {

@@ -33,7 +33,7 @@
 "csv.header.license_name.title" = "Lizenz Name";
 "csv.header.license_content.title" = "Lizenz Inhalt";
 "onboarding.title" = "Willkommen zu Lizenzen";
-"onboarding.subtitle" = "Das neue Zuhause für Deine Softwarelizenzen auf Deinem Mac. Suche und sammel Lizenzen Deiner Lieblingspakete und exportieren Sie als Tabellenkalkulationsdateien.";
+"onboarding.subtitle" = "Das neue Zuhause für Deine Softwarelizenzen auf Deinem Mac. Suche und verwalte Lizenzen Deiner Lieblingspakete und exportiere sie als Tabellenkalkulationsdateien.";
 "onboarding.supported_manifests.description" = "Manifeste der folgenden Paketmanagern werden unterstützt:";
 "onboarding.supported_manifests.swift_pm.title" = "Swift PM";
 "onboarding.supported_manifests.carthage.title" = "Carthage";
