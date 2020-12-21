@@ -33,7 +33,6 @@
 		380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */; };
 		380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51924CC2E4300514173 /* ResolvedPackages.swift */; };
 		380EA52724CC2E7700514173 /* JSONEncoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */; };
-		380EA52824CC2E7700514173 /* NSToolbarItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52224CC2E7700514173 /* NSToolbarItemExtensions.swift */; };
 		380EA52924CC2E7700514173 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52324CC2E7700514173 /* StringExtensions.swift */; };
 		380EA52A24CC2E7700514173 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52424CC2E7700514173 /* JSONDecoderExtensions.swift */; };
 		380EA52B24CC2E7700514173 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52524CC2E7700514173 /* NSRegularExpressionExtensions.swift */; };
@@ -142,7 +141,6 @@
 		380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsRepositoryProcessor.swift; sourceTree = "<group>"; };
 		380EA51924CC2E4300514173 /* ResolvedPackages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolvedPackages.swift; sourceTree = "<group>"; };
 		380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoderExtensions.swift; sourceTree = "<group>"; };
-		380EA52224CC2E7700514173 /* NSToolbarItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSToolbarItemExtensions.swift; sourceTree = "<group>"; };
 		380EA52324CC2E7700514173 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		380EA52424CC2E7700514173 /* JSONDecoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtensions.swift; sourceTree = "<group>"; };
 		380EA52524CC2E7700514173 /* NSRegularExpressionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensions.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 				380EA52424CC2E7700514173 /* JSONDecoderExtensions.swift */,
 				380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */,
 				380EA52524CC2E7700514173 /* NSRegularExpressionExtensions.swift */,
-				380EA52224CC2E7700514173 /* NSToolbarItemExtensions.swift */,
 				380EA52324CC2E7700514173 /* StringExtensions.swift */,
 				380EA52624CC2E7700514173 /* ViewExtensions.swift */,
 				380EA5A024CC542A00514173 /* NSViewExtensions.swift */,
@@ -845,7 +842,6 @@
 				380EA59924CC33C000514173 /* Pins.swift in Sources */,
 				380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */,
 				380EA50024CC2DE600514173 /* GithubLicense.swift in Sources */,
-				380EA52824CC2E7700514173 /* NSToolbarItemExtensions.swift in Sources */,
 				38946C1B2587C7CD00F39DC1 /* DetailPlaceholderEntryView.swift in Sources */,
 				380EA52A24CC2E7700514173 /* JSONDecoderExtensions.swift in Sources */,
 				3864D6DE24A76DA600A94E05 /* Assets.swift in Sources */,
@@ -1067,7 +1063,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 59983C7393;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -1097,7 +1093,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 59983C7393;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
