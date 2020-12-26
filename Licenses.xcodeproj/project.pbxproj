@@ -90,6 +90,7 @@
 		38946C1B2587C7CD00F39DC1 /* DetailPlaceholderEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38946C1A2587C7CD00F39DC1 /* DetailPlaceholderEntryView.swift */; };
 		389AF7BF25972A2F007C5A3F /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 389AF7BD25972A2F007C5A3F /* Package.resolved */; };
 		389AF7C025972A2F007C5A3F /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 389AF7BE25972A2F007C5A3F /* Podfile.lock */; };
+		389AF7F925975208007C5A3F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 389AF7E725974F24007C5A3F /* InfoPlist.strings */; };
 		38A48CD7257396BF00F1E72F /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CD6257396BF00F1E72F /* DetailItemView.swift */; };
 		38A48CF42573ABF700F1E72F /* RepositoryListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */; };
 		38A48D0D2573C55F00F1E72F /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48D0C2573C55F00F1E72F /* FileImporter.swift */; };
@@ -200,6 +201,8 @@
 		38946C1A2587C7CD00F39DC1 /* DetailPlaceholderEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceholderEntryView.swift; sourceTree = "<group>"; };
 		389AF7BD25972A2F007C5A3F /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		389AF7BE25972A2F007C5A3F /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		389AF7E625974F24007C5A3F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		389AF7E825974F27007C5A3F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		38A48CD6257396BF00F1E72F /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
 		38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntry.swift; sourceTree = "<group>"; };
 		38A48CF32573ABF700F1E72F /* RepositoryListEntryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntryFactory.swift; sourceTree = "<group>"; };
@@ -591,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				38BC46A624B1ADEE0088B830 /* Info.plist */,
+				389AF7E725974F24007C5A3F /* InfoPlist.strings */,
 				381E66C124B1ACD30083E9C1 /* macOS.entitlements */,
 			);
 			path = SupportingFiles;
@@ -771,6 +775,7 @@
 				3864D6E624A770BD00A94E05 /* Localizable.strings in Resources */,
 				3864D6D024A76BBF00A94E05 /* .swiftlint.yml in Resources */,
 				389AF7C025972A2F007C5A3F /* Podfile.lock in Resources */,
+				389AF7F925975208007C5A3F /* InfoPlist.strings in Resources */,
 				3864D64524A7698800A94E05 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -944,6 +949,15 @@
 				3864D6E924A770CD00A94E05 /* de */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		389AF7E725974F24007C5A3F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				389AF7E625974F24007C5A3F /* en */,
+				389AF7E825974F27007C5A3F /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
