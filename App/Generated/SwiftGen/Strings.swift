@@ -78,7 +78,7 @@ internal enum L10n {
       }
     }
     internal enum Placeholder {
-      /// You can choose Package.resolved (SwiftPm), Cartfile.resolved (Carthage), or Podfile.lock (CocoaPods) files below. Alternatively, use the example manifest to explore Licenses below.
+      /// Import manifests, i.e., "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage), or "Podfile.lock" (CocoaPods) files. Alternatively, start exploring using the example manifests below.
       internal static let subtitle = L10n.tr("Localizable", "detail.placeholder.subtitle")
       /// Start by selecting manifests
       internal static let title = L10n.tr("Localizable", "detail.placeholder.title")
@@ -155,7 +155,7 @@ internal enum L10n {
         }
       }
       internal enum Token {
-        /// You can add your personal access token to get an increased rate limit for the GitHub API.
+        /// Add your personal access token to increase the rate limit of the GitHub API.
         internal static let description = L10n.tr("Localizable", "settings.tabs.token.description")
         /// Please enter your personal access token
         internal static let placeholder = L10n.tr("Localizable", "settings.tabs.token.placeholder")

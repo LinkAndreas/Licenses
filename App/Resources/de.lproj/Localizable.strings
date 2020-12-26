@@ -3,10 +3,10 @@
 "settings.tabs.general.title" = "Allgemein";
 "settings.tabs.general.automatic_license_search.title" = "Automatische Lizenzsuche";
 "settings.tabs.token.title" = "Github Token";
-"settings.tabs.token.description" = "Du kannst dein persönliches GitHub API Zugangstoken eingeben, um mehr Anfragen an die GitHub API stellen zu können.";
+"settings.tabs.token.description" = "Hinterlege dein persönliches GitHub API Zugangstoken, um mehr Anfragen an die GitHub API zu stellen.";
 "settings.tabs.token.placeholder" = "Bitte gebe dein persönliches Zugriffstoken ein";
 "error.github_rate_limit_exceeded" = "GitHub Anfragelimit überschritten. Bitte versuche es später erneut oder füge in den Einstellungen ein persönliches Zugriffstoken hinzu, um das Ratenlimit zu erhöhen.";
-"error.unauthorized" = "Authentifizierungsfehler: Bitte überprüfe Dein persönliches Zugriffstoken in den Einstellungen.";
+"error.unauthorized" = "Authentifizierungsfehler: Bitte überprüfe dein persönliches Zugriffstoken in den Einstellungen.";
 "panel.open.title" = "Quelle";
 "panel.save.title" = "Ziel";
 "panel.save.filename" = "licenses.csv";
@@ -15,7 +15,7 @@
 "toolbar.export_licenses.tooltip" = "Lizenzen exportieren";
 "toolbar.import_manifests.tooltip" = "Manifeste importieren";
 "detail.placeholder.title" = "Beginne mit der Auswahl von Manifesten";
-"detail.placeholder.subtitle" = "Du kannst verschiedene Manifeste, d.h. Package.resolved (SwiftPm), Cartfile.resolved (Carthage), oder Podfile.lock (CocoaPods) Dateien importieren. Alternativ kannst du ein Beispielmanifest laden.";
+"detail.placeholder.subtitle" = "Importiere Manifeste, d.h. \"Package.resolved\" (SwiftPm), \"Cartfile.resolved\" (Carthage), oder \"Podfile.lock\" (CocoaPods) Dateien. Alternativ kannst du die Beispiel Manifeste laden.";
 "detail.list_entry.name.title" = "Name:";
 "detail.list_entry.version.title" = "Version:";
 "detail.list_entry.package_manager.title" = "Paket Manager:";
@@ -33,7 +33,7 @@
 "csv.header.license_name.title" = "Lizenz Name";
 "csv.header.license_content.title" = "Lizenz Inhalt";
 "onboarding.title" = "Willkommen zu Lizenzen";
-"onboarding.subtitle" = "Das neue Zuhause für Deine Softwarelizenzen auf Deinem Mac. Suche und verwalte Lizenzen Deiner Lieblingspakete und exportiere sie als Tabellenkalkulationsdateien.";
+"onboarding.subtitle" = "Das neue Zuhause für deine Softwarelizenzen auf deinem Mac. Suche und verwalte Lizenzen deiner Lieblingspakete und exportiere sie als Tabellenkalkulationsdateien.";
 "onboarding.supported_manifests.description" = "Manifeste der folgenden Paketmanagern werden unterstützt:";
 "onboarding.supported_manifests.swift_pm.title" = "Swift PM";
 "onboarding.supported_manifests.carthage.title" = "Carthage";

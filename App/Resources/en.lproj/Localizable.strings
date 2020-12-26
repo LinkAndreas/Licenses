@@ -3,7 +3,7 @@
 "settings.tabs.general.title" = "General";
 "settings.tabs.general.automatic_license_search.title" = "Automatic License Search";
 "settings.tabs.token.title" = "Github Token";
-"settings.tabs.token.description" = "You can add your personal access token to get an increased rate limit for the GitHub API.";
+"settings.tabs.token.description" = "Add your personal access token to increase the rate limit of the GitHub API.";
 "settings.tabs.token.placeholder" = "Please enter your personal access token";
 "error.github_rate_limit_exceeded" = "GitHub Request limit exceeded. Please try again later or add a personal access token in preferences to increase your rate limit.";
 "error.unauthorized" = "Unauthorized, please verify your personal access token in preferences.";
@@ -15,7 +15,7 @@
 "toolbar.export_licenses.tooltip" = "Export Licenses";
 "toolbar.import_manifests.tooltip" = "Import Manifests";
 "detail.placeholder.title" = "Start by selecting manifests";
-"detail.placeholder.subtitle" = "You can choose Package.resolved (SwiftPm), Cartfile.resolved (Carthage), or Podfile.lock (CocoaPods) files below. Alternatively, use the example manifest to explore Licenses below.";
+"detail.placeholder.subtitle" = "Import manifests, i.e., \"Package.resolved\" (SwiftPm), \"Cartfile.resolved\" (Carthage), or \"Podfile.lock\" (CocoaPods) files. Alternatively, start exploring using the example manifests below.";
 "detail.list_entry.name.title" = "Name:";
 "detail.list_entry.version.title" = "Version:";
 "detail.list_entry.package_manager.title" = "Package Manager:";
