@@ -147,7 +147,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
 
     case let .searchManifests(filePaths):
         return ManifestPublisher(filePaths: filePaths)
-            .flatMap(maxPublishers: .max(1), ManifestDecoder.decode)
+            .flatMap(ManifestDecoder.decode)
             .receive(on: RunLoop.main)
             .map(AppAction.add(repository:))
             .prepend(AppAction.startSearchingManifests)

@@ -88,7 +88,7 @@ internal enum L10n {
           internal static let title = L10n.tr("Localizable", "detail.placeholder.button.choose_manifests.title")
         }
         internal enum ExampleManifest {
-          /// Example Manifest
+          /// Example Manifests
           internal static let title = L10n.tr("Localizable", "detail.placeholder.button.example_manifest.title")
         }
       }

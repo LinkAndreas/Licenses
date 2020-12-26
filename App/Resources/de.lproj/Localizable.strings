@@ -24,7 +24,7 @@
 "detail.list_entry.license_name.title" = "Lizenz Name:";
 "detail.list_entry.license_content.title" = "Lizenz Inhalt:";
 "detail.placeholder.button.choose_manifests.title" = "Manifeste auswählen";
-"detail.placeholder.button.example_manifest.title" = "Beispiel Manifest";
+"detail.placeholder.button.example_manifest.title" = "Beispiel Manifeste";
 "csv.header.name.title" = "Name";
 "csv.header.version.title" = "Version";
 "csv.header.package_manager.title" = "Paket Manager";

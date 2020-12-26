@@ -24,7 +24,7 @@
 "detail.list_entry.license_name.title" = "License Name:";
 "detail.list_entry.license_content.title" = "License Content:";
 "detail.placeholder.button.choose_manifests.title" = "Choose Manifests";
-"detail.placeholder.button.example_manifest.title" = "Example Manifest";
+"detail.placeholder.button.example_manifest.title" = "Example Manifests";
 "csv.header.name.title" = "Name";
 "csv.header.version.title" = "Version";
 "csv.header.package_manager.title" = "Package Manager";
