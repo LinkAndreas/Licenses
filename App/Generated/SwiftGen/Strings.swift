@@ -103,7 +103,7 @@ internal enum L10n {
   }
 
   internal enum Onboarding {
-    /// The new home for your software licenses on your Mac. Search and collect licenses of your favorite packages and export them into spreadsheet files.
+    /// Search and collect licenses of your libraries and export them into a single spreadsheet file (CSV).
     internal static let subtitle = L10n.tr("Localizable", "onboarding.subtitle")
     /// Welcome to Licenses
     internal static let title = L10n.tr("Localizable", "onboarding.title")
@@ -112,7 +112,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "onboarding.primary_button.title")
     }
     internal enum SupportedManifests {
-      /// Manifests from the following package managers are supported:
+      /// The following package managers are supported:
       internal static let description = L10n.tr("Localizable", "onboarding.supported_manifests.description")
       internal enum Carthage {
         /// Carthage

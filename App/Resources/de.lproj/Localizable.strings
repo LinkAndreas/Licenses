@@ -9,7 +9,7 @@
 "error.unauthorized" = "Authentifizierungsfehler: Bitte überprüfe dein persönliches Zugriffstoken in den Einstellungen.";
 "panel.open.title" = "Quelle";
 "panel.save.title" = "Ziel";
-"panel.save.filename" = "licenses.csv";
+"panel.save.filename" = "Lizenzen.csv";
 "toolbar.toggle_menu.tooltip" = "Menu umschalten";
 "toolbar.fetch_licenses.tooltip" = "Lizenzen abrufen";
 "toolbar.export_licenses.tooltip" = "Lizenzen exportieren";
@@ -33,8 +33,8 @@
 "csv.header.license_name.title" = "Lizenz Name";
 "csv.header.license_content.title" = "Lizenz Inhalt";
 "onboarding.title" = "Willkommen zu Lizenzen";
-"onboarding.subtitle" = "Das neue Zuhause für deine Softwarelizenzen auf deinem Mac. Suche und verwalte Lizenzen deiner Lieblingspakete und exportiere sie als Tabellenkalkulationsdateien.";
-"onboarding.supported_manifests.description" = "Manifeste der folgenden Paketmanagern werden unterstützt:";
+"onboarding.subtitle" = "Suche und verwalte Lizenzen deiner Bibliotheken und exportiere sie als einzelne Tabelle (CSV).";
+"onboarding.supported_manifests.description" = "Die folgenden Paketmanagern werden unterstützt:";
 "onboarding.supported_manifests.swift_pm.title" = "Swift PM";
 "onboarding.supported_manifests.carthage.title" = "Carthage";
 "onboarding.supported_manifests.cocoa_pods.title" = "CocoaPods";
