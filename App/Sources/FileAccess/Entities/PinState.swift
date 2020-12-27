@@ -1,4 +1,4 @@
-//  Copyright © 2020 Andreas Link. All rights reserved.
+//  Copyright © 2021 Andreas Link. All rights reserved.
 
 struct PinState: Decodable, Equatable {
     let branch: String?
