@@ -1,4 +1,6 @@
 "app_name" = "Licenses";
+"privacy_policy.title" = "Privacy Policy";
+"privacy_policy.url" = "https://www.iubenda.com/privacy-policy/89287502";
 "settings.title" = "Settings";
 "settings.tabs.general.title" = "General";
 "settings.tabs.general.automatic_license_search.title" = "Automatic License Search";

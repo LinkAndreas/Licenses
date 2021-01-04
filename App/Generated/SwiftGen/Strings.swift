@@ -142,6 +142,13 @@ internal enum L10n {
     }
   }
 
+  internal enum PrivacyPolicy {
+    /// Privacy Policy
+    internal static let title = L10n.tr("Localizable", "privacy_policy.title")
+    /// https://www.iubenda.com/privacy-policy/89287502
+    internal static let url = L10n.tr("Localizable", "privacy_policy.url")
+  }
+
   internal enum Settings {
     /// Settings
     internal static let title = L10n.tr("Localizable", "settings.title")
