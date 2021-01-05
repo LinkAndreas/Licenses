@@ -23,14 +23,9 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal enum Colors {
     internal static let accentColor = ColorAsset(name: "AccentColor")
-    internal static let backgroundGradientBottom = ColorAsset(name: "backgroundGradientBottom")
-    internal static let backgroundGradientTop = ColorAsset(name: "backgroundGradientTop")
     internal static let light = ColorAsset(name: "light")
     internal static let placeholderItemBackgroundColor = ColorAsset(name: "placeholderItemBackgroundColor")
     internal static let placeholderItemBorderColor = ColorAsset(name: "placeholderItemBorderColor")
-    internal static let selectionBackground = ColorAsset(name: "selectionBackground")
-    internal static let sidebarGradientBottom = ColorAsset(name: "sidebarGradientBottom")
-    internal static let sidebarGradientTop = ColorAsset(name: "sidebarGradientTop")
   }
   internal enum Images {
     internal static let icon = ImageAsset(name: "icon")

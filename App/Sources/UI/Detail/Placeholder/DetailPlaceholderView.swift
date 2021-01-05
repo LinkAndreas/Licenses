@@ -1,4 +1,4 @@
-//  Copyright © 2020 Andreas Link. All rights reserved.
+//  Copyright © 2021 Andreas Link. All rights reserved.
 
 import SwiftUI
 
@@ -66,10 +66,12 @@ struct DetailPlaceholderView: View {
                     Button(
                         action: {
                             guard
-                                let url = Bundle.main.url(forResource: "Cartfile", withExtension: "resolved")
+                                let swiftPmUrl = Bundle.main.url(forResource: "Package", withExtension: "resolved"),
+                                let cartfileUrl = Bundle.main.url(forResource: "Cartfile", withExtension: "resolved"),
+                                let cocoapodsUrl = Bundle.main.url(forResource: "Podfile", withExtension: "lock")
                             else { return }
 
-                            store.send(.searchManifests(filePaths: [url]))
+                            store.send(.searchManifests(filePaths: [swiftPmUrl, cartfileUrl, cocoapodsUrl]))
                         },
                         label: {
                             Text(L10n.Detail.Placeholder.Button.ExampleManifest.title)

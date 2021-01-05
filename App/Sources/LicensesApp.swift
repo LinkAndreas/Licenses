@@ -1,4 +1,4 @@
-//  Copyright © 2020 Andreas Link. All rights reserved.
+//  Copyright © 2021 Andreas Link. All rights reserved.
 
 import AppKit
 import SwiftUI
@@ -18,6 +18,14 @@ struct LicensesApp: App {
                     idealHeight: 800,
                     alignment: .center
                 )
+        }.commands {
+            CommandGroup(after: .help) {
+                Button(L10n.PrivacyPolicy.title) {
+                    guard let url = URL(string: L10n.PrivacyPolicy.url) else { return }
+
+                    NSWorkspace.shared.open(url)
+                }
+            }
         }
 
         Settings {

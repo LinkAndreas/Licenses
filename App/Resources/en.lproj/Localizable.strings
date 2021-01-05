@@ -1,9 +1,11 @@
 "app_name" = "Licenses";
+"privacy_policy.title" = "Privacy Policy";
+"privacy_policy.url" = "https://www.iubenda.com/privacy-policy/89287502";
 "settings.title" = "Settings";
 "settings.tabs.general.title" = "General";
 "settings.tabs.general.automatic_license_search.title" = "Automatic License Search";
 "settings.tabs.token.title" = "Github Token";
-"settings.tabs.token.description" = "You can add your personal access token to get an increased rate limit for the GitHub API.";
+"settings.tabs.token.description" = "Add your personal access token to increase the rate limit of the GitHub API.";
 "settings.tabs.token.placeholder" = "Please enter your personal access token";
 "error.github_rate_limit_exceeded" = "GitHub Request limit exceeded. Please try again later or add a personal access token in preferences to increase your rate limit.";
 "error.unauthorized" = "Unauthorized, please verify your personal access token in preferences.";
@@ -15,7 +17,7 @@
 "toolbar.export_licenses.tooltip" = "Export Licenses";
 "toolbar.import_manifests.tooltip" = "Import Manifests";
 "detail.placeholder.title" = "Start by selecting manifests";
-"detail.placeholder.subtitle" = "You can choose Package.resolved (SwiftPm), Cartfile.resolved (Carthage), or Podfile.lock (CocoaPods) files below. Alternatively, use the example manifest to explore Licenses below.";
+"detail.placeholder.subtitle" = "Import manifests, i.e., \"Package.resolved\" (SwiftPm), \"Cartfile.resolved\" (Carthage), or \"Podfile.lock\" (CocoaPods) files. Alternatively, start exploring using the example manifests below.";
 "detail.list_entry.name.title" = "Name:";
 "detail.list_entry.version.title" = "Version:";
 "detail.list_entry.package_manager.title" = "Package Manager:";
@@ -24,7 +26,7 @@
 "detail.list_entry.license_name.title" = "License Name:";
 "detail.list_entry.license_content.title" = "License Content:";
 "detail.placeholder.button.choose_manifests.title" = "Choose Manifests";
-"detail.placeholder.button.example_manifest.title" = "Example Manifest";
+"detail.placeholder.button.example_manifest.title" = "Example Manifests";
 "csv.header.name.title" = "Name";
 "csv.header.version.title" = "Version";
 "csv.header.package_manager.title" = "Package Manager";
@@ -33,8 +35,8 @@
 "csv.header.license_name.title" = "License Name";
 "csv.header.license_content.title" = "License Content";
 "onboarding.title" = "Welcome to Licenses";
-"onboarding.subtitle" = "The new home for your software licenses on your Mac. Search and collect licenses of your favorite packages and export them into spreadsheet files.";
-"onboarding.supported_manifests.description" = "Manifests from the following package managers are supported:";
+"onboarding.subtitle" = "Search and collect licenses of your libraries and export them into a single spreadsheet file (CSV).";
+"onboarding.supported_manifests.description" = "The following package managers are supported:";
 "onboarding.supported_manifests.swift_pm.title" = "Swift PM";
 "onboarding.supported_manifests.carthage.title" = "Carthage";
 "onboarding.supported_manifests.cocoa_pods.title" = "CocoaPods";

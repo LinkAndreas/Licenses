@@ -1,4 +1,4 @@
-//  Copyright © 2020 Andreas Link. All rights reserved.
+//  Copyright © 2021 Andreas Link. All rights reserved.
 
 import Combine
 import Foundation
@@ -147,7 +147,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
 
     case let .searchManifests(filePaths):
         return ManifestPublisher(filePaths: filePaths)
-            .flatMap(maxPublishers: .max(1), ManifestDecoder.decode)
+            .flatMap(ManifestDecoder.decode)
             .receive(on: RunLoop.main)
             .map(AppAction.add(repository:))
             .prepend(AppAction.startSearchingManifests)

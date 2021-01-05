@@ -78,7 +78,7 @@ internal enum L10n {
       }
     }
     internal enum Placeholder {
-      /// You can choose Package.resolved (SwiftPm), Cartfile.resolved (Carthage), or Podfile.lock (CocoaPods) files below. Alternatively, use the example manifest to explore Licenses below.
+      /// Import manifests, i.e., "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage), or "Podfile.lock" (CocoaPods) files. Alternatively, start exploring using the example manifests below.
       internal static let subtitle = L10n.tr("Localizable", "detail.placeholder.subtitle")
       /// Start by selecting manifests
       internal static let title = L10n.tr("Localizable", "detail.placeholder.title")
@@ -88,7 +88,7 @@ internal enum L10n {
           internal static let title = L10n.tr("Localizable", "detail.placeholder.button.choose_manifests.title")
         }
         internal enum ExampleManifest {
-          /// Example Manifest
+          /// Example Manifests
           internal static let title = L10n.tr("Localizable", "detail.placeholder.button.example_manifest.title")
         }
       }
@@ -103,7 +103,7 @@ internal enum L10n {
   }
 
   internal enum Onboarding {
-    /// The new home for your software licenses on your Mac. Search and collect licenses of your favorite packages and export them into spreadsheet files.
+    /// Search and collect licenses of your libraries and export them into a single spreadsheet file (CSV).
     internal static let subtitle = L10n.tr("Localizable", "onboarding.subtitle")
     /// Welcome to Licenses
     internal static let title = L10n.tr("Localizable", "onboarding.title")
@@ -112,7 +112,7 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "onboarding.primary_button.title")
     }
     internal enum SupportedManifests {
-      /// Manifests from the following package managers are supported:
+      /// The following package managers are supported:
       internal static let description = L10n.tr("Localizable", "onboarding.supported_manifests.description")
       internal enum Carthage {
         /// Carthage
@@ -142,6 +142,13 @@ internal enum L10n {
     }
   }
 
+  internal enum PrivacyPolicy {
+    /// Privacy Policy
+    internal static let title = L10n.tr("Localizable", "privacy_policy.title")
+    /// https://www.iubenda.com/privacy-policy/89287502
+    internal static let url = L10n.tr("Localizable", "privacy_policy.url")
+  }
+
   internal enum Settings {
     /// Settings
     internal static let title = L10n.tr("Localizable", "settings.title")
@@ -155,7 +162,7 @@ internal enum L10n {
         }
       }
       internal enum Token {
-        /// You can add your personal access token to get an increased rate limit for the GitHub API.
+        /// Add your personal access token to increase the rate limit of the GitHub API.
         internal static let description = L10n.tr("Localizable", "settings.tabs.token.description")
         /// Please enter your personal access token
         internal static let placeholder = L10n.tr("Localizable", "settings.tabs.token.placeholder")
