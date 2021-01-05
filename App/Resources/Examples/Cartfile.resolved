@@ -1,0 +1,4 @@
+github "ReactiveX/RxSwift" "5.1.1"
+github "SnapKit/SnapKit" "5.0.1"
+github "onevcat/Kingfisher" "5.15.7"
+github "vadymmarkov/Fakery" "4.1.1"
