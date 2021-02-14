@@ -1,9 +1,9 @@
 //  Copyright © 2021 Andreas Link. All rights reserved.
 
-struct Pin: Decodable, Equatable {
+struct PinEntity: Decodable, Equatable {
     let package: String
     let repositoryUrl: String
-    let state: PinState
+    let state: PinStateEntity
 
     enum CodingKeys: String, CodingKey {
         case package

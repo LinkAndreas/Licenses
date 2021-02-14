@@ -13,6 +13,7 @@ struct AppState: Equatable {
     var errorMessage: String?
     var selection: UUID?
     var repositories: [GithubRepository]
+    var selectedRepository: GithubRepository? { repositories.first(where: { $0.id == selection }) }
 
     init(
         isProcessing: Bool = false,
@@ -36,6 +37,5 @@ struct AppState: Equatable {
 }
 
 extension AppState {
-    var selectedRepository: GithubRepository? { repositories.first(where: { $0.id == selection }) }
     var listEntries: [RepositoryListEntry] { RepositoryListEntryFactory.makeListEntries(from: self) }
 }

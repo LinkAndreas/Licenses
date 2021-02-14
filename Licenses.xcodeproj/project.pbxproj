@@ -31,7 +31,7 @@
 		380EA51324CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51024CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift */; };
 		380EA51624CC2E2600514173 /* LicenseProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51424CC2E2600514173 /* LicenseProcessor.swift */; };
 		380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */; };
-		380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51924CC2E4300514173 /* ResolvedPackages.swift */; };
+		380EA51A24CC2E4300514173 /* ResolvedPackagesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51924CC2E4300514173 /* ResolvedPackagesEntity.swift */; };
 		380EA52724CC2E7700514173 /* JSONEncoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */; };
 		380EA52924CC2E7700514173 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52324CC2E7700514173 /* StringExtensions.swift */; };
 		380EA52A24CC2E7700514173 /* JSONDecoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52424CC2E7700514173 /* JSONDecoderExtensions.swift */; };
@@ -59,9 +59,9 @@
 		380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58724CC2F6000514173 /* ProgressIndicator.swift */; };
 		380EA59224CC2FCF00514173 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 380EA59124CC2FCF00514173 /* swiftgen.yml */; };
 		380EA59324CC30A300514173 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CC1B4B24CC2B1200FDBE21 /* Tests.swift */; };
-		380EA59524CC337F00514173 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59424CC337F00514173 /* Pin.swift */; };
-		380EA59724CC33A100514173 /* PinState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59624CC33A100514173 /* PinState.swift */; };
-		380EA59924CC33C000514173 /* Pins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59824CC33C000514173 /* Pins.swift */; };
+		380EA59524CC337F00514173 /* PinEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59424CC337F00514173 /* PinEntity.swift */; };
+		380EA59724CC33A100514173 /* PinStateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59624CC33A100514173 /* PinStateEntity.swift */; };
+		380EA59924CC33C000514173 /* PinsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA59824CC33C000514173 /* PinsEntity.swift */; };
 		380EA5A124CC542A00514173 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA5A024CC542A00514173 /* NSViewExtensions.swift */; };
 		3811FB78256112E90019CDB8 /* ToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811FB77256112E90019CDB8 /* ToolbarItems.swift */; };
 		3811FBC125612F6B0019CDB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811FBC025612F6B0019CDB8 /* AppDelegate.swift */; };
@@ -141,7 +141,7 @@
 		380EA51024CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsPackageDecodingStrategy.swift; sourceTree = "<group>"; };
 		380EA51424CC2E2600514173 /* LicenseProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseProcessor.swift; sourceTree = "<group>"; };
 		380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsRepositoryProcessor.swift; sourceTree = "<group>"; };
-		380EA51924CC2E4300514173 /* ResolvedPackages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolvedPackages.swift; sourceTree = "<group>"; };
+		380EA51924CC2E4300514173 /* ResolvedPackagesEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolvedPackagesEntity.swift; sourceTree = "<group>"; };
 		380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoderExtensions.swift; sourceTree = "<group>"; };
 		380EA52324CC2E7700514173 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		380EA52424CC2E7700514173 /* JSONDecoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtensions.swift; sourceTree = "<group>"; };
@@ -170,9 +170,9 @@
 		380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		380EA58724CC2F6000514173 /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
 		380EA59124CC2FCF00514173 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
-		380EA59424CC337F00514173 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
-		380EA59624CC33A100514173 /* PinState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinState.swift; sourceTree = "<group>"; };
-		380EA59824CC33C000514173 /* Pins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pins.swift; sourceTree = "<group>"; };
+		380EA59424CC337F00514173 /* PinEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinEntity.swift; sourceTree = "<group>"; };
+		380EA59624CC33A100514173 /* PinStateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinStateEntity.swift; sourceTree = "<group>"; };
+		380EA59824CC33C000514173 /* PinsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsEntity.swift; sourceTree = "<group>"; };
 		380EA5A024CC542A00514173 /* NSViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensions.swift; sourceTree = "<group>"; };
 		3811FB77256112E90019CDB8 /* ToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItems.swift; sourceTree = "<group>"; };
 		3811FBC025612F6B0019CDB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -328,10 +328,10 @@
 		380EA51824CC2E3800514173 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				380EA51924CC2E4300514173 /* ResolvedPackages.swift */,
-				380EA59424CC337F00514173 /* Pin.swift */,
-				380EA59824CC33C000514173 /* Pins.swift */,
-				380EA59624CC33A100514173 /* PinState.swift */,
+				380EA51924CC2E4300514173 /* ResolvedPackagesEntity.swift */,
+				380EA59424CC337F00514173 /* PinEntity.swift */,
+				380EA59824CC33C000514173 /* PinsEntity.swift */,
+				380EA59624CC33A100514173 /* PinStateEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -848,7 +848,7 @@
 				380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */,
 				380EA53E24CC2EC300514173 /* GithubLicenseEntity.swift in Sources */,
 				38B5E4F12584E39A002938F0 /* RepositoryListView.swift in Sources */,
-				380EA59924CC33C000514173 /* Pins.swift in Sources */,
+				380EA59924CC33C000514173 /* PinsEntity.swift in Sources */,
 				380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */,
 				380EA50024CC2DE600514173 /* GithubLicense.swift in Sources */,
 				38946C1B2587C7CD00F39DC1 /* DetailPlaceholderEntryView.swift in Sources */,
@@ -860,7 +860,7 @@
 				380EA50A24CC2DF500514173 /* ManifestDecoder.swift in Sources */,
 				381FF77B2503639C0009C0A1 /* InformationView.swift in Sources */,
 				380EA54224CC2EC300514173 /* TrunkResponseEntity.swift in Sources */,
-				380EA51A24CC2E4300514173 /* ResolvedPackages.swift in Sources */,
+				380EA51A24CC2E4300514173 /* ResolvedPackagesEntity.swift in Sources */,
 				380EA53424CC2EB500514173 /* API.swift in Sources */,
 				3816E62324D580B60053454E /* CSVExporter.swift in Sources */,
 				380EA4F924CC2DE600514173 /* LinksModelMapper.swift in Sources */,
@@ -868,7 +868,7 @@
 				3811FB78256112E90019CDB8 /* ToolbarItems.swift in Sources */,
 				381FF77D2503642D0009C0A1 /* ErrorMessageView.swift in Sources */,
 				380EA50C24CC2DF500514173 /* RegexPatterns.swift in Sources */,
-				380EA59524CC337F00514173 /* Pin.swift in Sources */,
+				380EA59524CC337F00514173 /* PinEntity.swift in Sources */,
 				380EA50724CC2DF500514173 /* ManifestDecodingStrategy.swift in Sources */,
 				38E8807F24D6B3AF0012A36C /* MasterView.swift in Sources */,
 				38D1C24725639600000C3D8D /* Reducer.swift in Sources */,
@@ -898,7 +898,7 @@
 				380EA52B24CC2E7700514173 /* NSRegularExpressionExtensions.swift in Sources */,
 				380EA53324CC2EB500514173 /* DomainErrorFactory.swift in Sources */,
 				380EA4FC24CC2DE600514173 /* Links.swift in Sources */,
-				380EA59724CC33A100514173 /* PinState.swift in Sources */,
+				380EA59724CC33A100514173 /* PinStateEntity.swift in Sources */,
 				3816E62524D697130053454E /* CSVRowFactory.swift in Sources */,
 				380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */,
 				3811FBC125612F6B0019CDB8 /* AppDelegate.swift in Sources */,

@@ -9,7 +9,7 @@ enum SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
 
         guard
             let data = content.data(using: .utf8),
-            let resolvedPackages = try? JSONDecoder().decode(ResolvedPackages.self, from: data)
+            let resolvedPackages = try? JSONDecoder().decode(ResolvedPackagesEntity.self, from: data)
         else {
             return Empty<GithubRepository, Never>().eraseToAnyPublisher()
         }
