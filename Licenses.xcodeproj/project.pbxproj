@@ -54,7 +54,6 @@
 		380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */; };
 		380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56924CC2F4600514173 /* SettingsView.swift */; };
 		380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56D24CC2F4600514173 /* ProgressBar.swift */; };
-		380EA58124CC2F4700514173 /* SettingsHostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */; };
 		380EA58324CC2F4700514173 /* FileDropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57224CC2F4700514173 /* FileDropArea.swift */; };
 		380EA58824CC2F6000514173 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */; };
 		380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58724CC2F6000514173 /* ProgressIndicator.swift */; };
@@ -167,7 +166,6 @@
 		380EA56724CC2F4600514173 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		380EA56924CC2F4600514173 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		380EA56D24CC2F4600514173 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHostingViewController.swift; sourceTree = "<group>"; };
 		380EA57224CC2F4700514173 /* FileDropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDropArea.swift; sourceTree = "<group>"; };
 		380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		380EA58724CC2F6000514173 /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 		3853B64824FBE8FB0080C55F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				380EA57024CC2F4600514173 /* SettingsHostingViewController.swift */,
 				380EA56924CC2F4600514173 /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -840,7 +837,6 @@
 				380EA4F724CC2DE600514173 /* GithubRepository.swift in Sources */,
 				380EA4FD24CC2DE600514173 /* GithubLicenseModelMapper.swift in Sources */,
 				38A48CF42573ABF700F1E72F /* RepositoryListEntry.swift in Sources */,
-				380EA58124CC2F4700514173 /* SettingsHostingViewController.swift in Sources */,
 				380EA54124CC2EC300514173 /* TrunkResponseModelMapper.swift in Sources */,
 				380EA4DE24CC2D7700514173 /* LicensesApp.swift in Sources */,
 				380EA54624CC2ECF00514173 /* GithubRequestStatusFactory.swift in Sources */,
