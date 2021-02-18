@@ -148,8 +148,19 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
         return nil
 
     case let .searchManifests(filePaths):
-        return ManifestPublisher(filePaths: filePaths)
-            .flatMap(ManifestDecoder.decode)
+        return environment.manifestPublisher(filePaths: filePaths)
+            .flatMap { (manifest: Manifest) -> AnyPublisher<GithubRepository, Never> in
+                switch manifest.packageManager {
+                case .swiftPm:
+                    return environment.swiftPmDecodingStrategy.decode(content: manifest.content)
+
+                case .carthage:
+                    return environment.carthageDecodingStrategy.decode(content: manifest.content)
+
+                case .cocoaPods:
+                    return environment.cocoaPodsDecodingStrategy.decode(content: manifest.content)
+                }
+            }
             .receive(on: RunLoop.main)
             .map(AppAction.add(repository:))
             .prepend(AppAction.startSearchingManifests)

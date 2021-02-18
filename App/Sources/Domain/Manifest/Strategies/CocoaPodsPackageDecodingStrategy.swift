@@ -3,8 +3,8 @@
 import Combine
 import Foundation
 
-enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
-    static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
+struct CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
+    func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
         let subject: PassthroughSubject<GithubRepository, Never> = .init()
 
         DispatchQueue.global(qos: .userInitiated).async {
@@ -25,7 +25,7 @@ enum CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
 }
 
 extension CocoaPodsManifestDecodingStrategy {
-    private static func makeVersionInfo(from content: String) -> [String: String]? {
+    private func makeVersionInfo(from content: String) -> [String: String]? {
         guard let regex = try? NSRegularExpression(pattern: RegexPatterns.cocoaPods, options: []) else { return nil }
 
         let podManifest: NSString = content as NSString

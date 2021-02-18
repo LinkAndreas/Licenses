@@ -30,7 +30,7 @@ struct Progress_Previews: PreviewProvider {
                         repositories: []
                     ),
                     reducer: appReducer,
-                    environment: AppEnvironment()
+                    environment: DefaultEnvironment()
                 )
             )
             .previewLayout(.fixed(width: 650, height: 500))
