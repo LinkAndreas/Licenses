@@ -33,7 +33,7 @@ struct InformationView_Previews: PreviewProvider {
                         repositories: []
                     ),
                     reducer: appReducer,
-                    environment: AppEnvironment()
+                    environment: DefaultEnvironment()
                 )
             )
     }

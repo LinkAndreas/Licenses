@@ -3,8 +3,8 @@
 import Combine
 import Foundation
 
-enum SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
-    static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
+struct SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
+    func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
         let subject: PassthroughSubject<GithubRepository, Never> = .init()
 
         guard

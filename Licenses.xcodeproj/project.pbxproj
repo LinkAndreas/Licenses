@@ -23,7 +23,6 @@
 		380EA50724CC2DF500514173 /* ManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50124CC2DF500514173 /* ManifestDecodingStrategy.swift */; };
 		380EA50824CC2DF500514173 /* ManifestPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50224CC2DF500514173 /* ManifestPublisher.swift */; };
 		380EA50924CC2DF500514173 /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50324CC2DF500514173 /* Manifest.swift */; };
-		380EA50A24CC2DF500514173 /* ManifestDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50424CC2DF500514173 /* ManifestDecoder.swift */; };
 		380EA50B24CC2DF500514173 /* PackageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50524CC2DF500514173 /* PackageManager.swift */; };
 		380EA50C24CC2DF500514173 /* RegexPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50624CC2DF500514173 /* RegexPatterns.swift */; };
 		380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50E24CC2E1000514173 /* CarthageManifestDecodingStrategy.swift */; };
@@ -135,7 +134,6 @@
 		380EA50124CC2DF500514173 /* ManifestDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestDecodingStrategy.swift; sourceTree = "<group>"; };
 		380EA50224CC2DF500514173 /* ManifestPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestPublisher.swift; sourceTree = "<group>"; };
 		380EA50324CC2DF500514173 /* Manifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
-		380EA50424CC2DF500514173 /* ManifestDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManifestDecoder.swift; sourceTree = "<group>"; };
 		380EA50524CC2DF500514173 /* PackageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageManager.swift; sourceTree = "<group>"; };
 		380EA50624CC2DF500514173 /* RegexPatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexPatterns.swift; sourceTree = "<group>"; };
 		380EA50E24CC2E1000514173 /* CarthageManifestDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarthageManifestDecodingStrategy.swift; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 			children = (
 				380EA50324CC2DF500514173 /* Manifest.swift */,
 				380EA50224CC2DF500514173 /* ManifestPublisher.swift */,
-				380EA50424CC2DF500514173 /* ManifestDecoder.swift */,
 				380EA50124CC2DF500514173 /* ManifestDecodingStrategy.swift */,
 				380EA50524CC2DF500514173 /* PackageManager.swift */,
 				380EA50624CC2DF500514173 /* RegexPatterns.swift */,
@@ -874,7 +871,6 @@
 				380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */,
 				3811FBCB256150160019CDB8 /* WindowContentView.swift in Sources */,
 				380EA54C24CC2EE500514173 /* Generic.swift in Sources */,
-				380EA50A24CC2DF500514173 /* ManifestDecoder.swift in Sources */,
 				381FF77B2503639C0009C0A1 /* InformationView.swift in Sources */,
 				380EA54224CC2EC300514173 /* TrunkResponseEntity.swift in Sources */,
 				380EA51A24CC2E4300514173 /* ResolvedPackagesEntity.swift in Sources */,

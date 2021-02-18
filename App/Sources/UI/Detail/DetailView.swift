@@ -115,7 +115,7 @@ struct RepositoryDetail_Previews: PreviewProvider {
                         repositories: [repository]
                     ),
                     reducer: appReducer,
-                    environment: AppEnvironment()
+                    environment: DefaultEnvironment()
                 )
             )
             .previewLayout(.fixed(width: 450, height: 950))

@@ -7,7 +7,7 @@ struct WindowContentView: View {
     @StateObject private var store: Store<AppState, AppAction, AppEnvironment> = .init(
         initialState: .empty,
         reducer: appReducer,
-        environment: .init()
+        environment: DefaultEnvironment()
     )
 
     var body: some View {

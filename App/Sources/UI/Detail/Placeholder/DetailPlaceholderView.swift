@@ -104,7 +104,7 @@ struct DetailPlaceholderView_Previews: PreviewProvider {
                         repositories: []
                     ),
                     reducer: appReducer,
-                    environment: AppEnvironment()
+                    environment: DefaultEnvironment()
                 )
             )
             .previewLayout(.sizeThatFits)

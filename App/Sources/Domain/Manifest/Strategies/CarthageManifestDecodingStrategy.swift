@@ -3,8 +3,8 @@
 import Combine
 import Foundation
 
-enum CarthageManifestDecodingStrategy: ManifestDecodingStrategy {
-    static func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
+struct CarthageManifestDecodingStrategy: ManifestDecodingStrategy {
+    func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
         let subject: PassthroughSubject<GithubRepository, Never> = .init()
         let regex: NSRegularExpression = NSRegularExpression(RegexPatterns.carthage)
         let nsRange: NSRange = .init(location: 0, length: content.count)
@@ -37,7 +37,7 @@ enum CarthageManifestDecodingStrategy: ManifestDecodingStrategy {
 }
 
 extension CarthageManifestDecodingStrategy {
-    private static func makeVersion(from content: String, and match: NSTextCheckingResult) -> String {
+    private func makeVersion(from content: String, and match: NSTextCheckingResult) -> String {
         let version: String = (content as NSString).substring(with: match.range(at: 3))
         let pattern: NSRegularExpression = NSRegularExpression("\\w{40}")
         let matches: [NSTextCheckingResult] = pattern.matches(
