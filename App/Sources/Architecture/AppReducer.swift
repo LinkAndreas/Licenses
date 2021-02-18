@@ -3,7 +3,7 @@
 import Combine
 import Foundation
 
-let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, _ in
+let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, environment in
     switch action {
     case let .add(repository):
         let isConsideredEqual: (GithubRepository) -> ((GithubRepository) -> Bool) = { lhs in
@@ -29,7 +29,9 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
 
     case .stopSearchingManifests:
         state.isProcessing = false
-        return Defaults.isAutomaticFetchEnabled ? Just(AppAction.fetchLicenses).eraseToAnyPublisher() : nil
+        guard environment.settingsDataSource.isAutomaticFetchEnabled else { return nil }
+
+        return Just(AppAction.fetchLicenses).eraseToAnyPublisher()
 
     case let .updateIsTargeted(isTargeted):
         state.isTargeted = isTargeted
@@ -91,11 +93,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
             .flatMap(maxPublishers: .max(3)) { repository in
                 Just(repository)
                     .flatMap { (repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> in
-                        CocoaPodsRepositoryProcessor.process(repository: repository)
+                        environment.cocoaPodsProcessor.process(repository: repository)
                             .eraseToAnyPublisher()
                     }
                     .flatMap { repository in
-                         LicenseProcessor.process(repository: repository)
+                        environment.licenseProcessor.process(repository: repository)
                             .eraseToAnyPublisher()
                     }
             }
@@ -108,8 +110,8 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = { state, action, 
     case let .exportLicenses(destination):
         state.isProcessing = true
 
-        let csvRows: [[String]] = CSVRowFactory.makeRows(from: state.repositories)
-        CSVExporter.exportCSV(fromRows: csvRows, toDestination: destination)
+        let csvRows: [[String]] = environment.csvRowFactory.makeRows(from: state.repositories)
+        environment.csvExporter.exportCSV(fromRows: csvRows, toDestination: destination)
 
         state.isProcessing = false
         return nil

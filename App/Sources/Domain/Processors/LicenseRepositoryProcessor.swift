@@ -3,8 +3,8 @@
 import Combine
 import Foundation
 
-enum LicenseProcessor {
-    static func process(repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> {
+struct LicenseRepositoryProcessor: RepositoryProcessor {
+    func process(repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> {
         guard
             repository.license == nil,
             let (name, author) = GithubRepositoryUrlDecoder.decode(repositoryURL: repository.url)

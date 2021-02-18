@@ -29,7 +29,7 @@
 		380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50E24CC2E1000514173 /* CarthageManifestDecodingStrategy.swift */; };
 		380EA51224CC2E1000514173 /* SwiftPmManifestDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA50F24CC2E1000514173 /* SwiftPmManifestDecodingStrategy.swift */; };
 		380EA51324CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51024CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift */; };
-		380EA51624CC2E2600514173 /* LicenseProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51424CC2E2600514173 /* LicenseProcessor.swift */; };
+		380EA51624CC2E2600514173 /* LicenseRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51424CC2E2600514173 /* LicenseRepositoryProcessor.swift */; };
 		380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */; };
 		380EA51A24CC2E4300514173 /* ResolvedPackagesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA51924CC2E4300514173 /* ResolvedPackagesEntity.swift */; };
 		380EA52724CC2E7700514173 /* JSONEncoderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */; };
@@ -78,6 +78,8 @@
 		381FF77E250365020009C0A1 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E8807C24D6B2CE0012A36C /* ProgressView.swift */; };
 		382C3D3A256967FB00A264A5 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382C3D39256967FB00A264A5 /* Storage.swift */; };
 		382C3D422569684D00A264A5 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382C3D412569684D00A264A5 /* Defaults.swift */; };
+		3836C3E125DE705500F6EC3C /* SettingsSynchronousDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836C3E025DE705500F6EC3C /* SettingsSynchronousDataSource.swift */; };
+		3836C3E825DE73E500F6EC3C /* RepositoryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3836C3E725DE73E500F6EC3C /* RepositoryProcessor.swift */; };
 		38411BDE24CC9C82001CA0E7 /* DetailPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38411BDD24CC9C82001CA0E7 /* DetailPlaceholderView.swift */; };
 		3864D5ED24A7695F00A94E05 /* Aphrodite in Frameworks */ = {isa = PBXBuildFile; productRef = 3864D5EC24A7695F00A94E05 /* Aphrodite */; };
 		3864D64524A7698800A94E05 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3864D5F124A7698800A94E05 /* Colors.xcassets */; };
@@ -139,7 +141,7 @@
 		380EA50E24CC2E1000514173 /* CarthageManifestDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarthageManifestDecodingStrategy.swift; sourceTree = "<group>"; };
 		380EA50F24CC2E1000514173 /* SwiftPmManifestDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPmManifestDecodingStrategy.swift; sourceTree = "<group>"; };
 		380EA51024CC2E1000514173 /* CocoaPodsPackageDecodingStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsPackageDecodingStrategy.swift; sourceTree = "<group>"; };
-		380EA51424CC2E2600514173 /* LicenseProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseProcessor.swift; sourceTree = "<group>"; };
+		380EA51424CC2E2600514173 /* LicenseRepositoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseRepositoryProcessor.swift; sourceTree = "<group>"; };
 		380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaPodsRepositoryProcessor.swift; sourceTree = "<group>"; };
 		380EA51924CC2E4300514173 /* ResolvedPackagesEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolvedPackagesEntity.swift; sourceTree = "<group>"; };
 		380EA52124CC2E7700514173 /* JSONEncoderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoderExtensions.swift; sourceTree = "<group>"; };
@@ -186,6 +188,8 @@
 		381FF77625035CAC0009C0A1 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		382C3D39256967FB00A264A5 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		382C3D412569684D00A264A5 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		3836C3E025DE705500F6EC3C /* SettingsSynchronousDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSynchronousDataSource.swift; sourceTree = "<group>"; };
+		3836C3E725DE73E500F6EC3C /* RepositoryProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProcessor.swift; sourceTree = "<group>"; };
 		38411BDD24CC9C82001CA0E7 /* DetailPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceholderView.swift; sourceTree = "<group>"; };
 		3864D5B924A768CB00A94E05 /* Licenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Licenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3864D5CC24A768CB00A94E05 /* LicensesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LicensesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +266,7 @@
 				380EA4E824CC2DBA00514173 /* Github */,
 				380EA4E924CC2DC400514173 /* Manifest */,
 				380EA4EA24CC2DD000514173 /* Processors */,
+				3836C3E425DE709100F6EC3C /* Settings */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -309,8 +314,9 @@
 		380EA4EA24CC2DD000514173 /* Processors */ = {
 			isa = PBXGroup;
 			children = (
+				3836C3E725DE73E500F6EC3C /* RepositoryProcessor.swift */,
 				380EA51524CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift */,
-				380EA51424CC2E2600514173 /* LicenseProcessor.swift */,
+				380EA51424CC2E2600514173 /* LicenseRepositoryProcessor.swift */,
 			);
 			path = Processors;
 			sourceTree = "<group>";
@@ -457,6 +463,14 @@
 				3816E62424D697130053454E /* CSVRowFactory.swift */,
 			);
 			path = CSVExport;
+			sourceTree = "<group>";
+		};
+		3836C3E425DE709100F6EC3C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3836C3E025DE705500F6EC3C /* SettingsSynchronousDataSource.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		3853B64824FBE8FB0080C55F /* Settings */ = {
@@ -833,6 +847,7 @@
 			files = (
 				380EA4FB24CC2DE600514173 /* LicenseModelMapper.swift in Sources */,
 				381FF77A25035F300009C0A1 /* DetailView.swift in Sources */,
+				3836C3E825DE73E500F6EC3C /* RepositoryProcessor.swift in Sources */,
 				380EA53F24CC2EC300514173 /* TrunkResponse.swift in Sources */,
 				380EA54D24CC2EE500514173 /* Github.swift in Sources */,
 				380EA4F724CC2DE600514173 /* GithubRepository.swift in Sources */,
@@ -844,6 +859,7 @@
 				380EA51724CC2E2600514173 /* CocoaPodsRepositoryProcessor.swift in Sources */,
 				380EA53C24CC2EC300514173 /* PodSpecEntity.swift in Sources */,
 				381FF77525035C9C0009C0A1 /* AppAction.swift in Sources */,
+				3836C3E125DE705500F6EC3C /* SettingsSynchronousDataSource.swift in Sources */,
 				3813180A24FE324F0087FB05 /* AppReducer.swift in Sources */,
 				380EA50824CC2DF500514173 /* ManifestPublisher.swift in Sources */,
 				380EA51124CC2E1000514173 /* CarthageManifestDecodingStrategy.swift in Sources */,
@@ -888,7 +904,7 @@
 				382C3D3A256967FB00A264A5 /* Storage.swift in Sources */,
 				380EA50924CC2DF500514173 /* Manifest.swift in Sources */,
 				380EA54024CC2EC300514173 /* LicenseEntity.swift in Sources */,
-				380EA51624CC2E2600514173 /* LicenseProcessor.swift in Sources */,
+				380EA51624CC2E2600514173 /* LicenseRepositoryProcessor.swift in Sources */,
 				38B5E4FC2584E3DC002938F0 /* RepositoryListEntryFactory.swift in Sources */,
 				38DED0CE257B751D00177783 /* RepositoryListViewController.swift in Sources */,
 				382C3D422569684D00A264A5 /* Defaults.swift in Sources */,

@@ -6,8 +6,12 @@ enum CSVExporterError: Error {
     case columnMismatch
 }
 
-enum CSVExporter {
-    static func exportCSV(fromRows rows: [[String]], toDestination destination: URL) {
+protocol CSVExporter {
+    func exportCSV(fromRows rows: [[String]], toDestination destination: URL)
+}
+
+struct DefaultCSVExporter: CSVExporter {
+    func exportCSV(fromRows rows: [[String]], toDestination destination: URL) {
         do {
             let csvString: String = try makeCSV(fromRows: rows)
             try csvString.write(to: destination, atomically: true, encoding: .utf8)
@@ -16,7 +20,7 @@ enum CSVExporter {
         }
     }
 
-    private static func makeCSV(fromRows rows: [[String]]) throws -> String {
+    private func makeCSV(fromRows rows: [[String]]) throws -> String {
         var numberOfColumnsInHeader: Int?
         return try (0 ... (rows.count - 1)).reduce("") { csv, index in
             let nextRow: [String] = rows[index]
