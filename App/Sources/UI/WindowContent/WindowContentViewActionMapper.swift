@@ -16,7 +16,7 @@ enum WindowContentViewActionMapper {
             return OnboardingViewActionMapper.map(action: action)
 
         case let .fileDropArea(action):
-            return FileDropAreaActionMapper.map(action: action)
+            return FileDropAreaViewActionMapper.map(action: action)
 
         case let .master(action):
             return MasterViewActionMapper.map(action: action)

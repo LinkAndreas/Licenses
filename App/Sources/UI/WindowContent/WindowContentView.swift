@@ -6,7 +6,7 @@ struct WindowContentView: View {
     @ObservedObject var store: ViewStore<WindowContentViewState, WindowContentViewAction>
 
     var body: some View {
-        FileDropArea(
+        FileDropAreaView(
             store: store.derived(
                 stateMapper: \.fileDropAreaState,
                 actionMapper: WindowContentViewAction.fileDropArea(action:)

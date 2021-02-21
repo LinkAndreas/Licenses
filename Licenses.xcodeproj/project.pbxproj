@@ -52,7 +52,7 @@
 		380EA54E24CC2EE500514173 /* CocoaPodsTrunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA54B24CC2EE500514173 /* CocoaPodsTrunk.swift */; };
 		380EA57A24CC2F4700514173 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56924CC2F4600514173 /* SettingsView.swift */; };
 		380EA57E24CC2F4700514173 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA56D24CC2F4600514173 /* ProgressBar.swift */; };
-		380EA58324CC2F4700514173 /* FileDropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57224CC2F4700514173 /* FileDropArea.swift */; };
+		380EA58324CC2F4700514173 /* FileDropAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA57224CC2F4700514173 /* FileDropAreaView.swift */; };
 		380EA58824CC2F6000514173 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */; };
 		380EA58924CC2F6000514173 /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380EA58724CC2F6000514173 /* ProgressIndicator.swift */; };
 		380EA59224CC2FCF00514173 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 380EA59124CC2FCF00514173 /* swiftgen.yml */; };
@@ -83,7 +83,7 @@
 		38503C4A25E130FF00046D63 /* ToolbarItemsActionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C4925E130FF00046D63 /* ToolbarItemsActionMapper.swift */; };
 		38503C4E25E1312000046D63 /* DetailViewActionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C4D25E1312000046D63 /* DetailViewActionMapper.swift */; };
 		38503C5225E1313700046D63 /* MasterViewActionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C5125E1313700046D63 /* MasterViewActionMapper.swift */; };
-		38503C5625E1315400046D63 /* FileDropAreaActionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C5525E1315400046D63 /* FileDropAreaActionMapper.swift */; };
+		38503C5625E1315400046D63 /* FileDropAreaViewActionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C5525E1315400046D63 /* FileDropAreaViewActionMapper.swift */; };
 		38503C5A25E1316800046D63 /* OnboardingViewActionMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C5925E1316800046D63 /* OnboardingViewActionMapper.swift */; };
 		38503C6425E1320F00046D63 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C6325E1320F00046D63 /* PreviewData.swift */; };
 		38503C6F25E1327A00046D63 /* PreviewData+DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38503C6E25E1327A00046D63 /* PreviewData+DetailList.swift */; };
@@ -233,7 +233,7 @@
 		380EA56724CC2F4600514173 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		380EA56924CC2F4600514173 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		380EA56D24CC2F4600514173 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		380EA57224CC2F4700514173 /* FileDropArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDropArea.swift; sourceTree = "<group>"; };
+		380EA57224CC2F4700514173 /* FileDropAreaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDropAreaView.swift; sourceTree = "<group>"; };
 		380EA58624CC2F6000514173 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		380EA58724CC2F6000514173 /* ProgressIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressIndicator.swift; sourceTree = "<group>"; };
 		380EA59124CC2FCF00514173 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		38503C4925E130FF00046D63 /* ToolbarItemsActionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsActionMapper.swift; sourceTree = "<group>"; };
 		38503C4D25E1312000046D63 /* DetailViewActionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewActionMapper.swift; sourceTree = "<group>"; };
 		38503C5125E1313700046D63 /* MasterViewActionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewActionMapper.swift; sourceTree = "<group>"; };
-		38503C5525E1315400046D63 /* FileDropAreaActionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDropAreaActionMapper.swift; sourceTree = "<group>"; };
+		38503C5525E1315400046D63 /* FileDropAreaViewActionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDropAreaViewActionMapper.swift; sourceTree = "<group>"; };
 		38503C5925E1316800046D63 /* OnboardingViewActionMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewActionMapper.swift; sourceTree = "<group>"; };
 		38503C6325E1320F00046D63 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		38503C6E25E1327A00046D63 /* PreviewData+DetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewData+DetailList.swift"; sourceTree = "<group>"; };
@@ -666,11 +666,11 @@
 		3853B64B24FBEB2E0080C55F /* FileDrop */ = {
 			isa = PBXGroup;
 			children = (
-				380EA57224CC2F4700514173 /* FileDropArea.swift */,
+				380EA57224CC2F4700514173 /* FileDropAreaView.swift */,
 				3856C8F225DFF43A00578E11 /* FileDropAreaViewState.swift */,
 				38C233D425E10465008EAD7D /* FileDropAreaViewAction.swift */,
 				38C233DE25E11429008EAD7D /* FileDropAreaViewStateMapper.swift */,
-				38503C5525E1315400046D63 /* FileDropAreaActionMapper.swift */,
+				38503C5525E1315400046D63 /* FileDropAreaViewActionMapper.swift */,
 			);
 			path = FileDrop;
 			sourceTree = "<group>";
@@ -1219,7 +1219,7 @@
 				381FF77B2503639C0009C0A1 /* InformationView.swift in Sources */,
 				380EA54224CC2EC300514173 /* TrunkResponseEntity.swift in Sources */,
 				380EA51A24CC2E4300514173 /* ResolvedPackagesEntity.swift in Sources */,
-				38503C5625E1315400046D63 /* FileDropAreaActionMapper.swift in Sources */,
+				38503C5625E1315400046D63 /* FileDropAreaViewActionMapper.swift in Sources */,
 				38C233EF25E11999008EAD7D /* ToolbarItemsStateMapper.swift in Sources */,
 				38C2340B25E121F7008EAD7D /* SupportedManifestsViewStateMapper.swift in Sources */,
 				380EA53424CC2EB500514173 /* API.swift in Sources */,
@@ -1274,7 +1274,7 @@
 				38DED0CE257B751D00177783 /* RepositoryListViewController.swift in Sources */,
 				382C3D422569684D00A264A5 /* Defaults.swift in Sources */,
 				386A99A225DF8E0D00F8F9AC /* DetailViewStateMapper.swift in Sources */,
-				380EA58324CC2F4700514173 /* FileDropArea.swift in Sources */,
+				380EA58324CC2F4700514173 /* FileDropAreaView.swift in Sources */,
 				38B5E50825850EC7002938F0 /* RepositoryListTableCellView.swift in Sources */,
 				380EA4F824CC2DE600514173 /* Repository.swift in Sources */,
 				380EA52B24CC2E7700514173 /* NSRegularExpressionExtensions.swift in Sources */,

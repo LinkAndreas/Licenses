@@ -1,6 +1,6 @@
 //  Copyright © 2021 Andreas Link. All rights reserved.
 
-enum FileDropAreaActionMapper {
+enum FileDropAreaViewActionMapper {
     static func map(action: FileDropAreaViewAction) -> AppAction {
         switch action {
         case let .didSelectProviders(providers):

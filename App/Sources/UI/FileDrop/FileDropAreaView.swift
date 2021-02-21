@@ -3,7 +3,7 @@
 import Combine
 import SwiftUI
 
-struct FileDropArea<Content: View>: View {
+struct FileDropAreaView<Content: View>: View {
     @ObservedObject var store: ViewStore<FileDropAreaViewState, FileDropAreaViewAction>
 
     private let content: () -> Content
