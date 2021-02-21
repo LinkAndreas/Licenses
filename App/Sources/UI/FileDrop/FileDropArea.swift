@@ -4,11 +4,15 @@ import Combine
 import SwiftUI
 
 struct FileDropArea<Content: View>: View {
-    @EnvironmentObject var store: Store<AppState, AppAction, AppEnvironment>
+    @ObservedObject var store: ViewStore<FileDropAreaViewState, FileDropAreaViewAction>
 
     private let content: () -> Content
 
-    init(@ViewBuilder content: @escaping () -> Content) {
+    init(
+        store: ViewStore<FileDropAreaViewState, FileDropAreaViewAction>,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self._store = .init(initialValue: store)
         self.content = content
     }
 
@@ -19,15 +23,15 @@ struct FileDropArea<Content: View>: View {
                     self.content()
                         .onDrop(
                             of: ["public.file-url"],
-                            isTargeted: Binding<Bool>(
-                                get: { store.state.isTargeted },
-                                set: { isTargeted in store.send(.updateIsTargeted(value: isTargeted)) }
+                            isTargeted: store.binding(
+                                get: \.isTargeted,
+                                send: { isTargeted in .didUpdateIsTargeted(isTargeted) }
                             )
                         ) { providers -> Bool in
-                            store.send(.handle(providers: providers))
+                            store.send(.didSelectProviders(providers))
                             return true
                         }
-                        .border(store.state.isTargeted ? Color.red : Color.clear)
+                        .border(store.isTargeted ? Color.red : Color.clear)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
