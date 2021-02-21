@@ -3,8 +3,10 @@
 import Foundation
 
 struct AppState: Equatable {
-    static let empty: Self = .init()
+    static let initial: Self = .init()
 
+    var errorMessageSubscriptionId: UUID?
+    var isOnboardingCompleted: Bool
     var isProcessing: Bool
     var isTargeted: Bool
     var progress: Float?
@@ -16,6 +18,7 @@ struct AppState: Equatable {
     var selectedRepository: GithubRepository? { repositories.first(where: { $0.id == selection }) }
 
     init(
+        errorMessageSubscriptionId: UUID? = nil,
         isProcessing: Bool = false,
         isTargeted: Bool = false,
         progress: Float? = nil,
@@ -23,8 +26,11 @@ struct AppState: Equatable {
         totalRepositories: Int = 0,
         errorMessage: String? = nil,
         selection: UUID? = nil,
-        repositories: [GithubRepository] = []
+        repositories: [GithubRepository] = [],
+        settingsDataSource: SettingsSynchronousDataSource = Defaults.shared
     ) {
+        self.errorMessageSubscriptionId = errorMessageSubscriptionId
+        self.isOnboardingCompleted = settingsDataSource.isOnboardingCompleted
         self.isProcessing = isProcessing
         self.isTargeted = isTargeted
         self.progress = progress
@@ -34,8 +40,4 @@ struct AppState: Equatable {
         self.selection = selection
         self.repositories = repositories
     }
-}
-
-extension AppState {
-    var listEntries: [RepositoryListEntry] { RepositoryListEntryFactory.makeListEntries(from: self) }
 }

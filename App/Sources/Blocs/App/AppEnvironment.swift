@@ -3,8 +3,8 @@
 import Combine
 import Foundation
 
-protocol AppEnvironment {
-    var settingsDataSource: SettingsSynchronousDataSource { get }
+protocol AppEnvironment: AnyObject {
+    var settingsDataSource: SettingsSynchronousDataSource { get set }
     var swiftPmDecodingStrategy: ManifestDecodingStrategy { get }
     var carthageDecodingStrategy: ManifestDecodingStrategy { get }
     var cocoaPodsDecodingStrategy: ManifestDecodingStrategy { get }
@@ -16,8 +16,8 @@ protocol AppEnvironment {
     func manifestPublisher(filePaths: [URL]) -> AnyPublisher<Manifest, Never>
 }
 
-struct DefaultEnvironment: AppEnvironment {
-    let settingsDataSource: SettingsSynchronousDataSource
+class DefaultEnvironment: AppEnvironment {
+    var settingsDataSource: SettingsSynchronousDataSource
     let swiftPmDecodingStrategy: ManifestDecodingStrategy
     let carthageDecodingStrategy: ManifestDecodingStrategy
     let cocoaPodsDecodingStrategy: ManifestDecodingStrategy

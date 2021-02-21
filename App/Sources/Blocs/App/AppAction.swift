@@ -12,10 +12,16 @@ enum AppAction: Equatable {
     case selectedRepository(id: UUID?)
     case startSearchingManifests
     case stopSearchingManifests
+    case useExampleManifests
     case searchManifests(filePaths: [URL])
     case add(repository: GithubRepository)
     case handle(providers: [NSItemProvider])
     case fetchLicenses
     case exportLicenses(destination: URL)
     case updateIsTargeted(value: Bool)
+    case registerErrorMessageSubscription
+    case unregisterFromErrorMessageSubscription
+    case readIsOnboardingCompleted
+    case updateIsOnboardingCompleted(Bool)
+    case none
 }
