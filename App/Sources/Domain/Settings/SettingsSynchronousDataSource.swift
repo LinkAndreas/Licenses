@@ -3,4 +3,5 @@
 protocol SettingsSynchronousDataSource {
     var token: String { get set }
     var isAutomaticFetchEnabled: Bool { get set }
+    var isOnboardingCompleted: Bool { get set }
 }

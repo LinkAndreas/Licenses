@@ -22,6 +22,9 @@ struct DetailItemView: View {
 
 struct DetailItemView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailItemView(title: "Title", content: "Content")
+        DetailItemView(
+            title: "Title",
+            content: "Content"
+        )
     }
 }

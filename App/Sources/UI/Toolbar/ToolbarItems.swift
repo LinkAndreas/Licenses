@@ -3,15 +3,7 @@
 import SwiftUI
 
 struct ToolbarItems: ToolbarContent {
-    let areButtonsEnabled: Bool
-
-    let openFiles: () -> Void
-    let fetchLicenses: () -> Void
-    let exportLicenses: () -> Void
-
-    var controlColor: Color {
-        Color(areButtonsEnabled ? NSColor.controlTextColor : NSColor.disabledControlTextColor)
-    }
+    @ObservedObject var store: ViewStore<ToolbarItemsState, ToolbarItemsAction>
 
     var body: some ToolbarContent {
         ToolbarItem(placement: .navigation) {
@@ -23,34 +15,52 @@ struct ToolbarItems: ToolbarContent {
                     )
                 },
                 label: {
-                    Image(systemName: "sidebar.left")
-                        .foregroundColor(Color(NSColor.controlTextColor))
+                    Image(systemName: store.toggleMenuItemState.imageSystemName)
+                        .foregroundColor(Color(store.toggleMenuItemState.tintColor))
                 }
             )
-            .help(L10n.Toolbar.ToggleMenu.tooltip)
+            .help(store.toggleMenuItemState.hint)
+            .disabled(store.toggleMenuItemState.isDisabled)
         }
 
         ToolbarItem(placement: .primaryAction) {
-            Button(action: openFiles) {
-                Image(systemName: "folder.badge.plus")
-                    .foregroundColor(controlColor)
-            }
-            .help(L10n.Toolbar.ImportManifests.tooltip)
-            .disabled(!areButtonsEnabled)
+            Button(
+                action: {
+                    FileImporter.openFiles { filePaths in
+                        store.send(.didChooseManifests(filePaths))
+                    }
+                },
+                label: {
+                    Image(systemName: store.chooseManifestsItemState.imageSystemName)
+                        .foregroundColor(Color(store.chooseManifestsItemState.tintColor))
+                }
+            )
+            .help(store.chooseManifestsItemState.hint)
+            .disabled(store.chooseManifestsItemState.isDisabled)
         }
         ToolbarItemGroup(placement: .automatic) {
-            Button(action: fetchLicenses) {
-                Image(systemName: "arrow.clockwise")
-                    .foregroundColor(controlColor)
-            }
-            .disabled(!areButtonsEnabled)
-            .help(L10n.Toolbar.FetchLicenses.tooltip)
-            Button(action: exportLicenses) {
-                Image(systemName: "square.and.arrow.up")
-                    .foregroundColor(controlColor)
-            }
-            .disabled(!areButtonsEnabled)
-            .help(L10n.Toolbar.ExportLicenses.tooltip)
+            Button(
+                action: { store.send(.didTriggerRefresh) },
+                label: {
+                    Image(systemName: store.refreshItemState.imageSystemName)
+                        .foregroundColor(Color(store.refreshItemState.tintColor))
+                }
+            )
+            .disabled(store.refreshItemState.isDisabled)
+            .help(store.refreshItemState.hint)
+            Button(
+                action: {
+                    FileExporter.exportFile { destination in
+                        store.send(.didChooseExportDestination(destination))
+                    }
+                },
+                label: {
+                    Image(systemName: store.exportItemState.imageSystemName)
+                        .foregroundColor(Color(store.exportItemState.tintColor))
+                }
+            )
+            .disabled(store.exportItemState.isDisabled)
+            .help(store.exportItemState.hint)
         }
     }
 }

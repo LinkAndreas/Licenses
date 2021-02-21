@@ -3,41 +3,41 @@
 import SwiftUI
 
 struct SettingsView: View {
-    private enum Tabs: Hashable {
-        case general
-        case token
-    }
-
-    @AppStorage("token") private var token: String = ""
-    @AppStorage("isAutomaticFetchEnabled") private var isAutomaticFetchEnabled: Bool = true
+    @ObservedObject var store: ViewStore<SettingsViewState, SettingsViewAction>
 
     var body: some View {
         TabView {
             Form {
                 VStack(alignment: .leading, spacing: 16) {
                     Toggle(
-                        L10n.Settings.Tabs.General.AutomaticLicenseSearch.title,
-                        isOn: $isAutomaticFetchEnabled
+                        store.checkBoxDescription,
+                        isOn: store.binding(
+                            get: \.isCheckBoxChecked,
+                            send: { isCheckBoxChecked in .didUpdateCheckBox(isCheckBoxChecked) }
+                        )
                     )
                 }
             }.tabItem {
-                Label(L10n.Settings.Tabs.General.title, systemImage: "gear")
+                Label(store.generalTab.title, systemImage: store.generalTab.imageSystemName)
             }
-            .tag(Tabs.general)
+            .tag(store.generalTab.tag)
             Form {
                 VStack(alignment: .leading, spacing: 16) {
                     TextField(
-                        L10n.Settings.Tabs.Token.placeholder,
-                        text: $token
+                        store.tokenPlaceholder,
+                        text: store.binding(
+                            get: \.tokenText,
+                            send: { tokenText in .didUpdateToken(tokenText) }
+                        )
                     )
-                    Text(L10n.Settings.Tabs.Token.description)
+                    Text(store.tokenDescription)
                         .font(.body)
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }.tabItem {
-                Label(L10n.Settings.Tabs.Token.title, systemImage: "tag")
+                Label(store.tokenTab.title, systemImage: store.tokenTab.imageSystemName)
             }
-            .tag(Tabs.token)
+            .tag(store.tokenTab.tag)
         }
         .padding(20)
         .frame(minWidth: 500, maxWidth: 500)
@@ -46,6 +46,10 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(
+            store: .constant(
+                state: PreviewData.Settings.state
+            )
+        )
     }
 }
