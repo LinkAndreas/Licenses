@@ -10,7 +10,7 @@ struct LicensesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            WindowContentView()
+            WindowContentContainerView()
                 .frame(
                     minWidth: 1_000,
                     idealWidth: 1_200,
@@ -29,7 +29,7 @@ struct LicensesApp: App {
         }
 
         Settings {
-            SettingsView()
+            SettingsContainerView()
         }
     }
 }
