@@ -2,4 +2,5 @@
 
 struct FileDropAreaViewState: Equatable {
     let isTargeted: Bool
+    let supportedFileTypes: [String]
 }

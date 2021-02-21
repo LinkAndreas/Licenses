@@ -22,7 +22,7 @@ struct FileDropArea<Content: View>: View {
                 VStack {
                     self.content()
                         .onDrop(
-                            of: ["public.file-url"],
+                            of: store.supportedFileTypes,
                             isTargeted: store.binding(
                                 get: \.isTargeted,
                                 send: { isTargeted in .didUpdateIsTargeted(isTargeted) }
