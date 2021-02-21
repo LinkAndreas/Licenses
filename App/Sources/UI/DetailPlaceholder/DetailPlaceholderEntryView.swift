@@ -3,23 +3,21 @@
 import SwiftUI
 
 struct DetailPlaceholderEntryView: View {
-    let title: String
-    let subtitle: String
-    let caption: String
+    let entry: DetailPlaceholderEntry
 
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
-                Text(title)
+                Text(entry.title)
                     .font(.headline)
                     .foregroundColor(Color(NSColor.labelColor))
-                Text(subtitle)
+                Text(entry.subtitle)
                     .font(.subheadline)
                     .foregroundColor(Color(NSColor.secondaryLabelColor))
             }
             Spacer()
             HStack {
-                Text(caption)
+                Text(entry.caption)
                     .font(.callout)
                     .foregroundColor(Color(NSColor.secondaryLabelColor))
             }
@@ -42,15 +40,19 @@ struct DetailPlaceholderEntryView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DetailPlaceholderEntryView(
-                title: "Title",
-                subtitle: "Subtitle",
-                caption: "Caption"
+                entry: .init(
+                    title: "Title",
+                    subtitle: "Subtitle",
+                    caption: "Caption"
+                )
             )
             .previewLayout(.fixed(width: 300, height: 90))
             DetailPlaceholderEntryView(
-                title: "Title",
-                subtitle: "Subtitle",
-                caption: "Caption"
+                entry: .init(
+                    title: "Title",
+                    subtitle: "Subtitle",
+                    caption: "Caption"
+                )
             )
             .preferredColorScheme(.dark)
             .previewLayout(.fixed(width: 300, height: 90))
