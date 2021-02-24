@@ -4,7 +4,8 @@ enum FileDropAreaViewStateMapper {
     static func map(state: AppState) -> FileDropAreaViewState {
         return .init(
             isTargeted: state.isTargeted,
-            supportedFileTypes: ["public.file-url"]
+            supportedFileTypes: ["public.file-url"],
+            borderColor: state.isTargeted ? .red : .clear
         )
     }
 }
