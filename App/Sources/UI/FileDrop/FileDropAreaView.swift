@@ -1,6 +1,5 @@
 //  Copyright © 2021 Andreas Link. All rights reserved.
 
-import Combine
 import SwiftUI
 
 struct FileDropAreaView<Content: View>: View {
@@ -31,7 +30,7 @@ struct FileDropAreaView<Content: View>: View {
                             store.send(.didSelectProviders(providers))
                             return true
                         }
-                        .border(store.isTargeted ? Color.red : Color.clear)
+                        .border(store.borderColor)
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
             }
