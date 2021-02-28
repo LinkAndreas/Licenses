@@ -5,28 +5,19 @@ import Foundation
 
 struct CocoaPodsManifestDecodingStrategy: ManifestDecodingStrategy {
     func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
-        let subject: PassthroughSubject<GithubRepository, Never> = .init()
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            guard let versionInfo: [String: String] = makeVersionInfo(from: content) else {
-                return subject.send(completion: .finished)
+        return makeVersionInfo(from: content)
+            .reduce([]) { array, entry in array + [entry] }
+            .map { (name: String, version: String) in
+                GithubRepository(packageManager: .cocoaPods, name: name, version: version)
             }
-
-            for (name, version) in versionInfo {
-                let repository: GithubRepository = .init(packageManager: .cocoaPods, name: name, version: version)
-                subject.send(repository)
-            }
-
-            subject.send(completion: .finished)
-        }
-
-        return subject.eraseToAnyPublisher()
+            .publisher
+            .eraseToAnyPublisher()
     }
 }
 
 extension CocoaPodsManifestDecodingStrategy {
-    private func makeVersionInfo(from content: String) -> [String: String]? {
-        guard let regex = try? NSRegularExpression(pattern: RegexPatterns.cocoaPods, options: []) else { return nil }
+    private func makeVersionInfo(from content: String) -> [String: String] {
+        guard let regex = try? NSRegularExpression(pattern: RegexPatterns.cocoaPods, options: []) else { return [:] }
 
         let podManifest: NSString = content as NSString
         let range: NSRange = NSRange(location: 0, length: podManifest.length)
