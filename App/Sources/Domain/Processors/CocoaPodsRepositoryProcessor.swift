@@ -3,8 +3,8 @@
 import Combine
 import Foundation
 
-enum CocoaPodsRepositoryProcessor {
-    static func process(repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> {
+struct CocoaPodsRepositoryProcessor: RepositoryProcessor {
+    func process(repository: GithubRepository) -> AnyPublisher<GithubRepository, Never> {
         guard repository.packageManager == .cocoaPods, repository.url == nil else {
             return Just(repository).eraseToAnyPublisher()
         }

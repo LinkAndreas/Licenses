@@ -9,7 +9,7 @@ final class RepositoryListViewController: NSViewController {
         static let contentInset: NSEdgeInsets = .init(top: 16, left: 0, bottom: 16, right: 0)
     }
 
-    private let store: Store<AppState, AppAction, AppEnvironment>
+    private let store: ViewStore<RepositoryListViewState, RepositoryListViewAction>
     private var cancellables: Set<AnyCancellable> = .init()
     private var entries: [RepositoryListEntry] = []
     private let scrollView: NSScrollView = .init(frame: .zero)
@@ -20,7 +20,7 @@ final class RepositoryListViewController: NSViewController {
         return column
     }()
 
-    init(store: Store<AppState, AppAction, AppEnvironment>) {
+    init(store: ViewStore<RepositoryListViewState, RepositoryListViewAction>) {
         self.store = store
 
         super.init(nibName: nil, bundle: nil)
@@ -69,14 +69,17 @@ final class RepositoryListViewController: NSViewController {
     }
 
     private func setupBindings() {
-        store.$state.sink(receiveValue: self.updateEntries(state:)).store(in: &cancellables)
+        store.$state.sink { [weak self] state in
+            self?.updateEntries(newEntries: state.entries, selection: state.selection)
+        }
+        .store(in: &cancellables)
     }
 
-    private func updateEntries(state: AppState) {
-        guard entries != state.listEntries else { return }
+    private func updateEntries(newEntries: [RepositoryListEntry], selection: UUID?) {
+        guard entries != newEntries else { return }
 
-        let diff = state.listEntries.difference(from: entries)
-        entries = state.listEntries
+        let diff = newEntries.difference(from: entries)
+        entries = newEntries
 
         tableView.beginUpdates()
 
@@ -95,9 +98,9 @@ final class RepositoryListViewController: NSViewController {
 
         tableView.endUpdates()
 
-        state.listEntries.firstIndex(where: { $0.id == state.selectedRepository?.id })
-        .flatMap(IndexSet.init)
-        .flatMap { tableView.selectRowIndexes($0, byExtendingSelection: false) }
+        newEntries.firstIndex(where: { $0.id == selection })
+            .flatMap(IndexSet.init)
+            .flatMap { tableView.selectRowIndexes($0, byExtendingSelection: false) }
     }
 }
 
@@ -107,7 +110,7 @@ extension RepositoryListViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        store.send(.selectedRepository(id: tableView.selectedRow != -1 ? entries[tableView.selectedRow].id : nil))
+        store.send(.didSelectRepository(tableView.selectedRow != -1 ? entries[tableView.selectedRow].id : nil))
     }
 }
 

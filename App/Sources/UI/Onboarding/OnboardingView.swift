@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    var onOnboardingCompleted: () -> Void
+    @ObservedObject var store: ViewStore<OnboardingViewState, OnboardingViewAction>
 
     var body: some View {
         VStack(spacing: 16) {
@@ -14,28 +14,23 @@ struct OnboardingView: View {
                     .frame(width: 90, height: 90, alignment: .center)
                 Spacer()
                     .frame(height: 16)
-                Text(L10n.Onboarding.title)
+                Text(store.title)
                     .font(.largeTitle)
                 Spacer()
                     .frame(height: 16)
-                Text(L10n.Onboarding.subtitle)
+                Text(store.subtitle)
                     .multilineTextAlignment(.center)
                 Spacer()
                     .frame(height: 16)
-                Text(L10n.Onboarding.SupportedManifests.description)
-                Spacer()
-                    .frame(height: 16)
-                VStack(alignment: .leading, spacing: 8) {
-                    Label(L10n.Onboarding.SupportedManifests.SwiftPm.title, systemImage: "swift")
-                    Label(L10n.Onboarding.SupportedManifests.Carthage.title, systemImage: "shippingbox")
-                    Label(L10n.Onboarding.SupportedManifests.CocoaPods.title, systemImage: "c.circle")
-                }
+                SupportedManifestsView(
+                    store: store.derived(stateMapper: \.supportedManifestsState).withoutActions
+                )
             }
 
             Spacer()
 
-            Button(L10n.Onboarding.PrimaryButton.title) {
-                onOnboardingCompleted()
+            Button(store.primaryButtonTitle) {
+                store.send(.didTriggerPrimaryButton)
             }
             .buttonStyle(BrandedButtonStyle())
         }
@@ -46,6 +41,6 @@ struct OnboardingView: View {
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingView {}
+        OnboardingView(store: .constant(state: PreviewData.Onboarding.state))
     }
 }

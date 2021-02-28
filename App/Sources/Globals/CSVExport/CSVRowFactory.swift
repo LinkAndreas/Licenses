@@ -1,15 +1,13 @@
 //  Copyright © 2021 Andreas Link. All rights reserved.
 
-import Foundation
-
-enum CSVRowFactory {
-    static func makeRows(from repositories: [GithubRepository]) -> [[String]] {
+struct CSVRowFactory {
+    func makeRows(from repositories: [GithubRepository]) -> [[String]] {
         [makeHeaderRow()] + repositories.map(makeRow(from:))
     }
 }
 
 extension CSVRowFactory {
-    private static func makeHeaderRow() -> [String] {
+    private func makeHeaderRow() -> [String] {
         [
             L10n.Csv.Header.Name.title,
             L10n.Csv.Header.Version.title,
@@ -21,7 +19,7 @@ extension CSVRowFactory {
         ]
     }
 
-    private static func makeRow(from repository: GithubRepository) -> [String] {
+    private func makeRow(from repository: GithubRepository) -> [String] {
         normalize(
             row: [
                 repository.name,
@@ -35,7 +33,7 @@ extension CSVRowFactory {
         )
     }
 
-    private static func normalize(row: [String]) -> [String] {
+    private func normalize(row: [String]) -> [String] {
         row.map { string in
             guard string.contains("\"") || string.contains(",") else { return string }
 

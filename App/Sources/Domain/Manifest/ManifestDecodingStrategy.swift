@@ -3,5 +3,5 @@
 import Combine
 
 protocol ManifestDecodingStrategy {
-    static func decode(content: String) -> AnyPublisher<GithubRepository, Never>
+    func decode(content: String) -> AnyPublisher<GithubRepository, Never>
 }

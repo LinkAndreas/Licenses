@@ -16,24 +16,25 @@ final class ErrorMessagePlugin: NetworkPlugin {
     var targetScope: NetworkPluginTargetScope { .github }
 
     func didReceive(_ result: Result<NetworkResponse, AphroditeError>, target: NetworkTarget) {
-        let errorMessage: String?
         switch result {
         case .success:
-            errorMessage = nil
+            post(errorMessage: nil)
 
         case let .failure(error):
             switch DomainErrorFactory.make(from: error) {
             case .githubRateLimitExceeded:
-                errorMessage = L10n.Error.githubRateLimitExceeded
+                post(errorMessage: L10n.Error.githubRateLimitExceeded)
 
             case .unauthorized:
-                errorMessage = L10n.Error.unauthorized
+                post(errorMessage: L10n.Error.unauthorized)
 
             default:
-                errorMessage = nil
+                break
             }
         }
+    }
 
+    func post(errorMessage: String?) {
         NotificationCenter.default.post(
             name: .errorMessageChanged,
             object: self,

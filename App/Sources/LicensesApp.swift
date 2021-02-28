@@ -1,6 +1,5 @@
 //  Copyright © 2021 Andreas Link. All rights reserved.
 
-import AppKit
 import SwiftUI
 
 @main
@@ -10,7 +9,7 @@ struct LicensesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            WindowContentView()
+            WindowContentContainerView()
                 .frame(
                     minWidth: 1_000,
                     idealWidth: 1_200,
@@ -29,7 +28,7 @@ struct LicensesApp: App {
         }
 
         Settings {
-            SettingsView()
+            SettingsContainerView()
         }
     }
 }
