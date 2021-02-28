@@ -43,7 +43,7 @@ Please feel free to checkout the latest version of *Licenses* in the Mac AppStor
 
 The aim of this project is to explore the capabilites of Swift UI on the Mac and to examine whether both Swift UI and Combine are ready to be used in production. I have documented the steps that I took as well as the challenges that I faced when building the project in the following article:
 
-[ ] Add link to article
+- [Article.md](article.md)
 
 ## Architecture
 
