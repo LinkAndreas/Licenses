@@ -144,8 +144,6 @@ import Foundation
 
 struct SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
     func decode(content: String) -> AnyPublisher<GithubRepository, Never> {
-        let subject: PassthroughSubject<GithubRepository, Never> = .init()
-
         guard
             let data = content.data(using: .utf8),
             let resolvedPackages = try? JSONDecoder().decode(ResolvedPackagesEntity.self, from: data)
@@ -153,29 +151,26 @@ struct SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
             return Empty<GithubRepository, Never>().eraseToAnyPublisher()
         }
 
-        DispatchQueue.global(qos: .userInitiated).async {
-            for package in resolvedPackages.object.pins {
+        return resolvedPackages
+            .object
+            .pins
+            .publisher
+            .compactMap { (package: PinEntity) -> GithubRepository? in
                 guard
                     let (name, author) = GithubRepositoryUrlDecoder.decode(repositoryUrlString: package.repositoryUrl)
-                else { return }
+                else { return nil }
 
                 let url: URL = GithubRepositoryUrlEncoder.encode(name: name, author: author)
 
-                let repository: GithubRepository = .init(
+                return .init(
                     packageManager: .swiftPm,
                     name: name,
                     version: package.state.version,
                     author: author,
                     url: url
                 )
-
-                subject.send(repository)
             }
-
-            subject.send(completion: .finished)
-        }
-
-        return subject.eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
 }
 ```
