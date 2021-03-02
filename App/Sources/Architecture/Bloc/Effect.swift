@@ -3,6 +3,8 @@
 import Combine
 import Foundation
 
+// Inspired by:
+// https://github.com/pointfreeco/swift-composable-architecture/blob/main/Sources/ComposableArchitecture/Effect.swift
 struct Effect<Output, Failure: Error>: Publisher {
     let upstream: AnyPublisher<Output, Failure>
     let id: AnyHashable

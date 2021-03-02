@@ -2,6 +2,8 @@
 
 import Foundation
 
+// Inspired by:
+// https://github.com/mono0926/LicensePlist/blob/master/Sources/LicensePlistCore/Entity/SwiftPackage.swift
 enum GithubRepositoryUrlDecoder {
     static func decode(repositoryUrlString: String) -> (name: String, author: String)? {
         guard let url = URL(string: repositoryUrlString) else { return nil }
