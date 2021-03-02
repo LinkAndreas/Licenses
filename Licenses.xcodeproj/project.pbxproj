@@ -119,12 +119,13 @@
 		389AF7BF25972A2F007C5A3F /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 389AF7BD25972A2F007C5A3F /* Package.resolved */; };
 		389AF7C025972A2F007C5A3F /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 389AF7BE25972A2F007C5A3F /* Podfile.lock */; };
 		389AF7F925975208007C5A3F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 389AF7E725974F24007C5A3F /* InfoPlist.strings */; };
+		38A323E425EEBA8200483788 /* ActionReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A323E325EEBA8200483788 /* ActionReceiver.swift */; };
 		38A48CD7257396BF00F1E72F /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CD6257396BF00F1E72F /* DetailItemView.swift */; };
 		38A48CF42573ABF700F1E72F /* RepositoryListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */; };
 		38A48D0D2573C55F00F1E72F /* FileImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48D0C2573C55F00F1E72F /* FileImporter.swift */; };
 		38A48D112573C68400F1E72F /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A48D102573C68400F1E72F /* FileExporter.swift */; };
 		38A48D2925740C0100F1E72F /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 38A48D2825740C0100F1E72F /* Cartfile.resolved */; };
-		38B17B4625DEF2B0007B5AFE /* ViewStoreParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B17B3925DEF2B0007B5AFE /* ViewStoreParent.swift */; };
+		38B17B4625DEF2B0007B5AFE /* StatePublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B17B3925DEF2B0007B5AFE /* StatePublisher.swift */; };
 		38B17B4825DEF2B0007B5AFE /* ViewStoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B17B3C25DEF2B0007B5AFE /* ViewStoreProvider.swift */; };
 		38B17B4925DEF2B0007B5AFE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B17B3F25DEF2B0007B5AFE /* ViewExtensions.swift */; };
 		38B17B4A25DEF2B0007B5AFE /* ViewStoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B17B4025DEF2B0007B5AFE /* ViewStoreExtensions.swift */; };
@@ -299,12 +300,13 @@
 		389AF7BE25972A2F007C5A3F /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		389AF7E625974F24007C5A3F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		389AF7E825974F27007C5A3F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		38A323E325EEBA8200483788 /* ActionReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionReceiver.swift; sourceTree = "<group>"; };
 		38A48CD6257396BF00F1E72F /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
 		38A48CF22573ABF700F1E72F /* RepositoryListEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListEntry.swift; sourceTree = "<group>"; };
 		38A48D0C2573C55F00F1E72F /* FileImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImporter.swift; sourceTree = "<group>"; };
 		38A48D102573C68400F1E72F /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
 		38A48D2825740C0100F1E72F /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
-		38B17B3925DEF2B0007B5AFE /* ViewStoreParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoreParent.swift; sourceTree = "<group>"; };
+		38B17B3925DEF2B0007B5AFE /* StatePublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatePublisher.swift; sourceTree = "<group>"; };
 		38B17B3C25DEF2B0007B5AFE /* ViewStoreProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoreProvider.swift; sourceTree = "<group>"; };
 		38B17B3F25DEF2B0007B5AFE /* ViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		38B17B4025DEF2B0007B5AFE /* ViewStoreExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoreExtensions.swift; sourceTree = "<group>"; };
@@ -850,7 +852,8 @@
 		38B17B3825DEF2B0007B5AFE /* ViewStore */ = {
 			isa = PBXGroup;
 			children = (
-				38B17B3925DEF2B0007B5AFE /* ViewStoreParent.swift */,
+				38B17B3925DEF2B0007B5AFE /* StatePublisher.swift */,
+				38A323E325EEBA8200483788 /* ActionReceiver.swift */,
 				38F7F68925DFCBD5009E842B /* ViewStore.swift */,
 				38B17B3B25DEF2B0007B5AFE /* SwiftUI */,
 			);
@@ -1284,6 +1287,7 @@
 				38B17B4C25DEF2B0007B5AFE /* BlocReducer.swift in Sources */,
 				38B17B4825DEF2B0007B5AFE /* ViewStoreProvider.swift in Sources */,
 				380EA4FC24CC2DE600514173 /* Links.swift in Sources */,
+				38A323E425EEBA8200483788 /* ActionReceiver.swift in Sources */,
 				380EA59724CC33A100514173 /* PinStateEntity.swift in Sources */,
 				38B38ABE25E28C2E006F2F5F /* SettingsViewAction.swift in Sources */,
 				38C233F725E11F5B008EAD7D /* OnboardingViewAction.swift in Sources */,
@@ -1301,7 +1305,7 @@
 				3804F1B4258A6F0600BF1DC7 /* BrandedLinkButtonStyle.swift in Sources */,
 				389A92B725E1390E00203690 /* PreviewData+DetailPlaceholder.swift in Sources */,
 				381FF77325035C800009C0A1 /* AppState.swift in Sources */,
-				38B17B4625DEF2B0007B5AFE /* ViewStoreParent.swift in Sources */,
+				38B17B4625DEF2B0007B5AFE /* StatePublisher.swift in Sources */,
 				38B17B4925DEF2B0007B5AFE /* ViewExtensions.swift in Sources */,
 				3856C8D925DFEF0C00578E11 /* MasterViewStateMapper.swift in Sources */,
 				38B17B4B25DEF2B0007B5AFE /* Bloc.swift in Sources */,
