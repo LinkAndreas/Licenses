@@ -4,23 +4,23 @@ Have you ever been asked to put together the list of licenses of all frameworks 
 
 To mitigate this issue, I developed **Licenses**, a native macOS app that automates this procedure by collecting and exporting your licenses into a single spreadsheet (CSV) file.
 
-In this article I want to share my experience as well as the challenges that I faced when developing the app using *SwiftUI 2.0* and *Combine*. This way, I hope to provide additional documentation on how declarative macOS apps can be built and to encourage others to also bring their ideas to the Mac.
+In this article, I want to share my experience as well as the challenges that I faced when developing the app using *SwiftUI 2.0* and *Combine*. This way, I hope to provide additional documentation on how declarative macOS apps can be built and to encourage others to also bring their ideas to the Mac.
 
-You can get the latest version of Licenses in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966)) or checkout the project on GitHub ([Link](https://github.com/LinkAndreas/Licenses)).
+You can get the latest version of Licenses in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966)) or check out the project on GitHub ([Link](https://github.com/LinkAndreas/Licenses)).
 
 # Architecture
 *Licenses*, uses a redux-inspired architecture, as illustrated in figure 1, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
 
 <img src="Assets/Documentation/Architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
 
-In addition, side effects are performed by returning publishers from the reducer resulting into additional actions that are sent to the bloc. Hence, asynchronous work is treated similary to synchronous work in the way that it only affects the state from within the reducer. Thus, the correctness of the reducer and as such the correctness of all state changes becomes testable through unit tests.
+Also, side effects are performed by returning publishers from the reducer resulting in additional actions that are sent to the bloc. Hence, asynchronous work is treated similarly to synchronous work in the way that it only affects the state from within the reducer. Thus, the correctness of the reducer and as such the correctness of all state changes becomes testable through unit tests.
 
-Note that blocs are not directly connected to the UI, but rather via view stores that act as the main communication gateway of the view. As a result, domain-specific knowledge is not exposed, but rather gets translated into view-specific models that only include the formatted data that is ready to be shown in the UI. As an example, instead of passing repositories, i.e., `[GitHubRepository]`, to the view directly, we can rather pass a list of items, i.e., `[ListItem]`, where each item only consists of UI-related data (e.g., `title` or `subtitle`) and omits any internal data that is repository-specific. Similarly, view actions are translated into domain-specific actions that are forwarded by the view store to the bloc. Excluding business- and domain- specific knowledge out of the view keeps them lean and facilitates simlipfied previews using mock data in Xcode.
+Note that blocs are not directly connected to the UI, but rather via view stores that act as the main communication gateway of the view. As a result, domain-specific knowledge is not exposed, but rather gets translated into view-specific models that only include the formatted data that is ready to be shown in the UI. As an example, instead of passing repositories, i.e., `[GitHubRepository]`, to the view directly, we can rather pass a list of items, i.e., `[ListItem]`, where each item only consists of UI-related data (e.g., `title` or `subtitle`) and omits any internal data that is repository-specific. Similarly, view actions are translated into domain-specific actions that are forwarded by the view store to the bloc. Excluding business- and domain-specific knowledge out of the view keeps them lean and facilitates simplified previews using mock data in Xcode.
 
 Having established an architectural overview of the app, let's focus on the business logic in terms of the processing pipeline that derives licenses from manifests that are read from disk.
 
 # Business Logic: The Manifest Processing Pipeline
-Users can select manifests in *Licenses* by either dragging them on top of the application's window or choosing them manually from disk. In this regards, it does not matter whether a single or multiple files are selected or whether they are kept in an enclosing folder. Either way, *Licenses* searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
+Users can select manifests in *Licenses* by either dragging them on top of the application's window or choosing them manually from disk. In this regard, it does not matter whether single or multiple files are selected or whether they are kept in an enclosing folder. Either way, *Licenses* searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
 
 <img src="Assets/Documentation/Flow.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 280pt;"/>
 
@@ -83,7 +83,7 @@ struct ManifestPublisher: Publisher {
 }
 ```
 
-The initializer matches the last component of the given file path against a predefined set of identifiers. As soon as a match is made, the package manager associated with the file name is assigned to the manifest. Note that the later is requied to determine the decoding strategy that is used to derive packages from the manifest.
+The initializer matches the last component of the given file path against a predefined set of identifiers. As soon as a match is made, the package manager associated with the file name is assigned to the manifest. Note that the latter is required to determine the decoding strategy that is used to derive packages from the manifest.
 
 ```swift
 struct Manifest: Equatable {
@@ -126,7 +126,7 @@ struct Manifest: Equatable {
 ```
 
 ## Step 2: ManifestDecodingStrategy
-Second, *Licenses* tries to retrive the minimum set of data, like the name, author and version of the package by applying the decoding strategy that is associated with its type. Since the decoding may fail due to syntax errors or missing information, *Licenses* tries to handle these cases gracefully by continuing decoding the remaining set of manifests.
+Second, *Licenses* tries to retrieve the minimum set of data, like the name, author, and version of the package by applying the decoding strategy that is associated with its type. Since the decoding may fail due to syntax errors or missing information, *Licenses* tries to handle these cases gracefully by continuing decoding the remaining set of manifests.
 
 Note that the algorithm makes use of the strategy pattern to be easily extensible in the future if new package managers come along. This way, we can define additional strategies by conforming to the `ManifestDecodingStrategy` protocol:
 
@@ -208,9 +208,9 @@ struct LicenseRepositoryProcessor: RepositoryProcessor {
 }
 ```
 
-Note that network requests in *Licenses* are made using *Aphrodite* ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API, but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
+Note that network requests in *Licenses* are made using *Aphrodite* ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic, and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
 
-Consequently, all the above mentioned steps are executed by the reducer directly or returned as side effects resulting into additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline: 
+Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline: 
 
 ```swift
 import Combine
@@ -256,7 +256,7 @@ As a result, we obtain the list of repositories (`[GithubRepository]`) with thei
 Having referred to the *processing pipeline* as the main driver of the app, let's focus on the UI as well as the challenges that I faced when bringing *Licenses* to the Mac.
 
 ## App Lifecycle
-With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. *Licenses* uses a `WindowGroup` as well as a preferences pane as its building blocks that is accessible via the menu. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
+With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. *Licenses* uses a `WindowGroup` as well as a preferences pane that is accessible via the menu as its building blocks. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
 
 ```swift
 import SwiftUI
@@ -395,7 +395,7 @@ Figure 3 visualizes the structure of the window:
 
 ### File Drop Area
 
-Note that SwiftUI features the `onDrop(of:isTargeted:content)` modifier which is well-suited for our needs. In addition to the supported file type, i.e., "public.file-url", we also specify a binding to `isTargeted` property of the store. Note that the binding is derived from the store such that it sends an `.didUpdateIsTargeted(Bool)` action as soon as a change is made. Similarly, the view store is notified by the view when files of the specified type are detected (`.didSelectProviders([NSItemProvider]`).  
+Note that SwiftUI features the `onDrop(of:isTargeted:content)` modifier which is well-suited for our needs. In addition to the supported file type, i.e., "public.file-url", we also specify a binding to `isTargeted` property of the store. Note that the binding is derived from the store such that it sends a `.didUpdateIsTargeted(Bool)` action as soon as a change is made. Similarly, the view store is notified by the view when files of the specified type are detected (`.didSelectProviders([NSItemProvider]`).  
 
 ```swift
 import SwiftUI
@@ -437,13 +437,13 @@ struct FileDropAreaView<Content: View>: View {
 }
 ```
 
-The file drop area's content consists of the `NavigationView` that establishes the master-detail relationship between the repository list (master) and the repository's detail view. Note that the later is only shown when repositories exist. Otherwise, a placeholder is shown asking the user to either import manifests manually from disk or to use one of the example manifests that are bundled with the app.
+The file drop area's content consists of the `NavigationView` that establishes the master-detail relationship between the repository list (master) and the repository's detail view. Note that the latter is only shown when repositories exist. Otherwise, a placeholder is shown asking the user to either import manifests manually from disk or to use one of the example-manifests that are bundled with the app.
 
 <img src="Assets/Documentation/Placeholder.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
 ### Repository List (Master)
 
-As soon as manifests are selected, detected repositories are shown in the NavigationView's sidebar. Unfortunatly, I could not find a solution to specify different styles for the background of a list item, similar to what is offered by the `.emphasized` style of `NSTableViewCell`. The behavior is desired since we can improve readability of the selected item by adapting the font color of the title and subtitle label in case that the item is selected:
+As soon as manifests are selected, detected repositories are shown in NavigationView's sidebar. Unfortunately, I could not find a solution to specify different styles for the background of a list item, similar to what is offered by the `.emphasized` style of `NSTableViewCell`. The behavior is desired since we can improve the readability of the selected item by adapting the font color of the title and subtitle label in case that the item is selected:
 
 <img src="Assets/Documentation/EmphasizedState.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 40%; max-width: 200pt;"/>
 
@@ -501,11 +501,11 @@ struct DetailView: View {
 }
 ```
 
-Note that the detail view uses the `ViewStoreWithNonOptionalStateProvider` instead of the default `ViewStoreProvider` since the parent's `listState` and `placeholderState` may be `nil`. The `DetailViewStateMapper` decides whether the placeholder or a repository's metadata is shown. Hence, the `ViewStoreWithNonOptionalStateProvider` only renders the `DetailListView` in case that the parent's `listState` is not `nil`. Otherwise the provider fallbacks to the failure case and renders the provided component in case it exists. Similarly, the `DetailPlaceholderView` is only shown if the parent's `placeholderState` is not `nil`. This way, the `ViewStoreWithNonOptionalStateProvider` provides a non optional state to the child if the parent's state is not `nil`. Otherwise it renders the `failure` view.
+Note that the detail view uses the `ViewStoreWithNonOptionalStateProvider` instead of the default `ViewStoreProvider` since the parent's `listState` and `placeholderState` may be `nil`. The `DetailViewStateMapper` decides whether the placeholder or a repository's metadata is shown. Hence, the `ViewStoreWithNonOptionalStateProvider` only renders the `DetailListView` in case that the parent's `listState` is not `nil`. Otherwise the provider fallbacks to the failure case and renders the provided component in case it exists. Similarly, the `DetailPlaceholderView` is only shown if the parent's `placeholderState` is not `nil`. This way, the `ViewStoreWithNonOptionalStateProvider` provides a non-optional state to the child if the parent's state is not `nil`. Otherwise, it renders the `failure` view.
 
 ### Toolbar
 
-The toolbar provides quick access to the main features of the app. As an example, users can import manifests using the toolbar's primary action. In addition, users can toggle the sidebar's visibility using the navigation button of the bar. Unfortunately, `NavigationView` does not offer a modifier to specify the sidebar's visibility. Instead, we can search for the `SplitViewController` that is the first responder in the key window and toggle its sidebar:
+The toolbar provides quick access to the main features of the app. As an example, users can import manifests using the toolbar's primary action. Besides, users can toggle the sidebar's visibility using the navigation button of the bar. Unfortunately, `NavigationView` does not offer a modifier to specify the sidebar's visibility. Instead, we can search for the `SplitViewController` that is the first responder in the key window and toggle its sidebar:
 
 ```swift
 import SwiftUI
@@ -574,7 +574,7 @@ struct ToolbarItems: ToolbarContent {
 }
 ```
 
-To prevent unintented behavior while licenses are fetched, we disable the toolbar buttons using the `.disabled()` modifier. In addition, the `.help()` modifier attaches a tooltip to each button, providing additional guidance for the user.
+To prevent unintended behavior while licenses are fetched, we disable the toolbar buttons using the `.disabled()` modifier. Also, the `.help()` modifier attaches a tooltip to each button, providing additional guidance for the user.
 
 ### Onboarding
 
@@ -625,7 +625,7 @@ struct OnboardingView: View {
 
 # Conclusion
 
-This article walked you through the steps that I took when building a native Mac app using *SwiftUI 2.0* and *Combine* from scratch. This way, I wanted to explore the capabilites of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I really appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master- detail view and rather focus on features that make up the app.
+This article walked you through the steps that I took when building a native Mac app using *SwiftUI 2.0* and *Combine* from scratch. This way, I wanted to explore the capabilities of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master-detail view and rather focus on features that make up the app.
 
 # References:
 
