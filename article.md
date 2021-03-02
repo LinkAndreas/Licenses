@@ -1,3 +1,5 @@
+<img src="Assets/Marketing/Composition.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+
 # Building a native macOS app using SwiftUI and Combine
 
 Have you ever been asked to put together the list of licenses of all frameworks that are used within your iOS, iPad OS, or macOS app? Manually completing this task quickly becomes tedious but may be required due to legal- or customer requests.
