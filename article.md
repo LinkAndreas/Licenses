@@ -335,7 +335,11 @@ struct WindowContentContainerView: View {
 
 ## Window Content
 
-In *Licenses* the `WindowContentView` is made of smaller views that together compose the UI. Hence, the content view uses the `ViewStore` of its parent to derive smaller stores that are dedicated for each child. As an example, the file drop area's store is derived from the parent by limiting its scope to the `fileDropAreaState` property. In addition, the `actionMapper` establishes the mapping between `FileDropAreaViewActions` and `WindowActions`.
+In *Licenses* the `WindowContentView` is made of smaller views that together compose the UI:
+
+<img src="Assets/Documentation/AppStructure.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+
+Hence, the content view uses the `ViewStore` of its parent to derive smaller stores that are dedicated for each child. As an example, the file drop area's store is derived from the parent by limiting its scope to the `fileDropAreaState` property. In addition, the `actionMapper` establishes the mapping between `FileDropAreaViewActions` and `WindowActions`.
 
 ```swift
 struct WindowContentView: View {
@@ -390,10 +394,6 @@ struct WindowContentView: View {
     }
 }
 ```
-
-Figure 3 visualizes the structure of the window:
-
-<img src="Assets/Documentation/AppStructure.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
 ### File Drop Area
 
@@ -503,7 +503,7 @@ struct DetailView: View {
 }
 ```
 
-Note that the detail view uses the `ViewStoreWithNonOptionalStateProvider` instead of the default `ViewStoreProvider` since the parent's `listState` and `placeholderState` may be `nil`. The `DetailViewStateMapper` decides whether the placeholder or a repository's metadata is shown. Hence, the `ViewStoreWithNonOptionalStateProvider` only renders the `DetailListView` in case that the parent's `listState` is not `nil`. Otherwise the provider fallbacks to the failure case and renders the provided component in case it exists. Similarly, the `DetailPlaceholderView` is only shown if the parent's `placeholderState` is not `nil`. This way, the `ViewStoreWithNonOptionalStateProvider` provides a non-optional state to the child if the parent's state is not `nil`. Otherwise, it renders the `failure` view.
+Note that the detail view uses the `ViewStoreWithNonOptionalStateProvider` instead of the default `ViewStoreProvider` since the parent's `listState` and `placeholderState` may be `nil`. The `DetailViewStateMapper` decides whether the placeholder or a repository's metadata is shown. Hence, the `ViewStoreWithNonOptionalStateProvider` only renders the `DetailListView` in case that the parent's `listState` is not `nil`. Otherwise the provider fallbacks to the failure case and renders the provided component in case it exists. Similarly, the `DetailPlaceholderView` is only shown if the parent's `placeholderState` is not `nil`. This way, the `ViewStoreWithNonOptionalStateProvider` provides a non-optional state to the child if the parent's state is not `nil`. Otherwise, it the `failure` view is rendered.
 
 ### Toolbar
 
@@ -629,9 +629,8 @@ struct OnboardingView: View {
 
 This article walked you through the steps that I took when building a native Mac app using *SwiftUI 2.0* and *Combine* from scratch. This way, I wanted to explore the capabilities of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master-detail view and rather focus on features that make up the app.
 
-# References:
+# Credits:
 
-- [LicensePlist - Masayuki Ono](https://github.com/mono0926/LicensePlist)
-- [The Composable Architecture - Point-Free](https://github.com/pointfreeco/swift-composable-architecture)
-- [Redux like state Containers in SwiftUI - Swift with Majid](https://swiftwithmajid.com/2019/09/18/redux-like-state-container-in-swiftui/)
-- [Aphrodite - Andreas Link](https://github.com/LinkAndreas/Aphrodite)
+- [LicensePlist](https://github.com/mono0926/LicensePlist) - Masayuki Ono
+- [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture) - Point-Free
+- [Redux like state Containers in SwiftUI](https://swiftwithmajid.com/2019/09/18/redux-like-state-container-in-swiftui/) - Swift with Majid
