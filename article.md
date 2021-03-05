@@ -580,9 +580,11 @@ To prevent unintended behavior while licenses are fetched, we disable the toolba
 
 ### Onboarding
 
-Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that *Licenses* is opened for the very first time. Note that we do not specify an action mapper, since the `SupportedManifestsView` is static and does not include any interaction. Instead, we use the `.withoutActions` property to derive an actionless store from the parent.
+Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that *Licenses* is opened for the very first time. 
 
 <img src="Assets/Documentation/Onboarding.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+
+Note that we do not specify an action mapper, since the `SupportedManifestsView` is static and does not include any interaction. Instead, we use the `.withoutActions` property to derive an actionless store from the parent.
 
 ```swift
 import SwiftUI
