@@ -1,4 +1,4 @@
-<img src="Assets/Marketing/Composition.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+<img src="assets/marketing/optimized/composition.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
 
 # Building a native macOS app using SwiftUI and Combine
 
@@ -13,7 +13,7 @@ You can get the latest version of Licenses in the Mac AppStore ([Link](https://a
 # Architecture
 *Licenses*, uses a redux-inspired architecture, as illustrated in figure 1, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
 
-<img src="Assets/Documentation/Architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+<img src="assets/documentation/optimized/architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
 
 Also, side effects are performed by returning publishers from the reducer resulting in additional actions that are sent to the bloc. Hence, asynchronous work is treated similarly to synchronous work in the way that it only affects the state from within the reducer. Thus, the correctness of the reducer and as such the correctness of all state changes becomes testable through unit tests.
 
@@ -24,7 +24,7 @@ Having established an architectural overview of the app, let's focus on the busi
 # Business Logic: The Manifest Processing Pipeline
 Users can select manifests in *Licenses* by either dragging them on top of the application's window or choosing them manually from disk. In this regard, it does not matter whether single or multiple files are selected or whether they are kept in an enclosing folder. Either way, *Licenses* searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
 
-<img src="Assets/Documentation/Flow.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 280pt;"/>
+<img src="assets/documentation/optimized/flow.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 280pt;"/>
 
 ## Step 1: Manifest Publisher:
 First, *Licenses* searches for files named "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage) or "Podfile.lock" (CocoaPods) and instantiates a `Manifest` for each occurence respectively.
@@ -260,6 +260,8 @@ Having referred to the *processing pipeline* as the main driver of the app, let'
 ## App Lifecycle
 With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. *Licenses* uses a `WindowGroup` as well as a preferences pane that is accessible via the menu as its building blocks. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
 
+<img src="assets/documentation/optimized/menuCommand.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+
 ```swift
 import SwiftUI
 
@@ -337,7 +339,7 @@ struct WindowContentContainerView: View {
 
 In *Licenses* the `WindowContentView` is made of smaller views that together compose the UI:
 
-<img src="Assets/Documentation/AppStructure.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+<img src="assets/documentation/optimized/appStructure.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
 Hence, the content view uses the `ViewStore` of its parent to derive smaller stores that are dedicated for each child. As an example, the file drop area's store is derived from the parent by limiting its scope to the `fileDropAreaState` property. In addition, the `actionMapper` establishes the mapping between `FileDropAreaViewActions` and `WindowActions`.
 
@@ -441,13 +443,13 @@ struct FileDropAreaView<Content: View>: View {
 
 The file drop area's content consists of the `NavigationView` that establishes the master-detail relationship between the repository list (master) and the repository's detail view. Note that the latter is only shown when repositories exist. Otherwise, a placeholder is shown asking the user to either import manifests manually from disk or to use one of the example-manifests that are bundled with the app.
 
-<img src="Assets/Documentation/Placeholder.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+<img src="assets/documentation/optimized/placeholder.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
 ### Repository List (Master)
 
 As soon as manifests are selected, detected repositories are shown in NavigationView's sidebar. Unfortunately, I could not find a solution to specify different styles for the background of a list item, similar to what is offered by the `.emphasized` style of `NSTableViewCell`. The behavior is desired since we can improve the readability of the selected item by adapting the font color of the title and subtitle label in case that the item is selected:
 
-<img src="Assets/Documentation/EmphasizedState.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 40%; max-width: 200pt;"/>
+<img src="assets/documentation/optimized/emphasizedState.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 40%; max-width: 200pt;"/>
 
 Although you can pass a binding to access the selected item, it does not account for the emphasized state of the cell and is only changed when the selection got made. To provide feedback even before the cursor is lifted, I decided to bridge to a standard `NSTableView` using the `NSViewControllerRepresentable` protocol:
 
@@ -582,7 +584,7 @@ To prevent unintended behavior while licenses are fetched, we disable the toolba
 
 Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that *Licenses* is opened for the very first time. 
 
-<img src="Assets/Documentation/Onboarding.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+<img src="assets/documentation/optimized/onboarding.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
 Note that we do not specify an action mapper, since the `SupportedManifestsView` is static and does not include any interaction. Instead, we use the `.withoutActions` property to derive an actionless store from the parent.
 
