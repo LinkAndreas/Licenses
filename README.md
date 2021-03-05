@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Assets/Marketing/logo.png"
+    <img src="assets/marketing/optimized/logo.png"
       width=600>
 </p>
 
@@ -35,7 +35,7 @@ To mitigate this issue, I developed **Licenses**, a native macOS app that automa
 You can check out the latest version of *Licenses* in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966))
 
 <div>
-<img src="Assets/Marketing/Composition.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 500pt;"/>
+<img src="assets/marketing/optimized/composition.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 500pt;"/>
 <p style="text-align: center; max-width: 75%; margin: auto; font-size: 75%;">Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</p>
 </div>
 
@@ -43,13 +43,13 @@ You can check out the latest version of *Licenses* in the Mac AppStore ([Link](h
 
 This project aims to explore the capabilities of Swift UI on the Mac and to examine whether both Swift UI and Combine are ready to be used in production. I have documented the steps that I took as well as the challenges that I faced when building the project in the following article:
 
-- [Article.md](article.md)
+- [Building a native macOS app using SwiftUI and Combine](article.md)
 
 ## Architecture
 
 *Licenses*, uses a redux-inspired architecture, as illustrated below, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
 
-<img src="Assets/Documentation/Architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 500pt;"/>
+<img src="assets/documentation/optimized/architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 500pt;"/>
 
 Also, side effects are performed by returning publishers from the reducer resulting in additional actions that are sent to the bloc. Hence, asynchronous work is treated similarly to synchronous work in the way that it only affects the state from within the reducer. Thus, the correctness of the reducer and as such the correctness of all state changes becomes testable through unit tests.
 
