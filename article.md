@@ -1,4 +1,4 @@
-<img src="assets/marketing/optimized/composition.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+![Licenses App](assets/marketing/optimized/composition.png)
 
 # Building a native macOS app using SwiftUI and Combine
 
@@ -6,28 +6,35 @@ Have you ever been asked to put together the list of licenses of all frameworks 
 
 To mitigate this issue, I developed **Licenses**, a native macOS app that automates this procedure by collecting and exporting your licenses into a single spreadsheet (CSV) file.
 
-In this article, I want to share my experience as well as the challenges that I faced when developing the app using *SwiftUI 2.0* and *Combine*. This way, I hope to provide additional documentation on how declarative macOS apps can be built and to encourage others to also bring their ideas to the Mac.
+In this article, I want to share my experience as well as the challenges that I faced when developing the app using _SwiftUI 2.0_ and _Combine_. This way, I hope to provide additional documentation on how declarative macOS apps can be built and to encourage others to also bring their ideas to the Mac.
 
 You can get the latest version of Licenses in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966)) or check out the project on GitHub ([Link](https://github.com/LinkAndreas/Licenses)).
 
 # Architecture
-*Licenses*, uses a redux-inspired architecture, as illustrated in figure 1, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
 
-<img src="assets/documentation/optimized/architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+_Licenses_, uses a redux-inspired architecture, as illustrated in figure 1, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
+
+![Architecture](assets/documentation/optimized/architecture.png)
 
 Also, side effects are performed by returning publishers from the reducer resulting in additional actions that are sent to the bloc. Hence, asynchronous work is treated similarly to synchronous work in the way that it only affects the state from within the reducer. Thus, the correctness of the reducer and as such the correctness of all state changes becomes testable through unit tests.
 
 Note that blocs are not directly connected to the UI, but rather via view stores that act as the main communication gateway of the view. As a result, domain-specific knowledge is not exposed, but rather gets translated into view-specific models that only include the formatted data that is ready to be shown in the UI. As an example, instead of passing repositories, i.e., `[GitHubRepository]`, to the view directly, we can rather pass a list of items, i.e., `[ListItem]`, where each item only consists of UI-related data (e.g., `title` or `subtitle`) and omits any internal data that is repository-specific. Similarly, view actions are translated into domain-specific actions that are forwarded by the view store to the bloc. Excluding business- and domain-specific knowledge out of the view keeps them lean and facilitates simplified previews using mock data in Xcode.
 
-Having established an architectural overview of the app, let's focus on the business logic in terms of the processing pipeline that derives licenses from manifests that are read from disk.
+Having established an architectural overview of the app, let's focus on the business logic in terms of the processing pipeline and CSV export.
 
-# Business Logic: The Manifest Processing Pipeline
-Users can select manifests in *Licenses* by either dragging them on top of the application's window or choosing them manually from disk. In this regard, it does not matter whether single or multiple files are selected or whether they are kept in an enclosing folder. Either way, *Licenses* searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
+# Business Logic:
 
-<img src="assets/documentation/optimized/flow.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 280pt;"/>
+Users can select manifests in _Licenses_ by either dragging them on top of the application's window or choosing them manually from disk. In this regard, it does not matter whether a single or multiple files are selected or whether they are kept in an enclosing folder. Either way, _Licenses_ searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As soon as licenses could be derived, the user can export them into a single spreadsheet file (CSV).
 
-## Step 1: Manifest Publisher:
-First, *Licenses* searches for files named "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage) or "Podfile.lock" (CocoaPods) and instantiates a `Manifest` for each occurence respectively.
+## The Manifest Processing Pipeline:
+
+As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
+
+![Manifest Processing Pipeline](assets/documentation/optimized/flow.png)
+
+### Step 1: Manifest Publisher:
+
+First, _Licenses_ searches for files named "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage) or "Podfile.lock" (CocoaPods) and instantiates a `Manifest` for each occurence respectively.
 
 ```swift
 import Combine
@@ -127,8 +134,9 @@ struct Manifest: Equatable {
 
 ```
 
-## Step 2: ManifestDecodingStrategy
-Second, *Licenses* tries to retrieve the minimum set of data, like the name, author, and version of the package by applying the decoding strategy that is associated with its type. Since the decoding may fail due to syntax errors or missing information, *Licenses* tries to handle these cases gracefully by continuing decoding the remaining set of manifests.
+### Step 2: ManifestDecodingStrategy
+
+Second, _Licenses_ tries to retrieve the minimum set of data, like the name, author, and version of the package by applying the decoding strategy that is associated with its type. Since the decoding may fail due to syntax errors or missing information, _Licenses_ tries to handle these cases gracefully by continuing decoding the remaining set of manifests.
 
 Note that the algorithm makes use of the strategy pattern to be easily extensible in the future if new package managers come along. This way, we can define additional strategies by conforming to the `ManifestDecodingStrategy` protocol:
 
@@ -138,6 +146,7 @@ protocol ManifestDecodingStrategy {
 }
 
 ```
+
 As an example, please consider the implementation of the `SwiftPmManifestDecodingStrategy` as stated below. If the strategy could decode the given content as `ResolvedPackagesEntity` it publishes an instance of `GithubRepository` for each package respectively.
 
 ```swift
@@ -180,7 +189,8 @@ struct SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
 It is important to note that packages derived from CocoaPod manifests do not include their author and hence require additional processing before licenses are fetched using the GitHub API.
 The `CocoaPodsRepositoryProcessor` takes care of this requirement and uses the package manager's centralized registry named "CocoaPodsTrunk" to retrieve the missing information of the package.
 
-## Step 3: LicenseProcessor - Retrieving Licenses from GitHub:
+### Step 3: LicenseProcessor - Retrieving Licenses from GitHub:
+
 Finally, given the name and author of a package we have collected sufficient information to retrieve its licenses using the Github API:
 
 ```swift
@@ -210,9 +220,9 @@ struct LicenseRepositoryProcessor: RepositoryProcessor {
 }
 ```
 
-Note that network requests in *Licenses* are made using *Aphrodite* ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic, and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
+Note that network requests in _Licenses_ are made using _Aphrodite_ ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic, and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
 
-Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline: 
+Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline:
 
 ```swift
 import Combine
@@ -252,15 +262,112 @@ struct AppReducer: BlocReducer {
 }
 ```
 
-As a result, we obtain the list of repositories (`[GithubRepository]`) with their associated licenses, ready to be displayed in the UI.
+As a result, we obtain the enriched list of repositories (`[GithubRepository]`), ready to be exported or shown in the UI.
+
+## CSV Export
+
+To export licenses into a machine-readable format, _Licenses_ uses the `CSVRowFactory` to generate the header as well as the body including the `name`, `version`, `author`, and `license` of the given repositories. Note that the content of each row gets normalized to avoid malformed data:
+
+```swift
+struct CSVRowFactory {
+    func makeRows(from repositories: [GithubRepository]) -> [[String]] {
+        [makeHeaderRow()] + repositories.map(makeRow(from:))
+    }
+}
+
+extension CSVRowFactory {
+    private func makeHeaderRow() -> [String] {
+        [
+            L10n.Csv.Header.Name.title,
+            L10n.Csv.Header.Version.title,
+            L10n.Csv.Header.PackageManager.title,
+            L10n.Csv.Header.Author.title,
+            L10n.Csv.Header.LicenseUrl.title,
+            L10n.Csv.Header.LicenseName.title,
+            L10n.Csv.Header.LicenseContent.title
+        ]
+    }
+
+    private func makeRow(from repository: GithubRepository) -> [String] {
+        normalize(
+            row: [
+                repository.name,
+                repository.version,
+                repository.packageManager.rawValue,
+                repository.author ?? "",
+                repository.license?.downloadURL ?? "",
+                repository.license?.license?.name ?? "",
+                repository.license?.decodedContent ?? ""
+            ]
+        )
+    }
+
+    private func normalize(row: [String]) -> [String] {
+        row.map { string in
+            guard string.contains("\"") || string.contains(",") else { return string }
+
+            let doubleQuotesEscapedString: String = string.replacingOccurrences(of: "\"", with: "\"\"")
+            return "\("\"")\(doubleQuotesEscapedString)\("\"")"
+        }
+    }
+}
+```
+
+Finally, each generated row is written to the specified destination:
+
+```swift
+import Foundation
+
+enum CSVExporterError: Error {
+    case columnMismatch
+}
+
+protocol CSVExporter {
+    func exportCSV(fromRows rows: [[String]], toDestination destination: URL)
+}
+
+struct DefaultCSVExporter: CSVExporter {
+    func exportCSV(fromRows rows: [[String]], toDestination destination: URL) {
+        do {
+            let csvString: String = try makeCSV(fromRows: rows)
+            try csvString.write(to: destination, atomically: true, encoding: .utf8)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    private func makeCSV(fromRows rows: [[String]]) throws -> String {
+        var numberOfColumnsInHeader: Int?
+        return try (0 ... (rows.count - 1)).reduce("") { csv, index in
+            let nextRow: [String] = rows[index]
+
+            if index == 0 {
+                numberOfColumnsInHeader = nextRow.count
+            } else {
+                guard
+                    let numberOfColumnsInHeader = numberOfColumnsInHeader,
+                    nextRow.count == numberOfColumnsInHeader
+                else {
+                    throw CSVExporterError.columnMismatch
+                }
+            }
+
+            return csv + (index > 0 ? "\n" : "") + "\(nextRow.joined(separator: ","))"
+        }
+    }
+}
+
+```
 
 # User Interface
-Having referred to the *processing pipeline* as the main driver of the app, let's focus on the UI as well as the challenges that I faced when bringing *Licenses* to the Mac.
+
+Having referred to the _processing pipeline_ and CSV export as the main driver of the app, let's focus on the UI as well as the challenges that I faced when bringing _Licenses_ to the Mac.
 
 ## App Lifecycle
-With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. *Licenses* uses a `WindowGroup` as well as a preferences pane that is accessible via the menu as its building blocks. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
 
-<img src="assets/documentation/optimized/menuCommand.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
+With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. _Licenses_ uses a `WindowGroup` as well as a preferences pane that is accessible via the menu as its building blocks. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
+
+![Menu Command](assets/documentation/optimized/menuCommand.png)
 
 ```swift
 import SwiftUI
@@ -337,9 +444,9 @@ struct WindowContentContainerView: View {
 
 ## Window Content
 
-In *Licenses* the `WindowContentView` is made of smaller views that together compose the UI:
+In _Licenses_ the `WindowContentView` is made of smaller views that together compose the UI:
 
-<img src="assets/documentation/optimized/appStructure.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+![App Structure](assets/documentation/optimized/appStructure.png)
 
 Hence, the content view uses the `ViewStore` of its parent to derive smaller stores that are dedicated for each child. As an example, the file drop area's store is derived from the parent by limiting its scope to the `fileDropAreaState` property. In addition, the `actionMapper` establishes the mapping between `FileDropAreaViewActions` and `WindowActions`.
 
@@ -399,7 +506,7 @@ struct WindowContentView: View {
 
 ### File Drop Area
 
-Note that SwiftUI features the `onDrop(of:isTargeted:content)` modifier which is well-suited for our needs. In addition to the supported file type, i.e., "public.file-url", we also specify a binding to `isTargeted` property of the store. Note that the binding is derived from the store such that it sends a `.didUpdateIsTargeted(Bool)` action as soon as a change is made. Similarly, the view store is notified by the view when files of the specified type are detected (`.didSelectProviders([NSItemProvider]`).  
+Note that SwiftUI features the `onDrop(of:isTargeted:content)` modifier which is well-suited for our needs. In addition to the supported file type, i.e., "public.file-url", we also specify a binding to `isTargeted` property of the store. Note that the binding is derived from the store such that it sends a `.didUpdateIsTargeted(Bool)` action as soon as a change is made. Similarly, the view store is notified by the view when files of the specified type are detected (`.didSelectProviders([NSItemProvider]`).
 
 ```swift
 import SwiftUI
@@ -443,13 +550,13 @@ struct FileDropAreaView<Content: View>: View {
 
 The file drop area's content consists of the `NavigationView` that establishes the master-detail relationship between the repository list (master) and the repository's detail view. Note that the latter is only shown when repositories exist. Otherwise, a placeholder is shown asking the user to either import manifests manually from disk or to use one of the example-manifests that are bundled with the app.
 
-<img src="assets/documentation/optimized/placeholder.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+![Detail Placeholder](assets/documentation/optimized/placeholder.png)
 
 ### Repository List (Master)
 
 As soon as manifests are selected, detected repositories are shown in NavigationView's sidebar. Unfortunately, I could not find a solution to specify different styles for the background of a list item, similar to what is offered by the `.emphasized` style of `NSTableViewCell`. The behavior is desired since we can improve the readability of the selected item by adapting the font color of the title and subtitle label in case that the item is selected:
 
-<img src="assets/documentation/optimized/emphasizedState.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 40%; max-width: 200pt;"/>
+![Emphasized State](assets/documentation/optimized/emphasizedState.png)
 
 Although you can pass a binding to access the selected item, it does not account for the emphasized state of the cell and is only changed when the selection got made. To provide feedback even before the cursor is lifted, I decided to bridge to a standard `NSTableView` using the `NSViewControllerRepresentable` protocol:
 
@@ -582,9 +689,9 @@ To prevent unintended behavior while licenses are fetched, we disable the toolba
 
 ### Onboarding
 
-Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that *Licenses* is opened for the very first time. 
+Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that _Licenses_ is opened for the very first time.
 
-<img src="assets/documentation/optimized/onboarding.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
+![Onboarding](assets/documentation/optimized/onboarding.png)
 
 Note that we do not specify an action mapper, since the `SupportedManifestsView` is static and does not include any interaction. Instead, we use the `.withoutActions` property to derive an actionless store from the parent.
 
@@ -631,7 +738,7 @@ struct OnboardingView: View {
 
 # Conclusion
 
-This article walked you through the steps that I took when building a native Mac app using *SwiftUI 2.0* and *Combine* from scratch. This way, I wanted to explore the capabilities of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master-detail view and rather focus on features that make up the app.
+This article walked you through the steps that I took when building a native Mac app using _SwiftUI 2.0_ and _Combine_ from scratch. This way, I wanted to explore the capabilities of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master-detail view and rather focus on features that make up the app.
 
 # Credits:
 
