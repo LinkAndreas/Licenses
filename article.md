@@ -222,7 +222,7 @@ struct LicenseRepositoryProcessor: RepositoryProcessor {
 
 Note that network requests in _Licenses_ are made using _Aphrodite_ ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic, and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
 
-Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline:
+Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. Subsequently, please find the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline:
 
 ```swift
 import Combine
@@ -415,7 +415,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 ## Bloc- and ViewStoreProvider
 
-Within the window group, container views are used to provide the bloc as well as the view store for the window's content view. Note that the `BlocProvider` uses the `@StateObject` property wrapper internally to ensure that the lifetime of the bloc is bound to the lifespan of the window. To request a bloc via the `BlocProvider` we only need to provide the bloc's initial state as well as its reducer function that is used for handling state changes of the window. Finally, given the bloc, the `ViewStoreProvider` establishes the mapping between the view-specific state/actions as well as the domain-specific state/actions using the `WindowContentViewStateMapper` and `WindowContentViewActionMapper` respectively. Moving providers out of the view keeps our content view lean and facilitates UI development using SwiftUI previews.
+Within the window group, container views are used to provide the bloc as well as the view store for the window's content view. Note that the `BlocProvider` uses the `@StateObject` property wrapper internally to ensure that the lifetime of the bloc is bound to the lifespan of the window. To request a bloc via the `BlocProvider` we only need to provide the bloc's initial state as well as its reducer function that is used for handling state changes of the window. Finally, given the bloc, the `ViewStoreProvider` establishes the mapping between the view-specific state/actions as well as the domain-specific state/actions using the `WindowContentViewStateMapper` and `WindowContentViewActionMapper` respectively. Injecting providers via container views keeps our content views lean and facilitates UI development using SwiftUI previews.
 
 ```swift
 struct WindowContentContainerView: View {
