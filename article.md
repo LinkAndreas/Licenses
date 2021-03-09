@@ -6,12 +6,13 @@ Have you ever been asked to put together the list of licenses of all frameworks 
 
 To mitigate this issue, I developed **Licenses**, a native macOS app that automates this procedure by collecting and exporting your licenses into a single spreadsheet (CSV) file.
 
-In this article, I want to share my experience as well as the challenges that I faced when developing the app using *SwiftUI 2.0* and *Combine*. This way, I hope to provide additional documentation on how declarative macOS apps can be built and to encourage others to also bring their ideas to the Mac.
+In this article, I want to share my experience as well as the challenges that I faced when developing the app using _SwiftUI 2.0_ and _Combine_. This way, I hope to provide additional documentation on how declarative macOS apps can be built and to encourage others to also bring their ideas to the Mac.
 
 You can get the latest version of Licenses in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966)) or check out the project on GitHub ([Link](https://github.com/LinkAndreas/Licenses)).
 
 # Architecture
-*Licenses*, uses a redux-inspired architecture, as illustrated in figure 1, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
+
+_Licenses_, uses a redux-inspired architecture, as illustrated in figure 1, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
 
 <img src="assets/documentation/optimized/architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
 
@@ -210,9 +211,9 @@ struct LicenseRepositoryProcessor: RepositoryProcessor {
 }
 ```
 
-Note that network requests in *Licenses* are made using *Aphrodite* ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic, and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
+Note that network requests in _Licenses_ are made using _Aphrodite_ ([Link](https://github.com/LinkAndreas/Aphrodite)), a lightweight, generic, and reactive network layer that is built on top of Combine and `NSURLSession`. This way, the `LicenseRepositoryProcessor` does not need to deal with the raw data that is returned from the Github API but rather uses a simplified model that results from the clear entity- and domain model separation offered by Aphrodite.
 
-Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline: 
+Consequently, all the above-mentioned steps are executed by the reducer directly or returned as side effects resulting in additional actions that are fed back into the bloc. Thus, state changes can only happen at a predefined location. As an example, please consider the handling of the `.fetchLicenses` action that corresponds to the third step of the processing pipeline:
 
 ```swift
 import Combine
@@ -258,7 +259,8 @@ As a result, we obtain the list of repositories (`[GithubRepository]`) with thei
 Having referred to the *processing pipeline* as the main driver of the app, let's focus on the UI as well as the challenges that I faced when bringing *Licenses* to the Mac.
 
 ## App Lifecycle
-With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. *Licenses* uses a `WindowGroup` as well as a preferences pane that is accessible via the menu as its building blocks. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
+
+With the introduction of the SwiftUI lifecycle at WWDC 2020, Apple removed the need for an `App-/SceneDelegate` and offered a declarative API to specify the entry point of the app. _Licenses_ uses a `WindowGroup` as well as a preferences pane that is accessible via the menu as its building blocks. Additional entries like the app's privacy policy are realized using the `.commands()` modifier:
 
 <img src="assets/documentation/optimized/menuCommand.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 800pt;"/>
 
@@ -337,7 +339,7 @@ struct WindowContentContainerView: View {
 
 ## Window Content
 
-In *Licenses* the `WindowContentView` is made of smaller views that together compose the UI:
+In _Licenses_ the `WindowContentView` is made of smaller views that together compose the UI:
 
 <img src="assets/documentation/optimized/appStructure.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
@@ -399,7 +401,7 @@ struct WindowContentView: View {
 
 ### File Drop Area
 
-Note that SwiftUI features the `onDrop(of:isTargeted:content)` modifier which is well-suited for our needs. In addition to the supported file type, i.e., "public.file-url", we also specify a binding to `isTargeted` property of the store. Note that the binding is derived from the store such that it sends a `.didUpdateIsTargeted(Bool)` action as soon as a change is made. Similarly, the view store is notified by the view when files of the specified type are detected (`.didSelectProviders([NSItemProvider]`).  
+Note that SwiftUI features the `onDrop(of:isTargeted:content)` modifier which is well-suited for our needs. In addition to the supported file type, i.e., "public.file-url", we also specify a binding to `isTargeted` property of the store. Note that the binding is derived from the store such that it sends a `.didUpdateIsTargeted(Bool)` action as soon as a change is made. Similarly, the view store is notified by the view when files of the specified type are detected (`.didSelectProviders([NSItemProvider]`).
 
 ```swift
 import SwiftUI
@@ -582,7 +584,7 @@ To prevent unintended behavior while licenses are fetched, we disable the toolba
 
 ### Onboarding
 
-Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that *Licenses* is opened for the very first time. 
+Finally, the `.sheet()` modifier is used to present the `OnboardingView` in case that _Licenses_ is opened for the very first time.
 
 <img src="assets/documentation/optimized/onboarding.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 300pt;"/>
 
@@ -631,7 +633,7 @@ struct OnboardingView: View {
 
 # Conclusion
 
-This article walked you through the steps that I took when building a native Mac app using *SwiftUI 2.0* and *Combine* from scratch. This way, I wanted to explore the capabilities of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master-detail view and rather focus on features that make up the app.
+This article walked you through the steps that I took when building a native Mac app using _SwiftUI 2.0_ and _Combine_ from scratch. This way, I wanted to explore the capabilities of Swift UI and tried to examine whether it can be used in production. Even though a lot of the things that are offered by UIKit, like the `.emphasized` background style of a cell, are still missing, I appreciate the declarative nature of SwiftUI on the Mac. This way, we can avoid spending time on standard components like the master-detail view and rather focus on features that make up the app.
 
 # Credits:
 
