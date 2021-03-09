@@ -20,15 +20,21 @@ Also, side effects are performed by returning publishers from the reducer result
 
 Note that blocs are not directly connected to the UI, but rather via view stores that act as the main communication gateway of the view. As a result, domain-specific knowledge is not exposed, but rather gets translated into view-specific models that only include the formatted data that is ready to be shown in the UI. As an example, instead of passing repositories, i.e., `[GitHubRepository]`, to the view directly, we can rather pass a list of items, i.e., `[ListItem]`, where each item only consists of UI-related data (e.g., `title` or `subtitle`) and omits any internal data that is repository-specific. Similarly, view actions are translated into domain-specific actions that are forwarded by the view store to the bloc. Excluding business- and domain-specific knowledge out of the view keeps them lean and facilitates simplified previews using mock data in Xcode.
 
-Having established an architectural overview of the app, let's focus on the business logic in terms of the processing pipeline that derives licenses from manifests that are read from disk.
+Having established an architectural overview of the app, let's focus on the business logic in terms of the processing pipeline and CSV export.
 
-# Business Logic: The Manifest Processing Pipeline
-Users can select manifests in *Licenses* by either dragging them on top of the application's window or choosing them manually from disk. In this regard, it does not matter whether single or multiple files are selected or whether they are kept in an enclosing folder. Either way, *Licenses* searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
+# Business Logic:
+
+Users can select manifests in _Licenses_ by either dragging them on top of the application's window or choosing them manually from disk. In this regard, it does not matter whether a single or multiple files are selected or whether they are kept in an enclosing folder. Either way, _Licenses_ searches for manifests at the specified location and forwards their `filePaths: [URL]` to the processing pipeline. As soon as licenses could be derived, the user can export them into a single spreadsheet file (CSV).
+
+## The Manifest Processing Pipeline:
+
+As illustrated in figure 2, decoding and extracting licenses involves three consecutive steps:
 
 <img src="assets/documentation/optimized/flow.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 280pt;"/>
 
-## Step 1: Manifest Publisher:
-First, *Licenses* searches for files named "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage) or "Podfile.lock" (CocoaPods) and instantiates a `Manifest` for each occurence respectively.
+### Step 1: Manifest Publisher:
+
+First, _Licenses_ searches for files named "Package.resolved" (SwiftPm), "Cartfile.resolved" (Carthage) or "Podfile.lock" (CocoaPods) and instantiates a `Manifest` for each occurence respectively.
 
 ```swift
 import Combine
@@ -128,8 +134,9 @@ struct Manifest: Equatable {
 
 ```
 
-## Step 2: ManifestDecodingStrategy
-Second, *Licenses* tries to retrieve the minimum set of data, like the name, author, and version of the package by applying the decoding strategy that is associated with its type. Since the decoding may fail due to syntax errors or missing information, *Licenses* tries to handle these cases gracefully by continuing decoding the remaining set of manifests.
+### Step 2: ManifestDecodingStrategy
+
+Second, _Licenses_ tries to retrieve the minimum set of data, like the name, author, and version of the package by applying the decoding strategy that is associated with its type. Since the decoding may fail due to syntax errors or missing information, _Licenses_ tries to handle these cases gracefully by continuing decoding the remaining set of manifests.
 
 Note that the algorithm makes use of the strategy pattern to be easily extensible in the future if new package managers come along. This way, we can define additional strategies by conforming to the `ManifestDecodingStrategy` protocol:
 
@@ -139,6 +146,7 @@ protocol ManifestDecodingStrategy {
 }
 
 ```
+
 As an example, please consider the implementation of the `SwiftPmManifestDecodingStrategy` as stated below. If the strategy could decode the given content as `ResolvedPackagesEntity` it publishes an instance of `GithubRepository` for each package respectively.
 
 ```swift
@@ -181,7 +189,8 @@ struct SwiftPmManifestDecodingStrategy: ManifestDecodingStrategy {
 It is important to note that packages derived from CocoaPod manifests do not include their author and hence require additional processing before licenses are fetched using the GitHub API.
 The `CocoaPodsRepositoryProcessor` takes care of this requirement and uses the package manager's centralized registry named "CocoaPodsTrunk" to retrieve the missing information of the package.
 
-## Step 3: LicenseProcessor - Retrieving Licenses from GitHub:
+### Step 3: LicenseProcessor - Retrieving Licenses from GitHub:
+
 Finally, given the name and author of a package we have collected sufficient information to retrieve its licenses using the Github API:
 
 ```swift
@@ -253,10 +262,106 @@ struct AppReducer: BlocReducer {
 }
 ```
 
-As a result, we obtain the list of repositories (`[GithubRepository]`) with their associated licenses, ready to be displayed in the UI.
+As a result, we obtain the enriched list of repositories (`[GithubRepository]`), ready to be exported or shown in the UI.
+
+## CSV Export
+
+To export licenses into a machine-readable format, _Licenses_ uses the `CSVRowFactory` to generate the header as well as the body including the `name`, `version`, `author`, and `license` of the given repositories. Note that the content of each row gets normalized to avoid malformed data:
+
+```swift
+struct CSVRowFactory {
+    func makeRows(from repositories: [GithubRepository]) -> [[String]] {
+        [makeHeaderRow()] + repositories.map(makeRow(from:))
+    }
+}
+
+extension CSVRowFactory {
+    private func makeHeaderRow() -> [String] {
+        [
+            L10n.Csv.Header.Name.title,
+            L10n.Csv.Header.Version.title,
+            L10n.Csv.Header.PackageManager.title,
+            L10n.Csv.Header.Author.title,
+            L10n.Csv.Header.LicenseUrl.title,
+            L10n.Csv.Header.LicenseName.title,
+            L10n.Csv.Header.LicenseContent.title
+        ]
+    }
+
+    private func makeRow(from repository: GithubRepository) -> [String] {
+        normalize(
+            row: [
+                repository.name,
+                repository.version,
+                repository.packageManager.rawValue,
+                repository.author ?? "",
+                repository.license?.downloadURL ?? "",
+                repository.license?.license?.name ?? "",
+                repository.license?.decodedContent ?? ""
+            ]
+        )
+    }
+
+    private func normalize(row: [String]) -> [String] {
+        row.map { string in
+            guard string.contains("\"") || string.contains(",") else { return string }
+
+            let doubleQuotesEscapedString: String = string.replacingOccurrences(of: "\"", with: "\"\"")
+            return "\("\"")\(doubleQuotesEscapedString)\("\"")"
+        }
+    }
+}
+```
+
+Finally, each generated row is written to the specified destination:
+
+```swift
+import Foundation
+
+enum CSVExporterError: Error {
+    case columnMismatch
+}
+
+protocol CSVExporter {
+    func exportCSV(fromRows rows: [[String]], toDestination destination: URL)
+}
+
+struct DefaultCSVExporter: CSVExporter {
+    func exportCSV(fromRows rows: [[String]], toDestination destination: URL) {
+        do {
+            let csvString: String = try makeCSV(fromRows: rows)
+            try csvString.write(to: destination, atomically: true, encoding: .utf8)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+
+    private func makeCSV(fromRows rows: [[String]]) throws -> String {
+        var numberOfColumnsInHeader: Int?
+        return try (0 ... (rows.count - 1)).reduce("") { csv, index in
+            let nextRow: [String] = rows[index]
+
+            if index == 0 {
+                numberOfColumnsInHeader = nextRow.count
+            } else {
+                guard
+                    let numberOfColumnsInHeader = numberOfColumnsInHeader,
+                    nextRow.count == numberOfColumnsInHeader
+                else {
+                    throw CSVExporterError.columnMismatch
+                }
+            }
+
+            return csv + (index > 0 ? "\n" : "") + "\(nextRow.joined(separator: ","))"
+        }
+    }
+}
+
+```
 
 # User Interface
-Having referred to the *processing pipeline* as the main driver of the app, let's focus on the UI as well as the challenges that I faced when bringing *Licenses* to the Mac.
+
+Having referred to the _processing pipeline_ and CSV export as the main driver of the app, let's focus on the UI as well as the challenges that I faced when bringing _Licenses_ to the Mac.
 
 ## App Lifecycle
 
