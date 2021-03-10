@@ -1,4 +1,4 @@
-![Licenses App](assets/marketing/optimized/composition.png)
+![Licenses App](assets/marketing/optimized/licenses.png)
 
 # Building a native macOS app using SwiftUI and Combine
 
