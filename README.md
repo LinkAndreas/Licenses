@@ -34,10 +34,8 @@ To mitigate this issue, I developed **Licenses**, a native macOS app that automa
 
 You can check out the latest version of *Licenses* in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966))
 
-<div>
-<img src="assets/marketing/optimized/licenses.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 500pt;"/>
-<p style="text-align: center; max-width: 75%; margin: auto; font-size: 75%;">Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc., registered in the U.S. and other countries.</p>
-</div>
+![Licenses](assets/marketing/optimized/licenses.png)
+
 
 ## Motivation
 
