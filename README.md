@@ -34,7 +34,9 @@ To mitigate this issue, I developed **Licenses**, a native macOS app that automa
 
 You can check out the latest version of *Licenses* in the Mac AppStore ([Link](https://apps.apple.com/us/app/licenses/id1545822966))
 
-![Licenses](assets/marketing/optimized/licenses.png)
+<p align="center">
+    <img src="assets/marketing/optimized/licenses.png">
+</p>
 
 
 ## Motivation
@@ -47,7 +49,10 @@ This project aims to explore the capabilities of Swift UI on the Mac and to exam
 
 *Licenses*, uses a redux-inspired architecture, as illustrated below, consisting of Data-, Bloc-, ViewStore- and UI-related components. This way, state changes only occur within the bloc's reducer function, transforming incoming actions as well as the current state to an updated state that is ultimately consumed by the UI.
 
-<img src="assets/documentation/optimized/architecture.png" alt="drawing" style="display: block; margin: 16pt auto 16pt auto; width: 95%; max-width: 500pt;"/>
+<p align="center">
+    <img src="assets/documentation/optimized/architecture.png"
+      width=650>
+</p>
 
 Also, side effects are performed by returning publishers from the reducer resulting in additional actions that are sent to the bloc. Hence, asynchronous work is treated similarly to synchronous work in the way that it only affects the state from within the reducer. Thus, the correctness of the reducer and as such the correctness of all state changes becomes testable through unit tests.
 
