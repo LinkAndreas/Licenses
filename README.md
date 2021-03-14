@@ -43,7 +43,7 @@ You can check out the latest version of *Licenses* in the Mac AppStore ([Link](h
 
 This project aims to explore the capabilities of Swift UI on the Mac and to examine whether both Swift UI and Combine are ready to be used in production. I have documented the steps that I took as well as the challenges that I faced when building the project in the following article:
 
-- Building a native macOS app using SwiftUI and Combine ([GitHub](article.md)) ([Medium](https://linkandreas.medium.com/building-a-native-macos-app-using-swiftui-and-combine-2eec8fb64793))
+- Building a native macOS app using SwiftUI and Combine ([GitHub](article.md)) ([Medium](https://linkandreas.medium.com/building-a-native-macos-app-using-swiftui-and-combine-ee076d337cef))
 
 ## Architecture
 
