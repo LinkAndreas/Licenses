@@ -10,7 +10,7 @@
          alt="Swift: 5.3">
     <img src="https://img.shields.io/badge/Platforms-%20macOS-F77F00.svg"
         alt="Platforms: iOS">
-    <a href="https://github.com/LinkAndreas/Aphrodite/blob/stable/LICENSE.md">
+    <a href="https://github.com/LinkAndreas/Licenses/blob/develop/LICENSE">
         <img src="https://img.shields.io/badge/License-MIT-FCBF49.svg"
               alt="License: MIT">
     </a>
@@ -64,4 +64,4 @@ Note that blocs are not directly connected to the UI, but rather via view stores
 
 ## License
 
-This project is released under the [MIT License](http://opensource.org/licenses/MIT). See LICENSE for details.
+This project is released under the [MIT License](https://github.com/LinkAndreas/Licenses/blob/develop/LICENSE). See LICENSE for details.
